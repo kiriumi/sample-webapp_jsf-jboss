@@ -56,7 +56,7 @@ cargo {
 
     local {
         // タスク：clean assemble cargoStopLocal cargoStartLocal
-        homeDir = file(localWebServerHomeDir)
+        homeDir = file("$projectDir/$cargoLocalServerDir") // プロジェクト内にサーバがあることを想定
         timeout = 60000
     }
 
