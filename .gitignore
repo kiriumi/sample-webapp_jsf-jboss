@@ -2,13 +2,9 @@
 #  General
 ################
 *.log
-
-################
-#  Archives
-################
 *.zip
-*.gz
 *.tar
+*.gz
 *.rar
 
 ################
@@ -24,18 +20,17 @@
 ################
 bin/
 
+# STS (Spring Tool Suite)
+.springBeans
+
 ################
 #  Maven
 ################
 target/
+pom.xml.*
 
 ################
 #  Gradle
 ################
 /.gradle/
 /build/
-
-################
-#  STS (Spring Tool Suite)
-################
-.springBeans
