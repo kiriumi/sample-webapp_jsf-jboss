@@ -1,37 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8/"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.buildship.core.gradleclasspathcontainer">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry path="bin" kind="output"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8/"/>
-	<classpathentry sourcepath="C:/Users/Kengo/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-lang3/3.8.1/e9748d7783594da3735ad9724390a10e7cebc01d/commons-lang3-3.8.1-sources.jar" kind="lib" path="C:/Users/Kengo/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-lang3/3.8.1/6505a72a097d9270f7a9e7bf42c4238283247755/commons-lang3-3.8.1.jar">
-		<attributes>
-			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="C:/Users/Kengo/.gradle/caches/modules-2/files-2.1/org.jboss.spec.javax.servlet/jboss-servlet-api_3.1_spec/1.0.0.Final/dd7000f6cdf0b46e103e829de739fb218dd1907c/jboss-servlet-api_3.1_spec-1.0.0.Final-sources.jar" kind="lib" path="C:/Users/Kengo/.gradle/caches/modules-2/files-2.1/org.jboss.spec.javax.servlet/jboss-servlet-api_3.1_spec/1.0.0.Final/f87e23319ee434bca087c339ce456916a6ade08b/jboss-servlet-api_3.1_spec-1.0.0.Final.jar">
-		<attributes>
-			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="C:/Users/Kengo/.gradle/caches/modules-2/files-2.1/org.jboss.spec.javax.faces/jboss-jsf-api_2.2_spec/2.2.8/fbe7d50ffc22e7851fe36709b9364df2c401e28f/jboss-jsf-api_2.2_spec-2.2.8-sources.jar" kind="lib" path="C:/Users/Kengo/.gradle/caches/modules-2/files-2.1/org.jboss.spec.javax.faces/jboss-jsf-api_2.2_spec/2.2.8/9c2426507fa72f14d1e8ed9f3aa586fa8c2bd9b2/jboss-jsf-api_2.2_spec-2.2.8.jar">
-		<attributes>
-			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="C:/Users/Kengo/.gradle/caches/modules-2/files-2.1/com.sun.faces/jsf-impl/2.2.8-jbossorg-1/7c7ae2f99d5ddc278956043fdca67b7291031c81/jsf-impl-2.2.8-jbossorg-1-sources.jar" kind="lib" path="C:/Users/Kengo/.gradle/caches/modules-2/files-2.1/com.sun.faces/jsf-impl/2.2.8-jbossorg-1/5188b155284be6f80f6a7a059f175df0ae24814f/jsf-impl-2.2.8-jbossorg-1.jar">
-		<attributes>
-			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="C:/Users/Kengo/.gradle/caches/modules-2/files-2.1/junit/junit/3.8.1/525753763e53f6f76da052b316d0f2e3bfa4d73/junit-3.8.1-sources.jar" kind="lib" path="C:/Users/Kengo/.gradle/caches/modules-2/files-2.1/junit/junit/3.8.1/99129f16442844f6a4a11ae22fbbee40b14d774f/junit-3.8.1.jar">
-		<attributes>
-			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
-		</attributes>
-	</classpathentry>
+	<classpathentry kind="output" path="bin"/>
 </classpath>

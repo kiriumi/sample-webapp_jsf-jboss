@@ -8,14 +8,19 @@ plugins {
 group = 'sample.webapp'
 version = '0.0.1-SNAPSHOT'
 
-description = """sample-webapp Maven Webapp"""
+description = """sample-webapp"""
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
+// Javaの文字コード
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
 repositories {
 
-     maven { url "http://repo.maven.apache.org/maven2" }
+     mavenCentral()
      maven { url "https://repository.jboss.org/nexus/content/repositories/releases/" }
 }
 
@@ -25,9 +30,7 @@ dependencies {
 
     testCompile group: 'junit', name: 'junit', version:'3.8.1'
 
-    providedCompile group: 'org.jboss.spec.javax.servlet', name: 'jboss-servlet-api_3.1_spec', version: '1.0.0.Final'
-    providedCompile  group: 'org.jboss.spec.javax.faces', name: 'jboss-jsf-api_2.2_spec', version: '2.2.8'
-    providedCompile  group: 'com.sun.faces', name: 'jsf-impl', version: '2.2.8-jbossorg-1'
+    providedCompile fileTree(dir: "$serverHome/modules/system/layers/base", include: '**/*.jar')
 
     def cargoVersion = '1.4.5'
     cargo "org.codehaus.cargo:cargo-core-uberjar:$cargoVersion",
@@ -55,8 +58,8 @@ cargo {
     }
 
     local {
-        // タスク：clean assemble cargoStopLocal cargoStartLocal
-        homeDir = file("$projectDir/$cargoLocalServerDir") // プロジェクト内にサーバがあることを想定
+        // タスク：cargoStopLocal clean assemble cargoStartLocal
+        homeDir = file(cargoLocalServerDir) // プロジェクト内にサーバがあることを想定
         timeout = 60000
     }
 
