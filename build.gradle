@@ -5,7 +5,6 @@ plugins {
   id "com.bmuschko.cargo" version "2.4"
 }
 
-
 group = 'sample.webapp'
 version = '0.0.1-SNAPSHOT'
 
@@ -50,6 +49,8 @@ cargo {
     port = Integer.parseInt(cargoPort)
 
     deployable {
+        // ページを表示するためのURL：ホスト名/contextPath/ページ名
+        //   例：localhost:8080/SampleWebApp/home.xhtml
         context = contextPath
     }
 
