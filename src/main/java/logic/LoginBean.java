@@ -79,7 +79,6 @@ public class LoginBean extends AbstractManagedBean {
     public void init() {
         setId("test");
         setPassword("test");
-
     }
 
     public String getId() {
