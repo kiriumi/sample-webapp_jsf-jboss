@@ -30,10 +30,7 @@ dependencies {
 
     testCompile group: 'junit', name: 'junit', version:'3.8.1'
 
-    //providedCompile fileTree(dir: "$serverHome/modules/system/layers/base", include: '**/*.jar')
-
-
-    providedCompile fileTree(dir: "C:/Users/Kengo/git/sample-webapp_jsf-jboss/local-server/wildfly-8.2.0.Final/modules/system/layers/base", include: '**/*.jar')
+    providedCompile fileTree(dir: "$serverHome/modules/system/layers/base", include: '**/*.jar')
 
     def cargoVersion = '1.4.5'
     cargo "org.codehaus.cargo:cargo-core-uberjar:$cargoVersion",
@@ -55,13 +52,13 @@ cargo {
     port = Integer.parseInt(cargoPort)
 
     deployable {
-        // ページを表示するためのURL：ホスト名/contextPath/ページ名
-        //   例：localhost:8080/SampleWebApp/home.xhtml
+        // ページを表示するためのURL：http://ホスト名/contextPath/ページ名
+        //   例：http://localhost:8080/SampleWebApp/login.xhtml
         context = contextPath
     }
 
     local {
-        // タスク：cargoStopLocal clean assemble cargoStartLocal
+        // タスク：clean assemble cargoStopLocal cargoStartLocal
         homeDir = file(cargoLocalServerDir) // プロジェクト内にサーバがあることを想定
         timeout = 60000
     }
