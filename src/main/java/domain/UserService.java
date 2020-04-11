@@ -1,51 +1,39 @@
 package domain;
 
-import javax.enterprise.context.Dependent;
+import java.util.List;
 
-@Dependent
+import javax.ejb.Stateless;
+import javax.inject.Inject;
+
+import org.apache.ibatis.session.SqlSession;
+
+import dto.Hoge;
+import dto.User;
+import dto.UserExample;
+import mapper.UserMapper;
+
+@Stateless
 public class UserService {
 
+	@Inject
+	private SqlSession sqlSession;
+
+	@Inject
+	private Hoge hoge;
+
 	public boolean exists(Integer id) {
-		return true;
+
+		UserExample example = new UserExample();
+		example.createCriteria().andIdEqualTo(1);
+
+		UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+		List<User> users = mapper.selectByExample(example);
+
+		return users.size() > 0;
+
+//		hoge.getHoge();
+
+//		return true;
 	}
 
 }
-
-//@Dependent
-//public class UserService {
-//
-//	@Inject
-//	@Mapper
-//	private UserMapper userMapper;
-//
-//	public boolean exists(Integer id) {
-//
-//		UserExample example = new UserExample();
-//		example.createCriteria().andIdEqualTo(1);
-//
-//		List<User> users = userMapper.selectByExample(example);
-//
-//		return users.size() > 0;
-//
-//	}
-//}
-
-//@Dependent
-//public class UserService {
-//
-//	@Inject
-//	private SqlSession sqlSession;
-//
-//	public boolean exists(Integer id) {
-//
-//
-//		UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-//
-//		UserExample example = new UserExample();
-//		example.createCriteria().andIdEqualTo(1);
-//
-//		List<User> users = userMapper.selectByExample(example);
-//
-//		return users.size() > 0;
-//	}
-//}

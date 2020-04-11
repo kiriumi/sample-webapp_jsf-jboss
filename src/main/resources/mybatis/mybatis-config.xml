@@ -6,10 +6,10 @@
 
 	<environments default="sample_id">
 		<environment id="sample_id">
-			<transactionManager type="MANAGED" />
-			<dataSource type="JNDI">
-<!-- 			<transactionManager type="JDBC" /> -->
-<!-- 			<dataSource type="POOLED"> -->
+<!-- 			<transactionManager type="MANAGED" /> -->
+<!-- 			<dataSource type="JNDI"> -->
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
 				<property name="driver" value="org.sqlite.JDBC" />
 				<property name="url"
 					value="jdbc:sqlite:C:\Users\kengo\git\sample-webapp_jsf-jboss\db\user.db" />
@@ -18,6 +18,6 @@
 	</environments>
 
 	<mappers>
-		<mapper resource="sql/User.xml" />
+		<mapper resource="sql/UserMapper.xml" />
 	</mappers>
 </configuration>
