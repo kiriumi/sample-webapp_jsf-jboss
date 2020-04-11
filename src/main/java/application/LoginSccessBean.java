@@ -1,4 +1,4 @@
-package logic;
+package application;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;

@@ -1,11 +1,13 @@
-package logic;
+package application;
 
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import domain.UserService;
 import interceptor.Logging;
 
 /*
@@ -48,53 +50,56 @@ import interceptor.Logging;
 @RequestScoped
 public class LoginBean extends AbstractManagedBean {
 
-    @NotNull(message = "IDは必須です")
-    @Size(max = 5, message = "IDが長すぎます")
-    @Pattern(regexp = "[a-zA-Z0-9]*", message = "IDに使用できない文字があります")
-    private String id;
+	@Inject
+	private UserService userService;
 
-    private String password;
+	@NotNull(message = "IDは必須です")
+	@Size(max = 5, message = "IDが長すぎます")
+	@Pattern(regexp = "[a-zA-Z0-9]*", message = "IDに使用できない文字があります")
+	private String id;
 
-    private boolean isAuth;
+	private String password;
 
-    @Logging
-    public void loginCheck() {
+	private boolean isAuth;
 
-        if (id.equals("test") && password.equals("test")) {
-            isAuth = true;
-        }
-    }
+	@Logging
+	public void loginCheck() {
 
-    public String login() {
+		if (userService.exists(1)) {
+			isAuth = true;
+		}
+	}
 
-        if (isAuth) {
-            getFlash().put("loginSccessMessage", "ログインできましたの");
-            return "loginSuccess.xhtml";
-        }
+	public String login() {
 
-        return null;
-    }
+		if (isAuth) {
+			getFlash().put("loginSccessMessage", "ログインできましたの");
+			return "loginSuccess.xhtml";
+		}
 
-    @Override
-    public void init() {
-        setId("test");
-        setPassword("test");
-    }
+		return null;
+	}
 
-    public String getId() {
-        return id;
-    }
+	@Override
+	public void init() {
+		setId("test");
+		setPassword("test");
+	}
 
-    public void setId(final String id) {
-        this.id = id;
-    }
+	public String getId() {
+		return id;
+	}
 
-    public String getPassword() {
-        return password;
-    }
+	public void setId(final String id) {
+		this.id = id;
+	}
 
-    public void setPassword(final String password) {
-        this.password = password;
-    }
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(final String password) {
+		this.password = password;
+	}
 
 }

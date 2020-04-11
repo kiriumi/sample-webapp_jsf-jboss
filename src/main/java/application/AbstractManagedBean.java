@@ -1,4 +1,4 @@
-package logic;
+package application;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -42,6 +42,10 @@ public abstract class AbstractManagedBean {
         return FacesContext.getCurrentInstance().getExternalContext().getFlash();
     }
 
+    /**
+     * セッションを取得する
+     * @return セッション
+     */
     protected HttpSession getSession() {
         return (HttpSession) FacesContext.getCurrentInstance().getExternalContext()
                 .getSession(true);

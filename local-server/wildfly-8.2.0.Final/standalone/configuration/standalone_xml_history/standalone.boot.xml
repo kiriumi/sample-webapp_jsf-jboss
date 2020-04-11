@@ -383,9 +383,4 @@
         </outbound-socket-binding>
     </socket-binding-group>
 
-    <deployments>
-        <deployment name="sample-webapp-0.0.1-SNAPSHOT.war" runtime-name="sample-webapp-0.0.1-SNAPSHOT.war">
-            <content sha1="01151f5b6f43bf2941d2dea61bf0d3228fd8c239"/>
-        </deployment>
-    </deployments>
 </server>
