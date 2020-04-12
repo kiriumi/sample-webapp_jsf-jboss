@@ -1,18 +1,19 @@
 package application;
 
-import java.util.ResourceBundle;
-
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 import domain.UserService;
 import interceptor.Logging;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import validation.Auth;
-import validation.LoginGroup;
+import validation.AuthGroup;
 
 /*
  * クラスに付けるアノテーション（２種類）
@@ -54,14 +55,18 @@ import validation.LoginGroup;
 @Named
 @RequestScoped
 @Data
+@Auth(emailAddress = "emailAddress", password = "password")
 @EqualsAndHashCode(callSuper = false)
 @Logging
 public class LoginBean extends AbstractManagedBean {
 
-	@NotBlank(groups = LoginGroup.class)
+	@NotBlank(groups = AuthGroup.class)
+	@Email
 	private String emailAddress;
 
-	@NotBlank(groups = LoginGroup.class)
+	@NotBlank(groups = AuthGroup.class)
+	@Size(min = 4, max = 8)
+	@Pattern(regexp = "[0-9a-zA-Z]*")
 	private String password;
 
 	@Inject
@@ -72,28 +77,23 @@ public class LoginBean extends AbstractManagedBean {
 		setInfoMessage((String) getFlash().get("signupSccessMessage"));
 	}
 
-	@Auth
-	public void isAuth(final String emailAddress, final String password) {
-	};
+	//	/**
+	//	 * JSFでなければ、メソッドバリデーションが行える
+	//	 * @param emailAddress
+	//	 * @param password
+	//	 */
+	//	@AuthSpring
+	//	public void auth(final String emailAddress, final String password) {
+	//	};
 
 	public String login() {
 
-		//		if (auth) {
-		//			getFlash().put("loginSccessMessage", "ログインできたよ");
-		//			return "loginSuccess.xhtml";
-		//		}
-
-		ResourceBundle resourceBundle = ResourceBundle.getBundle("ValidationMessages");
-		String message = resourceBundle.getString("error.message.auth");
-
-		System.out.println(message);
-
-		return null;
+		getFlash().put("loginSccessMessage", "ログインできたよ");
+		return "loginSuccess.xhtml";
 	}
 
 	public String goSignupPage() {
 		return "signup.xhtml";
-
 	}
 
 }

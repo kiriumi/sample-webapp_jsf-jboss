@@ -45,5 +45,4 @@ public class UserService extends User {
 		UserMapper mapper = sqlSession.getMapper(UserMapper.class);
 		mapper.insert(user);
 	}
-
 }

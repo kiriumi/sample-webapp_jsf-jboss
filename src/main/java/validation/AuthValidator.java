@@ -1,33 +1,44 @@
 package validation;
 
+import java.lang.reflect.Field;
+
 import javax.inject.Inject;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
-import javax.validation.constraintvalidation.SupportedValidationTarget;
-import javax.validation.constraintvalidation.ValidationTarget;
 
 import domain.UserService;
 
-/**
- * 認証の相関チェックアノテーション
- * ∴JSFはメソッドバリデーションができないので、使用不可
- * ∵JSFは、1つの入力値に対してValidate#validatePropertyによるプロパティ単位でのバリデーションを行うため、入力値の存在しないプロパティのバリデーションは行ってくれない
- *
- * @author kengo
- *
- */
+public class AuthValidator implements ConstraintValidator<Auth, Object> {
 
-@SupportedValidationTarget(ValidationTarget.PARAMETERS)
-public class AuthValidator implements ConstraintValidator<Auth, Object[]> {
+	private Auth annotation;
 
 	@Inject
 	private UserService userService;
 
 	@Override
-	public boolean isValid(final Object[] values, final ConstraintValidatorContext context) {
+	public void initialize(final Auth constraintAnnotation) {
+		this.annotation = constraintAnnotation;
+	}
 
-		String emailAddress = (String) values[0];
-		String password = (String) values[1];
+	@Override
+	public boolean isValid(final Object object, final ConstraintValidatorContext context) {
+
+		String emailAddress = "";
+		String password = "";
+
+		try {
+
+			Field emailAddressField = object.getClass().getDeclaredField(annotation.emailAddress());
+			emailAddressField.setAccessible(true);
+			emailAddress = (String) emailAddressField.get(object);
+
+			Field passwordField = object.getClass().getDeclaredField(annotation.password());
+			passwordField.setAccessible(true);
+			password = (String) passwordField.get(object);
+
+		} catch (NoSuchFieldException | SecurityException | IllegalArgumentException | IllegalAccessException e) {
+			e.printStackTrace();
+		}
 
 		return userService.find(emailAddress, password);
 	}

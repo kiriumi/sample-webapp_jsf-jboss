@@ -1,5 +1,7 @@
 package validation;
 
+import static java.lang.annotation.ElementType.*;
+
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -10,16 +12,18 @@ import javax.validation.Constraint;
 import javax.validation.Payload;
 
 @Retention(RetentionPolicy.RUNTIME)
-//@Target({ ElementType.TYPE, ElementType.METHOD, ElementType.FIELD, ElementType.ANNOTATION_TYPE, ElementType.CONSTRUCTOR,
-//		ElementType.PARAMETER })
-@Target({ ElementType.METHOD, ElementType.CONSTRUCTOR })
+@Target(ElementType.TYPE)
 @Constraint(validatedBy = { AuthValidator.class })
 @Documented
 public @interface Auth {
 
-	String message() default "{validator.Auth.message}";
+    String message() default "{validator.Auth.message}";
 
-	Class<?>[] groups() default {};
+    Class<?>[] groups() default {};
 
-	Class<? extends Payload>[] payload() default {};
+    Class<? extends Payload>[] payload() default {};
+
+    String emailAddress();
+
+    String password();
 }

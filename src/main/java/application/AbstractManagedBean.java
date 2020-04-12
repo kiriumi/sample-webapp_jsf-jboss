@@ -1,5 +1,6 @@
 package application;
 
+import java.io.Serializable;
 import java.util.Optional;
 
 import javax.annotation.PostConstruct;
@@ -11,7 +12,7 @@ import javax.servlet.http.HttpSession;
 import lombok.Data;
 
 @Data
-public abstract class AbstractManagedBean {
+public abstract class AbstractManagedBean implements Serializable {
 
 	protected String infoMessage;
 

@@ -4,8 +4,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
-<!-- HTML5の属性対応 -->
+    xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+    xmlns:o="http://omnifaces.org/ui"
+    xmlns:of="http://omnifaces.org/functions">
 
 <h:head>
     <title>ログインページ</title>
@@ -16,24 +17,27 @@
         <h:messages style="color:red;" />
 
         <h:panelGrid columns="3">
-            <f:validateBean validationGroups="validation.LoginGroup">
 
-                <h:outputLabel value="Emailアドレス" p:type="email" />
-                <h:inputText id="emailAddress" value="#{loginBean.emailAddress}" />
-                <h:message for="emailAddress" />
+            <h:outputLabel value="Emailアドレス" p:type="email" />
+            <h:inputText id="emailAddress" value="#{loginBean.emailAddress}" />
+            <h:message for="emailAddress" />
 
-                <h:outputLabel value="Password" />
-                <h:inputSecret id="password" value="#{loginBean.password}" validator="authValidator"/>
-                <h:message for="password" />
+            <h:outputLabel value="Password" />
+            <h:inputSecret id="password" value="#{loginBean.password}" />
+            <h:message for="password" />
 
-                <!-- actionLister：actionより前に実行される -->
-                <h:commandButton value="ログイン" action="#{loginBean.login()}" />
-                <h:commandButton value="ユーザ登録" action="#{loginBean.goSignupPage()}" />
+            <!-- actionLister：actionより前に実行される -->
+            <h:commandButton value="ログイン" action="#{loginBean.login()}">
+                <o:validateBean validationGroups="validation.AuthGroup" />
+            </h:commandButton>
 
-            </f:validateBean>
+            <h:commandButton value="ユーザ登録" action="#{loginBean.goSignupPage()}">
+                <o:skipValidators />
+            </h:commandButton>
 
         </h:panelGrid>
 
+        <f:validateWholeBean value="#{loginBean}" />
     </h:form>
 </h:body>
 </html>

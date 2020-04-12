@@ -3,8 +3,6 @@ package application;
 import java.time.LocalDateTime;
 
 import javax.enterprise.context.RequestScoped;
-import javax.faces.application.FacesMessage;
-import javax.faces.validator.ValidatorException;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.transaction.Transactional;
@@ -38,7 +36,7 @@ public class SignupBean extends AbstractManagedBean {
 	private String name;
 
 	@NotBlank
-	@Size(min = 4, max = 16)
+	@Size(min = 4, max = 8)
 	@Pattern(regexp = "[0-9a-zA-Z]*")
 	private String password;
 
@@ -48,16 +46,14 @@ public class SignupBean extends AbstractManagedBean {
 	@Transactional
 	public String signupUser() {
 
-		if (userService.exists(emailAddress)) {
-			FacesMessage errorMessage = new FacesMessage("そのEmailaアドレスは使われてるよ");
-			throw new ValidatorException(errorMessage);
-			//			return null;
+		if (userService.exists(getEmailAddress())) {
+			return null;
 		}
 
 		User user = new User();
-		user.setEmailaddress(emailAddress);
-		user.setName(name);
-		user.setPassword(password);
+		user.setEmailaddress(getEmailAddress());
+		user.setName(getName());
+		user.setPassword(getPassword());
 
 		LocalDateTime dateTime = LocalDateTime.now();
 		user.setCreatedtime(dateTime.toString());
