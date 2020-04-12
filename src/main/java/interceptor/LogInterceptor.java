@@ -5,23 +5,28 @@ import javax.interceptor.AroundInvoke;
 import javax.interceptor.Interceptor;
 import javax.interceptor.InvocationContext;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 @Interceptor
 @Priority(Interceptor.Priority.APPLICATION)
 @Logging
-//public class LogInterceptor {
-
 public class LogInterceptor {
 
-    @AroundInvoke
-    public Object around(final InvocationContext ic) throws Exception {
+	Logger logger = LogManager.getLogger();
 
-        System.out.println("インターセプタ―開始");
+	@AroundInvoke
+	public Object around(final InvocationContext context) throws Exception {
 
-        Object result = ic.proceed();
+		String methodName = context.getMethod().getName();
 
-        System.out.println("インターセプタ―終了");
+		logger.debug("インターセプタ―開始：{}", methodName);
 
-        return result;
+		Object result = context.proceed();
 
-    }
+		logger.debug("インターセプタ―終了：{}", methodName);
+
+		return result;
+
+	}
 }

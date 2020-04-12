@@ -2,38 +2,48 @@ package domain;
 
 import java.util.List;
 
-import javax.ejb.Stateless;
+import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
 
-import dto.Hoge;
 import dto.User;
 import dto.UserExample;
 import mapper.UserMapper;
 
-@Stateless
-public class UserService {
+@Dependent
+public class UserService extends User {
 
 	@Inject
 	private SqlSession sqlSession;
 
-	@Inject
-	private Hoge hoge;
-
-	public boolean exists(Integer id) {
+	public boolean find(final String emailAddress, final String password) {
 
 		UserExample example = new UserExample();
-		example.createCriteria().andIdEqualTo(1);
+		example.createCriteria().andEmailaddressEqualTo(emailAddress);
+		example.createCriteria().andPasswordEqualTo(password);
 
 		UserMapper mapper = sqlSession.getMapper(UserMapper.class);
 		List<User> users = mapper.selectByExample(example);
 
 		return users.size() > 0;
+	}
 
-//		hoge.getHoge();
+	public boolean exists(final String emailAddress) {
 
-//		return true;
+		UserExample example = new UserExample();
+		example.createCriteria().andEmailaddressEqualTo(emailAddress);
+
+		UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+		List<User> users = mapper.selectByExample(example);
+
+		return users.size() > 0;
+	}
+
+	public void addUser(final User user) {
+
+		UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+		mapper.insert(user);
 	}
 
 }

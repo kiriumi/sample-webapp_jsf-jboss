@@ -2,17 +2,15 @@
 <!DOCTYPE log4j:configuration>
 <Configuration status="OFF">
 	<Properties>
-		<Property name="ptn">%d{yyyy-MM-dd HH:mm:ss.SSS} %-5p
-
-			L=%L m=%m %n</Property>
+		<Property name="pattern">%d{yyyy-MM-dd HH:mm:ss.SSS} %-5p %t %C %M %m %n</Property>
 	</Properties>
 	<Appenders>
 		<Console name="console" target="SYSTEM_OUT">
-			<PatternLayout pattern="${ptn}" />
+			<PatternLayout pattern="${pattern}" />
 		</Console>
 		<RollingFile name="file" fileName="log/log4j2.log"
 			filePattern="log/%d{yyyyMM}/log4j2_%d{yyyyMMdd}_%i.log">
-			<PatternLayout pattern="${ptn}" />
+			<PatternLayout pattern="${pattern}" />
 			<Policies>
 				<OnStartupTriggeringPolicy />
 				<SizeBasedTriggeringPolicy size="2 MB" />

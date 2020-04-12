@@ -1,14 +1,18 @@
 package application;
 
+import java.util.ResourceBundle;
+
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.NotBlank;
 
 import domain.UserService;
 import interceptor.Logging;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import validation.Auth;
+import validation.LoginGroup;
 
 /*
  * クラスに付けるアノテーション（２種類）
@@ -38,68 +42,58 @@ import interceptor.Logging;
  * ・@SessionScoped：同一セッション内
  * ・@ApplicationScoped：アプリケーション内
  * ・@FlowScoped：開発者が指定した特定の画面遷移フロー内
+ * ・@Dependent：注入先のスコープになる（デフォルトはこれ）
  *
  */
 /**
- * ログインページクラス
+ * ログインページのモデルクラス
  *
  * @author Kengo
  *
  */
 @Named
 @RequestScoped
+@Data
+@EqualsAndHashCode(callSuper = false)
+@Logging
 public class LoginBean extends AbstractManagedBean {
+
+	@NotBlank(groups = LoginGroup.class)
+	private String emailAddress;
+
+	@NotBlank(groups = LoginGroup.class)
+	private String password;
 
 	@Inject
 	private UserService userService;
 
-	@NotNull(message = "IDは必須です")
-	@Size(max = 5, message = "IDが長すぎます")
-	@Pattern(regexp = "[a-zA-Z0-9]*", message = "IDに使用できない文字があります")
-	private String id;
-
-	private String password;
-
-	private boolean isAuth;
-
-	@Logging
-	public void loginCheck() {
-
-		if (userService.exists(1)) {
-			isAuth = true;
-		}
+	@Override
+	protected void init() {
+		setInfoMessage((String) getFlash().get("signupSccessMessage"));
 	}
+
+	@Auth
+	public void isAuth(final String emailAddress, final String password) {
+	};
 
 	public String login() {
 
-		if (isAuth) {
-			getFlash().put("loginSccessMessage", "ログインできましたの");
-			return "loginSuccess.xhtml";
-		}
+		//		if (auth) {
+		//			getFlash().put("loginSccessMessage", "ログインできたよ");
+		//			return "loginSuccess.xhtml";
+		//		}
+
+		ResourceBundle resourceBundle = ResourceBundle.getBundle("ValidationMessages");
+		String message = resourceBundle.getString("error.message.auth");
+
+		System.out.println(message);
 
 		return null;
 	}
 
-	@Override
-	public void init() {
-		setId("test");
-		setPassword("test");
-	}
+	public String goSignupPage() {
+		return "signup.xhtml";
 
-	public String getId() {
-		return id;
-	}
-
-	public void setId(final String id) {
-		this.id = id;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(final String password) {
-		this.password = password;
 	}
 
 }

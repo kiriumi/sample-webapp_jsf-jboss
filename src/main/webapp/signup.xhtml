@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+<!-- HTML5の属性対応 -->
+
+<h:head>
+    <title>サインアップ</title>
+</h:head>
+<h:body>
+    <h:form>
+
+        <h:panelGrid columns="3">
+
+            <h:outputLabel value="Emailアドレス" p:type="email" />
+            <h:inputText id="emailAddress" value="#{signupBean.emailAddress}" />
+            <h:message for="emailAddress" />
+
+            <h:outputLabel value="名前" />
+            <h:inputText value="#{signupBean.name}" p:placeholder="ほげ">
+                <f:validator id="name" validatorId="nameValidator" />
+            </h:inputText>
+            <h:message for="name" />
+
+            <h:outputLabel value="Password" />
+            <h:inputSecret id="password" value="#{signupBean.password}" />
+            <h:message for="password" />
+
+            <h:commandButton value="ユーザ登録" action="#{signupBean.signupUser()}" />
+
+        </h:panelGrid>
+
+    </h:form>
+</h:body>
+</html>

@@ -4,11 +4,13 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 
-	<environments default="sample_id">
-		<environment id="sample_id">
-<!-- 			<transactionManager type="MANAGED" /> -->
-<!-- 			<dataSource type="JNDI"> -->
-			<transactionManager type="JDBC" />
+	<settings>
+		<setting name="logImpl" value="LOG4J2" />
+	</settings>
+
+	<environments default="sqlite">
+		<environment id="sqlite">
+			<transactionManager type="MANAGED" />
 			<dataSource type="POOLED">
 				<property name="driver" value="org.sqlite.JDBC" />
 				<property name="url"
@@ -20,4 +22,5 @@
 	<mappers>
 		<mapper resource="sql/UserMapper.xml" />
 	</mappers>
+
 </configuration>

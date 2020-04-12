@@ -3,6 +3,9 @@ package application;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
 /**
  * ログインページクラス
  *
@@ -11,23 +14,15 @@ import javax.inject.Named;
  */
 @Named
 @RequestScoped
+@Data
+@EqualsAndHashCode(callSuper = false)
 public class LoginSccessBean extends AbstractManagedBean {
 
-    private String message;
+	private String message;
 
-    @Override
-    public void init() {
-
-        String message = (String) getFlash().get("loginSccessMessage");
-        setMessage(message);
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(final String message) {
-        this.message = message;
-    }
+	@Override
+	public void init() {
+		setInfoMessage((String) getFlash().get("loginSccessMessage"));
+	}
 
 }

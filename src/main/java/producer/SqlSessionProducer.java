@@ -25,6 +25,8 @@ public class SqlSessionProducer {
 	private Map<String, SqlSessionFactory> sqlSessionFactoryCash = new HashMap<>();
 	private String defaultId;
 
+	private static String MYBATIS_CONFIG_PATH = "mybatis/mybatis-config.xml";
+
 	@PostConstruct
 	public void initialize() throws IOException {
 		loadDefaultEnvironment();
@@ -32,7 +34,7 @@ public class SqlSessionProducer {
 
 	private void loadDefaultEnvironment() {
 
-		try (InputStream in = Resources.getResourceAsStream("mybatis/mybatis-config.xml")) {
+		try (InputStream in = Resources.getResourceAsStream(MYBATIS_CONFIG_PATH)) {
 
 			SqlSessionFactoryBuilder builder = new SqlSessionFactoryBuilder();
 
@@ -50,7 +52,7 @@ public class SqlSessionProducer {
 
 	private void loadEnvironment(String environment) {
 
-		try (InputStream in = Resources.getResourceAsStream("mybatis/mybatis-config.xml")) {
+		try (InputStream in = Resources.getResourceAsStream(MYBATIS_CONFIG_PATH)) {
 
 			SqlSessionFactoryBuilder builder = new SqlSessionFactoryBuilder();
 
