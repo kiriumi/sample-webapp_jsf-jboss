@@ -15,6 +15,7 @@ import domain.UserService;
 import dto.User;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import repos.UserRepository;
 
 /**
  * ログインページクラス
@@ -43,10 +44,13 @@ public class SignupBean extends AbstractManagedBean {
 	@Inject
 	private UserService userService;
 
+	@Inject
+	private UserRepository userRepository;
+
 	@Transactional
 	public String signupUser() {
 
-		if (userService.exists(getEmailAddress())) {
+		if (userService.hasUser(getEmailAddress())) {
 			return null;
 		}
 
@@ -64,5 +68,22 @@ public class SignupBean extends AbstractManagedBean {
 		getFlash().put("signupSccessMessage", "登録できたよ");
 
 		return "login.xhtml";
+	}
+
+	@Transactional
+	public String signupUserWithJpa() {
+
+		if (userRepository.hasUser(getEmailAddress())) {
+			return null;
+		}
+
+		model.UserEntity user = new model.UserEntity();
+		user.setEmailAddress(getEmailAddress());
+		user.setName(getName());
+		user.setPassword(getPassword());
+
+		userRepository.addUser(user);
+
+		return null;
 	}
 }

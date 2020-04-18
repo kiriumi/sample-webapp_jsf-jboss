@@ -29,7 +29,7 @@ public class UserService extends User {
 		return users.size() > 0;
 	}
 
-	public boolean exists(final String emailAddress) {
+	public boolean hasUser(final String emailAddress) {
 
 		UserExample example = new UserExample();
 		example.createCriteria().andEmailaddressEqualTo(emailAddress);

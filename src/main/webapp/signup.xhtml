@@ -27,7 +27,9 @@
             <h:inputSecret id="password" value="#{signupBean.password}" />
             <h:message for="password" />
 
-            <h:commandButton value="ユーザ登録" action="#{signupBean.signupUser()}" />
+            <h:commandButton value="ユーザ登録（MyBatis）" action="#{signupBean.signupUser()}" />
+
+            <h:commandButton value="ユーザ登録（JPA）" action="#{signupBean.signupUserWithJpa()}" />
 
         </h:panelGrid>
 

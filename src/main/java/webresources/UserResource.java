@@ -12,7 +12,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 
 import domain.UserService;
-import entity.UserEntity;
+import model.UserEntity;
 
 /**
  * REST受信するクラス

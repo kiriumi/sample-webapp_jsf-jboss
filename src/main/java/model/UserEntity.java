@@ -1,8 +1,8 @@
-package entity;
+package model;
+
+import java.io.Serializable;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
@@ -13,15 +13,14 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 @Entity
-@Table
+@Table(name = "USER") // テーブル名＝エンティティ名なら、nameは省略可能
 @Data
 @EqualsAndHashCode(callSuper = false)
-@XmlRootElement
-public class UserEntity extends MetaInfoEntity {
+@XmlRootElement // RESTでXMLを使って、本エンティティを受渡しできるようにするため
+public class UserEntity extends MetaEntity implements Serializable {
 
 	@Id
 	@Email
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private String emailAddress;
 
 	@NotBlank

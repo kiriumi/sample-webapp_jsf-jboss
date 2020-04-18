@@ -1,4 +1,4 @@
-package entity;
+package model;
 
 import javax.persistence.MappedSuperclass;
 
@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 @MappedSuperclass
-public class MetaInfoEntity {
+public class MetaEntity {
 
 	private String createdTime;
 

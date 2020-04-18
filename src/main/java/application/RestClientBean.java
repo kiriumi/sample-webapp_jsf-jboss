@@ -9,8 +9,8 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
 
-import entity.UserEntity;
 import lombok.Data;
+import model.UserEntity;
 
 /**
  * REST送信するクラス
