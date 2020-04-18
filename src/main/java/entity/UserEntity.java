@@ -17,7 +17,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @XmlRootElement
-public class User extends MetaInfoEntity {
+public class UserEntity extends MetaInfoEntity {
 
 	@Id
 	@Email
