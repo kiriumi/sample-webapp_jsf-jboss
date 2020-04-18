@@ -37,7 +37,9 @@
 
         </h:panelGrid>
 
-        <f:validateWholeBean value="#{loginBean}" />
+        <h:inputHidden id="auth" value="#{loginBean.auth}" />
+        <h:message for="auth" />
+
     </h:form>
 </h:body>
 </html>

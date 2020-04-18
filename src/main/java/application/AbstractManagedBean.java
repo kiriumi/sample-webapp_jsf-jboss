@@ -64,4 +64,14 @@ public abstract class AbstractManagedBean implements Serializable {
 		this.infoMessage = Optional.ofNullable(infoMessage).orElse("");
 	}
 
+	//	protected void setErrorMessage(final String errorMessage) {
+	//
+	//		FacesContext context = FacesContext.getCurrentInstance();
+	//
+	//		FacesMessage message = new FacesMessage(errorMessage);
+	//		message.setSeverity(FacesMessage.SEVERITY_ERROR);
+	//		context.addMessage(component.getClientId(), message);
+	//		context.renderResponse();
+	//	}
+
 }

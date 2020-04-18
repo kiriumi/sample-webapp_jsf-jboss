@@ -3,6 +3,7 @@ package application;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
@@ -68,6 +69,14 @@ public class LoginBean extends AbstractManagedBean {
 	@Size(min = 4, max = 8)
 	@Pattern(regexp = "[0-9a-zA-Z]*")
 	private String password;
+
+	@AssertTrue(groups = AuthGroup.class)
+	//	private boolean auth = false;
+
+	public boolean isAuth() {
+		System.out.println(emailAddress);
+		return false;
+	}
 
 	@Inject
 	private UserService userService;
