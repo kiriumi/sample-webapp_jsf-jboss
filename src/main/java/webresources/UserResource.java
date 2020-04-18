@@ -2,20 +2,25 @@ package webresources;
 
 import java.time.LocalDateTime;
 
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 
+import domain.UserService;
 import entity.User;
 
+@RequestScoped
 @Path("user")
 public class UserResource {
 
-	//	@Inject
-	//	UserService userService;
+	@Inject
+	UserService userService;
 
 	/**
 	 * 以下URLにGETすると、実行する
@@ -58,7 +63,7 @@ public class UserResource {
 
 	/**
 	 * 以下URL,JSONでPOSTすると、実行される
-	 * http://localhost:8080/sample-webapp-jsf/webresources/user
+	 * http://localhost:8080/sample-webapp-jsf/webresources/user/foo
 	 *
 	 * { "emailAddress":"foo@com", "name":"foo" }
 	 *
@@ -74,13 +79,15 @@ public class UserResource {
 	 * }
 	 */
 	@POST
+	@Path("{name}")
 	@Consumes("application/json")
 	@Produces("application/json")
-	public User postByJson(final User user, @QueryParam("json") final String json) {
+	public User postByJson(final User user, @PathParam("name") final String name) {
 
-		//		userService.toString();
-
+		userService.toString();
+		user.setName(name);
 		user.setUpdateTime(LocalDateTime.now().toString());
+
 		return user;
 	}
 

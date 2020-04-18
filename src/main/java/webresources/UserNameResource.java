@@ -5,12 +5,12 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.QueryParam;
 
-@Path("user/{name}")
-public class UserPathResource {
+@Path("user-name/{name}")
+public class UserNameResource {
 
 	/**
 	 * 以下URLにGETすると、実行する
-	 * http://localhost:8080/sample-webapp-jsf/webresources/user/ほげ
+	 * http://localhost:8080/sample-webapp-jsf/webresources/user-name/ほげ
 	 *
 	 * @param name 名前
 	 * @return 君の名前は、ほげ
@@ -22,7 +22,7 @@ public class UserPathResource {
 
 	/**
 	 * 以下URLにGETすると、実行する
-	 * http://localhost:8080/sample-webapp-jsf/webresources/user/ふー?age=17
+	 * http://localhost:8080/sample-webapp-jsf/webresources/user-name/ふー?age=17
 	 *
 	 * @param name 名前
 	 * @param age 年齢
