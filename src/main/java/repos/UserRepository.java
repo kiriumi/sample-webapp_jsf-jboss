@@ -22,7 +22,7 @@ public class UserRepository {
 
 		UserEntity user = entitiyManager.find(UserEntity.class, emailAddress);
 
-		return StringUtils.isBlank(user.getEmailAddress()) ? false : true;
+		return user == null || StringUtils.isBlank(user.getEmailAddress()) ? false : true;
 	}
 
 	public void addUser(final UserEntity user) {

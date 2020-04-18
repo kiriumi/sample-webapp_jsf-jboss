@@ -10,5 +10,5 @@ public class MetaEntity {
 
 	private String createdTime;
 
-	private String updateTime;
+	private String updatedTime;
 }

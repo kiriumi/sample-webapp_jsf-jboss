@@ -63,7 +63,7 @@ public class UserResource {
 	public UserEntity postByJson(final UserEntity user, @QueryParam("name") final String name) {
 
 		userService.toString();
-		user.setUpdateTime(LocalDateTime.now().toString());
+		user.setUpdatedTime(LocalDateTime.now().toString());
 
 		return user;
 	}
@@ -90,7 +90,7 @@ public class UserResource {
 	@Produces("application/xml")
 	public UserEntity postByXml(final UserEntity user) {
 
-		user.setUpdateTime(LocalDateTime.now().toString());
+		user.setUpdatedTime(LocalDateTime.now().toString());
 		return user;
 	}
 
