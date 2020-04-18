@@ -10,27 +10,16 @@ public class UserNameResource {
 
 	/**
 	 * 以下URLにGETすると、実行する
-	 * http://localhost:8080/sample-webapp-jsf/webresources/user-name/ほげ
-	 *
-	 * @param name 名前
-	 * @return 君の名前は、ほげ
-	 */
-	@GET
-	public String getUserName(@PathParam("name") final String name) {
-		return "君の名前は、" + name;
-	}
-
-	/**
-	 * 以下URLにGETすると、実行する
-	 * http://localhost:8080/sample-webapp-jsf/webresources/user-name/ふー?age=17
+	 * http://localhost:8080/sample-webapp-jsf/webresources/user-name/ほげ?age=17
 	 *
 	 * @param name 名前
 	 * @param age 年齢
-	 * @return 君の名前は、ふーで、年齢は17だね
+	 * @return
 	 */
 	@GET
-	public String getUserNameWithAge(@PathParam("name") final String name, @QueryParam("age") final String age) {
-		return "君の名前は、" + name + "で、年齢は" + age + "だね";
+	public String getGreetingMessageWithAge(@PathParam("name") final String name,
+			@QueryParam("age") final Integer age) {
+		return "ウチの名前は " + name + " で、年齢は " + age.toString() + " よ！";
 	}
 
 }

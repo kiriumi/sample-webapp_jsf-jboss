@@ -14,25 +14,18 @@ import javax.ws.rs.QueryParam;
 import domain.UserService;
 import entity.UserEntity;
 
+/**
+ * REST受信するクラス
+ *
+ * @author kengo
+ *
+ */
 @RequestScoped
 @Path("user")
 public class UserResource {
 
 	@Inject
 	UserService userService;
-
-	/**
-	 * 以下URLにGETすると、実行する
-	 * http://localhost:8080/sample-webapp-jsf/webresources/user/?name=ほげ
-	 *
-	 * @param name 名前
-	 * @param age 年齢
-	 * @return 君の名前は、ほげ
-	 */
-	@GET
-	public String getUserName(@QueryParam("name") final String name) {
-		return "君の名前は、" + name;
-	}
 
 	@GET
 	@Path("get")
@@ -47,7 +40,7 @@ public class UserResource {
 	}
 
 	/**
-	 * 以下URL,JSONでPOSTすると、実行される
+	 * 以下URL，JSONでPOSTすると実行され、JSONでユーザーを返す
 	 * http://localhost:8080/sample-webapp-jsf/webresources/user/foo
 	 *
 	 * { "emailAddress":"foo@com", "name":"foo" }
@@ -76,7 +69,7 @@ public class UserResource {
 	}
 
 	/**
-	 * 以下URL,XMLでPOSTすると、実行される
+	 * 以下URL，XMLでPOSTすると実行され、XMLでユーザーを返す
 	 * http://localhost:8080/sample-webapp-jsf/webresources/user
 	 *
 	 * <user>

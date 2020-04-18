@@ -9,25 +9,28 @@
     xmlns:of="http://omnifaces.org/functions">
 
 <h:head>
-    <title>ログインページ</title>
+    <title>RESTクライアント</title>
 </h:head>
 <h:body>
     <h:form>
 
-        <h:commandButton value="GET" action="#{restClientBean.getUserName()}" />
+        <h:panelGrid columns="3">
 
-        <h:commandButton value="Get user by JSON"
-            action="#{restClientBean.getUserByJson()}" />
+            <h:commandButton value="GET" action="#{restClientBean.greet()}" />
+            <h:outputText value="あいさつ：" />
+            <h:outputText value="#{restClientBean.greetingMessage}" />
 
+            <h:commandButton value="Get user by JSON"
+                action="#{restClientBean.getUserWithJson()}" />
+            <h:outputText value="ユーザーのEmailアドレス：" />
+            <h:outputText value="#{restClientBean.user.emailAddress}" />
 
-        <h:commandButton value="Post user by JSON"
-            action="#{restClientBean.postUserByJson()}" />
+            <h:commandButton value="Post user by JSON"
+                action="#{restClientBean.postUserWithJson()}" />
+            <h:outputText value="レスポンスステータス：" />
+            <h:outputText value="#{restClientBean.responseStatus}" />
 
-        <h:outputText value="#{restClientBean.resultGet}" />
-
-        <h:outputText value="#{restClientBean.user.emailAddress}" />
-
-        <h:outputText value="#{restClientBean.responseStatus}" />
+        </h:panelGrid>
 
     </h:form>
 </h:body>

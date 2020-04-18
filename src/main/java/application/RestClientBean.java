@@ -12,47 +12,67 @@ import javax.ws.rs.core.UriBuilder;
 import entity.UserEntity;
 import lombok.Data;
 
+/**
+ * REST送信するクラス
+ *
+ * @author kengo
+ *
+ */
 @Named
 @RequestScoped
 @Data
 public class RestClientBean {
 
-	private UriBuilder userBaseUriBuilder = UriBuilder
-			.fromUri("http://localhost:8080/sample-webapp-jsf/webresources/user");
+	private UriBuilder baseRestUriBuilder = UriBuilder.fromUri("http://localhost:8080/sample-webapp-jsf/webresources");
 
-	private String resultGet;
+	private String greetingMessage;
 
 	private UserEntity user;
 
 	private int responseStatus;
 
-	public String getUserName() {
+	/**
+	 * GETメソッドであいさつ文を取得する
+	 * @return
+	 */
+	public String greet() {
 
 		Client client = ClientBuilder.newClient();
 
-		String result = client.target("http://localhost:8080/sample-webapp-jsf/webresources/user-name/ほげ")
-				.request(MediaType.TEXT_PLAIN)
-				.get(String.class);
+		// http://localhost:8080/sample-webapp-jsf/webresources/user-name/ほげ
+		UriBuilder userNameUri = baseRestUriBuilder.path("user-name").path("ほげ").queryParam("age", 17);
 
-		setResultGet(result);
+		String greetingMessage = client.target(userNameUri).request(MediaType.TEXT_PLAIN).get(String.class);
+		setGreetingMessage(greetingMessage);
 
 		return null;
 	}
 
-	public String getUseByJson() {
+	/**
+	 * GETメソッドで名前を送り、JSONでユーザーを取得する
+	 *
+	 * @return
+	 */
+	public String getUserWithJson() {
 
 		Client client = ClientBuilder.newClient();
 
-		UserEntity userEntity = client.target("http://localhost:8080/sample-webapp-jsf/webresources/user/get?name=foo")
-				.request(MediaType.APPLICATION_JSON)
-				.get(UserEntity.class);
+		// http://localhost:8080/sample-webapp-jsf/webresources/user/get?name=foo
+		UriBuilder userGetUri = baseRestUriBuilder.path("user").path("get").queryParam("name", "foo");
+
+		UserEntity userEntity = client.target(userGetUri).request(MediaType.APPLICATION_JSON).get(UserEntity.class);
 
 		setUser(userEntity);
 
 		return null;
 	}
 
-	public String postUserByJson() {
+	/**
+	 * POSTメソッドでユーザーを送信する
+	 *
+	 * @return
+	 */
+	public String postUserWithJson() {
 
 		Client client = ClientBuilder.newClient();
 
@@ -61,9 +81,9 @@ public class RestClientBean {
 		user.setEmailAddress("bar@example.com");
 
 		// http://localhost:8080/sample-webapp-jsf/webresources/user/post?name=bar
-		UriBuilder userUri = userBaseUriBuilder.path("post").queryParam("name", user.getName());
+		UriBuilder userPostUri = baseRestUriBuilder.path("user").path("post").queryParam("name", user.getName());
 
-		Response response = client.target(userUri)
+		Response response = client.target(userPostUri)
 				.request(MediaType.APPLICATION_JSON).post(Entity.json(user));
 
 		setResponseStatus(response.getStatus());
