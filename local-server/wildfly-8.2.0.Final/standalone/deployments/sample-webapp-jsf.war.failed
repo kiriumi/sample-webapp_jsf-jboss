@@ -1,0 +1,5 @@
+"{\"JBAS014671: Failed services\" => {\"jboss.deployment.unit.\\\"sample-webapp-jsf.war\\\".WeldStartService\" => \"org.jboss.msc.service.StartException in service jboss.deployment.unit.\\\"sample-webapp-jsf.war\\\".WeldStartService: Failed to start service
+    Caused by: org.jboss.weld.exceptions.DeploymentException: WELD-001408: Unsatisfied dependencies for type UserService with qualifiers @Default
+  at injection point [BackedAnnotatedField] @Inject private logic.LoginBean.userService
+  at logic.LoginBean.userService(LoginBean.java:0)
+\"}}"

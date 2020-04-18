@@ -3,27 +3,43 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
     xmlns:f="http://java.sun.com/jsf/core"
-    xmlns:h="http://java.sun.com/jsf/html">
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+    xmlns:o="http://omnifaces.org/ui"
+    xmlns:of="http://omnifaces.org/functions">
 
 <h:head>
     <title>ログインページ</title>
 </h:head>
 <h:body>
     <h:form>
-        <h:panelGrid columns="2">
-            <h:outputLabel value="ID" />
-            <h:inputText value="#{loginBean.id}" />
+        <h:outputLabel value="#{loginBean.infoMessage}" />
+        <h:messages style="color:red;" />
+
+        <h:panelGrid columns="3">
+
+            <h:outputLabel value="Emailアドレス" p:type="email" />
+            <h:inputText id="emailAddress" value="#{loginBean.emailAddress}" />
+            <h:message for="emailAddress" />
 
             <h:outputLabel value="Password" />
-            <h:inputText value="#{loginBean.password}" />
+            <h:inputSecret id="password" value="#{loginBean.password}" />
+            <h:message for="password" />
 
             <!-- actionLister：actionより前に実行される -->
-            <h:commandButton value="ログイン"
-                actionListener="#{loginBean.loginCheck()}"
-                action="#{loginBean.login()}" />
+            <h:commandButton value="ログイン" action="#{loginBean.login()}">
+                <o:validateBean validationGroups="validation.AuthGroup" />
+            </h:commandButton>
 
+            <h:commandButton value="ユーザ登録" action="#{loginBean.goSignupPage()}">
+                <o:skipValidators />
+            </h:commandButton>
 
         </h:panelGrid>
+
+        <h:inputHidden id="auth" value="#{loginBean.auth}" />
+        <h:message for="auth" />
+
     </h:form>
 </h:body>
 </html>

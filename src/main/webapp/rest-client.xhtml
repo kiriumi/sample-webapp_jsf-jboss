@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+    xmlns:o="http://omnifaces.org/ui"
+    xmlns:of="http://omnifaces.org/functions">
+
+<h:head>
+    <title>RESTクライアント</title>
+</h:head>
+<h:body>
+    <h:form>
+
+        <h:panelGrid columns="3">
+
+            <h:commandButton value="GET" action="#{restClientBean.greet()}" />
+            <h:outputText value="あいさつ：" />
+            <h:outputText value="#{restClientBean.greetingMessage}" />
+
+            <h:commandButton value="Get user by JSON"
+                action="#{restClientBean.getUserWithJson()}" />
+            <h:outputText value="ユーザーのEmailアドレス：" />
+            <h:outputText value="#{restClientBean.user.emailAddress}" />
+
+            <h:commandButton value="Post user by JSON"
+                action="#{restClientBean.postUserWithJson()}" />
+            <h:outputText value="レスポンスステータス：" />
+            <h:outputText value="#{restClientBean.responseStatus}" />
+
+        </h:panelGrid>
+
+    </h:form>
+</h:body>
+</html>
+
