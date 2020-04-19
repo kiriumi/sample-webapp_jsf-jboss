@@ -1,28 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE log4j:configuration>
 <Configuration status="OFF">
-	<Properties>
-		<Property name="pattern">%d{yyyy-MM-dd HH:mm:ss.SSS} %-5p %t %C %M %m %n</Property>
-	</Properties>
-	<Appenders>
-		<Console name="console" target="SYSTEM_OUT">
-			<PatternLayout pattern="${pattern}" />
-		</Console>
-		<RollingFile name="file" fileName="log/log4j2.log"
-			filePattern="log/%d{yyyyMM}/log4j2_%d{yyyyMMdd}_%i.log">
-			<PatternLayout pattern="${pattern}" />
-			<Policies>
-				<OnStartupTriggeringPolicy />
-				<SizeBasedTriggeringPolicy size="2 MB" />
-				<TimeBasedTriggeringPolicy />
-			</Policies>
-			<DefaultRolloverStrategy max="10" />
-		</RollingFile>
-	</Appenders>
-	<Loggers>
-		<Root level="all">
-			<AppenderRef ref="console" />
-			<AppenderRef ref="file" />
-		</Root>
-	</Loggers>
+    <Properties>
+        <Property name="pattern">%d{yyyy-MM-dd HH:mm:ss.SSS} %-5p %t %C %M %m%n</Property>
+    </Properties>
+    <Appenders>
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${pattern}" />
+        </Console>
+        <RollingFile name="file" fileName="log/log4j2.log"
+            filePattern="log/%d{yyyyMM}/log4j2_%d{yyyyMMdd}_%i.log">
+            <PatternLayout pattern="${pattern}" />
+            <Policies>
+                <OnStartupTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="2 MB" />
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+            <DefaultRolloverStrategy max="10" />
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <Root level="ALL">
+            <AppenderRef ref="console" />
+            <AppenderRef ref="file" />
+        </Root>
+<!--         <Logger name="org.hibernate.SQL" level="DEBUG"> -->
+<!--             <AppenderRef ref="console" /> -->
+<!--             <AppenderRef ref="file" /> -->
+<!--         </Logger> -->
+        <Logger name="org.hibernate.type.descriptor.sql"
+            level="TRACE">
+            <AppenderRef ref="console" />
+            <AppenderRef ref="file" />
+        </Logger>
+    </Loggers>
 </Configuration>

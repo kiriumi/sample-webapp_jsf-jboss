@@ -15,7 +15,6 @@ import domain.UserService;
 import dto.User;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import repos.UserRepository;
 
 /**
  * ログインページクラス
@@ -44,15 +43,35 @@ public class SignupBean extends AbstractManagedBean {
 	@Inject
 	private UserService userService;
 
-	@Inject
-	private UserRepository userRepository;
-
 	@Transactional
 	public String signupUser() {
 
 		if (userService.hasUser(getEmailAddress())) {
 			return null;
 		}
+
+		userService.addUser(createUser());
+
+		getFlash().put("signupSccessMessage", "登録できたよ");
+
+		return "login.xhtml";
+	}
+
+	@Transactional
+	public String signupUserWithJpa() {
+
+		if (userService.hasUserWithJpa(getEmailAddress())) {
+			return null;
+		}
+
+		userService.addUserWithJpa(createUser());
+
+		getFlash().put("signupSccessMessage", "登録できたよ");
+
+		return "login.xhtml";
+	}
+
+	private User createUser() {
 
 		User user = new User();
 		user.setEmailaddress(getEmailAddress());
@@ -63,27 +82,6 @@ public class SignupBean extends AbstractManagedBean {
 		user.setCreatedtime(dateTime.toString());
 		user.setUpdatedtime(dateTime.toString());
 
-		userService.addUser(user);
-
-		getFlash().put("signupSccessMessage", "登録できたよ");
-
-		return "login.xhtml";
-	}
-
-	@Transactional
-	public String signupUserWithJpa() {
-
-		if (userRepository.hasUser(getEmailAddress())) {
-			return null;
-		}
-
-		model.UserEntity user = new model.UserEntity();
-		user.setEmailAddress(getEmailAddress());
-		user.setName(getName());
-		user.setPassword(getPassword());
-
-		userRepository.addUser(user);
-
-		return null;
+		return user;
 	}
 }

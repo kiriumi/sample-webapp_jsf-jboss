@@ -1,1 +1,1 @@
-CREATE TABLE USER(emailAddress INTEGER PRIMARY KEY, name TEXT NOT NULL, password TEXT NOT NULL, createdTime TEXT NOT NULL DEFAULT (DATETIME('now', 'localtime')), updatedTime TEXT NOT NULL DEFAULT (DATETIME('now', 'localtime')));
+CREATE TABLE USER(emailAddress TEXT PRIMARY KEY, name TEXT NOT NULL, password TEXT NOT NULL, createdTime TEXT NOT NULL DEFAULT (DATETIME('now', 'localtime')), updatedTime TEXT NOT NULL DEFAULT (DATETIME('now', 'localtime')));

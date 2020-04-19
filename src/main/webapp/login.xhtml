@@ -27,7 +27,8 @@
             <h:message for="password" />
 
             <!-- actionLister：actionより前に実行される -->
-            <h:commandButton value="ログイン" action="#{loginBean.login()}">
+            <h:commandButton value="ログイン" action="#{loginBean.login()}"
+                actionListener="#{loginBean.authenticate}">
                 <o:validateBean validationGroups="validation.AuthGroup" />
             </h:commandButton>
 
@@ -36,9 +37,6 @@
             </h:commandButton>
 
         </h:panelGrid>
-
-        <h:inputHidden id="auth" value="#{loginBean.auth}" />
-        <h:message for="auth" />
 
     </h:form>
 </h:body>

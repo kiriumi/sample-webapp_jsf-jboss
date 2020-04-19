@@ -1,9 +1,9 @@
 package application;
 
 import javax.enterprise.context.RequestScoped;
+import javax.faces.event.ActionEvent;
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
@@ -56,8 +56,8 @@ import validation.AuthGroup;
 @Named
 @RequestScoped
 @Data
-@Auth(emailAddress = "emailAddress", password = "password")
 @EqualsAndHashCode(callSuper = false)
+@Auth(emailAddress = "emailAddress", password = "password")
 @Logging
 public class LoginBean extends AbstractManagedBean {
 
@@ -70,16 +70,10 @@ public class LoginBean extends AbstractManagedBean {
 	@Pattern(regexp = "[0-9a-zA-Z]*")
 	private String password;
 
-	@AssertTrue(groups = AuthGroup.class)
-	//	private boolean auth = false;
-
-	public boolean isAuth() {
-		System.out.println(emailAddress);
-		return false;
-	}
-
 	@Inject
-	private UserService userService;
+	UserService userService;
+
+	private boolean authed = false;
 
 	@Override
 	protected void init() {
@@ -95,10 +89,23 @@ public class LoginBean extends AbstractManagedBean {
 	//	public void auth(final String emailAddress, final String password) {
 	//	};
 
+	public void authenticate(final ActionEvent event) {
+
+		if (userService.find(emailAddress, password)) {
+			this.authed = true;
+		}
+
+		setError(event, "error.message.login");
+	}
+
 	public String login() {
 
-		getFlash().put("loginSccessMessage", "ログインできたよ");
-		return "loginSuccess.xhtml";
+		if (authed) {
+			getFlash().put("loginSccessMessage", "ログインできたよ");
+			return "loginSuccess.xhtml";
+		}
+
+		return null;
 	}
 
 	public String goSignupPage() {

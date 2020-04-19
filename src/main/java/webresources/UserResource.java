@@ -12,7 +12,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 
 import domain.UserService;
-import model.UserEntity;
+import dto.User;
 
 /**
  * REST受信するクラス
@@ -30,11 +30,11 @@ public class UserResource {
 	@GET
 	@Path("get")
 	@Produces("application/json")
-	public UserEntity getUserByName(@QueryParam("name") final String name) {
+	public User getUserByName(@QueryParam("name") final String name) {
 
-		UserEntity user = new UserEntity();
+		User user = new User();
 		user.setName(name);
-		user.setEmailAddress(name + "@example.com");
+		user.setEmailaddress(name + "@example.com");
 
 		return user;
 	}
@@ -60,10 +60,10 @@ public class UserResource {
 	@Path("post")
 	@Consumes("application/json")
 	@Produces("application/json")
-	public UserEntity postByJson(final UserEntity user, @QueryParam("name") final String name) {
+	public User postByJson(final User user, @QueryParam("name") final String name) {
 
 		userService.toString();
-		user.setUpdatedTime(LocalDateTime.now().toString());
+		user.setUpdatedtime(LocalDateTime.now().toString());
 
 		return user;
 	}
@@ -88,9 +88,9 @@ public class UserResource {
 	@POST
 	@Consumes("application/xml")
 	@Produces("application/xml")
-	public UserEntity postByXml(final UserEntity user) {
+	public User postByXml(final User user) {
 
-		user.setUpdatedTime(LocalDateTime.now().toString());
+		user.setUpdatedtime(LocalDateTime.now().toString());
 		return user;
 	}
 
