@@ -4,23 +4,21 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 
-	<settings>
-		<setting name="logImpl" value="LOG4J2" />
-	</settings>
+    <settings>
+        <setting name="logImpl" value="LOG4J2" />
+    </settings>
 
-	<environments default="sqlite">
-		<environment id="sqlite">
-			<transactionManager type="MANAGED" />
-			<dataSource type="POOLED">
-				<property name="driver" value="org.sqlite.JDBC" />
-				<property name="url"
-					value="jdbc:sqlite:C:\Users\kengo\git\sample-webapp_jsf-jboss\db\user.db" />
-			</dataSource>
-		</environment>
-	</environments>
+    <environments default="postgres">
+        <environment id="postgres">
+            <transactionManager type="MANAGED" />
+            <dataSource type="JNDI">
+                <property name="data_source" value="java:/PostgresDS" />
+            </dataSource>
+        </environment>
+    </environments>
 
-	<mappers>
-		<mapper resource="sql/UserMapper.xml" />
-	</mappers>
+    <mappers>
+        <mapper resource="sql/UserMapper.xml" />
+    </mappers>
 
 </configuration>

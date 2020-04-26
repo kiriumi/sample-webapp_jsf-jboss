@@ -39,9 +39,6 @@ dependencies {
     compile group: 'org.primefaces', name: 'primefaces', version: '7.0'
     compile group: 'org.omnifaces', name: 'omnifaces', version: '3.4.1'
 
-
-
-
     testCompile group: 'junit', name: 'junit', version:'3.8.1'
 
     providedCompile group: 'javax', name: 'javaee-api', version: '8.0.1'

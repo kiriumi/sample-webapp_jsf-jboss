@@ -13,6 +13,7 @@ import javax.validation.constraints.Size;
 
 import domain.UserService;
 import dto.User;
+import dto.UserEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -28,60 +29,75 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = false)
 public class SignupBean extends AbstractManagedBean {
 
-	@NotBlank
-	@Email
-	private String emailAddress;
+    @NotBlank
+    @Email
+    private String emailAddress;
 
-	@NotBlank
-	private String name;
+    @NotBlank
+    private String name;
 
-	@NotBlank
-	@Size(min = 4, max = 8)
-	@Pattern(regexp = "[0-9a-zA-Z]*")
-	private String password;
+    @NotBlank
+    @Size(min = 4, max = 8)
+    @Pattern(regexp = "[0-9a-zA-Z]*")
+    private String password;
 
-	@Inject
-	private UserService userService;
+    @Inject
+    private UserService userService;
 
-	@Transactional
-	public String signupUser() {
+    @Transactional
+    public String signupUser() {
 
-		if (userService.hasUser(getEmailAddress())) {
-			return null;
-		}
+        if (userService.hasUser(getEmailAddress())) {
+            return null;
+        }
 
-		userService.addUser(createUser());
+        userService.addUser(createUser());
 
-		getFlash().put("signupSccessMessage", "登録できたよ");
+        getFlash().put("signupSccessMessage", "登録できたよ");
 
-		return "login.xhtml";
-	}
+        return "login.xhtml";
+    }
 
-	@Transactional
-	public String signupUserWithJpa() {
+    @Transactional
+    public String signupUserWithJpa() {
 
-		if (userService.hasUserWithJpa(getEmailAddress())) {
-			return null;
-		}
+        if (userService.hasUserWithJpa(getEmailAddress())) {
+            return null;
+        }
 
-		userService.addUserWithJpa(createUser());
+        userService.addUserWithJpa(createUserEntity());
 
-		getFlash().put("signupSccessMessage", "登録できたよ");
+        getFlash().put("signupSccessMessage", "登録できたよ");
 
-		return "login.xhtml";
-	}
+        return "login.xhtml";
+    }
 
-	private User createUser() {
+    private User createUser() {
 
-		User user = new User();
-		user.setEmailaddress(getEmailAddress());
-		user.setName(getName());
-		user.setPassword(getPassword());
+        User user = new User();
+        user.setEmailaddress(getEmailAddress());
+        user.setName(getName());
+        user.setPassword(getPassword());
 
-		LocalDateTime dateTime = LocalDateTime.now();
-		user.setCreatedtime(dateTime.toString());
-		user.setUpdatedtime(dateTime.toString());
+        LocalDateTime dateTime = LocalDateTime.now();
+        user.setCreatedtime(dateTime.toString());
+        user.setUpdatedtime(dateTime.toString());
 
-		return user;
-	}
+        return user;
+    }
+
+    private UserEntity createUserEntity() {
+
+        UserEntity user = new UserEntity();
+        user.setEmailaddress(getEmailAddress());
+        user.setName(getName());
+        user.setPassword(getPassword());
+
+        LocalDateTime dateTime = LocalDateTime.now();
+        user.setCreatedtime(dateTime.toString());
+        user.setUpdatedtime(dateTime.toString());
+
+        return user;
+    }
+
 }
