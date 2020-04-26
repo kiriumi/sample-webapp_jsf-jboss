@@ -10,8 +10,8 @@ import context.TestMode;
 
 @Interceptor
 @Priority(Interceptor.Priority.APPLICATION)
-@Rollbackable
-public class RollbackableInterceptor {
+@TestModeTransactional
+public class TestModeTransactionalInterceptor {
 
     @Inject
     private TestMode testMode;
@@ -21,7 +21,7 @@ public class RollbackableInterceptor {
 
         Object result = context.proceed();
 
-        testMode.setRollbackOnly();
+        testMode.setRollbackOnlyIfTesMode();
 
         return result;
     }

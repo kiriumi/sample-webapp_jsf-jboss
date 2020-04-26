@@ -5,7 +5,6 @@ import java.time.LocalDateTime;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.transaction.Transactional;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
@@ -13,7 +12,7 @@ import javax.validation.constraints.Size;
 
 import domain.UserService;
 import dto.User;
-import interceptor.Rollbackable;
+import interceptor.TestModeTransactional;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -44,8 +43,8 @@ public class SignupBean extends AbstractManagedBean {
     @Inject
     private UserService userService;
 
-    @Transactional
-    @Rollbackable
+    //    @Transactional
+    @TestModeTransactional
     public String signupUser() {
 
         if (userService.hasUser(getEmailAddress())) {
@@ -59,8 +58,8 @@ public class SignupBean extends AbstractManagedBean {
         return "login.xhtml";
     }
 
-    @Transactional
-    @Rollbackable
+    //    @Transactional
+    @TestModeTransactional
     public String signupUserWithJpa() {
 
         if (userService.hasUserWithJpa(getEmailAddress())) {

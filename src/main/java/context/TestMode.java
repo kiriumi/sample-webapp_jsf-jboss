@@ -21,7 +21,7 @@ public class TestMode implements Serializable {
         this.test = test ? false : true;
     }
 
-    public void setRollbackOnly() {
+    public void setRollbackOnlyIfTesMode() {
 
         if (test) {
             txRegistry.setRollbackOnly();
