@@ -13,7 +13,6 @@ import javax.validation.constraints.Size;
 
 import domain.UserService;
 import dto.User;
-import dto.UserEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -65,7 +64,7 @@ public class SignupBean extends AbstractManagedBean {
             return null;
         }
 
-        userService.addUserWithJpa(createUserEntity());
+        userService.addUserWithJpa(createUser());
 
         getFlash().put("signupSccessMessage", "登録できたよ");
 
@@ -75,20 +74,6 @@ public class SignupBean extends AbstractManagedBean {
     private User createUser() {
 
         User user = new User();
-        user.setEmailaddress(getEmailAddress());
-        user.setName(getName());
-        user.setPassword(getPassword());
-
-        LocalDateTime dateTime = LocalDateTime.now();
-        user.setCreatedtime(dateTime.toString());
-        user.setUpdatedtime(dateTime.toString());
-
-        return user;
-    }
-
-    private UserEntity createUserEntity() {
-
-        UserEntity user = new UserEntity();
         user.setEmailaddress(getEmailAddress());
         user.setName(getName());
         user.setPassword(getPassword());

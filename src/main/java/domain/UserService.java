@@ -11,7 +11,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.ibatis.session.SqlSession;
 
 import dto.User;
-import dto.UserEntity;
 import dto.UserExample;
 import mapper.UserMapper;
 
@@ -55,17 +54,18 @@ public class UserService {
     @PersistenceContext(unitName = "sampleUnit")
     private EntityManager entitiyManager;
 
-    public UserEntity findByEmailAddressWithJpa(final String emailAddress) {
-        return entitiyManager.find(UserEntity.class, emailAddress);
+    public User findByEmailAddressWithJpa(final String emailAddress) {
+        return entitiyManager.find(User.class, emailAddress);
     }
 
     public boolean hasUserWithJpa(final String emailAddress) {
 
-        UserEntity user = entitiyManager.find(UserEntity.class, emailAddress);
+        User user = entitiyManager.find(User.class, emailAddress);
         return user == null || StringUtils.isBlank(user.getEmailaddress()) ? false : true;
     }
 
-    public void addUserWithJpa(final UserEntity user) {
+    public void addUserWithJpa(final User user) {
         entitiyManager.persist(user);
     }
+
 }
