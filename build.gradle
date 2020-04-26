@@ -34,7 +34,8 @@ dependencies {
     // compile group: 'com.github.gwenn', name: 'sqlite-dialect', version: '0.1.0'
 
     compile group: 'org.postgresql', name: 'postgresql', version: '42.2.12', changing: true
-    compile group: 'org.eclipse.persistence', name: 'eclipselink', version: '2.7.6'
+    // compile group: 'org.eclipse.persistence', name: 'eclipselink', version: '2.7.6'
+    compile group: 'org.eclipse.persistence', name: 'org.eclipse.persistence.jpa', version: '2.7.6'
 
     compile group: 'org.primefaces', name: 'primefaces', version: '7.0'
     compile group: 'org.omnifaces', name: 'omnifaces', version: '3.4.1'
