@@ -13,19 +13,12 @@
 
         <jta-data-source>java:/PostgresDS</jta-data-source>
 
-        <class>dto.User</class> <!-- Eclipselinkの場合は必要 -->
 
-        <!-- EclipselinkでLog4j2のログを出力するため -->
-        <class>org.apache.logging.log4j.core.appender.db.jpa.converter.ContextMapAttributeConverter</class>
-        <class>org.apache.logging.log4j.core.appender.db.jpa.converter.ContextMapJsonAttributeConverter</class>
-        <class>org.apache.logging.log4j.core.appender.db.jpa.converter.ContextStackAttributeConverter</class>
-        <class>org.apache.logging.log4j.core.appender.db.jpa.converter.ContextStackJsonAttributeConverter</class>
-        <class>org.apache.logging.log4j.core.appender.db.jpa.converter.InstantAttributeConverter</class>
-        <class>org.apache.logging.log4j.core.appender.db.jpa.converter.LevelAttributeConverter</class>
-        <class>org.apache.logging.log4j.core.appender.db.jpa.converter.MarkerAttributeConverter</class>
-        <class>org.apache.logging.log4j.core.appender.db.jpa.converter.MessageAttributeConverter</class>
-        <class>org.apache.logging.log4j.core.appender.db.jpa.converter.StackTraceElementAttributeConverter</class>
-        <class>org.apache.logging.log4j.core.appender.db.jpa.converter.ThrowableAttributeConverter</class>
+
+        <!-- Eclipselinkの場合は必要 -->
+        <class>dto.User</class>
+
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
 
         <shared-cache-mode>NONE</shared-cache-mode>
 
@@ -40,10 +33,15 @@
             <property name="eclipselink.ddl-generation.output-mode"
                 value="database" />
 
-            <!-- ログレベル参考： https://www.eclipse.org/eclipselink/documentation/2.4/jpa/extensions/p_logging_level.htm -->
-            <!-- <property name="eclipselink.logging.level" value="FINEST" /> -->
-            <!-- <property name="eclipselink.logging.level.sql" value="FINE" /> -->
-            <!-- <property name="eclipselink.logging.parameters" value="true" /> -->
+            <!-- Log4j2でEclipselinkのログを出力するため -->
+            <!-- 参考：https://wiki.eclipse.org/EclipseLink/Examples/JPA/CustomLogger -->
+            <property name="eclipselink.session.customizer"
+                value="log.JpaEclipseLinkSessionCustomizer" />
+
+            <!-- ログレベル参考：https://www.eclipse.org/eclipselink/documentation/2.4/jpa/extensions/p_logging_level.htm -->
+            <property name="eclipselink.logging.level" value="SEVERE" />
+            <property name="eclipselink.logging.level.sql" value="FINER" />
+            <property name="eclipselink.logging.parameters" value="true" />
 
             <!-- Hibernateの場合 -->
             <!-- <property name="hibernate.hbm2ddl.auto" value="update" /> -->

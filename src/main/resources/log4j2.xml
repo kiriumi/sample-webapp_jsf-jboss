@@ -35,9 +35,6 @@
             <TimeBasedTriggeringPolicy />
         </RollingFile>
 
-        <JPA name="eclipselink" persistenceUnitName="sampleUnit"
-            entityClassName="dto.User" ignoreExceptions="false" />
-
     </Appenders>
 
     <Loggers>
@@ -51,9 +48,10 @@
             <AppenderRef ref="file" />
         </Logger>
 
-        <Logger name="dto" level="DEBUG" additivity="false">
-            <AppenderRef ref="eclipselink" />
-        </Logger>
+        <logger name="log.JpaEclipselinkLog" level="DEBUG"
+            additivity="false">
+            <AppenderRef ref="file-db" />
+        </logger>
     </Loggers>
 
 </Configuration>
