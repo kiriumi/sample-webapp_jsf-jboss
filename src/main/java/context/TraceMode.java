@@ -10,23 +10,26 @@ import org.apache.logging.log4j.core.LoggerContext;
 import org.apache.logging.log4j.core.config.Configuration;
 import org.apache.logging.log4j.core.config.LoggerConfig;
 
+import log.JpaEclipselinkLogger;
+
 @SessionScoped
 public class TraceMode implements Serializable {
 
-	private boolean trace;
+    private boolean trace = false;
 
-	public void switchMode() {
-		this.trace = trace ? false : true;
-		changeLogLevel();
-	}
+    public void switchMode() {
+        this.trace = trace ? false : true;
+        changeLogLevel();
+    }
 
-	private void changeLogLevel() {
+    private void changeLogLevel() {
 
-		LoggerContext loggerContext = (LoggerContext) LogManager.getContext(false);
-		Configuration configuration = loggerContext.getConfiguration();
-		LoggerConfig loggerConfig = configuration.getLoggerConfig(LogManager.ROOT_LOGGER_NAME);
+        LoggerContext loggerContext = (LoggerContext) LogManager.getContext(false);
+        Configuration configuration = loggerContext.getConfiguration();
+        LoggerConfig loggerConfig = configuration.getLoggerConfig(JpaEclipselinkLogger.LOGGER_NAME);
 
-		loggerConfig.setLevel(trace ? Level.TRACE : Level.INFO);
-		loggerContext.updateLoggers();
-	}
+        loggerConfig.setLevel(trace ? Level.TRACE : Level.INFO);
+        loggerContext.updateLoggers();
+    }
+
 }

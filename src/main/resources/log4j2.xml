@@ -48,7 +48,7 @@
             <AppenderRef ref="file" />
         </Logger>
 
-        <logger name="log.JpaEclipselinkLog" level="DEBUG"
+        <logger name="log.JpaEclipselinkLog" level="INFO"
             additivity="false">
             <AppenderRef ref="file-db" />
         </logger>

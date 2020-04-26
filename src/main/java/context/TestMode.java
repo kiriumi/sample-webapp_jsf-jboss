@@ -8,19 +8,19 @@ import javax.enterprise.context.SessionScoped;
 @SessionScoped
 public class TestMode implements Serializable {
 
-	private boolean test;
+    private boolean test = false;
 
-	@EJB
-	private EjbContextProvider contextProvider;
+    @EJB
+    private EjbContextProvider contextProvider;
 
-	public void switchMode() {
-		this.test = test ? false : true;
-	}
+    public void switchMode() {
+        this.test = test ? false : true;
+    }
 
-	public void setTransaction() {
+    public void setTransaction() {
 
-		if (test) {
-			contextProvider.getSessionContext().setRollbackOnly();
-		}
-	}
+        if (test) {
+            contextProvider.getSessionContext().setRollbackOnly();
+        }
+    }
 }

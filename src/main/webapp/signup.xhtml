@@ -15,7 +15,6 @@
     <h:form>
 
         <h:panelGrid columns="3">
-
             <h:outputLabel value="Emailアドレス" p:type="email" />
             <h:inputText id="emailAddress" value="#{signupBean.emailAddress}" />
             <h:message for="emailAddress" />
@@ -27,7 +26,9 @@
             <h:outputLabel value="Password" />
             <h:inputSecret id="password" value="#{signupBean.password}" />
             <h:message for="password" />
+        </h:panelGrid>
 
+        <h:panelGrid columns="2">
             <h:commandButton value="ユーザ登録（MyBatis）"
                 action="#{signupBean.signupUser()}" />
 
@@ -39,6 +40,10 @@
                 <o:skipValidators />
             </h:commandButton>
 
+            <h:commandButton value="トレースモード変更"
+                action="#{loginBean.switchTraceMode()}">
+                <o:skipValidators />
+            </h:commandButton>
         </h:panelGrid>
 
     </h:form>
