@@ -1,5 +1,7 @@
 package application;
 
+import java.util.ResourceBundle;
+
 import javax.enterprise.context.RequestScoped;
 import javax.faces.event.ActionEvent;
 import javax.inject.Inject;
@@ -76,6 +78,11 @@ public class LoginBean extends AbstractManagedBean {
 
     @Override
     protected void preConstruct() {
+
+        ResourceBundle resourceBundle = ResourceBundle.getBundle("env");
+        String rootDirName = resourceBundle.getString("root.dir");
+        System.out.println(rootDirName);
+
         setInfoMessage((String) getFlash().get("signupSccessMessage"));
     }
 
