@@ -51,7 +51,6 @@ public abstract class AbstractManagedBean {
     }
 
     public void preRender() {
-        testMode.setRollbackOnly();
         LOGGER.debug("preRender");
     }
 
@@ -65,7 +64,6 @@ public abstract class AbstractManagedBean {
     @PreDestroy
     public void doFin() {
         fin();
-        testMode.setRollbackOnly();
     }
 
     protected void preConstruct() {

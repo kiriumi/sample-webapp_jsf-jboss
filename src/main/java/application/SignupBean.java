@@ -13,6 +13,7 @@ import javax.validation.constraints.Size;
 
 import domain.UserService;
 import dto.User;
+import interceptor.Rollbackable;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -44,6 +45,7 @@ public class SignupBean extends AbstractManagedBean {
     private UserService userService;
 
     @Transactional
+    @Rollbackable
     public String signupUser() {
 
         if (userService.hasUser(getEmailAddress())) {
@@ -58,6 +60,7 @@ public class SignupBean extends AbstractManagedBean {
     }
 
     @Transactional
+    @Rollbackable
     public String signupUserWithJpa() {
 
         if (userService.hasUserWithJpa(getEmailAddress())) {

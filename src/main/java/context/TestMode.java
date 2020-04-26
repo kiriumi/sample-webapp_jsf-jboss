@@ -2,16 +2,20 @@ package context;
 
 import java.io.Serializable;
 
-import javax.ejb.EJB;
+import javax.annotation.Resource;
 import javax.enterprise.context.SessionScoped;
+import javax.transaction.TransactionSynchronizationRegistry;
+
+import lombok.Getter;
 
 @SessionScoped
 public class TestMode implements Serializable {
 
+    @Getter
     private boolean test = false;
 
-    @EJB
-    private EjbContextProvider contextProvider;
+    @Resource
+    private TransactionSynchronizationRegistry txRegistry;
 
     public void switchMode() {
         this.test = test ? false : true;
@@ -20,7 +24,7 @@ public class TestMode implements Serializable {
     public void setRollbackOnly() {
 
         if (test) {
-            contextProvider.getSessionContext().setRollbackOnly();
+            txRegistry.setRollbackOnly();
         }
     }
 }
