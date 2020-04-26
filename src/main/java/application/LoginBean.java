@@ -11,6 +11,7 @@ import javax.validation.constraints.Size;
 
 import domain.UserService;
 import interceptor.Logging;
+import interceptor.Redirect;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import validation.Auth;
@@ -61,55 +62,62 @@ import validation.AuthGroup;
 @Logging
 public class LoginBean extends AbstractManagedBean {
 
-	@NotBlank(groups = AuthGroup.class)
-	@Email
-	private String emailAddress;
+    @NotBlank(groups = AuthGroup.class)
+    @Email
+    private String emailAddress;
 
-	@NotBlank(groups = AuthGroup.class)
-	@Size(min = 4, max = 8)
-	@Pattern(regexp = "[0-9a-zA-Z]*")
-	private String password;
+    @NotBlank(groups = AuthGroup.class)
+    @Size(min = 4, max = 8)
+    @Pattern(regexp = "[0-9a-zA-Z]*")
+    private String password;
 
-	@Inject
-	UserService userService;
+    @Inject
+    UserService userService;
 
-	private boolean authed = false;
+    private boolean authed = false;
 
-	@Override
-	protected void init() {
-		setInfoMessage((String) getFlash().get("signupSccessMessage"));
-	}
+    @Override
+    protected void init() {
+        setInfoMessage((String) getFlash().get("signupSccessMessage"));
+    }
 
-	//	/**
-	//	 * JSFでなければ、メソッドバリデーションが行える
-	//	 * @param emailAddress
-	//	 * @param password
-	//	 */
-	//	@AuthSpring
-	//	public void auth(final String emailAddress, final String password) {
-	//	};
+    //	/**
+    //	 * Springであれば、メソッドバリデーションが行える
+    //	 * @param emailAddress
+    //	 * @param password
+    //	 */
+    //	@AuthSpring
+    //	public void auth(final String emailAddress, final String password) {
+    //	};
 
-	public void authenticate(final ActionEvent event) {
+    public void authenticate(final ActionEvent event) {
 
-		if (userService.find(emailAddress, password)) {
-			this.authed = true;
-		}
+        if (userService.find(emailAddress, password)) {
+            this.authed = true;
+        }
 
-		setError(event, "error.message.login");
-	}
+        setError(event, "error.message.login");
+    }
 
-	public String login() {
+    public String login() {
 
-		if (authed) {
-			getFlash().put("loginSccessMessage", "ログインできたよ");
-			return "loginSuccess.xhtml";
-		}
+        if (authed) {
+            getFlash().put("loginSccessMessage", "ログインできたよ");
+            return "loginSuccess.xhtml";
+        }
 
-		return null;
-	}
+        return null;
+    }
 
-	public String goSignupPage() {
-		return "signup.xhtml";
-	}
+    @Redirect
+    public String goSignupPage() {
+        //        return "signup?faces-redirect=true";
+        return "signup";
+    }
+
+    @Redirect
+    public String goLogoutPage() {
+        return "logout";
+    }
 
 }

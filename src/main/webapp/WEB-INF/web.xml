@@ -9,8 +9,8 @@
         <param-name>javax.faces.validator.ENABLE_VALIDATE_WHOLE_BEAN</param-name>
         <param-value>true</param-value>
 
-<!--         <param-name>javax.faces.PROJECT_STAGE</param-name> -->
-<!--         <param-value>Development</param-value> -->
+        <!-- <param-name>javax.faces.PROJECT_STAGE</param-name> -->
+        <!-- <param-value>Development</param-value> -->
     </context-param>
 
     <servlet>
@@ -21,5 +21,14 @@
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>*.xhtml</url-pattern>
     </servlet-mapping>
+
+    <error-page>
+        <exception-type>javax.faces.application.ProtectedViewException</exception-type>
+        <location>/error.xhtml</location>
+    </error-page>
+    <error-page>
+        <exception-type>javax.faces.application.ViewExpiredException</exception-type>
+        <location>/session-error.xhtml</location>
+    </error-page>
 
 </web-app>
