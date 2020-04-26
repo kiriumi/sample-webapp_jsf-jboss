@@ -26,7 +26,7 @@ public class TraceMode implements Serializable {
 
         LoggerContext loggerContext = (LoggerContext) LogManager.getContext(false);
         Configuration configuration = loggerContext.getConfiguration();
-        LoggerConfig loggerConfig = configuration.getLoggerConfig(JpaEclipselinkLogger.LOGGER_NAME);
+        LoggerConfig loggerConfig = configuration.getLoggerConfig(JpaEclipselinkLogger.class.getName());
 
         loggerConfig.setLevel(trace ? Level.TRACE : Level.INFO);
         loggerContext.updateLoggers();

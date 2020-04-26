@@ -1,6 +1,7 @@
 package interceptor;
 
 import javax.annotation.Priority;
+import javax.faces.context.FacesContext;
 import javax.interceptor.AroundInvoke;
 import javax.interceptor.Interceptor;
 import javax.interceptor.InvocationContext;
@@ -13,15 +14,18 @@ import org.apache.logging.log4j.Logger;
 @Redirect
 public class RedirectInterceptor {
 
-    Logger logger = LogManager.getLogger();
+    private final Logger LOGGER = LogManager.getLogger(LogInterceptor.class);
 
     @AroundInvoke
     public Object around(final InvocationContext context) throws Exception {
 
+        LOGGER.debug("リクエスト：{}", FacesContext.getCurrentInstance().getExternalContext().getRequest().toString());
+        LOGGER.debug("レスポンス：{}", FacesContext.getCurrentInstance().getExternalContext().getResponse().toString());
+
         Object outcome = context.proceed();
         outcome = outcome.toString() + "?faces-redirect=true";
 
-        logger.debug("リダイレクトのパラメータ付与：{}", outcome);
+        LOGGER.debug("リダイレクトのパラメータ付与：{}", outcome);
 
         return outcome;
     }

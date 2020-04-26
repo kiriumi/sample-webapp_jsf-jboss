@@ -49,7 +49,9 @@ public class UserService {
         mapper.insert(user);
     }
 
-    // --------
+    // ↑MyBatis
+    // ----------------
+    // ↓JPA
 
     @PersistenceContext(unitName = "sampleUnit")
     private EntityManager entitiyManager;

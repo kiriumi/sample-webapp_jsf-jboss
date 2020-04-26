@@ -8,9 +8,7 @@ import org.eclipse.persistence.logging.SessionLogEntry;
 
 public class JpaEclipselinkLogger extends AbstractSessionLog {
 
-    public static final String LOGGER_NAME = "log.JpaEclipselinkLog";
-
-    private static final Logger logger = LogManager.getLogger(LOGGER_NAME);
+    private static final Logger logger = LogManager.getLogger(JpaEclipselinkLogger.class);
 
     @Override
     public void log(final SessionLogEntry sessionLogEntry) {

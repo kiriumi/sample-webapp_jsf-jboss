@@ -17,7 +17,7 @@ public class TestMode implements Serializable {
         this.test = test ? false : true;
     }
 
-    public void setTransaction() {
+    public void setRollbackOnly() {
 
         if (test) {
             contextProvider.getSessionContext().setRollbackOnly();

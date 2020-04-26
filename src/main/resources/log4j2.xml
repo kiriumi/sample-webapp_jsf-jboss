@@ -40,16 +40,17 @@
     <Loggers>
         <Root level="ALL">
             <AppenderRef ref="console" />
-            <AppenderRef ref="eclipselink" />
         </Root>
 
         <Logger name="interceptor.LogInterceptor" level="DEBUG"
             additivity="false">
+            <AppenderRef ref="console" />
             <AppenderRef ref="file" />
         </Logger>
 
-        <logger name="log.JpaEclipselinkLog" level="INFO"
+        <logger name="log.JpaEclipselinkLogger" level="INFO"
             additivity="false">
+            <AppenderRef ref="console" />
             <AppenderRef ref="file-db" />
         </logger>
     </Loggers>
