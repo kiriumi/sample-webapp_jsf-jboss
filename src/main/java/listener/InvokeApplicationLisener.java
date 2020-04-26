@@ -9,16 +9,16 @@ import org.apache.logging.log4j.Logger;
 
 public class InvokeApplicationLisener implements PhaseListener {
 
-    private final Logger LOGGER = LogManager.getLogger();
+    private final Logger logger = LogManager.getLogger();
 
     @Override
     public void beforePhase(final PhaseEvent event) {
-        LOGGER.debug("アプリケーション実行リスナー：前処理");
+        logger.debug("アプリケーション実行リスナー：前処理");
     }
 
     @Override
     public void afterPhase(final PhaseEvent event) {
-        LOGGER.debug("アプリケーション実行リスナー：後処理");
+        logger.debug("アプリケーション実行リスナー：後処理");
     }
 
     @Override

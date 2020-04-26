@@ -39,23 +39,23 @@ public abstract class AbstractManagedBean {
     @Setter
     private User user;
 
-    private final Logger LOGGER = LogManager.getLogger();
+    private final Logger logger = LogManager.getLogger();
 
     /**
      * 管理Beanを初期化する際、実行する処理処理
      */
     @PostConstruct
     public void doPreConstruct() {
-        LOGGER.debug("preConstruct");
+        logger.debug("preConstruct");
         preConstruct();
     }
 
     public void preRender() {
-        LOGGER.debug("preRender");
+        logger.debug("preRender");
     }
 
     public void viewAction() {
-        LOGGER.debug("viewAction");
+        logger.debug("viewAction");
     }
 
     /**

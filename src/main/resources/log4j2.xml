@@ -53,12 +53,6 @@
             <AppenderRef ref="console" />
             <AppenderRef ref="file-db" />
         </logger>
-
-        <logger name="log.JpaEclipselinkLogger" level="INFO"
-            additivity="false">
-            <AppenderRef ref="console" />
-            <AppenderRef ref="file-db" />
-        </logger>
     </Loggers>
 
 </Configuration>

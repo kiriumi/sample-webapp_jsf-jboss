@@ -12,9 +12,9 @@ import javax.validation.constraints.Size;
 
 import domain.UserService;
 import dto.User;
-import interceptor.TestModeTransactional;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import mode.TestModeTransactional;
 
 /**
  * ログインページクラス
