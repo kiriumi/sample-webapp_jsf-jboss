@@ -1,5 +1,8 @@
 package interceptor;
 
+import java.util.Arrays;
+import java.util.List;
+
 import javax.annotation.Priority;
 import javax.interceptor.AroundInvoke;
 import javax.interceptor.Interceptor;
@@ -13,20 +16,22 @@ import org.apache.logging.log4j.Logger;
 @Logging
 public class LogInterceptor {
 
-	Logger logger = LogManager.getLogger();
+    Logger logger = LogManager.getLogger();
 
-	@AroundInvoke
-	public Object around(final InvocationContext context) throws Exception {
+    @AroundInvoke
+    public Object around(final InvocationContext context) throws Exception {
 
-		String methodName = context.getMethod().getName();
+        String methodName = context.getMethod().getName();
 
-		logger.debug("インターセプタ―開始：{}", methodName);
+        logger.debug("開始：{}", methodName);
+        List<Object> params = Arrays.asList(context.getParameters());
+        params.stream().forEach(param -> logger.debug("{}", param.toString()));
 
-		Object result = context.proceed();
+        Object result = context.proceed();
 
-		logger.debug("インターセプタ―終了：{}", methodName);
+        logger.debug("終了：{}", methodName);
 
-		return result;
+        return result;
 
-	}
+    }
 }

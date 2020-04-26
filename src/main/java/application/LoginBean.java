@@ -10,7 +10,6 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import domain.UserService;
-import interceptor.Logging;
 import interceptor.Redirect;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -59,7 +58,6 @@ import validation.AuthGroup;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Auth(emailAddress = "emailAddress", password = "password")
-@Logging
 public class LoginBean extends AbstractManagedBean {
 
     @NotBlank(groups = AuthGroup.class)
@@ -77,7 +75,7 @@ public class LoginBean extends AbstractManagedBean {
     private boolean authed = false;
 
     @Override
-    protected void init() {
+    protected void preConstruct() {
         setInfoMessage((String) getFlash().get("signupSccessMessage"));
     }
 

@@ -17,55 +17,55 @@ import mapper.UserMapper;
 @Dependent
 public class UserService {
 
-	@Inject
-	private SqlSession sqlSession;
+    @Inject
+    private SqlSession sqlSession;
 
-	public boolean find(final String emailAddress, final String password) {
+    public boolean find(final String emailAddress, final String password) {
 
-		UserExample example = new UserExample();
-		example.createCriteria().andEmailaddressEqualTo(emailAddress);
-		example.createCriteria().andPasswordEqualTo(password);
+        UserExample example = new UserExample();
+        example.createCriteria().andEmailaddressEqualTo(emailAddress);
+        example.createCriteria().andPasswordEqualTo(password);
 
-		UserMapper mapper = sqlSession.getMapper(UserMapper.class);
-		List<User> users = mapper.selectByExample(example);
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        List<User> users = mapper.selectByExample(example);
 
-		return users.size() > 0;
-	}
+        return users.size() > 0;
+    }
 
-	public boolean hasUser(final String emailAddress) {
+    public boolean hasUser(final String emailAddress) {
 
-		UserExample example = new UserExample();
-		example.createCriteria().andEmailaddressEqualTo(emailAddress);
+        UserExample example = new UserExample();
+        example.createCriteria().andEmailaddressEqualTo(emailAddress);
 
-		UserMapper mapper = sqlSession.getMapper(UserMapper.class);
-		List<User> users = mapper.selectByExample(example);
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        List<User> users = mapper.selectByExample(example);
 
-		return users.size() > 0;
-	}
+        return users.size() > 0;
+    }
 
-	public void addUser(final User user) {
+    public void addUser(final User user) {
 
-		UserMapper mapper = sqlSession.getMapper(UserMapper.class);
-		mapper.insert(user);
-	}
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        mapper.insert(user);
+    }
 
-	// --------
+    // --------
 
-	@PersistenceContext(unitName = "sampleUnit")
-	private EntityManager entitiyManager;
+    @PersistenceContext(unitName = "sampleUnit")
+    private EntityManager entitiyManager;
 
-	public User findByEmailAddressWithJpa(final String emailAddress) {
-		return entitiyManager.find(User.class, emailAddress);
-	}
+    public User findByEmailAddressWithJpa(final String emailAddress) {
+        return entitiyManager.find(User.class, emailAddress);
+    }
 
-	public boolean hasUserWithJpa(final String emailAddress) {
+    public boolean hasUserWithJpa(final String emailAddress) {
 
-		User user = entitiyManager.find(User.class, emailAddress);
+        User user = entitiyManager.find(User.class, emailAddress);
 
-		return user == null || StringUtils.isBlank(user.getEmailaddress()) ? false : true;
-	}
+        return user == null || StringUtils.isBlank(user.getEmailaddress()) ? false : true;
+    }
 
-	public void addUserWithJpa(final User user) {
-		entitiyManager.persist(user);
-	}
+    public void addUserWithJpa(final User user) {
+        entitiyManager.persist(user);
+    }
 }

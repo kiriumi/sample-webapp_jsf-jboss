@@ -13,90 +13,112 @@ import javax.faces.event.ActionEvent;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import context.TestMode;
 import context.TraceMode;
+import dto.User;
+import interceptor.Logging;
 import lombok.Getter;
+import lombok.Setter;
 
+@Logging
 public abstract class AbstractManagedBean {
 
-	@Inject
-	private TestMode testMode;
+    @Inject
+    private TestMode testMode;
 
-	@Inject
-	private TraceMode traceMode;
+    @Inject
+    private TraceMode traceMode;
 
-	@Getter
-	private String infoMessage;
+    @Getter
+    private String infoMessage;
 
-	/**
-	 * 管理Beanを初期化する際、実行する処理処理
-	 */
-	@PostConstruct
-	public void doInit() {
-		init();
-	}
+    @Getter
+    @Setter
+    private User user;
 
-	/**
-	 * 管理Beanを破棄する際、実行する処理
-	 */
-	@PreDestroy
-	public void doFin() {
-		fin();
-		testMode.setTransaction();
-	}
+    private final Logger LOGGER = LogManager.getLogger();
 
-	protected void init() {
+    /**
+     * 管理Beanを初期化する際、実行する処理処理
+     */
+    @PostConstruct
+    public void doPreConstruct() {
+        LOGGER.debug("preConstruct");
+        preConstruct();
+    }
 
-	}
+    public void preRender() {
+        LOGGER.debug("preRender");
+    }
 
-	protected void fin() {
+    public void viewAction() {
+        LOGGER.debug("viewAction");
+    }
 
-	}
+    /**
+     * 管理Beanを破棄する際、実行する処理
+     */
+    @PreDestroy
+    public void doFin() {
+        fin();
+        testMode.setTransaction();
+    }
 
-	public void switchTestMode() {
-		testMode.switchMode();
-	}
+    protected void preConstruct() {
 
-	public void switchTraceMode() {
-		traceMode.switchMode();
-	}
+    }
 
-	/**
-	 * Flashを取得する
-	 * ※ １度の画面遷移の間だけ有効な、情報受渡しマップ
-	 *
-	 * @return
-	 */
-	protected Flash getFlash() {
-		return FacesContext.getCurrentInstance().getExternalContext().getFlash();
-	}
+    protected void fin() {
 
-	/**
-	 * セッションを取得する
-	 * @return セッション
-	 */
-	protected HttpSession getSession() {
-		return (HttpSession) FacesContext.getCurrentInstance().getExternalContext()
-				.getSession(true);
-	}
+    }
 
-	protected void setInfoMessage(final String infoMessage) {
-		this.infoMessage = Optional.ofNullable(infoMessage).orElse("");
-	}
+    public void switchTestMode() {
+        testMode.switchMode();
+    }
 
-	protected void setError(final ActionEvent event, final String messageId) {
+    public void switchTraceMode() {
+        traceMode.switchMode();
+    }
 
-		ResourceBundle resourceBundle = ResourceBundle.getBundle("ValidationMessages");
-		FacesContext context = event.getFacesContext();
+    /**
+     * Flashを取得する
+     * ※ １度の画面遷移の間だけ有効な、情報受渡しマップ
+     *
+     * @return
+     */
+    protected Flash getFlash() {
+        return FacesContext.getCurrentInstance().getExternalContext().getFlash();
+    }
 
-		UIComponent component = event.getComponent();
+    /**
+     * セッションを取得する
+     * @return セッション
+     */
+    protected HttpSession getSession() {
+        return (HttpSession) FacesContext.getCurrentInstance().getExternalContext()
+                .getSession(true);
+    }
 
-		String errorEessage = resourceBundle.getString(messageId);
+    protected void setInfoMessage(final String infoMessage) {
+        this.infoMessage = Optional.ofNullable(infoMessage).orElse("");
+    }
 
-		FacesMessage message = new FacesMessage(errorEessage);
-		message.setSeverity(FacesMessage.SEVERITY_ERROR);
-		context.addMessage(component.getClientId(), message);
-		context.renderResponse();
-	}
+    protected void setError(final ActionEvent event, final String messageId) {
+
+        ResourceBundle resourceBundle = ResourceBundle.getBundle("ValidationMessages");
+        FacesContext context = event.getFacesContext();
+
+        UIComponent component = event.getComponent();
+
+        String errorEessage = resourceBundle.getString(messageId);
+
+        FacesMessage message = new FacesMessage(errorEessage);
+        message.setSeverity(FacesMessage.SEVERITY_ERROR);
+        context.addMessage(component.getClientId(), message);
+        context.renderResponse();
+    }
 
 }

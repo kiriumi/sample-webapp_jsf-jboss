@@ -21,7 +21,7 @@ public class LoginSccessBean extends AbstractManagedBean {
 	private String message;
 
 	@Override
-	public void init() {
+	public void preConstruct() {
 		setInfoMessage((String) getFlash().get("loginSccessMessage"));
 	}
 
