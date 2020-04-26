@@ -82,7 +82,7 @@ public class LoginBean extends AbstractManagedBean {
     }
 
     //	/**
-    //	 * Springであれば、メソッドバリデーションが行える
+    //	 * Springでなければ、メソッドバリデーションが行える
     //	 * @param emailAddress
     //	 * @param password
     //	 */

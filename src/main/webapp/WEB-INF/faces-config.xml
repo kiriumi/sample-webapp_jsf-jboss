@@ -10,6 +10,10 @@
         </locale-config>
     </application>
 
+    <lifecycle>
+        <phase-listener>listener.InvokeApplicationLisener</phase-listener>
+    </lifecycle>
+
     <protected-views>
         <!-- GETに対するトークンチェック対象のページ（正規表現は使えない） -->
         <url-pattern>/signup.xhtml</url-pattern>
