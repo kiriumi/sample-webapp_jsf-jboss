@@ -1,20 +1,32 @@
 package application;
 
-import java.io.Serializable;
 import java.util.Optional;
+import java.util.ResourceBundle;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
+import javax.faces.application.FacesMessage;
+import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.Flash;
+import javax.faces.event.ActionEvent;
+import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
-import lombok.Data;
+import context.TestMode;
+import context.TraceMode;
+import lombok.Getter;
 
-@Data
-public abstract class AbstractManagedBean implements Serializable {
+public abstract class AbstractManagedBean {
 
-	protected String infoMessage;
+	@Inject
+	private TestMode testMode;
+
+	@Inject
+	private TraceMode traceMode;
+
+	@Getter
+	private String infoMessage;
 
 	/**
 	 * 管理Beanを初期化する際、実行する処理処理
@@ -30,7 +42,7 @@ public abstract class AbstractManagedBean implements Serializable {
 	@PreDestroy
 	public void doFin() {
 		fin();
-
+		testMode.setTransaction();
 	}
 
 	protected void init() {
@@ -39,6 +51,14 @@ public abstract class AbstractManagedBean implements Serializable {
 
 	protected void fin() {
 
+	}
+
+	public void switchTestMode() {
+		testMode.switchMode();
+	}
+
+	public void switchTraceMode() {
+		traceMode.switchMode();
 	}
 
 	/**
@@ -64,14 +84,19 @@ public abstract class AbstractManagedBean implements Serializable {
 		this.infoMessage = Optional.ofNullable(infoMessage).orElse("");
 	}
 
-	//	protected void setErrorMessage(final String errorMessage) {
-	//
-	//		FacesContext context = FacesContext.getCurrentInstance();
-	//
-	//		FacesMessage message = new FacesMessage(errorMessage);
-	//		message.setSeverity(FacesMessage.SEVERITY_ERROR);
-	//		context.addMessage(component.getClientId(), message);
-	//		context.renderResponse();
-	//	}
+	protected void setError(final ActionEvent event, final String messageId) {
+
+		ResourceBundle resourceBundle = ResourceBundle.getBundle("ValidationMessages");
+		FacesContext context = event.getFacesContext();
+
+		UIComponent component = event.getComponent();
+
+		String errorEessage = resourceBundle.getString(messageId);
+
+		FacesMessage message = new FacesMessage(errorEessage);
+		message.setSeverity(FacesMessage.SEVERITY_ERROR);
+		context.addMessage(component.getClientId(), message);
+		context.renderResponse();
+	}
 
 }

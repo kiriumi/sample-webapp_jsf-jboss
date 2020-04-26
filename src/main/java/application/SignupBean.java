@@ -46,9 +46,32 @@ public class SignupBean extends AbstractManagedBean {
 	@Transactional
 	public String signupUser() {
 
-		if (userService.exists(getEmailAddress())) {
+		if (userService.hasUser(getEmailAddress())) {
 			return null;
 		}
+
+		userService.addUser(createUser());
+
+		getFlash().put("signupSccessMessage", "登録できたよ");
+
+		return "login.xhtml";
+	}
+
+	@Transactional
+	public String signupUserWithJpa() {
+
+		if (userService.hasUserWithJpa(getEmailAddress())) {
+			return null;
+		}
+
+		userService.addUserWithJpa(createUser());
+
+		getFlash().put("signupSccessMessage", "登録できたよ");
+
+		return "login.xhtml";
+	}
+
+	private User createUser() {
 
 		User user = new User();
 		user.setEmailaddress(getEmailAddress());
@@ -59,10 +82,6 @@ public class SignupBean extends AbstractManagedBean {
 		user.setCreatedtime(dateTime.toString());
 		user.setUpdatedtime(dateTime.toString());
 
-		userService.addUser(user);
-
-		getFlash().put("signupSccessMessage", "登録できたよ");
-
-		return "login.xhtml";
+		return user;
 	}
 }

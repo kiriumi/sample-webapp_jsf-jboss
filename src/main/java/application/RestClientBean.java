@@ -9,7 +9,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
 
-import entity.UserEntity;
+import dto.User;
 import lombok.Data;
 
 /**
@@ -23,13 +23,14 @@ import lombok.Data;
 @Data
 public class RestClientBean {
 
-	private UriBuilder baseRestUriBuilder = UriBuilder.fromUri("http://localhost:8080/sample-webapp-jsf/webresources");
+	private final UriBuilder baseRestUriBuilder = UriBuilder
+			.fromUri("http://localhost:8080/sample-webapp-jsf/webresources");
 
 	private String greetingMessage;
 
-	private UserEntity user;
-
 	private int responseStatus;
+
+	private User user;
 
 	/**
 	 * GETメソッドであいさつ文を取得する
@@ -60,9 +61,9 @@ public class RestClientBean {
 		// http://localhost:8080/sample-webapp-jsf/webresources/user/get?name=foo
 		UriBuilder userGetUri = baseRestUriBuilder.path("user").path("get").queryParam("name", "foo");
 
-		UserEntity userEntity = client.target(userGetUri).request(MediaType.APPLICATION_JSON).get(UserEntity.class);
+		User user = client.target(userGetUri).request(MediaType.APPLICATION_JSON).get(User.class);
 
-		setUser(userEntity);
+		setUser(user);
 
 		return null;
 	}
@@ -76,9 +77,9 @@ public class RestClientBean {
 
 		Client client = ClientBuilder.newClient();
 
-		UserEntity user = new UserEntity();
+		User user = new User();
 		user.setName("bar");
-		user.setEmailAddress("bar@example.com");
+		user.setEmailaddress("bar@example.com");
 
 		// http://localhost:8080/sample-webapp-jsf/webresources/user/post?name=bar
 		UriBuilder userPostUri = baseRestUriBuilder.path("user").path("post").queryParam("name", user.getName());
