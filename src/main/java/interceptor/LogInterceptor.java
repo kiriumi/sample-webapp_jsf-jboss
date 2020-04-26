@@ -16,22 +16,21 @@ import org.apache.logging.log4j.Logger;
 @Logging
 public class LogInterceptor {
 
-    Logger logger = LogManager.getLogger();
+    private final Logger LOGGER = LogManager.getLogger(LogInterceptor.class);
 
     @AroundInvoke
     public Object around(final InvocationContext context) throws Exception {
 
         String methodName = context.getMethod().getName();
+        LOGGER.debug("開始：{}", methodName);
 
-        logger.debug("開始：{}", methodName);
         List<Object> params = Arrays.asList(context.getParameters());
-        params.stream().forEach(param -> logger.debug("{}", param.toString()));
+        params.stream().forEach(param -> LOGGER.debug("{}", param.toString()));
 
         Object result = context.proceed();
 
-        logger.debug("終了：{}", methodName);
+        LOGGER.debug("終了：{}", methodName);
 
         return result;
-
     }
 }
