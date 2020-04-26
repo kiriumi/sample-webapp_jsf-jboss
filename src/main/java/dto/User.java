@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "user", schema = "public") // Postgresの場合、スキーマ名が必要
+@Table(schema = "public") // Postgresの場合、スキーマ名が必要
 public class User {
 
     /**

@@ -7,14 +7,29 @@
     <persistence-unit name="sampleUnit"
         transaction-type="JTA">
 
+        <!-- 参考：https://wiki.eclipse.org/EclipseLink/Examples/JPA/JBoss_Web_Tutorial#JTA_Persistence.xml -->
+
         <!-- <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider> -->
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
 
         <jta-data-source>java:/PostgresDS</jta-data-source>
 
+        <shared-cache-mode>NONE</shared-cache-mode>
+
         <!-- <properties> -->
+
+        <!-- <property name="eclipselink.target-server" value="JBoss" /> -->
+        <!-- <property name="eclipselink.target-database" -->
+        <!-- value="PostgreSQL" /> -->
+
+        <!-- <property name="eclipselink.ddl-generation" value="update" /> -->
+        <!-- <property name="eclipselink.ddl-generation.output-mode" -->
+        <!-- value="database" /> -->
+        <!-- <property name="eclipselink.logging.level" value="FINEST" /> -->
+
         <!-- <property name="eclipselink.logging.level.sql" value="FINE" /> -->
         <!-- <property name="eclipselink.logging.parameters" value="true" /> -->
+
         <!-- </properties> -->
 
         <properties>
