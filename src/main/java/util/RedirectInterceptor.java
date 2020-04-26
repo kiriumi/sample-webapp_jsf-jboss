@@ -1,4 +1,4 @@
-package interceptor;
+package util;
 
 import javax.annotation.Priority;
 import javax.faces.context.FacesContext;

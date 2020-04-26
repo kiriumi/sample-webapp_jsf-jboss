@@ -10,9 +10,9 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import domain.UserService;
-import interceptor.Redirect;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import util.Redirect;
 import validation.Auth;
 import validation.AuthGroup;
 
