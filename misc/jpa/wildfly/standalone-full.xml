@@ -1,0 +1,19 @@
+<!-- データソースを設定 -->
+<datasources>
+    <datasource jndi-name="java:/PostgresDS"
+        pool-name="PostgresDS" enabled="true" use-java-context="true">
+        <connection-url>jdbc:postgresql://localhost:5432/postgres
+        </connection-url>
+        <driver>postgresql</driver>
+        <security>
+            <user-name>postgres</user-name>
+            <password>postgres</password>
+        </security>
+    </datasource>
+    <drivers>
+        <driver name="postgres" module="org.postgres">
+            <driver-class>org.postgresql.Driver</driver-class>
+        </driver>
+    </drivers>
+</datasources>
+
