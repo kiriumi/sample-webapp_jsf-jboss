@@ -17,7 +17,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import dto.User;
-import interceptor.Logging;
+import log.Logging;
 import lombok.Getter;
 import lombok.Setter;
 import mode.TestMode;

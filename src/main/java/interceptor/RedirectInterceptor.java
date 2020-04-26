@@ -9,6 +9,8 @@ import javax.interceptor.InvocationContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import log.LogInterceptor;
+
 @Interceptor
 @Priority(Interceptor.Priority.APPLICATION)
 @Redirect
