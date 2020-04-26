@@ -6,7 +6,7 @@ import javax.interceptor.AroundInvoke;
 import javax.interceptor.Interceptor;
 import javax.interceptor.InvocationContext;
 
-import context.TestMode;
+import mode.TestMode;
 
 @Interceptor
 @Priority(Interceptor.Priority.APPLICATION)

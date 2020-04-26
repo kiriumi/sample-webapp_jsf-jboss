@@ -16,12 +16,12 @@ import javax.servlet.http.HttpSession;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import context.TestMode;
-import context.TraceMode;
 import dto.User;
 import interceptor.Logging;
 import lombok.Getter;
 import lombok.Setter;
+import mode.TestMode;
+import mode.TraceMode;
 
 @Logging
 public abstract class AbstractManagedBean {
