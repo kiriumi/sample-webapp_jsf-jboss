@@ -79,14 +79,21 @@ public class LoginBean extends AbstractManagedBean {
     @Override
     protected void preConstruct() {
 
-        // 外部ディレクトリのクラスパス上にあるプロパティファイを読込み
+        // クラスローディング
+        // 外部ディレクトリにあるプロパティファイを読込み
         ResourceBundle resourceBundle = ResourceBundle.getBundle("env");
         String rootDirName = resourceBundle.getString("root.dir");
         System.out.println(rootDirName);
 
+        // サブディレクトリ
         ResourceBundle subResourceBundle = ResourceBundle.getBundle("sub/biz");
         String subDirName = subResourceBundle.getString("sub.dir");
         System.out.println(subDirName);
+
+        // 別の外部ディレクトリ
+        ResourceBundle resource2Bundle = ResourceBundle.getBundle("env2");
+        String root2DirName = resource2Bundle.getString("root.dir");
+        System.out.println(root2DirName);
 
         setInfoMessage((String) getFlash().get("signupSccessMessage"));
     }

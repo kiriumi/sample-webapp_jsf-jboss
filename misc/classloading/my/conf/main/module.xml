@@ -3,6 +3,7 @@
 
   <resources>
     <resource-root path="C:/Users/kengo/git/sample-webapp_jsf-jboss/conf-external"/>
+    <resource-root path="C:/Users/kengo/git/sample-webapp_jsf-jboss/conf-external2"/>
   </resources>
 
 </module>
