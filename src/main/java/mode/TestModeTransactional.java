@@ -17,6 +17,6 @@ import javax.transaction.Transactional.TxType;
 @Transactional
 public @interface TestModeTransactional {
 
-    // トランザクションの境界の参考：https://qiita.com/sengoku/items/69ed0888964dd505d348
+    // トランザクションの範囲の参考：https://qiita.com/sengoku/items/69ed0888964dd505d348
     TxType value() default TxType.REQUIRES_NEW;
 }
