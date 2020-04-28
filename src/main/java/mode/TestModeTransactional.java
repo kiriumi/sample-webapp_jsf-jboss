@@ -8,6 +8,7 @@ import java.lang.annotation.Target;
 
 import javax.interceptor.InterceptorBinding;
 import javax.transaction.Transactional;
+import javax.transaction.Transactional.TxType;
 
 @Inherited
 @InterceptorBinding
@@ -16,4 +17,6 @@ import javax.transaction.Transactional;
 @Transactional
 public @interface TestModeTransactional {
 
+    // トランザクションの境界の参考：https://qiita.com/sengoku/items/69ed0888964dd505d348
+    TxType value() default TxType.REQUIRES_NEW;
 }
