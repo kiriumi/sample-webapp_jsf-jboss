@@ -14,6 +14,7 @@ import javax.validation.constraints.Size;
 import domain.UserService;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.extern.slf4j.Slf4j;
 import util.Redirect;
 import validation.Auth;
 import validation.AuthGroup;
@@ -60,6 +61,7 @@ import validation.AuthGroup;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Auth(emailAddress = "emailAddress", password = "password")
+@Slf4j
 public class LoginBean extends AbstractManagedBean {
 
     @NotBlank(groups = AuthGroup.class)
@@ -85,6 +87,8 @@ public class LoginBean extends AbstractManagedBean {
         String rootDirName = resourceBundle.getString("root.dir");
         System.out.println(rootDirName);
 
+        log.debug("おためし");
+
         // サブディレクトリ
         ResourceBundle subResourceBundle = ResourceBundle.getBundle("sub/biz");
         String subDirName = subResourceBundle.getString("sub.dir");
@@ -109,10 +113,15 @@ public class LoginBean extends AbstractManagedBean {
 
     public void authenticate(final ActionEvent event) {
 
+        log.info("認証開始");
+
         if (userService.find(emailAddress, password)) {
+            log.info("認証成功");
             this.authed = true;
+            return;
         }
 
+        log.info("認証失敗");
         setError(event, "error.message.login");
     }
 

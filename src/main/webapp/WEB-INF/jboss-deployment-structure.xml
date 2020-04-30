@@ -2,8 +2,19 @@
 
 <jboss-deployment-structure>
     <deployment>
+
+        <!-- 外部ディレクトリのクラスローディング -->
         <dependencies>
             <module name="my.conf" />
         </dependencies>
+
+        <!-- JBossにおいてSLF4jでログ出力する場合必要 https://stackoverflow.com/questions/46365134/slf4j-in-library-seems-to-ignore-my-log4j2-configuration -->
+        <exclusions>
+            <module name="org.apache.log4j" />
+        </exclusions>
+        <exclude-subsystems>
+            <subsystem name="logging" />
+        </exclude-subsystems>
+
     </deployment>
 </jboss-deployment-structure>

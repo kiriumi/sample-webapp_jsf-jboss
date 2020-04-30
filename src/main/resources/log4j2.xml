@@ -14,25 +14,30 @@
         </Console>
 
         <RollingFile name="file"
-            fileName="${logPath}/log4j2-jsf.log"
-            filePattern="${logPath}/%d{yyyyMM}/log4j2_%d{yyyyMMdd}_%i.log">
+            fileName="${logPath}/application.log"
+            filePattern="${logPath}/%d{yyyyMM}/application_%d{yyyyMMdd}_%i.log">
 
             <PatternLayout pattern="${pattern}" />
 
-            <SizeBasedTriggeringPolicy size="20 MB" />
-            <TimeBasedTriggeringPolicy />
+            <Policies>
+                <SizeBasedTriggeringPolicy size="20 MB" />
+                <TimeBasedTriggeringPolicy />
+            </Policies>
 
             <DefaultRolloverStrategy min="1" max="10" />
         </RollingFile>
 
-        <RollingFile name="file-db"
-            fileName="${logPath}/log4j2-jsf-db.log"
-            filePattern="${logPath}/%d{yyyyMM}/log4j2-jsf-db_%d{yyyyMMdd}_%i.log">
+        <RollingFile name="file-db" fileName="${logPath}/db.log"
+            filePattern="${logPath}/%d{yyyyMM}/db_%d{yyyyMMdd}_%i.log">
 
             <PatternLayout pattern="${pattern}" />
 
-            <DefaultRolloverStrategy max="10" />
-            <TimeBasedTriggeringPolicy />
+            <Policies>
+                <SizeBasedTriggeringPolicy size="20 MB" />
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+
+            <DefaultRolloverStrategy min="1" max="10" />
         </RollingFile>
 
     </Appenders>
@@ -40,15 +45,15 @@
     <Loggers>
         <Root level="ALL">
             <AppenderRef ref="console" />
+            <AppenderRef ref="file" />
         </Root>
 
-        <Logger name="interceptor.LogInterceptor" level="DEBUG"
-            additivity="false">
+        <Logger name="application" level="DEBUG" additivity="false">
             <AppenderRef ref="console" />
-            <AppenderRef ref="file" />
+            <!-- <AppenderRef ref="file" /> -->
         </Logger>
 
-        <logger name="log.JpaEclipselinkLogger" level="INFO"
+        <logger name="log.JpaEclipselinkLogger" level="DEBUG"
             additivity="false">
             <AppenderRef ref="console" />
             <AppenderRef ref="file-db" />

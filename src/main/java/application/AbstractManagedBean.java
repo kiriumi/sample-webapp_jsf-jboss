@@ -13,16 +13,15 @@ import javax.faces.event.ActionEvent;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import dto.User;
 import log.Logging;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 import mode.TestMode;
 import mode.TraceMode;
 
+@Slf4j
 @Logging
 public abstract class AbstractManagedBean {
 
@@ -39,23 +38,21 @@ public abstract class AbstractManagedBean {
     @Setter
     private User user;
 
-    private final Logger logger = LogManager.getLogger();
-
     /**
      * 管理Beanを初期化する際、実行する処理処理
      */
     @PostConstruct
     public void doPreConstruct() {
-        logger.debug("preConstruct");
+        log.debug("preConstruct");
         preConstruct();
     }
 
     public void preRender() {
-        logger.debug("preRender");
+        log.debug("preRender");
     }
 
     public void viewAction() {
-        logger.debug("viewAction");
+        log.debug("viewAction");
     }
 
     /**
