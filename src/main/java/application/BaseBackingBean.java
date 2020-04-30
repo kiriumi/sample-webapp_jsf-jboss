@@ -14,9 +14,9 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
 import context.SystemDirContext;
-import dto.User;
-import log.ApplicationLogger;
+import domain.Principal;
 import log.ActionLogging;
+import log.ApplicationLogger;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
@@ -42,7 +42,7 @@ public abstract class BaseBackingBean {
 
     @Getter
     @Setter
-    private User user;
+    private Principal principal;
 
     @Getter
     @Inject

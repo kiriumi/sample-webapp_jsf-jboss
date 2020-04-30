@@ -19,15 +19,15 @@ import domain.UserService;
 @SupportedValidationTarget(ValidationTarget.PARAMETERS)
 public class AuthSpringValidator implements ConstraintValidator<Auth, Object[]> {
 
-	@Inject
-	private UserService userService;
+    @Inject
+    private UserService userService;
 
-	@Override
-	public boolean isValid(final Object[] values, final ConstraintValidatorContext context) {
+    @Override
+    public boolean isValid(final Object[] values, final ConstraintValidatorContext context) {
 
-		String emailAddress = (String) values[0];
-		String password = (String) values[1];
+        String emailAddress = (String) values[0];
+        String password = (String) values[1];
 
-		return userService.find(emailAddress, password);
-	}
+        return userService.find(emailAddress, password) != null;
+    }
 }

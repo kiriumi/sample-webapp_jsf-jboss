@@ -4,6 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
     xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
     xmlns:o="http://omnifaces.org/ui"
     xmlns:of="http://omnifaces.org/functions">
@@ -14,6 +15,15 @@
 <h:body>
     <h:form>
         エラーだよ
+
+        #{requestScope['error-message']}
+
+
+            <ui:repeat value="#{requestScope['error-stack']}"
+            var="stack">
+            <li>#{stack.className} - #{stack.methodName} - #{stack.fileName}
+                (#{stack.lineNumber})</li>
+        </ui:repeat>
     </h:form>
 </h:body>
 </html>

@@ -8,7 +8,9 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import domain.Principal;
 import domain.UserService;
+import dto.User;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import validation.Auth;
@@ -89,10 +91,13 @@ public class LoginBean extends BaseBackingBean {
 
         getLogger().info("anything", "認証開始");
 
-        if (userService.find(emailAddress, password)) {
+        User user = userService.find(emailAddress, password);
+        if (user != null) {
 
-            getLogger().info("anything", "認証成功");
             this.authed = true;
+            setPrincipal(new Principal(user));
+            getLogger().info("anything", "認証成功");
+
             return;
         }
 

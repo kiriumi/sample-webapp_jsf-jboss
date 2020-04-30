@@ -20,7 +20,7 @@ public class UserService {
     @Inject
     private SqlSession sqlSession;
 
-    public boolean find(final String emailAddress, final String password) {
+    public User find(final String emailAddress, final String password) {
 
         UserExample example = new UserExample();
         example.createCriteria().andEmailaddressEqualTo(emailAddress);
@@ -29,18 +29,15 @@ public class UserService {
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
         List<User> users = mapper.selectByExample(example);
 
-        return users.size() > 0;
+        return users.size() == 1 ? users.get(0) : null;
     }
 
     public boolean hasUser(final String emailAddress) {
 
-        UserExample example = new UserExample();
-        example.createCriteria().andEmailaddressEqualTo(emailAddress);
-
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
-        List<User> users = mapper.selectByExample(example);
+        User user = mapper.selectByPrimaryKey(emailAddress);
 
-        return users.size() > 0;
+        return user == null || StringUtils.isBlank(user.getEmailaddress()) ? false : true;
     }
 
     public void addUser(final User user) {

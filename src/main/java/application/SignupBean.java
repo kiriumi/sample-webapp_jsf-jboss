@@ -65,6 +65,7 @@ public class SignupBean extends BaseBackingBean {
         }
 
         userService.addUserWithJpa(createUser());
+        userService.addUserWithJpa(createUser());
 
         getFlash().put("signupSccessMessage", "登録できたよ");
 
