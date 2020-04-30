@@ -5,8 +5,8 @@
 
     <Properties>
         <Property name="logPath">C:/Users/kengo/git/sample-webapp_jsf-jboss/log</Property>
-        <Property name="basePattern">%d{yyyy/MM/dd HH:mm:ss.SSS} [%t] %-5p %C#%M %m%n</Property>
-        <Property name="appPattern">%d{yyyy/MM/dd HH:mm:ss.SSS} [%t] %-5p %X{contextPath} %X{class}#%X{method} %m%n</Property>
+        <Property name="basePattern">%d{yyyy/MM/dd HH:mm:ss.SSS} [%t] %-5p %C#%M %m%n%ex</Property>
+        <Property name="appPattern">%d{yyyy/MM/dd HH:mm:ss.SSS} [%t] %-5p %X{contextPath} %X{class}#%X{method} %m%n%ex</Property>
     </Properties>
 
     <Appenders>
@@ -56,7 +56,7 @@
             <DefaultRolloverStrategy min="1" max="10" />
         </RollingFile>
 
-        <RollingFile name="file-db"
+        <RollingFile name="file-trace"
             fileName="${logPath}/application.log"
             filePattern="${logPath}/%d{yyyyMM}/application_%d{yyyyMMdd}_%i.log">
 
@@ -89,12 +89,17 @@
 
         <!-- MyBatis -->
         <Logger name="mapper" level="DEBUG" additivity="false">
-            <AppenderRef ref="file-db" />
+            <AppenderRef ref="file-trace" />
         </Logger>
 
         <!-- JPA -->
         <logger name="log.JpaEclipselinkLogger" level="DEBUG" additivity="false">
-            <AppenderRef ref="file-db" />
+            <AppenderRef ref="file-trace" />
+        </logger>
+
+        <!-- モード -->
+        <logger name="mode" level="DEBUG" additivity="false">
+            <AppenderRef ref="file-trace" />
         </logger>
     </Loggers>
 

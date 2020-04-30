@@ -21,6 +21,7 @@ public class TestMode implements Serializable {
 
     public void switchMode() {
         this.test = test ? false : true;
+        log.debug("テストモードを切り替えたよ：{}", test);
     }
 
     public void setRollbackOnlyIfTesMode() {
@@ -28,10 +29,8 @@ public class TestMode implements Serializable {
         if (test) {
             txRegistry.setRollbackOnly();
             log.debug("ロールバック");
-
             return;
         }
-
         log.debug("コミット");
     }
 }

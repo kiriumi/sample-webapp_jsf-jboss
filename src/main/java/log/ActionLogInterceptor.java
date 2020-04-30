@@ -30,7 +30,17 @@ public class ActionLogInterceptor {
         String methodName = context.getMethod().getName();
 
         log.debug("{}#{} 開始", classNameWithoutProxy, methodName);
-        Object result = context.proceed();
+
+        Object result = null;
+
+        try {
+            result = context.proceed();
+
+        } catch (Exception e) {
+            log.error(e.getMessage(), e);
+            throw e;
+        }
+
         log.debug("{}#{} 終了", classNameWithoutProxy, methodName);
 
         return result;
