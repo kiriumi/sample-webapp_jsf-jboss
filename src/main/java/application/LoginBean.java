@@ -89,6 +89,8 @@ public class LoginBean extends BaseBackingBean {
 
         getLogger().info("anything", "認証開始");
 
+        sub("aaaaaaaaaaaa");
+
         if (userService.find(emailAddress, password)) {
 
             getLogger().info("anything", "認証成功");
@@ -98,6 +100,10 @@ public class LoginBean extends BaseBackingBean {
 
         getLogger().info("anything", "認証失敗");
         setError(event, "error.message.login");
+    }
+
+    private void sub(final String hoge) {
+        getLogger().info("anything", "サブちゃん");
     }
 
     public String login() {

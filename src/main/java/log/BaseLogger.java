@@ -1,42 +1,40 @@
 package log;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public abstract class BaseLogger {
 
     private final String logMessagePropBaseName = "log-messages";
 
-    private Logger logger;
-
-    private int stackTraceIndex;
-
     public void debug(final String key, final Object... params) {
-        logger.debug(getLogMessage(key), params);
+        log.debug(getLogMessage(key), params);
     }
 
     public void info(final String key, final Object... params) {
-        logger.info(getLogMessage(key), params);
+        log.info(getLogMessage(key), params);
     }
 
     public void warn(final String key, final Object... params) {
-        logger.warn(getLogMessage(key), params);
+        log.warn(getLogMessage(key), params);
     }
 
     public void error(final String key, final Object... params) {
-        logger.error(getLogMessage(key), params);
-    }
-
-    protected void initLogger(final Class<?> loggerClass, final int stackTraceIndex) {
-        this.logger = LoggerFactory.getLogger(loggerClass);
-        this.stackTraceIndex = stackTraceIndex;
+        log.error(getLogMessage(key), params);
     }
 
     private String getLogMessage(final String key) {
+
+        putCalledClassAndMethod();
+        putCustomInfo();
 
         ResourceBundle logMessageProp = ResourceBundle.getBundle(logMessagePropBaseName);
         String logMessage = null;
@@ -44,26 +42,33 @@ public abstract class BaseLogger {
         try {
             logMessage = logMessageProp.getString(key);
         } catch (Exception e) {
-            // 該当のキーが見つからない場合、空文字を返すため
-            logger.warn("該当のキーがないよ：{}", key);
+            // 該当のキーが見つからない場合
+            log.warn("該当のキーがないよ：{}", key);
         }
-
-        putCalledClassInfo();
 
         return Optional.ofNullable(logMessage).orElse("");
     }
 
-    protected void putCalledClassInfo() {
+    private void putCalledClassAndMethod() {
 
-        StackTraceElement[] stackTraces = Thread.currentThread().getStackTrace();
-        if (stackTraces.length <= stackTraceIndex + 1) {
-            return;
+        List<StackTraceElement> stackTraces = new ArrayList<>(Arrays.asList(Thread.currentThread().getStackTrace()));
+
+        // ログ出力を呼び出したメソッドを探す
+        int targetBackingBeanIndex = 0;
+        for (StackTraceElement stackTrace : stackTraces) {
+            if (stackTrace.getClassName()
+                    .equals(Thread.class.getName()) || stackTrace.getClassName().equals(BaseLogger.class.getName())) {
+                targetBackingBeanIndex++;
+                continue;
+            }
+            break;
         }
 
-        StackTraceElement stackTrace = stackTraces[stackTraceIndex];
-
+        StackTraceElement stackTrace = stackTraces.get(targetBackingBeanIndex);
         MDC.put("class", stackTrace.getClassName());
         MDC.put("method", stackTrace.getMethodName());
     }
 
+    protected void putCustomInfo() {
+    };
 }

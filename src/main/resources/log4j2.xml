@@ -4,9 +4,9 @@
 <Configuration status="OFF">
 
     <Properties>
-        <Property name="basePattern">%d{yyyy/MM/dd HH:mm:ss.SSS} [%t] %-5p %C#%M %m%n</Property>
-        <Property name="appPattern">%d{yyyy/MM/dd HH:mm:ss.SSS} [%t] %-5p %X{class}#%X{method} %m%n</Property>
         <Property name="logPath">C:/Users/kengo/git/sample-webapp_jsf-jboss/log</Property>
+        <Property name="basePattern">%d{yyyy/MM/dd HH:mm:ss.SSS} [%t] %-5p %C#%M %m%n</Property>
+        <Property name="appPattern">%d{yyyy/MM/dd HH:mm:ss.SSS} [%t] %-5p %X{contextPath} %X{class}#%X{method} %m%n</Property>
     </Properties>
 
     <Appenders>
@@ -17,6 +17,20 @@
         <RollingFile name="file-system"
             fileName="${logPath}/system.log"
             filePattern="${logPath}/%d{yyyyMM}/system_%d{yyyyMMdd}_%i.log">
+
+            <PatternLayout pattern="${basePattern}" />
+
+            <Policies>
+                <SizeBasedTriggeringPolicy size="20 MB" />
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+
+            <DefaultRolloverStrategy min="1" max="10" />
+        </RollingFile>
+
+        <RollingFile name="file-archi"
+            fileName="${logPath}/application.log"
+            filePattern="${logPath}/%d{yyyyMM}/application_%d{yyyyMMdd}_%i.log">
 
             <PatternLayout pattern="${basePattern}" />
 
@@ -61,22 +75,25 @@
     <Loggers>
         <Root level="ALL">
             <AppenderRef ref="console" />
-            <AppenderRef ref="file-system" />
-            <AppenderRef ref="file-app" />
+<!--             <AppenderRef ref="file-system" /> -->
+<!--             <AppenderRef ref="file-app" /> -->
         </Root>
 
-        <Logger name="log.ApplicationLogger" level="DEBUG" additivity="false">
-            <AppenderRef ref="console" />
+        <Logger name="log.ActionLogInterceptor" level="DEBUG" additivity="false">
+            <AppenderRef ref="file-archi" />
+        </Logger>
+
+        <Logger name="log.BaseLogger" level="DEBUG" additivity="false">
             <AppenderRef ref="file-app" />
         </Logger>
 
-        <Logger name="org.apache.ibatis.logging.jdbc.BaseJdbcLogger" level="DEBUG" additivity="false">
-            <AppenderRef ref="console" />
+        <!-- MyBatis -->
+        <Logger name="mapper" level="DEBUG" additivity="false">
             <AppenderRef ref="file-db" />
         </Logger>
 
+        <!-- JPA -->
         <logger name="log.JpaEclipselinkLogger" level="DEBUG" additivity="false">
-            <AppenderRef ref="console" />
             <AppenderRef ref="file-db" />
         </logger>
     </Loggers>
