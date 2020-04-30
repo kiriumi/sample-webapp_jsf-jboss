@@ -5,6 +5,7 @@ import java.util.ResourceBundle;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
+import javax.enterprise.inject.Model;
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -23,6 +24,9 @@ import mode.TraceMode;
 
 @Slf4j
 @Logging
+
+@Model
+
 public abstract class AbstractManagedBean {
 
     @Inject

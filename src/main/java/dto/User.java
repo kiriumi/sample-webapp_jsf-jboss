@@ -1,12 +1,11 @@
 package dto;
 
 import javax.annotation.Generated;
-import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
-@Entity
-@Table(schema = "public") // Postgresの場合、スキーマ名が必要
+import util.Dto;
+
+@Dto
 public class User {
 
     /**
