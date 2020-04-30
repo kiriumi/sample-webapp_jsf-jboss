@@ -90,6 +90,7 @@ public class LoginBean extends BaseBackingBean {
         getLogger().info("anything", "認証開始");
 
         if (userService.find(emailAddress, password)) {
+
             getLogger().info("anything", "認証成功");
             this.authed = true;
             return;

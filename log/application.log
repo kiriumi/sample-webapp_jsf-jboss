@@ -653,3 +653,125 @@
 2020/04/30 18:15:43.192 [default task-1] DEBUG # application.LoginBean#viewAction 終了
 2020/04/30 18:15:43.195 [default task-1] DEBUG # アプリケーション実行リスナー：後処理
 2020/04/30 18:15:43.257 [default task-1] DEBUG # 
+2020/04/30 18:39:11.310 [ServerService Thread Pool -- 81] DEBUG # Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 18:39:11.394 [ServerService Thread Pool -- 81] DEBUG # Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 18:39:22.721 [default task-1] DEBUG # アプリケーション実行リスナー：前処理
+2020/04/30 18:40:29.182 [ServerService Thread Pool -- 85] DEBUG # Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 18:40:29.267 [ServerService Thread Pool -- 85] DEBUG # Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 18:40:32.184 [default task-2] DEBUG # アプリケーション実行リスナー：前処理
+2020/04/30 18:40:32.286 [default task-2] DEBUG # 
+2020/04/30 18:40:32.296 [default task-2] DEBUG # application.LoginBean#viewAction 開始
+2020/04/30 18:40:32.297 [default task-2] DEBUG # 
+2020/04/30 18:40:32.298 [default task-2] DEBUG # application.LoginBean#viewAction 終了
+2020/04/30 18:40:32.302 [default task-2] DEBUG # アプリケーション実行リスナー：後処理
+2020/04/30 18:40:32.383 [default task-2] DEBUG # 
+2020/04/30 18:40:32.456 [default task-2] DEBUG # 
+2020/04/30 18:44:17.052 [ServerService Thread Pool -- 86] DEBUG # Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 18:44:17.167 [ServerService Thread Pool -- 86] DEBUG # Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 18:44:25.538 [default task-1] DEBUG # アプリケーション実行リスナー：前処理
+2020/04/30 18:44:25.576 [default task-1] DEBUG # ルートディレクトリ：C:\pleiadeses\pleiades-2018-12\wildfly\wildfly-17.0.1.Final\bin\root
+2020/04/30 18:44:25.579 [default task-1] DEBUG # 業務ディレクトリ：C:\pleiadeses\pleiades-2018-12\wildfly\wildfly-17.0.1.Final\bin\hoge
+2020/04/30 18:45:04.119 [default task-1] DEBUG # 別のルートディレクトリ：C:\pleiadeses\pleiades-2018-12\wildfly\wildfly-17.0.1.Final\bin\root2
+2020/04/30 18:45:04.134 [default task-1] DEBUG # 
+2020/04/30 18:45:04.139 [default task-1] DEBUG # application.LoginBean#viewAction 開始
+2020/04/30 18:45:04.139 [default task-1] DEBUG # 
+2020/04/30 18:45:04.140 [default task-1] DEBUG # application.LoginBean#viewAction 終了
+2020/04/30 18:45:04.142 [default task-1] DEBUG # アプリケーション実行リスナー：後処理
+2020/04/30 18:45:04.190 [default task-1] DEBUG # 
+2020/04/30 18:45:04.238 [default task-1] DEBUG # 
+2020/04/30 18:45:53.922 [default task-1] DEBUG # 
+2020/04/30 18:45:53.956 [default task-1] DEBUG # アプリケーション実行リスナー：前処理
+2020/04/30 18:45:53.959 [default task-1] DEBUG # application.LoginBean#authenticate 開始
+2020/04/30 18:45:53.976 [default task-1] INFO  application.LoginBean#authenticate 認証開始
+2020/04/30 18:45:54.030 [default task-1] DEBUG application.LoginBean#authenticate Opening JDBC Connection
+2020/04/30 18:45:54.177 [default task-1] DEBUG application.LoginBean#authenticate ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user WHERE ( emailaddress = ? ) 
+2020/04/30 18:45:54.191 [default task-1] DEBUG application.LoginBean#authenticate ==> Parameters: hoge@hog(String)
+2020/04/30 18:45:54.216 [default task-1] DEBUG application.LoginBean#authenticate <==      Total: 0
+2020/04/30 18:45:54.217 [default task-1] INFO  application.LoginBean#authenticate 認証失敗
+2020/04/30 18:45:54.229 [default task-1] DEBUG application.LoginBean#authenticate application.LoginBean#authenticate 終了
+2020/04/30 18:45:54.230 [default task-1] DEBUG application.LoginBean#authenticate application.LoginBean#login 開始
+2020/04/30 18:45:54.230 [default task-1] DEBUG application.LoginBean#authenticate application.LoginBean#login 終了
+2020/04/30 18:45:54.231 [default task-1] DEBUG application.LoginBean#authenticate アプリケーション実行リスナー：後処理
+2020/04/30 18:45:54.233 [default task-1] DEBUG application.LoginBean#authenticate 
+2020/04/30 18:45:54.238 [default task-1] DEBUG application.LoginBean#authenticate 
+2020/04/30 18:45:54.240 [default task-1] DEBUG application.LoginBean#authenticate Closing JDBC Connection [org.jboss.jca.adapters.jdbc.jdk8.WrappedConnectionJDK8@375f3e07]
+2020/04/30 18:46:21.232 [default task-1] DEBUG application.LoginBean#authenticate 
+2020/04/30 18:46:21.234 [default task-1] DEBUG application.LoginBean#authenticate アプリケーション実行リスナー：前処理
+2020/04/30 18:46:21.235 [default task-1] DEBUG application.LoginBean#authenticate application.LoginBean#goSignupPage 開始
+2020/04/30 18:46:21.235 [default task-1] DEBUG application.LoginBean#authenticate application.LoginBean#goSignupPage 終了
+2020/04/30 18:46:21.238 [default task-1] DEBUG application.LoginBean#authenticate アプリケーション実行リスナー：後処理
+2020/04/30 18:46:21.238 [default task-1] DEBUG application.LoginBean#authenticate 
+2020/04/30 18:46:21.290 [default task-1] DEBUG application.LoginBean#authenticate 
+2020/04/30 18:46:21.295 [default task-1] DEBUG application.LoginBean#authenticate 
+2020/04/30 18:46:27.990 [default task-1] DEBUG application.LoginBean#authenticate 
+2020/04/30 18:46:28.025 [default task-1] DEBUG application.LoginBean#authenticate アプリケーション実行リスナー：前処理
+2020/04/30 18:46:28.031 [default task-1] DEBUG application.LoginBean#authenticate application.SignupBean#signupUser 開始
+2020/04/30 18:46:28.033 [default task-1] DEBUG application.LoginBean#authenticate Opening JDBC Connection
+2020/04/30 18:46:28.046 [default task-1] DEBUG application.LoginBean#authenticate ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user WHERE ( emailaddress = ? ) 
+2020/04/30 18:46:28.046 [default task-1] DEBUG application.LoginBean#authenticate ==> Parameters: hige2@hoge(String)
+2020/04/30 18:46:28.048 [default task-1] DEBUG application.LoginBean#authenticate <==      Total: 0
+2020/04/30 18:46:28.049 [default task-1] DEBUG application.LoginBean#authenticate ==>  Preparing: insert into public.user (emailaddress, name, password, createdtime, updatedtime) values (?, ?, ?, ?, ?) 
+2020/04/30 18:46:28.050 [default task-1] DEBUG application.LoginBean#authenticate ==> Parameters: hige2@hoge(String), hoge(String), hoge(String), 2020-04-30T18:46:28.049(String), 2020-04-30T18:46:28.049(String)
+2020/04/30 18:46:28.055 [default task-1] DEBUG application.LoginBean#authenticate <==    Updates: 1
+2020/04/30 18:46:28.059 [default task-1] DEBUG application.LoginBean#authenticate コミット
+2020/04/30 18:46:28.059 [default task-1] DEBUG application.LoginBean#authenticate application.SignupBean#signupUser 終了
+2020/04/30 18:46:28.067 [default task-1] DEBUG application.LoginBean#authenticate アプリケーション実行リスナー：後処理
+2020/04/30 18:46:28.068 [default task-1] DEBUG application.LoginBean#authenticate 
+2020/04/30 18:46:28.070 [default task-1] DEBUG application.LoginBean#authenticate Closing JDBC Connection [org.jboss.jca.adapters.jdbc.jdk8.WrappedConnectionJDK8@79ed0855]
+2020/04/30 18:46:28.075 [default task-2] DEBUG # アプリケーション実行リスナー：前処理
+2020/04/30 18:46:28.076 [default task-2] DEBUG # 
+2020/04/30 18:46:28.077 [default task-2] DEBUG # application.LoginBean#viewAction 開始
+2020/04/30 18:46:28.078 [default task-2] DEBUG # 
+2020/04/30 18:46:28.078 [default task-2] DEBUG # application.LoginBean#viewAction 終了
+2020/04/30 18:46:28.079 [default task-2] DEBUG # アプリケーション実行リスナー：後処理
+2020/04/30 18:46:28.083 [default task-2] DEBUG # 
+2020/04/30 18:46:28.092 [default task-2] DEBUG # 
+2020/04/30 18:46:48.800 [default task-2] DEBUG # 
+2020/04/30 18:46:48.801 [default task-2] DEBUG # アプリケーション実行リスナー：前処理
+2020/04/30 18:46:48.802 [default task-2] DEBUG # application.LoginBean#goSignupPage 開始
+2020/04/30 18:46:48.802 [default task-2] DEBUG # application.LoginBean#goSignupPage 終了
+2020/04/30 18:46:48.804 [default task-2] DEBUG # アプリケーション実行リスナー：後処理
+2020/04/30 18:46:48.805 [default task-2] DEBUG # 
+2020/04/30 18:46:48.814 [default task-2] DEBUG # 
+2020/04/30 18:46:48.816 [default task-2] DEBUG # 
+2020/04/30 18:46:55.077 [default task-2] DEBUG # 
+2020/04/30 18:46:55.079 [default task-2] DEBUG # アプリケーション実行リスナー：前処理
+2020/04/30 18:46:55.080 [default task-2] DEBUG # application.SignupBean#signupUserWithJpa 開始
+2020/04/30 18:46:55.107 [default task-2] DEBUG log.JpaEclipselinkLogger#log topLink_version
+2020/04/30 18:46:55.114 [default task-2] DEBUG log.JpaEclipselinkLogger#log connecting
+2020/04/30 18:46:55.115 [default task-2] DEBUG log.JpaEclipselinkLogger#log connected_user_database_driver
+2020/04/30 18:46:55.116 [default task-2] DEBUG log.JpaEclipselinkLogger#log connecting
+2020/04/30 18:46:55.116 [default task-2] DEBUG log.JpaEclipselinkLogger#log connected_user_database_driver
+2020/04/30 18:46:55.149 [default task-2] DEBUG log.JpaEclipselinkLogger#log login_successful
+2020/04/30 18:46:55.159 [default task-2] DEBUG log.JpaEclipselinkLogger#log jmx_mbean_runtime_services_registration_mbeanserver_print
+2020/04/30 18:46:55.163 [default task-2] DEBUG log.JpaEclipselinkLogger#log ddl_generation_unknown_property_value
+2020/04/30 18:46:55.164 [default task-2] DEBUG log.JpaEclipselinkLogger#log metamodel_canonical_model_class_not_found
+2020/04/30 18:46:55.176 [default task-2] DEBUG log.JpaEclipselinkLogger#log client_acquired
+2020/04/30 18:46:55.184 [default task-2] DEBUG log.JpaEclipselinkLogger#log TX_bind
+2020/04/30 18:46:55.185 [default task-2] DEBUG log.JpaEclipselinkLogger#log acquire_unit_of_work_with_argument
+2020/04/30 18:46:55.193 [default task-2] DEBUG log.JpaEclipselinkLogger#log SELECT EMAILADDRESS, CREATEDTIME, NAME, PASSWORD, UPDATEDTIME FROM public.USER WHERE (EMAILADDRESS = ?)
+	bind => [hige3@hige]
+2020/04/30 18:46:55.207 [default task-2] DEBUG # コミット
+2020/04/30 18:46:55.208 [default task-2] DEBUG # application.SignupBean#signupUserWithJpa 終了
+2020/04/30 18:46:55.208 [default task-2] DEBUG log.JpaEclipselinkLogger#log TX_beforeCompletion
+2020/04/30 18:46:55.209 [default task-2] DEBUG log.JpaEclipselinkLogger#log begin_unit_of_work_commit
+2020/04/30 18:46:55.212 [default task-2] DEBUG log.JpaEclipselinkLogger#log TX_begin
+2020/04/30 18:46:55.214 [default task-2] DEBUG log.JpaEclipselinkLogger#log INSERT INTO public.USER (EMAILADDRESS, CREATEDTIME, NAME, PASSWORD, UPDATEDTIME) VALUES (?, ?, ?, ?, ?)
+	bind => [hige3@hige, 2020-04-30T18:46:55.195, hoge, hoge, 2020-04-30T18:46:55.195]
+2020/04/30 18:46:55.216 [default task-2] DEBUG log.JpaEclipselinkLogger#log TX_afterCompletion
+2020/04/30 18:46:55.217 [default task-2] DEBUG log.JpaEclipselinkLogger#log end_unit_of_work_commit
+2020/04/30 18:46:55.217 [default task-2] DEBUG log.JpaEclipselinkLogger#log release_unit_of_work
+2020/04/30 18:46:55.217 [default task-2] DEBUG log.JpaEclipselinkLogger#log client_released
+2020/04/30 18:46:55.220 [default task-2] DEBUG # アプリケーション実行リスナー：後処理
+2020/04/30 18:46:55.220 [default task-2] DEBUG # 
+2020/04/30 18:46:55.225 [default task-2] DEBUG # アプリケーション実行リスナー：前処理
+2020/04/30 18:46:55.227 [default task-2] DEBUG # 
+2020/04/30 18:46:55.227 [default task-2] DEBUG # application.LoginBean#viewAction 開始
+2020/04/30 18:46:55.227 [default task-2] DEBUG # 
+2020/04/30 18:46:55.228 [default task-2] DEBUG # application.LoginBean#viewAction 終了
+2020/04/30 18:46:55.228 [default task-2] DEBUG # アプリケーション実行リスナー：後処理
+2020/04/30 18:46:55.229 [default task-2] DEBUG # 
+2020/04/30 18:46:55.233 [default task-2] DEBUG # 
+2020/04/30 18:47:26.266 [ServerService Thread Pool -- 92] DEBUG log.JpaEclipselinkLogger#log disconnect
+2020/04/30 18:47:26.267 [ServerService Thread Pool -- 92] DEBUG log.JpaEclipselinkLogger#log initialize_identitymaps
+2020/04/30 18:47:26.268 [ServerService Thread Pool -- 92] DEBUG log.JpaEclipselinkLogger#log logout_successful

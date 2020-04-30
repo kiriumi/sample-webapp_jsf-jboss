@@ -605,3 +605,97 @@
 2020/04/30 18:15:43.192 [default task-1] DEBUG log.LogInterceptor#around application.LoginBean#viewAction 終了
 2020/04/30 18:15:43.195 [default task-1] DEBUG listener.InvokeApplicationLisener#afterPhase アプリケーション実行リスナー：後処理
 2020/04/30 18:15:43.257 [default task-1] DEBUG application.BaseBackingBean#preRender 
+2020/04/30 18:39:11.310 [ServerService Thread Pool -- 81] DEBUG org.apache.ibatis.logging.LogFactory#setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 18:39:11.394 [ServerService Thread Pool -- 81] DEBUG org.apache.ibatis.logging.LogFactory#setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 18:39:22.721 [default task-1] DEBUG listener.InvokeApplicationLisener#beforePhase アプリケーション実行リスナー：前処理
+2020/04/30 18:40:29.182 [ServerService Thread Pool -- 85] DEBUG org.apache.ibatis.logging.LogFactory#setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 18:40:29.267 [ServerService Thread Pool -- 85] DEBUG org.apache.ibatis.logging.LogFactory#setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 18:40:32.184 [default task-2] DEBUG listener.InvokeApplicationLisener#beforePhase アプリケーション実行リスナー：前処理
+2020/04/30 18:40:32.286 [default task-2] DEBUG application.BaseBackingBean#doPreConstruct 
+2020/04/30 18:40:32.296 [default task-2] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 開始
+2020/04/30 18:40:32.297 [default task-2] DEBUG application.BaseBackingBean#viewAction 
+2020/04/30 18:40:32.298 [default task-2] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 終了
+2020/04/30 18:40:32.302 [default task-2] DEBUG listener.InvokeApplicationLisener#afterPhase アプリケーション実行リスナー：後処理
+2020/04/30 18:40:32.383 [default task-2] DEBUG application.BaseBackingBean#preRender 
+2020/04/30 18:40:32.456 [default task-2] DEBUG application.BaseBackingBean#doPreDestroy 
+2020/04/30 18:44:17.052 [ServerService Thread Pool -- 86] DEBUG org.apache.ibatis.logging.LogFactory#setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 18:44:17.167 [ServerService Thread Pool -- 86] DEBUG org.apache.ibatis.logging.LogFactory#setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 18:44:25.538 [default task-1] DEBUG listener.InvokeApplicationLisener#beforePhase アプリケーション実行リスナー：前処理
+2020/04/30 18:44:25.576 [default task-1] DEBUG context.SystemDirContext#<init> ルートディレクトリ：C:\pleiadeses\pleiades-2018-12\wildfly\wildfly-17.0.1.Final\bin\root
+2020/04/30 18:44:25.579 [default task-1] DEBUG context.SystemDirContext#<init> 業務ディレクトリ：C:\pleiadeses\pleiades-2018-12\wildfly\wildfly-17.0.1.Final\bin\hoge
+2020/04/30 18:45:04.119 [default task-1] DEBUG context.SystemDirContext#<init> 別のルートディレクトリ：C:\pleiadeses\pleiades-2018-12\wildfly\wildfly-17.0.1.Final\bin\root2
+2020/04/30 18:45:04.134 [default task-1] DEBUG application.BaseBackingBean#doPreConstruct 
+2020/04/30 18:45:04.139 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 開始
+2020/04/30 18:45:04.139 [default task-1] DEBUG application.BaseBackingBean#viewAction 
+2020/04/30 18:45:04.140 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 終了
+2020/04/30 18:45:04.142 [default task-1] DEBUG listener.InvokeApplicationLisener#afterPhase アプリケーション実行リスナー：後処理
+2020/04/30 18:45:04.190 [default task-1] DEBUG application.BaseBackingBean#preRender 
+2020/04/30 18:45:04.238 [default task-1] DEBUG application.BaseBackingBean#doPreDestroy 
+2020/04/30 18:45:53.922 [default task-1] DEBUG application.BaseBackingBean#doPreConstruct 
+2020/04/30 18:45:53.956 [default task-1] DEBUG listener.InvokeApplicationLisener#beforePhase アプリケーション実行リスナー：前処理
+2020/04/30 18:45:53.959 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#authenticate 開始
+2020/04/30 18:45:54.030 [default task-1] DEBUG org.apache.ibatis.transaction.managed.ManagedTransaction#openConnection Opening JDBC Connection
+2020/04/30 18:45:54.177 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user WHERE ( emailaddress = ? ) 
+2020/04/30 18:45:54.191 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: hoge@hog(String)
+2020/04/30 18:45:54.216 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 0
+2020/04/30 18:45:54.229 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#authenticate 終了
+2020/04/30 18:45:54.230 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#login 開始
+2020/04/30 18:45:54.230 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#login 終了
+2020/04/30 18:45:54.231 [default task-1] DEBUG listener.InvokeApplicationLisener#afterPhase アプリケーション実行リスナー：後処理
+2020/04/30 18:45:54.233 [default task-1] DEBUG application.BaseBackingBean#preRender 
+2020/04/30 18:45:54.238 [default task-1] DEBUG application.BaseBackingBean#doPreDestroy 
+2020/04/30 18:45:54.240 [default task-1] DEBUG org.apache.ibatis.transaction.managed.ManagedTransaction#close Closing JDBC Connection [org.jboss.jca.adapters.jdbc.jdk8.WrappedConnectionJDK8@375f3e07]
+2020/04/30 18:46:21.232 [default task-1] DEBUG application.BaseBackingBean#doPreConstruct 
+2020/04/30 18:46:21.234 [default task-1] DEBUG listener.InvokeApplicationLisener#beforePhase アプリケーション実行リスナー：前処理
+2020/04/30 18:46:21.235 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#goSignupPage 開始
+2020/04/30 18:46:21.235 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#goSignupPage 終了
+2020/04/30 18:46:21.238 [default task-1] DEBUG listener.InvokeApplicationLisener#afterPhase アプリケーション実行リスナー：後処理
+2020/04/30 18:46:21.238 [default task-1] DEBUG application.BaseBackingBean#doPreDestroy 
+2020/04/30 18:46:21.290 [default task-1] DEBUG application.BaseBackingBean#doPreConstruct 
+2020/04/30 18:46:21.295 [default task-1] DEBUG application.BaseBackingBean#doPreDestroy 
+2020/04/30 18:46:27.990 [default task-1] DEBUG application.BaseBackingBean#doPreConstruct 
+2020/04/30 18:46:28.025 [default task-1] DEBUG listener.InvokeApplicationLisener#beforePhase アプリケーション実行リスナー：前処理
+2020/04/30 18:46:28.031 [default task-1] DEBUG log.ActionLogInterceptor#around application.SignupBean#signupUser 開始
+2020/04/30 18:46:28.033 [default task-1] DEBUG org.apache.ibatis.transaction.managed.ManagedTransaction#openConnection Opening JDBC Connection
+2020/04/30 18:46:28.046 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user WHERE ( emailaddress = ? ) 
+2020/04/30 18:46:28.046 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: hige2@hoge(String)
+2020/04/30 18:46:28.048 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 0
+2020/04/30 18:46:28.049 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: insert into public.user (emailaddress, name, password, createdtime, updatedtime) values (?, ?, ?, ?, ?) 
+2020/04/30 18:46:28.050 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: hige2@hoge(String), hoge(String), hoge(String), 2020-04-30T18:46:28.049(String), 2020-04-30T18:46:28.049(String)
+2020/04/30 18:46:28.055 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==    Updates: 1
+2020/04/30 18:46:28.059 [default task-1] DEBUG mode.TestMode#setRollbackOnlyIfTesMode コミット
+2020/04/30 18:46:28.059 [default task-1] DEBUG log.ActionLogInterceptor#around application.SignupBean#signupUser 終了
+2020/04/30 18:46:28.067 [default task-1] DEBUG listener.InvokeApplicationLisener#afterPhase アプリケーション実行リスナー：後処理
+2020/04/30 18:46:28.068 [default task-1] DEBUG application.BaseBackingBean#doPreDestroy 
+2020/04/30 18:46:28.070 [default task-1] DEBUG org.apache.ibatis.transaction.managed.ManagedTransaction#close Closing JDBC Connection [org.jboss.jca.adapters.jdbc.jdk8.WrappedConnectionJDK8@79ed0855]
+2020/04/30 18:46:28.075 [default task-2] DEBUG listener.InvokeApplicationLisener#beforePhase アプリケーション実行リスナー：前処理
+2020/04/30 18:46:28.076 [default task-2] DEBUG application.BaseBackingBean#doPreConstruct 
+2020/04/30 18:46:28.077 [default task-2] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 開始
+2020/04/30 18:46:28.078 [default task-2] DEBUG application.BaseBackingBean#viewAction 
+2020/04/30 18:46:28.078 [default task-2] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 終了
+2020/04/30 18:46:28.079 [default task-2] DEBUG listener.InvokeApplicationLisener#afterPhase アプリケーション実行リスナー：後処理
+2020/04/30 18:46:28.083 [default task-2] DEBUG application.BaseBackingBean#preRender 
+2020/04/30 18:46:28.092 [default task-2] DEBUG application.BaseBackingBean#doPreDestroy 
+2020/04/30 18:46:48.800 [default task-2] DEBUG application.BaseBackingBean#doPreConstruct 
+2020/04/30 18:46:48.801 [default task-2] DEBUG listener.InvokeApplicationLisener#beforePhase アプリケーション実行リスナー：前処理
+2020/04/30 18:46:48.802 [default task-2] DEBUG log.ActionLogInterceptor#around application.LoginBean#goSignupPage 開始
+2020/04/30 18:46:48.802 [default task-2] DEBUG log.ActionLogInterceptor#around application.LoginBean#goSignupPage 終了
+2020/04/30 18:46:48.804 [default task-2] DEBUG listener.InvokeApplicationLisener#afterPhase アプリケーション実行リスナー：後処理
+2020/04/30 18:46:48.805 [default task-2] DEBUG application.BaseBackingBean#doPreDestroy 
+2020/04/30 18:46:48.814 [default task-2] DEBUG application.BaseBackingBean#doPreConstruct 
+2020/04/30 18:46:48.816 [default task-2] DEBUG application.BaseBackingBean#doPreDestroy 
+2020/04/30 18:46:55.077 [default task-2] DEBUG application.BaseBackingBean#doPreConstruct 
+2020/04/30 18:46:55.079 [default task-2] DEBUG listener.InvokeApplicationLisener#beforePhase アプリケーション実行リスナー：前処理
+2020/04/30 18:46:55.080 [default task-2] DEBUG log.ActionLogInterceptor#around application.SignupBean#signupUserWithJpa 開始
+2020/04/30 18:46:55.207 [default task-2] DEBUG mode.TestMode#setRollbackOnlyIfTesMode コミット
+2020/04/30 18:46:55.208 [default task-2] DEBUG log.ActionLogInterceptor#around application.SignupBean#signupUserWithJpa 終了
+2020/04/30 18:46:55.220 [default task-2] DEBUG listener.InvokeApplicationLisener#afterPhase アプリケーション実行リスナー：後処理
+2020/04/30 18:46:55.220 [default task-2] DEBUG application.BaseBackingBean#doPreDestroy 
+2020/04/30 18:46:55.225 [default task-2] DEBUG listener.InvokeApplicationLisener#beforePhase アプリケーション実行リスナー：前処理
+2020/04/30 18:46:55.227 [default task-2] DEBUG application.BaseBackingBean#doPreConstruct 
+2020/04/30 18:46:55.227 [default task-2] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 開始
+2020/04/30 18:46:55.227 [default task-2] DEBUG application.BaseBackingBean#viewAction 
+2020/04/30 18:46:55.228 [default task-2] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 終了
+2020/04/30 18:46:55.228 [default task-2] DEBUG listener.InvokeApplicationLisener#afterPhase アプリケーション実行リスナー：後処理
+2020/04/30 18:46:55.229 [default task-2] DEBUG application.BaseBackingBean#preRender 
+2020/04/30 18:46:55.233 [default task-2] DEBUG application.BaseBackingBean#doPreDestroy 
