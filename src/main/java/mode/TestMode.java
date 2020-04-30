@@ -6,16 +6,12 @@ import javax.annotation.Resource;
 import javax.enterprise.context.SessionScoped;
 import javax.transaction.TransactionSynchronizationRegistry;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
-import log.JpaEclipselinkLogger;
 import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
 
 @SessionScoped
+@Slf4j
 public class TestMode implements Serializable {
-
-    private final Logger logger = LogManager.getLogger(JpaEclipselinkLogger.class);
 
     @Getter
     private boolean test = false;
@@ -31,10 +27,11 @@ public class TestMode implements Serializable {
 
         if (test) {
             txRegistry.setRollbackOnly();
-            logger.debug("ロールバック");
+            log.debug("ロールバック");
+
             return;
         }
 
-        logger.debug("コミット");
+        log.debug("コミット");
     }
 }

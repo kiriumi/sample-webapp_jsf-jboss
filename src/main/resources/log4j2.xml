@@ -4,20 +4,21 @@
 <Configuration status="OFF">
 
     <Properties>
-        <Property name="pattern">%d{yyyy/MM/dd HH:mm:ss.SSS} [%t] %-5p %C %m%n</Property>
+        <Property name="basePattern">%d{yyyy/MM/dd HH:mm:ss.SSS} [%t] %-5p %C#%M %m%n</Property>
+        <Property name="appPattern">%d{yyyy/MM/dd HH:mm:ss.SSS} [%t] %-5p %X{class}#%X{method} %m%n</Property>
         <Property name="logPath">C:/Users/kengo/git/sample-webapp_jsf-jboss/log</Property>
     </Properties>
 
     <Appenders>
         <Console name="console" target="SYSTEM_OUT">
-            <PatternLayout pattern="${pattern}" />
+            <PatternLayout pattern="${basePattern}" />
         </Console>
 
-        <RollingFile name="file"
-            fileName="${logPath}/application.log"
-            filePattern="${logPath}/%d{yyyyMM}/application_%d{yyyyMMdd}_%i.log">
+        <RollingFile name="file-system"
+            fileName="${logPath}/system.log"
+            filePattern="${logPath}/%d{yyyyMM}/system_%d{yyyyMMdd}_%i.log">
 
-            <PatternLayout pattern="${pattern}" />
+            <PatternLayout pattern="${basePattern}" />
 
             <Policies>
                 <SizeBasedTriggeringPolicy size="20 MB" />
@@ -27,10 +28,25 @@
             <DefaultRolloverStrategy min="1" max="10" />
         </RollingFile>
 
-        <RollingFile name="file-db" fileName="${logPath}/db.log"
-            filePattern="${logPath}/%d{yyyyMM}/db_%d{yyyyMMdd}_%i.log">
+        <RollingFile name="file-app"
+            fileName="${logPath}/application.log"
+            filePattern="${logPath}/%d{yyyyMM}/application_%d{yyyyMMdd}_%i.log">
 
-            <PatternLayout pattern="${pattern}" />
+            <PatternLayout pattern="${appPattern}" />
+
+            <Policies>
+                <SizeBasedTriggeringPolicy size="20 MB" />
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+
+            <DefaultRolloverStrategy min="1" max="10" />
+        </RollingFile>
+
+        <RollingFile name="file-db"
+            fileName="${logPath}/application.log"
+            filePattern="${logPath}/%d{yyyyMM}/application_%d{yyyyMMdd}_%i.log">
+
+            <PatternLayout pattern="${basePattern}" />
 
             <Policies>
                 <SizeBasedTriggeringPolicy size="20 MB" />
@@ -45,16 +61,21 @@
     <Loggers>
         <Root level="ALL">
             <AppenderRef ref="console" />
-            <AppenderRef ref="file" />
+            <AppenderRef ref="file-system" />
+            <AppenderRef ref="file-app" />
         </Root>
 
-        <Logger name="application" level="DEBUG" additivity="false">
+        <Logger name="log.ApplicationLogger" level="DEBUG" additivity="false">
             <AppenderRef ref="console" />
-            <!-- <AppenderRef ref="file" /> -->
+            <AppenderRef ref="file-app" />
         </Logger>
 
-        <logger name="log.JpaEclipselinkLogger" level="DEBUG"
-            additivity="false">
+        <Logger name="org.apache.ibatis.logging.jdbc.BaseJdbcLogger" level="DEBUG" additivity="false">
+            <AppenderRef ref="console" />
+            <AppenderRef ref="file-db" />
+        </Logger>
+
+        <logger name="log.JpaEclipselinkLogger" level="DEBUG" additivity="false">
             <AppenderRef ref="console" />
             <AppenderRef ref="file-db" />
         </logger>

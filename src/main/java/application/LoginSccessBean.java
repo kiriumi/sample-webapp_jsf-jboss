@@ -1,7 +1,6 @@
 package application;
 
-import javax.enterprise.context.RequestScoped;
-import javax.inject.Named;
+import javax.enterprise.inject.Model;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -12,17 +11,16 @@ import lombok.EqualsAndHashCode;
  * @author Kengo
  *
  */
-@Named
-@RequestScoped
+@Model // @Named＋@RequestScoped
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class LoginSccessBean extends AbstractManagedBean {
+public class LoginSccessBean extends BaseBackingBean {
 
-	private String message;
+    private String message;
 
-	@Override
-	public void preConstruct() {
-		setInfoMessage((String) getFlash().get("loginSccessMessage"));
-	}
+    @Override
+    public void preConstruct() {
+        setInfoMessage((String) getFlash().get("loginSccessMessage"));
+    }
 
 }

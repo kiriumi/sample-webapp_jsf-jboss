@@ -1,4 +1,4 @@
-package util;
+package log;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Inherited;
@@ -12,6 +12,5 @@ import javax.interceptor.InterceptorBinding;
 @InterceptorBinding
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ ElementType.METHOD, ElementType.TYPE })
-public @interface Redirect {
-
+public @interface ActionLogging {
 }

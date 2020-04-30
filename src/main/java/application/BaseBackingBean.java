@@ -5,7 +5,6 @@ import java.util.ResourceBundle;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
-import javax.enterprise.inject.Model;
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -14,8 +13,10 @@ import javax.faces.event.ActionEvent;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
+import context.SystemDirContext;
 import dto.User;
-import log.Logging;
+import log.ApplicationLogger;
+import log.ActionLogging;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
@@ -23,11 +24,12 @@ import mode.TestMode;
 import mode.TraceMode;
 
 @Slf4j
-@Logging
+@ActionLogging
+public abstract class BaseBackingBean {
 
-@Model
-
-public abstract class AbstractManagedBean {
+    @Inject
+    @Getter
+    private SystemDirContext systemDirContext;
 
     @Inject
     private TestMode testMode;
@@ -42,37 +44,34 @@ public abstract class AbstractManagedBean {
     @Setter
     private User user;
 
-    /**
-     * 管理Beanを初期化する際、実行する処理処理
-     */
+    @Getter
+    @Inject
+    private ApplicationLogger logger;
+
     @PostConstruct
     public void doPreConstruct() {
-        log.debug("preConstruct");
+        log.debug("");
         preConstruct();
     }
 
     public void preRender() {
-        log.debug("preRender");
+        log.debug("");
     }
 
     public void viewAction() {
-        log.debug("viewAction");
+        log.debug("");
     }
 
-    /**
-     * 管理Beanを破棄する際、実行する処理
-     */
     @PreDestroy
-    public void doFin() {
-        fin();
+    public void doPreDestroy() {
+        log.debug("");
+        preDestroy();
     }
 
     protected void preConstruct() {
-
     }
 
-    protected void fin() {
-
+    protected void preDestroy() {
     }
 
     public void switchTestMode() {
@@ -119,6 +118,10 @@ public abstract class AbstractManagedBean {
         message.setSeverity(FacesMessage.SEVERITY_ERROR);
         context.addMessage(component.getClientId(), message);
         context.renderResponse();
+    }
+
+    protected String redirect(final String pageName) {
+        return String.join("", pageName, "?faces-redirect=true");
     }
 
 }

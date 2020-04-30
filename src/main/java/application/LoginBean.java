@@ -1,11 +1,8 @@
 package application;
 
-import java.util.ResourceBundle;
-
-import javax.enterprise.context.RequestScoped;
+import javax.enterprise.inject.Model;
 import javax.faces.event.ActionEvent;
 import javax.inject.Inject;
-import javax.inject.Named;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
@@ -14,8 +11,6 @@ import javax.validation.constraints.Size;
 import domain.UserService;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.extern.slf4j.Slf4j;
-import util.Redirect;
 import validation.Auth;
 import validation.AuthGroup;
 
@@ -56,13 +51,11 @@ import validation.AuthGroup;
  * @author Kengo
  *
  */
-@Named
-@RequestScoped
+@Model // @Named＋@RequestScoped
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Auth(emailAddress = "emailAddress", password = "password")
-@Slf4j
-public class LoginBean extends AbstractManagedBean {
+public class LoginBean extends BaseBackingBean {
 
     @NotBlank(groups = AuthGroup.class)
     @Email
@@ -80,25 +73,6 @@ public class LoginBean extends AbstractManagedBean {
 
     @Override
     protected void preConstruct() {
-
-        // クラスローディング
-        // 外部ディレクトリにあるプロパティファイを読込み
-        ResourceBundle resourceBundle = ResourceBundle.getBundle("env");
-        String rootDirName = resourceBundle.getString("root.dir");
-        System.out.println(rootDirName);
-
-        log.debug("おためし");
-
-        // サブディレクトリ
-        ResourceBundle subResourceBundle = ResourceBundle.getBundle("sub/biz");
-        String subDirName = subResourceBundle.getString("sub.dir");
-        System.out.println(subDirName);
-
-        // 別の外部ディレクトリ
-        ResourceBundle resource2Bundle = ResourceBundle.getBundle("env2");
-        String root2DirName = resource2Bundle.getString("root.dir");
-        System.out.println(root2DirName);
-
         setInfoMessage((String) getFlash().get("signupSccessMessage"));
     }
 
@@ -113,15 +87,15 @@ public class LoginBean extends AbstractManagedBean {
 
     public void authenticate(final ActionEvent event) {
 
-        log.info("認証開始");
+        getLogger().info("anything", "認証開始");
 
         if (userService.find(emailAddress, password)) {
-            log.info("認証成功");
+            getLogger().info("anything", "認証成功");
             this.authed = true;
             return;
         }
 
-        log.info("認証失敗");
+        getLogger().info("anything", "認証失敗");
         setError(event, "error.message.login");
     }
 
@@ -129,21 +103,18 @@ public class LoginBean extends AbstractManagedBean {
 
         if (authed) {
             getFlash().put("loginSccessMessage", "ログインできたよ");
-            return "loginSuccess.xhtml";
+            return redirect("loginSuccess");
         }
 
         return null;
     }
 
-    @Redirect
     public String goSignupPage() {
-        //        return "signup?faces-redirect=true";
-        return "signup";
+        return redirect("signup");
     }
 
-    @Redirect
     public String goLogoutPage() {
-        return "logout";
+        return redirect("logout");
     }
 
 }

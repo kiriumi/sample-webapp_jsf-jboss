@@ -10,10 +10,10 @@ import javax.enterprise.context.SessionScoped;
 import javax.enterprise.inject.Stereotype;
 import javax.inject.Named;
 
+@Stereotype
 @Named
 @SessionScoped
 @Documented
-@Stereotype
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface SessionModel {

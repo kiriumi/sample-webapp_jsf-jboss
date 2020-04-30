@@ -1,0 +1,607 @@
+2020/04/30 16:25:44.527 [ServerService Thread Pool -- 87] DEBUG org.apache.ibatis.logging.LogFactory setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 16:25:44.608 [ServerService Thread Pool -- 87] DEBUG org.apache.ibatis.logging.LogFactory setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 16:25:54.411 [default task-1] DEBUG listener.InvokeApplicationLisener beforePhase アプリケーション実行リスナー：前処理
+2020/04/30 16:25:54.502 [default task-1] DEBUG log.LogInterceptor around 開始：viewAction
+2020/04/30 16:25:54.510 [default task-1] DEBUG log.LogInterceptor around 終了：viewAction
+2020/04/30 16:25:54.513 [default task-1] DEBUG listener.InvokeApplicationLisener afterPhase アプリケーション実行リスナー：後処理
+2020/04/30 16:25:54.565 [default task-1] DEBUG log.LogInterceptor around 開始：preRender
+2020/04/30 16:25:54.567 [default task-1] DEBUG log.LogInterceptor around 終了：preRender
+2020/04/30 16:25:54.602 [default task-1] DEBUG log.LogInterceptor around 開始：getInfoMessage
+2020/04/30 16:25:54.602 [default task-1] DEBUG log.LogInterceptor around 終了：getInfoMessage
+2020/04/30 16:25:54.607 [default task-1] DEBUG log.LogInterceptor around 開始：getEmailAddress
+2020/04/30 16:25:54.608 [default task-1] DEBUG log.LogInterceptor around 終了：getEmailAddress
+2020/04/30 16:25:54.614 [default task-1] DEBUG log.LogInterceptor around 開始：getPassword
+2020/04/30 16:25:54.615 [default task-1] DEBUG log.LogInterceptor around 終了：getPassword
+2020/04/30 16:26:00.277 [default task-1] DEBUG log.LogInterceptor around 開始：hashCode
+2020/04/30 16:26:00.278 [default task-1] DEBUG log.LogInterceptor around 終了：hashCode
+2020/04/30 16:26:00.278 [default task-1] DEBUG log.LogInterceptor around 開始：hashCode
+2020/04/30 16:26:00.279 [default task-1] DEBUG log.LogInterceptor around 終了：hashCode
+2020/04/30 16:26:00.279 [default task-1] DEBUG log.LogInterceptor around 開始：getEmailAddress
+2020/04/30 16:26:00.280 [default task-1] DEBUG log.LogInterceptor around 終了：getEmailAddress
+2020/04/30 16:26:00.281 [default task-1] DEBUG log.LogInterceptor around 開始：hashCode
+2020/04/30 16:26:00.282 [default task-1] DEBUG log.LogInterceptor around 終了：hashCode
+2020/04/30 16:26:00.282 [default task-1] DEBUG log.LogInterceptor around 開始：hashCode
+2020/04/30 16:26:00.282 [default task-1] DEBUG log.LogInterceptor around 終了：hashCode
+2020/04/30 16:26:00.283 [default task-1] DEBUG log.LogInterceptor around 開始：getPassword
+2020/04/30 16:26:00.283 [default task-1] DEBUG log.LogInterceptor around 終了：getPassword
+2020/04/30 16:26:00.284 [default task-1] DEBUG log.LogInterceptor around 開始：setEmailAddress
+2020/04/30 16:26:00.285 [default task-1] DEBUG log.LogInterceptor lambda$0 hoge@hoge
+2020/04/30 16:26:00.285 [default task-1] DEBUG log.LogInterceptor around 終了：setEmailAddress
+2020/04/30 16:26:00.286 [default task-1] DEBUG log.LogInterceptor around 開始：setPassword
+2020/04/30 16:26:00.286 [default task-1] DEBUG log.LogInterceptor lambda$0 hoge
+2020/04/30 16:26:00.287 [default task-1] DEBUG log.LogInterceptor around 終了：setPassword
+2020/04/30 16:26:00.287 [default task-1] DEBUG listener.InvokeApplicationLisener beforePhase アプリケーション実行リスナー：前処理
+2020/04/30 16:26:00.290 [default task-1] DEBUG log.LogInterceptor around 開始：authenticate
+2020/04/30 16:26:00.290 [default task-1] DEBUG log.LogInterceptor lambda$0 javax.faces.event.ActionEvent[source=javax.faces.component.html.HtmlCommandButton@5fb89cad]
+2020/04/30 16:26:04.168 [default task-1] DEBUG org.apache.ibatis.transaction.managed.ManagedTransaction openConnection Opening JDBC Connection
+2020/04/30 16:26:05.551 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger debug ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user WHERE ( emailaddress = ? ) 
+2020/04/30 16:26:07.541 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger debug ==> Parameters: hoge@hoge(String)
+2020/04/30 16:26:08.894 [default task-1] TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger trace <==    Columns: emailaddress, name, password, createdtime, updatedtime
+2020/04/30 16:26:08.945 [default task-1] TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger trace <==        Row: hoge@hoge, hoge, hoge, 2020-04-30T13:40:24.692, 2020-04-30T13:40:24.692
+2020/04/30 16:26:09.013 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger debug <==      Total: 1
+2020/04/30 16:26:15.919 [default task-1] DEBUG log.LogInterceptor around 終了：authenticate
+2020/04/30 16:26:15.920 [default task-1] DEBUG log.LogInterceptor around 開始：login
+2020/04/30 16:26:15.921 [default task-1] DEBUG log.LogInterceptor around 終了：login
+2020/04/30 16:26:15.924 [default task-1] DEBUG listener.InvokeApplicationLisener afterPhase アプリケーション実行リスナー：後処理
+2020/04/30 16:26:15.936 [default task-1] DEBUG log.LogInterceptor around 開始：getInfoMessage
+2020/04/30 16:26:15.936 [default task-1] DEBUG log.LogInterceptor around 終了：getInfoMessage
+2020/04/30 16:26:15.939 [default task-1] DEBUG org.apache.ibatis.transaction.managed.ManagedTransaction close Closing JDBC Connection [org.jboss.jca.adapters.jdbc.jdk8.WrappedConnectionJDK8@40cdadb1]
+2020/04/30 16:44:13.627 [ServerService Thread Pool -- 77] DEBUG org.apache.ibatis.logging.LogFactory setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 16:44:13.724 [ServerService Thread Pool -- 77] DEBUG org.apache.ibatis.logging.LogFactory setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 16:44:23.122 [default task-1] DEBUG listener.InvokeApplicationLisener beforePhase アプリケーション実行リスナー：前処理
+2020/04/30 16:44:23.144 [default task-1] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 16:44:23.174 [default task-1] DEBUG log.LogInterceptor around 開始：viewAction
+2020/04/30 16:44:23.175 [default task-1] DEBUG application.BaseBackingBean viewAction viewAction
+2020/04/30 16:44:23.176 [default task-1] DEBUG log.LogInterceptor around 終了：viewAction
+2020/04/30 16:44:23.177 [default task-1] DEBUG listener.InvokeApplicationLisener afterPhase アプリケーション実行リスナー：後処理
+2020/04/30 16:44:23.232 [default task-1] DEBUG log.LogInterceptor around 開始：preRender
+2020/04/30 16:44:23.233 [default task-1] DEBUG application.BaseBackingBean preRender preRender
+2020/04/30 16:44:23.234 [default task-1] DEBUG log.LogInterceptor around 終了：preRender
+2020/04/30 16:44:23.272 [default task-1] DEBUG log.LogInterceptor around 開始：getInfoMessage
+2020/04/30 16:44:23.273 [default task-1] DEBUG log.LogInterceptor around 終了：getInfoMessage
+2020/04/30 16:44:23.280 [default task-1] DEBUG log.LogInterceptor around 開始：getEmailAddress
+2020/04/30 16:44:23.281 [default task-1] DEBUG log.LogInterceptor around 終了：getEmailAddress
+2020/04/30 16:44:23.286 [default task-1] DEBUG log.LogInterceptor around 開始：getPassword
+2020/04/30 16:44:23.287 [default task-1] DEBUG log.LogInterceptor around 終了：getPassword
+2020/04/30 16:44:25.612 [default task-1] DEBUG listener.InvokeApplicationLisener beforePhase アプリケーション実行リスナー：前処理
+2020/04/30 16:44:25.613 [default task-1] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 16:44:25.614 [default task-1] DEBUG log.LogInterceptor around 開始：viewAction
+2020/04/30 16:44:25.614 [default task-1] DEBUG application.BaseBackingBean viewAction viewAction
+2020/04/30 16:44:25.614 [default task-1] DEBUG log.LogInterceptor around 終了：viewAction
+2020/04/30 16:44:25.615 [default task-1] DEBUG listener.InvokeApplicationLisener afterPhase アプリケーション実行リスナー：後処理
+2020/04/30 16:44:25.618 [default task-1] DEBUG log.LogInterceptor around 開始：preRender
+2020/04/30 16:44:25.618 [default task-1] DEBUG application.BaseBackingBean preRender preRender
+2020/04/30 16:44:25.619 [default task-1] DEBUG log.LogInterceptor around 終了：preRender
+2020/04/30 16:44:25.623 [default task-1] DEBUG log.LogInterceptor around 開始：getInfoMessage
+2020/04/30 16:44:25.623 [default task-1] DEBUG log.LogInterceptor around 終了：getInfoMessage
+2020/04/30 16:44:25.624 [default task-1] DEBUG log.LogInterceptor around 開始：getEmailAddress
+2020/04/30 16:44:25.625 [default task-1] DEBUG log.LogInterceptor around 終了：getEmailAddress
+2020/04/30 16:44:25.625 [default task-1] DEBUG log.LogInterceptor around 開始：getPassword
+2020/04/30 16:44:25.626 [default task-1] DEBUG log.LogInterceptor around 終了：getPassword
+2020/04/30 16:44:32.407 [default task-1] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 16:44:32.458 [default task-1] DEBUG log.LogInterceptor around 開始：hashCode
+2020/04/30 16:44:32.459 [default task-1] DEBUG log.LogInterceptor around 終了：hashCode
+2020/04/30 16:44:32.460 [default task-1] DEBUG log.LogInterceptor around 開始：hashCode
+2020/04/30 16:44:32.461 [default task-1] DEBUG log.LogInterceptor around 終了：hashCode
+2020/04/30 16:44:32.462 [default task-1] DEBUG log.LogInterceptor around 開始：getEmailAddress
+2020/04/30 16:44:32.463 [default task-1] DEBUG log.LogInterceptor around 終了：getEmailAddress
+2020/04/30 16:44:32.466 [default task-1] DEBUG log.LogInterceptor around 開始：hashCode
+2020/04/30 16:44:32.467 [default task-1] DEBUG log.LogInterceptor around 終了：hashCode
+2020/04/30 16:44:32.467 [default task-1] DEBUG log.LogInterceptor around 開始：hashCode
+2020/04/30 16:44:32.468 [default task-1] DEBUG log.LogInterceptor around 終了：hashCode
+2020/04/30 16:44:32.470 [default task-1] DEBUG log.LogInterceptor around 開始：getPassword
+2020/04/30 16:44:32.471 [default task-1] DEBUG log.LogInterceptor around 終了：getPassword
+2020/04/30 16:44:32.473 [default task-1] DEBUG log.LogInterceptor around 開始：setEmailAddress
+2020/04/30 16:44:32.474 [default task-1] DEBUG log.LogInterceptor lambda$0 hoge@hoge
+2020/04/30 16:44:32.476 [default task-1] DEBUG log.LogInterceptor around 終了：setEmailAddress
+2020/04/30 16:44:32.477 [default task-1] DEBUG log.LogInterceptor around 開始：setPassword
+2020/04/30 16:44:32.479 [default task-1] DEBUG log.LogInterceptor lambda$0 hoge
+2020/04/30 16:44:32.479 [default task-1] DEBUG log.LogInterceptor around 終了：setPassword
+2020/04/30 16:44:32.480 [default task-1] DEBUG listener.InvokeApplicationLisener beforePhase アプリケーション実行リスナー：前処理
+2020/04/30 16:44:32.483 [default task-1] DEBUG log.LogInterceptor around 開始：authenticate
+2020/04/30 16:44:32.484 [default task-1] DEBUG log.LogInterceptor lambda$0 javax.faces.event.ActionEvent[source=javax.faces.component.html.HtmlCommandButton@5661bcc0]
+2020/04/30 16:44:55.769 [default task-1] DEBUG org.apache.ibatis.transaction.managed.ManagedTransaction openConnection Opening JDBC Connection
+2020/04/30 16:44:55.899 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger debug ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user WHERE ( emailaddress = ? ) 
+2020/04/30 16:44:55.914 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger debug ==> Parameters: hoge@hoge(String)
+2020/04/30 16:44:55.929 [default task-1] TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger trace <==    Columns: emailaddress, name, password, createdtime, updatedtime
+2020/04/30 16:44:55.929 [default task-1] TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger trace <==        Row: hoge@hoge, hoge, hoge, 2020-04-30T13:40:24.692, 2020-04-30T13:40:24.692
+2020/04/30 16:44:55.931 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger debug <==      Total: 1
+2020/04/30 16:44:57.574 [default task-1] DEBUG log.LogInterceptor around 終了：authenticate
+2020/04/30 16:44:57.574 [default task-1] DEBUG log.LogInterceptor around 開始：login
+2020/04/30 16:44:57.576 [default task-1] DEBUG log.LogInterceptor around 終了：login
+2020/04/30 16:44:57.582 [default task-1] DEBUG listener.InvokeApplicationLisener afterPhase アプリケーション実行リスナー：後処理
+2020/04/30 16:44:57.586 [default task-1] DEBUG org.apache.ibatis.transaction.managed.ManagedTransaction close Closing JDBC Connection [org.jboss.jca.adapters.jdbc.jdk8.WrappedConnectionJDK8@237e7fd4]
+2020/04/30 16:44:57.611 [default task-2] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 16:44:57.613 [default task-2] DEBUG log.LogInterceptor around 開始：getInfoMessage
+2020/04/30 16:44:57.614 [default task-2] DEBUG log.LogInterceptor around 終了：getInfoMessage
+2020/04/30 16:52:14.683 [ServerService Thread Pool -- 86] DEBUG org.apache.ibatis.logging.LogFactory setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 16:52:14.777 [ServerService Thread Pool -- 86] DEBUG org.apache.ibatis.logging.LogFactory setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 16:52:23.472 [default task-1] DEBUG listener.InvokeApplicationLisener beforePhase アプリケーション実行リスナー：前処理
+2020/04/30 16:52:23.661 [default task-1] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 16:54:44.918 [ServerService Thread Pool -- 90] DEBUG org.apache.ibatis.logging.LogFactory setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 16:54:45.016 [ServerService Thread Pool -- 90] DEBUG org.apache.ibatis.logging.LogFactory setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 16:54:50.953 [default task-1] DEBUG listener.InvokeApplicationLisener beforePhase アプリケーション実行リスナー：前処理
+2020/04/30 16:54:50.975 [default task-1] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 16:54:51.008 [default task-1] DEBUG application.BaseBackingBean viewAction viewAction
+2020/04/30 16:54:51.010 [default task-1] DEBUG listener.InvokeApplicationLisener afterPhase アプリケーション実行リスナー：後処理
+2020/04/30 16:54:51.054 [default task-1] DEBUG application.BaseBackingBean preRender preRender
+2020/04/30 16:54:56.302 [default task-1] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 16:54:56.397 [default task-1] DEBUG application.BaseBackingBean preRender preRender
+2020/04/30 16:54:58.688 [default task-1] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 16:54:58.695 [default task-1] DEBUG listener.InvokeApplicationLisener beforePhase アプリケーション実行リスナー：前処理
+2020/04/30 16:54:58.701 [default task-1] DEBUG listener.InvokeApplicationLisener afterPhase アプリケーション実行リスナー：後処理
+2020/04/30 16:54:58.731 [default task-1] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 16:55:15.632 [default task-1] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 16:57:05.456 [default task-1] DEBUG listener.InvokeApplicationLisener beforePhase アプリケーション実行リスナー：前処理
+2020/04/30 16:57:13.399 [default task-1] DEBUG org.apache.ibatis.transaction.managed.ManagedTransaction openConnection Opening JDBC Connection
+2020/04/30 16:57:13.525 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger debug ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user WHERE ( emailaddress = ? ) 
+2020/04/30 16:57:13.539 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger debug ==> Parameters: hoge@hoge(String)
+2020/04/30 16:57:13.553 [default task-1] TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger trace <==    Columns: emailaddress, name, password, createdtime, updatedtime
+2020/04/30 16:57:13.554 [default task-1] TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger trace <==        Row: hoge@hoge, hoge, hoge, 2020-04-30T13:40:24.692, 2020-04-30T13:40:24.692
+2020/04/30 16:57:13.555 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger debug <==      Total: 1
+2020/04/30 16:57:13.559 [default task-1] DEBUG listener.InvokeApplicationLisener afterPhase アプリケーション実行リスナー：後処理
+2020/04/30 16:57:13.560 [default task-1] DEBUG org.apache.ibatis.transaction.managed.ManagedTransaction close Closing JDBC Connection [org.jboss.jca.adapters.jdbc.jdk8.WrappedConnectionJDK8@b137579]
+2020/04/30 16:57:13.578 [default task-2] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 17:00:22.850 [ServerService Thread Pool -- 80] DEBUG org.apache.ibatis.logging.LogFactory setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 17:00:22.941 [ServerService Thread Pool -- 80] DEBUG org.apache.ibatis.logging.LogFactory setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 17:00:40.887 [default task-1] DEBUG listener.InvokeApplicationLisener beforePhase アプリケーション実行リスナー：前処理：class javax.faces.event.PhaseEvent
+2020/04/30 17:02:46.485 [ServerService Thread Pool -- 80] DEBUG org.apache.ibatis.logging.LogFactory setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 17:02:46.612 [ServerService Thread Pool -- 80] DEBUG org.apache.ibatis.logging.LogFactory setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 17:02:53.308 [default task-1] DEBUG listener.InvokeApplicationLisener beforePhase アプリケーション実行リスナー：前処理：class javax.faces.event.PhaseEvent
+2020/04/30 17:02:53.337 [default task-1] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 17:02:53.371 [default task-1] DEBUG application.BaseBackingBean viewAction viewAction
+2020/04/30 17:02:53.373 [default task-1] DEBUG listener.InvokeApplicationLisener afterPhase アプリケーション実行リスナー：後処理
+2020/04/30 17:02:53.428 [default task-1] DEBUG application.BaseBackingBean preRender preRender
+2020/04/30 17:02:56.759 [default task-1] DEBUG listener.InvokeApplicationLisener beforePhase アプリケーション実行リスナー：前処理：class javax.faces.event.PhaseEvent
+2020/04/30 17:02:56.761 [default task-1] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 17:02:56.762 [default task-1] DEBUG application.BaseBackingBean viewAction viewAction
+2020/04/30 17:02:56.763 [default task-1] DEBUG listener.InvokeApplicationLisener afterPhase アプリケーション実行リスナー：後処理
+2020/04/30 17:02:56.767 [default task-1] DEBUG application.BaseBackingBean preRender preRender
+2020/04/30 17:02:58.746 [default task-1] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 17:02:58.829 [default task-1] DEBUG application.BaseBackingBean preRender preRender
+2020/04/30 17:03:04.733 [default task-1] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 17:03:04.736 [default task-1] DEBUG listener.InvokeApplicationLisener beforePhase アプリケーション実行リスナー：前処理：class javax.faces.event.PhaseEvent
+2020/04/30 17:03:04.806 [default task-1] DEBUG org.apache.ibatis.transaction.managed.ManagedTransaction openConnection Opening JDBC Connection
+2020/04/30 17:03:04.974 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger debug ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user WHERE ( emailaddress = ? ) 
+2020/04/30 17:03:04.989 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger debug ==> Parameters: hoge@hoge(String)
+2020/04/30 17:03:05.003 [default task-1] TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger trace <==    Columns: emailaddress, name, password, createdtime, updatedtime
+2020/04/30 17:03:05.003 [default task-1] TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger trace <==        Row: hoge@hoge, hoge, hoge, 2020-04-30T13:40:24.692, 2020-04-30T13:40:24.692
+2020/04/30 17:03:05.004 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger debug <==      Total: 1
+2020/04/30 17:03:05.016 [default task-1] DEBUG listener.InvokeApplicationLisener afterPhase アプリケーション実行リスナー：後処理
+2020/04/30 17:03:05.018 [default task-1] DEBUG org.apache.ibatis.transaction.managed.ManagedTransaction close Closing JDBC Connection [org.jboss.jca.adapters.jdbc.jdk8.WrappedConnectionJDK8@1d440247]
+2020/04/30 17:03:05.035 [default task-2] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 17:04:19.807 [ServerService Thread Pool -- 83] DEBUG org.apache.ibatis.logging.LogFactory setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 17:04:19.891 [ServerService Thread Pool -- 83] DEBUG org.apache.ibatis.logging.LogFactory setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 17:04:28.174 [default task-1] DEBUG listener.InvokeApplicationLisener beforePhase アプリケーション実行リスナー：前処理：class javax.faces.event.PhaseEvent
+2020/04/30 17:04:28.201 [default task-1] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 17:04:28.238 [default task-1] DEBUG application.BaseBackingBean viewAction viewAction
+2020/04/30 17:04:28.240 [default task-1] DEBUG listener.InvokeApplicationLisener afterPhase アプリケーション実行リスナー：後処理
+2020/04/30 17:04:28.295 [default task-1] DEBUG application.BaseBackingBean preRender preRender
+2020/04/30 17:04:34.203 [default task-1] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 17:04:34.237 [default task-1] DEBUG listener.InvokeApplicationLisener beforePhase アプリケーション実行リスナー：前処理：class javax.faces.event.PhaseEvent
+2020/04/30 17:04:34.313 [default task-1] DEBUG org.apache.ibatis.transaction.managed.ManagedTransaction openConnection Opening JDBC Connection
+2020/04/30 17:04:34.450 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger debug ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user WHERE ( emailaddress = ? ) 
+2020/04/30 17:04:34.464 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger debug ==> Parameters: hoge@hoge(String)
+2020/04/30 17:04:34.475 [default task-1] TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger trace <==    Columns: emailaddress, name, password, createdtime, updatedtime
+2020/04/30 17:04:34.477 [default task-1] TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger trace <==        Row: hoge@hoge, hoge, hoge, 2020-04-30T13:40:24.692, 2020-04-30T13:40:24.692
+2020/04/30 17:04:34.478 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger debug <==      Total: 1
+2020/04/30 17:04:34.482 [default task-1] DEBUG listener.InvokeApplicationLisener afterPhase アプリケーション実行リスナー：後処理
+2020/04/30 17:04:34.483 [default task-1] DEBUG org.apache.ibatis.transaction.managed.ManagedTransaction close Closing JDBC Connection [org.jboss.jca.adapters.jdbc.jdk8.WrappedConnectionJDK8@60a165d9]
+2020/04/30 17:04:34.499 [default task-2] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 17:06:38.377 [ServerService Thread Pool -- 82] DEBUG org.apache.ibatis.logging.LogFactory setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 17:06:38.468 [ServerService Thread Pool -- 82] DEBUG org.apache.ibatis.logging.LogFactory setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 17:06:47.298 [default task-1] DEBUG listener.InvokeApplicationLisener beforePhase アプリケーション実行リスナー：前処理：class javax.faces.event.PhaseEvent
+2020/04/30 17:06:47.325 [default task-1] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 17:06:47.362 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.viewAction：開始
+2020/04/30 17:06:47.365 [default task-1] DEBUG application.BaseBackingBean viewAction viewAction
+2020/04/30 17:06:47.365 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.viewAction：終了
+2020/04/30 17:06:47.367 [default task-1] DEBUG listener.InvokeApplicationLisener afterPhase アプリケーション実行リスナー：後処理
+2020/04/30 17:06:47.430 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.preRender：開始
+2020/04/30 17:06:47.432 [default task-1] DEBUG application.BaseBackingBean preRender preRender
+2020/04/30 17:06:47.433 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.preRender：終了
+2020/04/30 17:06:47.476 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.getInfoMessage：開始
+2020/04/30 17:06:47.477 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.getInfoMessage：終了
+2020/04/30 17:06:47.483 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.getEmailAddress：開始
+2020/04/30 17:06:47.484 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.getEmailAddress：終了
+2020/04/30 17:06:47.489 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.getPassword：開始
+2020/04/30 17:06:47.489 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.getPassword：終了
+2020/04/30 17:06:49.108 [default task-1] DEBUG listener.InvokeApplicationLisener beforePhase アプリケーション実行リスナー：前処理：class javax.faces.event.PhaseEvent
+2020/04/30 17:06:49.109 [default task-1] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 17:06:49.110 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.viewAction：開始
+2020/04/30 17:06:49.110 [default task-1] DEBUG application.BaseBackingBean viewAction viewAction
+2020/04/30 17:06:49.110 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.viewAction：終了
+2020/04/30 17:06:49.111 [default task-1] DEBUG listener.InvokeApplicationLisener afterPhase アプリケーション実行リスナー：後処理
+2020/04/30 17:06:49.113 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.preRender：開始
+2020/04/30 17:06:49.114 [default task-1] DEBUG application.BaseBackingBean preRender preRender
+2020/04/30 17:06:49.114 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.preRender：終了
+2020/04/30 17:06:49.118 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.getInfoMessage：開始
+2020/04/30 17:06:49.119 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.getInfoMessage：終了
+2020/04/30 17:06:49.120 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.getEmailAddress：開始
+2020/04/30 17:06:49.121 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.getEmailAddress：終了
+2020/04/30 17:06:49.122 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.getPassword：開始
+2020/04/30 17:06:49.122 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.getPassword：終了
+2020/04/30 17:06:53.399 [default task-1] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 17:06:53.473 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.hashCode：開始
+2020/04/30 17:06:53.474 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.hashCode：終了
+2020/04/30 17:06:53.474 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.hashCode：開始
+2020/04/30 17:06:53.475 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.hashCode：終了
+2020/04/30 17:06:53.476 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.hashCode：開始
+2020/04/30 17:06:53.477 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.hashCode：終了
+2020/04/30 17:06:53.478 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.hashCode：開始
+2020/04/30 17:06:53.478 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.hashCode：終了
+2020/04/30 17:06:53.481 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.preRender：開始
+2020/04/30 17:06:53.482 [default task-1] DEBUG application.BaseBackingBean preRender preRender
+2020/04/30 17:06:53.483 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.preRender：終了
+2020/04/30 17:06:53.486 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.getInfoMessage：開始
+2020/04/30 17:06:53.486 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.getInfoMessage：終了
+2020/04/30 17:06:59.935 [default task-1] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 17:06:59.937 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.hashCode：開始
+2020/04/30 17:06:59.937 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.hashCode：終了
+2020/04/30 17:06:59.938 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.hashCode：開始
+2020/04/30 17:06:59.938 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.hashCode：終了
+2020/04/30 17:06:59.939 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.getEmailAddress：開始
+2020/04/30 17:06:59.939 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.getEmailAddress：終了
+2020/04/30 17:06:59.941 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.hashCode：開始
+2020/04/30 17:06:59.941 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.hashCode：終了
+2020/04/30 17:06:59.942 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.hashCode：開始
+2020/04/30 17:06:59.942 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.hashCode：終了
+2020/04/30 17:06:59.943 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.getPassword：開始
+2020/04/30 17:06:59.944 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.getPassword：終了
+2020/04/30 17:06:59.945 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.setEmailAddress：開始
+2020/04/30 17:06:59.947 [default task-1] DEBUG log.LogInterceptor lambda$0 hoge@hoge
+2020/04/30 17:06:59.948 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.setEmailAddress：終了
+2020/04/30 17:06:59.949 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.setPassword：開始
+2020/04/30 17:06:59.949 [default task-1] DEBUG log.LogInterceptor lambda$0 a
+2020/04/30 17:06:59.949 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.setPassword：終了
+2020/04/30 17:06:59.950 [default task-1] DEBUG listener.InvokeApplicationLisener beforePhase アプリケーション実行リスナー：前処理：class javax.faces.event.PhaseEvent
+2020/04/30 17:06:59.953 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.authenticate：開始
+2020/04/30 17:06:59.954 [default task-1] DEBUG log.LogInterceptor lambda$0 javax.faces.event.ActionEvent[source=javax.faces.component.html.HtmlCommandButton@5d9814e9]
+2020/04/30 17:07:00.045 [default task-1] DEBUG org.apache.ibatis.transaction.managed.ManagedTransaction openConnection Opening JDBC Connection
+2020/04/30 17:07:00.163 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger debug ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user WHERE ( emailaddress = ? ) 
+2020/04/30 17:07:00.205 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger debug ==> Parameters: hoge@hoge(String)
+2020/04/30 17:07:00.219 [default task-1] TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger trace <==    Columns: emailaddress, name, password, createdtime, updatedtime
+2020/04/30 17:07:00.219 [default task-1] TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger trace <==        Row: hoge@hoge, hoge, hoge, 2020-04-30T13:40:24.692, 2020-04-30T13:40:24.692
+2020/04/30 17:07:00.220 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger debug <==      Total: 1
+2020/04/30 17:07:00.221 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.authenticate：終了
+2020/04/30 17:07:00.222 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.login：開始
+2020/04/30 17:07:00.222 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.login：終了
+2020/04/30 17:07:00.225 [default task-1] DEBUG listener.InvokeApplicationLisener afterPhase アプリケーション実行リスナー：後処理
+2020/04/30 17:07:00.227 [default task-1] DEBUG org.apache.ibatis.transaction.managed.ManagedTransaction close Closing JDBC Connection [org.jboss.jca.adapters.jdbc.jdk8.WrappedConnectionJDK8@7094b8b3]
+2020/04/30 17:07:00.244 [default task-2] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 17:07:00.247 [default task-2] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.getInfoMessage：開始
+2020/04/30 17:07:00.247 [default task-2] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.getInfoMessage：終了
+2020/04/30 17:08:50.630 [ServerService Thread Pool -- 84] DEBUG org.apache.ibatis.logging.LogFactory setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 17:08:50.734 [ServerService Thread Pool -- 84] DEBUG org.apache.ibatis.logging.LogFactory setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 17:08:55.815 [default task-1] DEBUG listener.InvokeApplicationLisener beforePhase アプリケーション実行リスナー：前処理：class javax.faces.event.PhaseEvent
+2020/04/30 17:08:55.839 [default task-1] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 17:08:55.869 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.viewAction：開始
+2020/04/30 17:08:55.872 [default task-1] DEBUG application.BaseBackingBean viewAction viewAction
+2020/04/30 17:08:55.872 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.viewAction：終了
+2020/04/30 17:08:55.874 [default task-1] DEBUG listener.InvokeApplicationLisener afterPhase アプリケーション実行リスナー：後処理
+2020/04/30 17:08:55.924 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.preRender：開始
+2020/04/30 17:08:55.924 [default task-1] DEBUG application.BaseBackingBean preRender preRender
+2020/04/30 17:08:55.925 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.preRender：終了
+2020/04/30 17:08:55.955 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.getInfoMessage：開始
+2020/04/30 17:08:55.956 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.getInfoMessage：終了
+2020/04/30 17:08:55.959 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.getEmailAddress：開始
+2020/04/30 17:08:55.960 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.getEmailAddress：終了
+2020/04/30 17:08:55.964 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.getPassword：開始
+2020/04/30 17:08:55.965 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.getPassword：終了
+2020/04/30 17:09:02.739 [default task-1] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 17:09:02.775 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.hashCode：開始
+2020/04/30 17:09:02.776 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.hashCode：終了
+2020/04/30 17:09:02.776 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.hashCode：開始
+2020/04/30 17:09:02.777 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.hashCode：終了
+2020/04/30 17:09:02.778 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.getEmailAddress：開始
+2020/04/30 17:09:02.778 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.getEmailAddress：終了
+2020/04/30 17:09:02.780 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.hashCode：開始
+2020/04/30 17:09:02.781 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.hashCode：終了
+2020/04/30 17:09:02.781 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.hashCode：開始
+2020/04/30 17:09:02.782 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.hashCode：終了
+2020/04/30 17:09:02.782 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.getPassword：開始
+2020/04/30 17:09:02.783 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.getPassword：終了
+2020/04/30 17:09:02.784 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.setEmailAddress：開始
+2020/04/30 17:09:02.785 [default task-1] DEBUG log.LogInterceptor lambda$0 hige
+2020/04/30 17:09:02.785 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.setEmailAddress：終了
+2020/04/30 17:09:02.786 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.setPassword：開始
+2020/04/30 17:09:02.786 [default task-1] DEBUG log.LogInterceptor lambda$0 hoge
+2020/04/30 17:09:02.786 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.setPassword：終了
+2020/04/30 17:09:02.787 [default task-1] DEBUG listener.InvokeApplicationLisener beforePhase アプリケーション実行リスナー：前処理：class javax.faces.event.PhaseEvent
+2020/04/30 17:09:02.789 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.authenticate：開始
+2020/04/30 17:09:02.790 [default task-1] DEBUG log.LogInterceptor lambda$0 javax.faces.event.ActionEvent[source=javax.faces.component.html.HtmlCommandButton@7e1e0d60]
+2020/04/30 17:09:02.865 [default task-1] DEBUG org.apache.ibatis.transaction.managed.ManagedTransaction openConnection Opening JDBC Connection
+2020/04/30 17:09:03.045 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger debug ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user WHERE ( emailaddress = ? ) 
+2020/04/30 17:09:03.064 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger debug ==> Parameters: hige(String)
+2020/04/30 17:09:03.083 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger debug <==      Total: 0
+2020/04/30 17:09:03.099 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.authenticate：終了
+2020/04/30 17:09:03.100 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.login：開始
+2020/04/30 17:09:03.100 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.login：終了
+2020/04/30 17:09:03.101 [default task-1] DEBUG listener.InvokeApplicationLisener afterPhase アプリケーション実行リスナー：後処理
+2020/04/30 17:09:03.104 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.preRender：開始
+2020/04/30 17:09:03.104 [default task-1] DEBUG application.BaseBackingBean preRender preRender
+2020/04/30 17:09:03.105 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.preRender：終了
+2020/04/30 17:09:03.108 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.getInfoMessage：開始
+2020/04/30 17:09:03.109 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.getInfoMessage：終了
+2020/04/30 17:09:03.111 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.getEmailAddress：開始
+2020/04/30 17:09:03.112 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.getEmailAddress：終了
+2020/04/30 17:09:03.114 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.getPassword：開始
+2020/04/30 17:09:03.115 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.getPassword：終了
+2020/04/30 17:09:03.118 [default task-1] DEBUG org.apache.ibatis.transaction.managed.ManagedTransaction close Closing JDBC Connection [org.jboss.jca.adapters.jdbc.jdk8.WrappedConnectionJDK8@4265366a]
+2020/04/30 17:09:17.131 [default task-1] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 17:09:34.664 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.hashCode：開始
+2020/04/30 17:09:34.665 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.hashCode：終了
+2020/04/30 17:09:39.612 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.hashCode：開始
+2020/04/30 17:09:39.612 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.hashCode：終了
+2020/04/30 17:09:43.080 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.getEmailAddress：開始
+2020/04/30 17:09:43.081 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.getEmailAddress：終了
+2020/04/30 17:09:47.170 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.hashCode：開始
+2020/04/30 17:09:47.171 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.hashCode：終了
+2020/04/30 17:10:49.007 [ServerService Thread Pool -- 85] DEBUG org.apache.ibatis.logging.LogFactory setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 17:10:49.100 [ServerService Thread Pool -- 85] DEBUG org.apache.ibatis.logging.LogFactory setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 17:10:58.267 [default task-1] DEBUG listener.InvokeApplicationLisener beforePhase アプリケーション実行リスナー：前処理：class javax.faces.event.PhaseEvent
+2020/04/30 17:10:58.305 [default task-1] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 17:16:58.381 [ServerService Thread Pool -- 84] DEBUG org.apache.ibatis.logging.LogFactory setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 17:16:58.482 [ServerService Thread Pool -- 84] DEBUG org.apache.ibatis.logging.LogFactory setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 17:17:06.494 [default task-1] DEBUG listener.InvokeApplicationLisener beforePhase アプリケーション実行リスナー：前処理：class javax.faces.event.PhaseEvent
+2020/04/30 17:17:06.517 [default task-1] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 17:17:06.554 [default task-1] DEBUG application.BaseBackingBean viewAction viewAction
+2020/04/30 17:17:06.556 [default task-1] DEBUG listener.InvokeApplicationLisener afterPhase アプリケーション実行リスナー：後処理
+2020/04/30 17:17:06.607 [default task-1] DEBUG application.BaseBackingBean preRender preRender
+2020/04/30 17:17:11.553 [default task-1] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 17:17:11.596 [default task-1] DEBUG listener.InvokeApplicationLisener beforePhase アプリケーション実行リスナー：前処理：class javax.faces.event.PhaseEvent
+2020/04/30 17:17:11.679 [default task-1] DEBUG org.apache.ibatis.transaction.managed.ManagedTransaction openConnection Opening JDBC Connection
+2020/04/30 17:17:11.815 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger debug ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user WHERE ( emailaddress = ? ) 
+2020/04/30 17:17:11.829 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger debug ==> Parameters: hoge@(String)
+2020/04/30 17:17:11.841 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger debug <==      Total: 0
+2020/04/30 17:17:11.853 [default task-1] DEBUG listener.InvokeApplicationLisener afterPhase アプリケーション実行リスナー：後処理
+2020/04/30 17:17:11.856 [default task-1] DEBUG application.BaseBackingBean preRender preRender
+2020/04/30 17:17:11.861 [default task-1] DEBUG org.apache.ibatis.transaction.managed.ManagedTransaction close Closing JDBC Connection [org.jboss.jca.adapters.jdbc.jdk8.WrappedConnectionJDK8@6fdcd8ed]
+2020/04/30 17:17:20.348 [default task-1] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 17:17:20.352 [default task-1] DEBUG listener.InvokeApplicationLisener beforePhase アプリケーション実行リスナー：前処理：class javax.faces.event.PhaseEvent
+2020/04/30 17:17:23.742 [default task-1] DEBUG org.apache.ibatis.transaction.managed.ManagedTransaction openConnection Opening JDBC Connection
+2020/04/30 17:17:23.743 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger debug ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user WHERE ( emailaddress = ? ) 
+2020/04/30 17:17:23.743 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger debug ==> Parameters: hoge@(String)
+2020/04/30 17:17:23.745 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger debug <==      Total: 0
+2020/04/30 17:17:23.747 [default task-1] DEBUG listener.InvokeApplicationLisener afterPhase アプリケーション実行リスナー：後処理
+2020/04/30 17:17:23.753 [default task-1] DEBUG application.BaseBackingBean preRender preRender
+2020/04/30 17:17:23.760 [default task-1] DEBUG org.apache.ibatis.transaction.managed.ManagedTransaction close Closing JDBC Connection [org.jboss.jca.adapters.jdbc.jdk8.WrappedConnectionJDK8@4c5d5e10]
+2020/04/30 17:17:57.405 [default task-1] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 17:17:57.441 [default task-1] DEBUG application.BaseBackingBean preRender preRender
+2020/04/30 17:18:01.007 [default task-1] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 17:18:01.009 [default task-1] DEBUG listener.InvokeApplicationLisener beforePhase アプリケーション実行リスナー：前処理：class javax.faces.event.PhaseEvent
+2020/04/30 17:18:20.898 [default task-1] DEBUG org.apache.ibatis.transaction.managed.ManagedTransaction openConnection Opening JDBC Connection
+2020/04/30 17:18:20.899 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger debug ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user WHERE ( emailaddress = ? ) 
+2020/04/30 17:18:20.900 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger debug ==> Parameters: hoge@(String)
+2020/04/30 17:18:20.902 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger debug <==      Total: 0
+2020/04/30 17:18:20.903 [default task-1] DEBUG listener.InvokeApplicationLisener afterPhase アプリケーション実行リスナー：後処理
+2020/04/30 17:18:20.908 [default task-1] DEBUG application.BaseBackingBean preRender preRender
+2020/04/30 17:18:20.914 [default task-1] DEBUG org.apache.ibatis.transaction.managed.ManagedTransaction close Closing JDBC Connection [org.jboss.jca.adapters.jdbc.jdk8.WrappedConnectionJDK8@1cdd0be8]
+2020/04/30 17:18:59.652 [ServerService Thread Pool -- 88] DEBUG org.apache.ibatis.logging.LogFactory setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 17:18:59.746 [ServerService Thread Pool -- 88] DEBUG org.apache.ibatis.logging.LogFactory setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 17:19:02.615 [default task-2] DEBUG listener.InvokeApplicationLisener beforePhase アプリケーション実行リスナー：前処理：class javax.faces.event.PhaseEvent
+2020/04/30 17:19:02.650 [default task-2] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 17:19:02.711 [default task-2] DEBUG application.BaseBackingBean viewAction viewAction
+2020/04/30 17:19:02.715 [default task-2] DEBUG listener.InvokeApplicationLisener afterPhase アプリケーション実行リスナー：後処理
+2020/04/30 17:19:02.830 [default task-2] DEBUG application.BaseBackingBean preRender preRender
+2020/04/30 17:19:06.926 [default task-2] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 17:19:06.964 [default task-2] DEBUG listener.InvokeApplicationLisener beforePhase アプリケーション実行リスナー：前処理：class javax.faces.event.PhaseEvent
+2020/04/30 17:19:11.801 [default task-2] DEBUG org.apache.ibatis.transaction.managed.ManagedTransaction openConnection Opening JDBC Connection
+2020/04/30 17:19:11.940 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger debug ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user WHERE ( emailaddress = ? ) 
+2020/04/30 17:19:11.958 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger debug ==> Parameters: hoge@hoge(String)
+2020/04/30 17:19:11.973 [default task-2] TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger trace <==    Columns: emailaddress, name, password, createdtime, updatedtime
+2020/04/30 17:19:11.974 [default task-2] TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger trace <==        Row: hoge@hoge, hoge, hoge, 2020-04-30T13:40:24.692, 2020-04-30T13:40:24.692
+2020/04/30 17:19:11.976 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger debug <==      Total: 1
+2020/04/30 17:19:11.985 [default task-2] DEBUG listener.InvokeApplicationLisener afterPhase アプリケーション実行リスナー：後処理
+2020/04/30 17:19:11.987 [default task-2] DEBUG org.apache.ibatis.transaction.managed.ManagedTransaction close Closing JDBC Connection [org.jboss.jca.adapters.jdbc.jdk8.WrappedConnectionJDK8@4825bb92]
+2020/04/30 17:19:12.010 [default task-1] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 17:19:52.092 [ServerService Thread Pool -- 83] DEBUG org.apache.ibatis.logging.LogFactory setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 17:19:52.186 [ServerService Thread Pool -- 83] DEBUG org.apache.ibatis.logging.LogFactory setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 17:19:58.193 [default task-1] DEBUG listener.InvokeApplicationLisener beforePhase アプリケーション実行リスナー：前処理：class javax.faces.event.PhaseEvent
+2020/04/30 17:19:58.219 [default task-1] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 17:19:58.257 [default task-1] DEBUG application.BaseBackingBean viewAction viewAction
+2020/04/30 17:19:58.260 [default task-1] DEBUG listener.InvokeApplicationLisener afterPhase アプリケーション実行リスナー：後処理
+2020/04/30 17:19:58.319 [default task-1] DEBUG application.BaseBackingBean preRender preRender
+2020/04/30 17:20:01.490 [default task-1] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 17:20:01.527 [default task-1] DEBUG listener.InvokeApplicationLisener beforePhase アプリケーション実行リスナー：前処理：class javax.faces.event.PhaseEvent
+2020/04/30 17:20:01.596 [default task-1] DEBUG org.apache.ibatis.transaction.managed.ManagedTransaction openConnection Opening JDBC Connection
+2020/04/30 17:20:01.732 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger debug ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user WHERE ( emailaddress = ? ) 
+2020/04/30 17:20:01.746 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger debug ==> Parameters: hoge@hoge(String)
+2020/04/30 17:20:01.759 [default task-1] TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger trace <==    Columns: emailaddress, name, password, createdtime, updatedtime
+2020/04/30 17:20:01.760 [default task-1] TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger trace <==        Row: hoge@hoge, hoge, hoge, 2020-04-30T13:40:24.692, 2020-04-30T13:40:24.692
+2020/04/30 17:20:01.761 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger debug <==      Total: 1
+2020/04/30 17:22:20.072 [ServerService Thread Pool -- 87] DEBUG org.apache.ibatis.logging.LogFactory setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 17:22:20.158 [ServerService Thread Pool -- 87] DEBUG org.apache.ibatis.logging.LogFactory setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 17:22:27.260 [default task-1] DEBUG listener.InvokeApplicationLisener beforePhase アプリケーション実行リスナー：前処理：class javax.faces.event.PhaseEvent
+2020/04/30 17:22:27.288 [default task-1] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 17:22:27.324 [default task-1] DEBUG application.BaseBackingBean viewAction viewAction
+2020/04/30 17:22:27.326 [default task-1] DEBUG listener.InvokeApplicationLisener afterPhase アプリケーション実行リスナー：後処理
+2020/04/30 17:22:27.376 [default task-1] DEBUG application.BaseBackingBean preRender preRender
+2020/04/30 17:22:34.963 [default task-1] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 17:22:34.998 [default task-1] DEBUG listener.InvokeApplicationLisener beforePhase アプリケーション実行リスナー：前処理：class javax.faces.event.PhaseEvent
+2020/04/30 17:22:35.070 [default task-1] DEBUG org.apache.ibatis.transaction.managed.ManagedTransaction openConnection Opening JDBC Connection
+2020/04/30 17:22:35.206 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger debug ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user WHERE ( emailaddress = ? ) 
+2020/04/30 17:22:35.221 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger debug ==> Parameters: hoge@hoge(String)
+2020/04/30 17:22:35.233 [default task-1] TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger trace <==    Columns: emailaddress, name, password, createdtime, updatedtime
+2020/04/30 17:22:35.234 [default task-1] TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger trace <==        Row: hoge@hoge, hoge, hoge, 2020-04-30T13:40:24.692, 2020-04-30T13:40:24.692
+2020/04/30 17:22:35.236 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger debug <==      Total: 1
+2020/04/30 17:31:00.886 [ServerService Thread Pool -- 86] DEBUG org.apache.ibatis.logging.LogFactory setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 17:31:01.010 [ServerService Thread Pool -- 86] DEBUG org.apache.ibatis.logging.LogFactory setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 17:31:07.048 [default task-1] DEBUG listener.InvokeApplicationLisener beforePhase アプリケーション実行リスナー：前処理：class javax.faces.event.PhaseEvent
+2020/04/30 17:31:07.073 [default task-1] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 17:31:07.110 [default task-1] DEBUG application.BaseBackingBean viewAction viewAction
+2020/04/30 17:31:07.113 [default task-1] DEBUG listener.InvokeApplicationLisener afterPhase アプリケーション実行リスナー：後処理
+2020/04/30 17:31:07.177 [default task-1] DEBUG application.BaseBackingBean preRender preRender
+2020/04/30 17:31:12.666 [default task-1] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 17:31:12.726 [default task-1] DEBUG listener.InvokeApplicationLisener beforePhase アプリケーション実行リスナー：前処理：class javax.faces.event.PhaseEvent
+2020/04/30 17:31:12.804 [default task-1] DEBUG org.apache.ibatis.transaction.managed.ManagedTransaction openConnection Opening JDBC Connection
+2020/04/30 17:31:12.942 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger debug ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user WHERE ( emailaddress = ? ) 
+2020/04/30 17:31:12.959 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger debug ==> Parameters: hoge@hoge(String)
+2020/04/30 17:31:12.972 [default task-1] TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger trace <==    Columns: emailaddress, name, password, createdtime, updatedtime
+2020/04/30 17:31:12.973 [default task-1] TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger trace <==        Row: hoge@hoge, hoge, hoge, 2020-04-30T13:40:24.692, 2020-04-30T13:40:24.692
+2020/04/30 17:31:12.974 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger debug <==      Total: 1
+2020/04/30 17:31:37.152 [ServerService Thread Pool -- 87] DEBUG org.apache.ibatis.logging.LogFactory setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 17:31:37.243 [ServerService Thread Pool -- 87] DEBUG org.apache.ibatis.logging.LogFactory setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 17:31:43.442 [default task-1] DEBUG listener.InvokeApplicationLisener beforePhase アプリケーション実行リスナー：前処理：class javax.faces.event.PhaseEvent
+2020/04/30 17:31:43.469 [default task-1] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 17:31:43.507 [default task-1] DEBUG application.BaseBackingBean viewAction viewAction
+2020/04/30 17:31:43.510 [default task-1] DEBUG listener.InvokeApplicationLisener afterPhase アプリケーション実行リスナー：後処理
+2020/04/30 17:31:43.562 [default task-1] DEBUG application.BaseBackingBean preRender preRender
+2020/04/30 17:31:48.523 [default task-1] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 17:31:48.566 [default task-1] DEBUG listener.InvokeApplicationLisener beforePhase アプリケーション実行リスナー：前処理：class javax.faces.event.PhaseEvent
+2020/04/30 17:31:48.641 [default task-1] DEBUG org.apache.ibatis.transaction.managed.ManagedTransaction openConnection Opening JDBC Connection
+2020/04/30 17:31:48.802 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger debug ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user WHERE ( emailaddress = ? ) 
+2020/04/30 17:31:48.818 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger debug ==> Parameters: ohge@(String)
+2020/04/30 17:31:48.830 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger debug <==      Total: 0
+2020/04/30 17:35:26.058 [ServerService Thread Pool -- 86] DEBUG org.apache.ibatis.logging.LogFactory setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 17:35:26.142 [ServerService Thread Pool -- 86] DEBUG org.apache.ibatis.logging.LogFactory setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 17:35:29.506 [default task-1] DEBUG listener.InvokeApplicationLisener beforePhase アプリケーション実行リスナー：前処理：class javax.faces.event.PhaseEvent
+2020/04/30 17:35:29.545 [default task-1] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 17:35:29.591 [default task-1] DEBUG application.BaseBackingBean viewAction viewAction
+2020/04/30 17:35:29.593 [default task-1] DEBUG listener.InvokeApplicationLisener afterPhase アプリケーション実行リスナー：後処理
+2020/04/30 17:35:29.656 [default task-1] DEBUG application.BaseBackingBean preRender preRender
+2020/04/30 17:35:35.212 [default task-1] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 17:35:35.251 [default task-1] DEBUG listener.InvokeApplicationLisener beforePhase アプリケーション実行リスナー：前処理：class javax.faces.event.PhaseEvent
+2020/04/30 17:35:35.326 [default task-1] DEBUG org.apache.ibatis.transaction.managed.ManagedTransaction openConnection Opening JDBC Connection
+2020/04/30 17:35:35.471 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger debug ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user WHERE ( emailaddress = ? ) 
+2020/04/30 17:35:35.486 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger debug ==> Parameters: hoge@hoge(String)
+2020/04/30 17:35:35.498 [default task-1] TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger trace <==    Columns: emailaddress, name, password, createdtime, updatedtime
+2020/04/30 17:35:35.499 [default task-1] TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger trace <==        Row: hoge@hoge, hoge, hoge, 2020-04-30T13:40:24.692, 2020-04-30T13:40:24.692
+2020/04/30 17:35:35.500 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger debug <==      Total: 1
+2020/04/30 17:37:21.545 [ServerService Thread Pool -- 86] DEBUG org.apache.ibatis.logging.LogFactory setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 17:37:21.640 [ServerService Thread Pool -- 86] DEBUG org.apache.ibatis.logging.LogFactory setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 17:37:28.304 [default task-1] DEBUG listener.InvokeApplicationLisener beforePhase アプリケーション実行リスナー：前処理：class javax.faces.event.PhaseEvent
+2020/04/30 17:37:28.330 [default task-1] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 17:37:46.307 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.viewAction：開始
+2020/04/30 17:37:46.310 [default task-1] DEBUG application.BaseBackingBean viewAction viewAction
+2020/04/30 17:37:46.311 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.viewAction：終了
+2020/04/30 17:37:46.314 [default task-1] DEBUG listener.InvokeApplicationLisener afterPhase アプリケーション実行リスナー：後処理
+2020/04/30 17:37:46.374 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.preRender：開始
+2020/04/30 17:37:46.375 [default task-1] DEBUG application.BaseBackingBean preRender preRender
+2020/04/30 17:37:46.375 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.preRender：終了
+2020/04/30 17:37:46.426 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.getInfoMessage：開始
+2020/04/30 17:37:46.428 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.getInfoMessage：終了
+2020/04/30 17:37:46.434 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.getEmailAddress：開始
+2020/04/30 17:37:46.435 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.getEmailAddress：終了
+2020/04/30 17:37:46.439 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.getPassword：開始
+2020/04/30 17:37:46.439 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.getPassword：終了
+2020/04/30 17:37:55.704 [default task-1] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 17:37:55.741 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.hashCode：開始
+2020/04/30 17:37:55.742 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.hashCode：終了
+2020/04/30 17:37:55.742 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.hashCode：開始
+2020/04/30 17:37:55.743 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.hashCode：終了
+2020/04/30 17:37:55.744 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.getEmailAddress：開始
+2020/04/30 17:37:55.744 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.getEmailAddress：終了
+2020/04/30 17:37:55.746 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.hashCode：開始
+2020/04/30 17:37:55.746 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.hashCode：終了
+2020/04/30 17:37:55.747 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.hashCode：開始
+2020/04/30 17:37:55.747 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.hashCode：終了
+2020/04/30 17:37:55.747 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.getPassword：開始
+2020/04/30 17:37:55.748 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.getPassword：終了
+2020/04/30 17:37:55.749 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.setEmailAddress：開始
+2020/04/30 17:37:55.749 [default task-1] DEBUG log.LogInterceptor lambda$0 hoge@hog
+2020/04/30 17:37:55.750 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.setEmailAddress：終了
+2020/04/30 17:37:55.751 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.setPassword：開始
+2020/04/30 17:37:55.751 [default task-1] DEBUG log.LogInterceptor lambda$0 hogeee
+2020/04/30 17:37:55.751 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.setPassword：終了
+2020/04/30 17:37:55.752 [default task-1] DEBUG listener.InvokeApplicationLisener beforePhase アプリケーション実行リスナー：前処理：class javax.faces.event.PhaseEvent
+2020/04/30 17:39:12.541 [ServerService Thread Pool -- 83] DEBUG org.apache.ibatis.logging.LogFactory setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 17:39:12.630 [ServerService Thread Pool -- 83] DEBUG org.apache.ibatis.logging.LogFactory setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 17:39:20.071 [default task-1] DEBUG listener.InvokeApplicationLisener beforePhase アプリケーション実行リスナー：前処理：class javax.faces.event.PhaseEvent
+2020/04/30 17:39:20.100 [default task-1] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 17:39:36.598 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.viewAction：開始
+2020/04/30 17:39:36.600 [default task-1] DEBUG application.BaseBackingBean viewAction viewAction
+2020/04/30 17:39:36.601 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.viewAction：終了
+2020/04/30 17:39:36.604 [default task-1] DEBUG listener.InvokeApplicationLisener afterPhase アプリケーション実行リスナー：後処理
+2020/04/30 17:39:36.658 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.preRender：開始
+2020/04/30 17:39:36.659 [default task-1] DEBUG application.BaseBackingBean preRender preRender
+2020/04/30 17:39:36.659 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.preRender：終了
+2020/04/30 17:39:36.700 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.getInfoMessage：開始
+2020/04/30 17:39:36.701 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.getInfoMessage：終了
+2020/04/30 17:39:36.704 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.getEmailAddress：開始
+2020/04/30 17:39:36.705 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.getEmailAddress：終了
+2020/04/30 17:39:36.708 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.getPassword：開始
+2020/04/30 17:39:36.709 [default task-1] DEBUG log.LogInterceptor around org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.getPassword：終了
+2020/04/30 17:44:39.985 [ServerService Thread Pool -- 91] DEBUG org.apache.ibatis.logging.LogFactory setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 17:44:40.079 [ServerService Thread Pool -- 91] DEBUG org.apache.ibatis.logging.LogFactory setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 17:45:12.989 [ServerService Thread Pool -- 80] DEBUG org.apache.ibatis.logging.LogFactory setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 17:45:13.071 [ServerService Thread Pool -- 80] DEBUG org.apache.ibatis.logging.LogFactory setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 17:45:22.442 [default task-1] DEBUG listener.InvokeApplicationLisener beforePhase アプリケーション実行リスナー：前処理：class javax.faces.event.PhaseEvent
+2020/04/30 17:45:22.469 [default task-1] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 17:45:22.509 [default task-1] DEBUG log.LogInterceptor around application.LoginBean$Proxy$_$$_WeldSubclass.viewAction：開始
+2020/04/30 17:45:22.510 [default task-1] DEBUG log.LogInterceptor around LoginBean(emailAddress=null, password=null, userService=domain.UserService@63ea5224, authed=false)
+2020/04/30 17:45:22.511 [default task-1] DEBUG application.BaseBackingBean viewAction viewAction
+2020/04/30 17:45:22.511 [default task-1] DEBUG log.LogInterceptor around application.LoginBean$Proxy$_$$_WeldSubclass.viewAction：終了
+2020/04/30 17:45:22.513 [default task-1] DEBUG listener.InvokeApplicationLisener afterPhase アプリケーション実行リスナー：後処理
+2020/04/30 17:45:22.569 [default task-1] DEBUG application.BaseBackingBean preRender preRender
+2020/04/30 17:45:27.726 [default task-1] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 17:45:27.764 [default task-1] DEBUG listener.InvokeApplicationLisener beforePhase アプリケーション実行リスナー：前処理：class javax.faces.event.PhaseEvent
+2020/04/30 17:45:27.767 [default task-1] DEBUG log.LogInterceptor around application.LoginBean$Proxy$_$$_WeldSubclass.authenticate：開始
+2020/04/30 17:45:27.768 [default task-1] DEBUG log.LogInterceptor around LoginBean(emailAddress=hoge@hoge, password=hoge, userService=domain.UserService@7a11c0df, authed=false)
+2020/04/30 17:45:27.839 [default task-1] DEBUG org.apache.ibatis.transaction.managed.ManagedTransaction openConnection Opening JDBC Connection
+2020/04/30 17:45:27.972 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger debug ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user WHERE ( emailaddress = ? ) 
+2020/04/30 17:45:27.985 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger debug ==> Parameters: hoge@hoge(String)
+2020/04/30 17:45:27.998 [default task-1] TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger trace <==    Columns: emailaddress, name, password, createdtime, updatedtime
+2020/04/30 17:45:27.999 [default task-1] TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger trace <==        Row: hoge@hoge, hoge, hoge, 2020-04-30T13:40:24.692, 2020-04-30T13:40:24.692
+2020/04/30 17:45:28.000 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger debug <==      Total: 1
+2020/04/30 17:45:28.001 [default task-1] DEBUG log.LogInterceptor around application.LoginBean$Proxy$_$$_WeldSubclass.authenticate：終了
+2020/04/30 17:45:28.002 [default task-1] DEBUG log.LogInterceptor around application.LoginBean$Proxy$_$$_WeldSubclass.login：開始
+2020/04/30 17:45:28.002 [default task-1] DEBUG log.LogInterceptor around LoginBean(emailAddress=hoge@hoge, password=hoge, userService=domain.UserService@7a11c0df, authed=true)
+2020/04/30 17:45:28.004 [default task-1] DEBUG log.LogInterceptor around application.LoginBean$Proxy$_$$_WeldSubclass.login：終了
+2020/04/30 17:45:28.008 [default task-1] DEBUG listener.InvokeApplicationLisener afterPhase アプリケーション実行リスナー：後処理
+2020/04/30 17:45:28.010 [default task-1] DEBUG org.apache.ibatis.transaction.managed.ManagedTransaction close Closing JDBC Connection [org.jboss.jca.adapters.jdbc.jdk8.WrappedConnectionJDK8@3c502649]
+2020/04/30 17:45:28.028 [default task-2] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 17:45:37.844 [default task-2] DEBUG listener.InvokeApplicationLisener beforePhase アプリケーション実行リスナー：前処理：class javax.faces.event.PhaseEvent
+2020/04/30 17:45:37.845 [default task-2] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 17:45:44.879 [default task-2] DEBUG log.LogInterceptor around application.LoginBean$Proxy$_$$_WeldSubclass.viewAction：開始
+2020/04/30 17:46:42.442 [default task-2] DEBUG log.LogInterceptor around LoginBean(emailAddress=null, password=null, userService=domain.UserService@77f5ac27, authed=false)
+2020/04/30 17:50:17.135 [ServerService Thread Pool -- 88] DEBUG org.apache.ibatis.logging.LogFactory setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 17:50:17.227 [ServerService Thread Pool -- 88] DEBUG org.apache.ibatis.logging.LogFactory setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 17:50:25.202 [default task-1] DEBUG listener.InvokeApplicationLisener beforePhase アプリケーション実行リスナー：前処理：class javax.faces.event.PhaseEvent
+2020/04/30 17:50:25.225 [default task-1] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 17:53:39.324 [ServerService Thread Pool -- 87] DEBUG org.apache.ibatis.logging.LogFactory setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 17:53:39.444 [ServerService Thread Pool -- 87] DEBUG org.apache.ibatis.logging.LogFactory setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 17:53:43.543 [default task-1] DEBUG listener.InvokeApplicationLisener beforePhase アプリケーション実行リスナー：前処理：class javax.faces.event.PhaseEvent
+2020/04/30 17:53:43.572 [default task-1] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 17:53:43.678 [default task-1] DEBUG listener.InvokeApplicationLisener afterPhase アプリケーション実行リスナー：後処理
+2020/04/30 17:54:04.992 [ServerService Thread Pool -- 78] DEBUG org.apache.ibatis.logging.LogFactory setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 17:54:05.091 [ServerService Thread Pool -- 78] DEBUG org.apache.ibatis.logging.LogFactory setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 17:54:14.551 [default task-1] DEBUG listener.InvokeApplicationLisener beforePhase アプリケーション実行リスナー：前処理：class javax.faces.event.PhaseEvent
+2020/04/30 17:54:14.579 [default task-1] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 18:01:02.381 [ServerService Thread Pool -- 86] DEBUG org.apache.ibatis.logging.LogFactory setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 18:01:02.476 [ServerService Thread Pool -- 86] DEBUG org.apache.ibatis.logging.LogFactory setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 18:01:10.500 [default task-1] DEBUG listener.InvokeApplicationLisener beforePhase アプリケーション実行リスナー：前処理：class javax.faces.event.PhaseEvent
+2020/04/30 18:01:10.533 [default task-1] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 18:01:11.723 [default task-2] DEBUG listener.InvokeApplicationLisener beforePhase アプリケーション実行リスナー：前処理：class javax.faces.event.PhaseEvent
+2020/04/30 18:01:11.724 [default task-2] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 18:05:23.393 [ServerService Thread Pool -- 86] DEBUG org.apache.ibatis.logging.LogFactory setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 18:05:23.475 [ServerService Thread Pool -- 86] DEBUG org.apache.ibatis.logging.LogFactory setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 18:05:48.973 [default task-1] DEBUG listener.InvokeApplicationLisener beforePhase アプリケーション実行リスナー：前処理：class javax.faces.event.PhaseEvent
+2020/04/30 18:05:48.998 [default task-1] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 18:05:53.988 [default task-1] DEBUG log.LogInterceptor around application.LoginBean$Proxy$_$$_WeldSubclass#viewAction：開始
+2020/04/30 18:07:04.629 [ServerService Thread Pool -- 77] DEBUG org.apache.ibatis.logging.LogFactory setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 18:07:04.729 [ServerService Thread Pool -- 77] DEBUG org.apache.ibatis.logging.LogFactory setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 18:07:11.907 [default task-1] DEBUG listener.InvokeApplicationLisener beforePhase アプリケーション実行リスナー：前処理：class javax.faces.event.PhaseEvent
+2020/04/30 18:07:11.932 [default task-1] DEBUG application.BaseBackingBean doPreConstruct preConstruct
+2020/04/30 18:07:17.085 [default task-1] DEBUG log.LogInterceptor around application.LoginBean#viewAction：開始
+2020/04/30 18:11:50.927 [ServerService Thread Pool -- 78] DEBUG org.apache.ibatis.logging.LogFactory#setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 18:11:51.043 [ServerService Thread Pool -- 78] DEBUG org.apache.ibatis.logging.LogFactory#setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 18:11:59.287 [default task-1] DEBUG listener.InvokeApplicationLisener#beforePhase アプリケーション実行リスナー：前処理：class javax.faces.event.PhaseEvent
+2020/04/30 18:11:59.313 [default task-1] DEBUG application.BaseBackingBean#doPreConstruct preConstruct
+2020/04/30 18:12:04.233 [default task-1] DEBUG log.LogInterceptor#around application.LoginBean#viewAction 開始
+2020/04/30 18:12:11.258 [default task-1] DEBUG application.BaseBackingBean#viewAction viewAction
+2020/04/30 18:12:14.642 [default task-1] DEBUG log.LogInterceptor#around application.LoginBean#viewAction 終了
+2020/04/30 18:12:19.760 [default task-1] DEBUG listener.InvokeApplicationLisener#afterPhase アプリケーション実行リスナー：後処理
+2020/04/30 18:12:19.813 [default task-1] DEBUG application.BaseBackingBean#preRender preRender
+2020/04/30 18:13:50.677 [ServerService Thread Pool -- 83] DEBUG org.apache.ibatis.logging.LogFactory#setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 18:13:50.776 [ServerService Thread Pool -- 83] DEBUG org.apache.ibatis.logging.LogFactory#setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 18:13:56.327 [default task-1] DEBUG listener.InvokeApplicationLisener#beforePhase アプリケーション実行リスナー：前処理：org.primefaces.context.PrimeFacesContext
+2020/04/30 18:13:56.352 [default task-1] DEBUG application.BaseBackingBean#doPreConstruct preConstruct
+2020/04/30 18:15:27.907 [ServerService Thread Pool -- 78] DEBUG org.apache.ibatis.logging.LogFactory#setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 18:15:27.998 [ServerService Thread Pool -- 78] DEBUG org.apache.ibatis.logging.LogFactory#setImplementation Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020/04/30 18:15:34.817 [default task-1] DEBUG listener.InvokeApplicationLisener#beforePhase アプリケーション実行リスナー：前処理
+2020/04/30 18:15:34.850 [default task-1] DEBUG application.BaseBackingBean#doPreConstruct 
+2020/04/30 18:15:43.190 [default task-1] DEBUG log.LogInterceptor#around application.LoginBean#viewAction 開始
+2020/04/30 18:15:43.191 [default task-1] DEBUG application.BaseBackingBean#viewAction 
+2020/04/30 18:15:43.192 [default task-1] DEBUG log.LogInterceptor#around application.LoginBean#viewAction 終了
+2020/04/30 18:15:43.195 [default task-1] DEBUG listener.InvokeApplicationLisener#afterPhase アプリケーション実行リスナー：後処理
+2020/04/30 18:15:43.257 [default task-1] DEBUG application.BaseBackingBean#preRender 

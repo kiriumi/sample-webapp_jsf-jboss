@@ -2,9 +2,8 @@ package application;
 
 import java.time.LocalDateTime;
 
-import javax.enterprise.context.RequestScoped;
+import javax.enterprise.inject.Model;
 import javax.inject.Inject;
-import javax.inject.Named;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
@@ -22,11 +21,10 @@ import mode.TestModeTransactional;
  * @author Kengo
  *
  */
-@Named
-@RequestScoped
+@Model // @Named＋@RequestScoped
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class SignupBean extends AbstractManagedBean {
+public class SignupBean extends BaseBackingBean {
 
     @NotBlank
     @Email
@@ -55,7 +53,7 @@ public class SignupBean extends AbstractManagedBean {
 
         getFlash().put("signupSccessMessage", "登録できたよ");
 
-        return "login.xhtml";
+        return redirect("login");
     }
 
     //    @Transactional
@@ -70,7 +68,7 @@ public class SignupBean extends AbstractManagedBean {
 
         getFlash().put("signupSccessMessage", "登録できたよ");
 
-        return "login.xhtml";
+        return redirect("login");
     }
 
     private User createUser() {
