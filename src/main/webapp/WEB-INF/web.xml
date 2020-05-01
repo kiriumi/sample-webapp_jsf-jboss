@@ -48,8 +48,11 @@
 
         <auth-constraint>
             <role-name>*</role-name>
-<!--             <role-name>user</role-name> -->
         </auth-constraint>
+
+        <!-- <user-data-constraint> -->
+        <!-- <transport-guarantee>CONFIDENTIAL</transport-guarantee> -->
+        <!-- </user-data-constraint> -->
     </security-constraint>
 
     <login-config>
@@ -64,7 +67,4 @@
     <security-role>
         <role-name>*</role-name>
     </security-role>
-<!--     <security-role> -->
-<!--         <role-name>user</role-name> -->
-<!--     </security-role> -->
 </web-app>
