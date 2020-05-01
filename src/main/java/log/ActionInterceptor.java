@@ -4,13 +4,14 @@ import java.time.LocalTime;
 
 import javax.annotation.Priority;
 import javax.faces.application.FacesMessage;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.event.PhaseId;
 import javax.inject.Inject;
 import javax.interceptor.AroundInvoke;
 import javax.interceptor.Interceptor;
 import javax.interceptor.InvocationContext;
-import javax.security.enterprise.SecurityContext;
+import javax.servlet.http.HttpServletRequest;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -24,7 +25,7 @@ public class ActionInterceptor {
     FacesContext facesContext;
 
     @Inject
-    private SecurityContext securityContext;
+    ExternalContext externalContext;
 
     @AroundInvoke
     public Object around(final InvocationContext context) throws Exception {
@@ -67,9 +68,20 @@ public class ActionInterceptor {
 
     private boolean refOnly() {
 
-        if (securityContext.isCallerInRole("admin") || worikingTime()) {
+        HttpServletRequest request = (HttpServletRequest) externalContext.getRequest();
+
+        if (request.getUserPrincipal() == null) {
             return false;
         }
+
+        if (request.isUserInRole("admin")) {
+            return false;
+        }
+
+        if (worikingTime()) {
+            return false;
+        }
+
         return true;
     }
 
