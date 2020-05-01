@@ -10,7 +10,7 @@ import javax.inject.Inject;
 
 import org.apache.commons.lang3.StringUtils;
 
-import log.Action;
+import inject.Action;
 import log.ApplicationLogger;
 import lombok.Getter;
 

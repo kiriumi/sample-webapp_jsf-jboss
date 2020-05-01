@@ -3,7 +3,7 @@ package dto;
 import javax.annotation.Generated;
 import javax.persistence.Id;
 
-import util.Dto;
+import inject.Dto;
 
 @Dto
 public class User {

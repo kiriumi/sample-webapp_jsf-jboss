@@ -3,7 +3,6 @@ package application;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.enterprise.inject.Model;
-import javax.faces.context.ExternalContext;
 import javax.inject.Inject;
 
 import context.SystemDirContext;
@@ -15,9 +14,6 @@ import mode.TraceMode;
 @Model // @Named＋@RequestScoped
 @Slf4j
 public class CommonBean {
-
-    @Inject
-    private ExternalContext externalContext;
 
     @Inject
     @Getter

@@ -1,4 +1,4 @@
-package log;
+package inject;
 
 import java.time.LocalTime;
 
