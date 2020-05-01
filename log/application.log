@@ -31,3 +31,491 @@
 2020/05/01 00:12:51.942 [default task-2] DEBUG log.ActionLogInterceptor#around application.LoginBean#authenticate 終了
 2020/05/01 00:12:51.942 [default task-2] DEBUG log.ActionLogInterceptor#around application.LoginBean#login 開始
 2020/05/01 00:12:51.942 [default task-2] DEBUG log.ActionLogInterceptor#around application.LoginBean#login 終了
+2020/05/01 01:23:33.529 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 開始
+2020/05/01 01:23:33.530 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 終了
+2020/05/01 01:28:38.963 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 開始
+2020/05/01 01:28:38.964 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 終了
+2020/05/01 01:40:41.734 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 開始
+2020/05/01 01:40:41.735 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 終了
+2020/05/01 01:42:19.657 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 開始
+2020/05/01 01:42:19.658 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 終了
+2020/05/01 01:42:24.351 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#authenticate 開始
+2020/05/01 01:42:24.368 [default task-1] INFO  sample-webapp-jsf application.LoginBean#authenticate 認証開始
+2020/05/01 01:42:33.553 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user WHERE ( emailaddress = ? ) 
+2020/05/01 01:42:35.166 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: hoge@hoge(String)
+2020/05/01 01:42:36.286 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 1
+2020/05/01 01:42:55.013 [default task-1] ERROR log.ActionLogInterceptor#around null
+java.lang.NullPointerException
+	at application.LoginBean.authenticate(LoginBean.java:108)
+	at application.LoginBean$Proxy$_$$_WeldSubclass.authenticate$$super(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.proceedInternal(TerminalAroundInvokeInvocationContext.java:51)
+	at org.jboss.weld.interceptor.proxy.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:78)
+	at log.ActionLogInterceptor.around(ActionLogInterceptor.java:37)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.weld.interceptor.reader.SimpleInterceptorInvocation$SimpleMethodInvocation.invoke(SimpleInterceptorInvocation.java:73)
+	at org.jboss.weld.interceptor.proxy.InterceptorMethodHandler.executeAroundInvoke(InterceptorMethodHandler.java:84)
+	at org.jboss.weld.interceptor.proxy.InterceptorMethodHandler.executeInterception(InterceptorMethodHandler.java:72)
+	at org.jboss.weld.interceptor.proxy.InterceptorMethodHandler.invoke(InterceptorMethodHandler.java:56)
+	at org.jboss.weld.bean.proxy.CombinedInterceptorAndDecoratorStackMethodHandler.invoke(CombinedInterceptorAndDecoratorStackMethodHandler.java:79)
+	at org.jboss.weld.bean.proxy.CombinedInterceptorAndDecoratorStackMethodHandler.invoke(CombinedInterceptorAndDecoratorStackMethodHandler.java:68)
+	at application.LoginBean$Proxy$_$$_WeldSubclass.authenticate(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.sun.el.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:157)
+	at com.sun.el.parser.AstValue.invoke(AstValue.java:265)
+	at com.sun.el.MethodExpressionImpl.invoke(MethodExpressionImpl.java:280)
+	at org.jboss.weld.module.web.util.el.ForwardingMethodExpression.invoke(ForwardingMethodExpression.java:40)
+	at org.jboss.weld.module.web.el.WeldMethodExpression.invoke(WeldMethodExpression.java:50)
+	at org.jboss.weld.module.web.util.el.ForwardingMethodExpression.invoke(ForwardingMethodExpression.java:40)
+	at org.jboss.weld.module.web.el.WeldMethodExpression.invoke(WeldMethodExpression.java:50)
+	at com.sun.faces.facelets.el.TagMethodExpression.invoke(TagMethodExpression.java:65)
+	at javax.faces.event.MethodExpressionActionListener.processAction(MethodExpressionActionListener.java:124)
+	at javax.faces.event.ActionEvent.processListener(ActionEvent.java:72)
+	at javax.faces.component.UIComponentBase.broadcast(UIComponentBase.java:490)
+	at javax.faces.component.UICommand.broadcast(UICommand.java:211)
+	at javax.faces.component.UIViewRoot.broadcastEvents(UIViewRoot.java:847)
+	at javax.faces.component.UIViewRoot.processApplication(UIViewRoot.java:1395)
+	at com.sun.faces.lifecycle.InvokeApplicationPhase.execute(InvokeApplicationPhase.java:58)
+	at com.sun.faces.lifecycle.Phase.doPhase(Phase.java:76)
+	at com.sun.faces.lifecycle.LifecycleImpl.execute(LifecycleImpl.java:177)
+	at javax.faces.webapp.FacesServlet.executeLifecyle(FacesServlet.java:707)
+	at javax.faces.webapp.FacesServlet.service(FacesServlet.java:451)
+	at io.undertow.servlet.handlers.ServletHandler.handleRequest(ServletHandler.java:74)
+	at io.undertow.servlet.handlers.FilterHandler$FilterChainImpl.doFilter(FilterHandler.java:129)
+	at io.opentracing.contrib.jaxrs2.server.SpanFinishingFilter.doFilter(SpanFinishingFilter.java:55)
+	at io.undertow.servlet.core.ManagedFilter.doFilter(ManagedFilter.java:61)
+	at io.undertow.servlet.handlers.FilterHandler$FilterChainImpl.doFilter(FilterHandler.java:131)
+	at io.undertow.servlet.handlers.FilterHandler.handleRequest(FilterHandler.java:84)
+	at io.undertow.servlet.handlers.security.ServletSecurityRoleHandler.handleRequest(ServletSecurityRoleHandler.java:62)
+	at io.undertow.servlet.handlers.ServletChain$1.handleRequest(ServletChain.java:68)
+	at io.undertow.servlet.handlers.ServletDispatchingHandler.handleRequest(ServletDispatchingHandler.java:36)
+	at org.wildfly.extension.undertow.security.SecurityContextAssociationHandler.handleRequest(SecurityContextAssociationHandler.java:78)
+	at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+	at io.undertow.servlet.handlers.security.SSLInformationAssociationHandler.handleRequest(SSLInformationAssociationHandler.java:132)
+	at io.undertow.servlet.handlers.security.ServletAuthenticationCallHandler.handleRequest(ServletAuthenticationCallHandler.java:57)
+	at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+	at io.undertow.security.handlers.AbstractConfidentialityHandler.handleRequest(AbstractConfidentialityHandler.java:46)
+	at io.undertow.servlet.handlers.security.ServletConfidentialityConstraintHandler.handleRequest(ServletConfidentialityConstraintHandler.java:64)
+	at io.undertow.security.handlers.AuthenticationMechanismsHandler.handleRequest(AuthenticationMechanismsHandler.java:60)
+	at io.undertow.servlet.handlers.security.CachedAuthenticatedSessionHandler.handleRequest(CachedAuthenticatedSessionHandler.java:77)
+	at io.undertow.security.handlers.NotificationReceiverHandler.handleRequest(NotificationReceiverHandler.java:50)
+	at io.undertow.security.handlers.AbstractSecurityContextAssociationHandler.handleRequest(AbstractSecurityContextAssociationHandler.java:43)
+	at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+	at org.wildfly.extension.undertow.security.jacc.JACCContextIdHandler.handleRequest(JACCContextIdHandler.java:61)
+	at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+	at org.wildfly.extension.undertow.deployment.GlobalRequestControllerHandler.handleRequest(GlobalRequestControllerHandler.java:68)
+	at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+	at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:292)
+	at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:81)
+	at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:138)
+	at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:135)
+	at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
+	at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
+	at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
+	at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1502)
+	at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1502)
+	at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1502)
+	at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1502)
+	at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1502)
+	at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:272)
+	at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:81)
+	at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:104)
+	at io.undertow.server.Connectors.executeRootHandler(Connectors.java:364)
+	at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:830)
+	at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+	at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1982)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
+	at java.lang.Thread.run(Thread.java:748)
+2020/05/01 01:43:27.780 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 開始
+2020/05/01 01:43:27.782 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 終了
+2020/05/01 01:43:33.094 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#authenticate 開始
+2020/05/01 01:43:33.112 [default task-1] INFO  sample-webapp-jsf application.LoginBean#authenticate 認証開始
+2020/05/01 01:43:33.319 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user WHERE ( emailaddress = ? ) 
+2020/05/01 01:43:33.337 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: hoge@hoge(String)
+2020/05/01 01:43:33.351 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 1
+2020/05/01 02:13:40.345 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 開始
+2020/05/01 02:13:40.347 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 終了
+2020/05/01 02:13:49.673 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 開始
+2020/05/01 02:13:49.674 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 終了
+2020/05/01 02:13:58.124 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 開始
+2020/05/01 02:13:58.125 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 終了
+2020/05/01 12:55:24.801 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 開始
+2020/05/01 12:55:24.802 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 終了
+2020/05/01 12:55:39.978 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 開始
+2020/05/01 12:55:39.978 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 終了
+2020/05/01 12:55:42.532 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 開始
+2020/05/01 12:55:42.533 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 終了
+2020/05/01 12:55:50.364 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 開始
+2020/05/01 12:55:50.365 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 終了
+2020/05/01 12:55:51.657 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 開始
+2020/05/01 12:55:51.657 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 終了
+2020/05/01 12:56:01.458 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 開始
+2020/05/01 12:56:01.459 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 終了
+2020/05/01 12:57:13.326 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 開始
+2020/05/01 12:57:13.326 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 終了
+2020/05/01 12:58:51.872 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 開始
+2020/05/01 12:58:51.873 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 終了
+2020/05/01 12:58:58.592 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 開始
+2020/05/01 12:58:58.593 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 終了
+2020/05/01 13:52:44.473 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 開始
+2020/05/01 13:52:44.474 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 終了
+2020/05/01 14:11:56.709 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 開始
+2020/05/01 14:11:56.709 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 終了
+2020/05/01 14:12:03.515 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#authenticate 開始
+2020/05/01 14:18:17.820 [default task-1] ERROR log.ActionLogInterceptor#around null
+java.lang.NullPointerException
+	at application.LoginBean.authenticate(LoginBean.java:122)
+	at application.LoginBean$Proxy$_$$_WeldSubclass.authenticate$$super(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.proceedInternal(TerminalAroundInvokeInvocationContext.java:51)
+	at org.jboss.weld.interceptor.proxy.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:78)
+	at log.ActionLogInterceptor.around(ActionLogInterceptor.java:37)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.weld.interceptor.reader.SimpleInterceptorInvocation$SimpleMethodInvocation.invoke(SimpleInterceptorInvocation.java:73)
+	at org.jboss.weld.interceptor.proxy.InterceptorMethodHandler.executeAroundInvoke(InterceptorMethodHandler.java:84)
+	at org.jboss.weld.interceptor.proxy.InterceptorMethodHandler.executeInterception(InterceptorMethodHandler.java:72)
+	at org.jboss.weld.interceptor.proxy.InterceptorMethodHandler.invoke(InterceptorMethodHandler.java:56)
+	at org.jboss.weld.bean.proxy.CombinedInterceptorAndDecoratorStackMethodHandler.invoke(CombinedInterceptorAndDecoratorStackMethodHandler.java:79)
+	at org.jboss.weld.bean.proxy.CombinedInterceptorAndDecoratorStackMethodHandler.invoke(CombinedInterceptorAndDecoratorStackMethodHandler.java:68)
+	at application.LoginBean$Proxy$_$$_WeldSubclass.authenticate(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.sun.el.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:157)
+	at com.sun.el.parser.AstValue.invoke(AstValue.java:265)
+	at com.sun.el.MethodExpressionImpl.invoke(MethodExpressionImpl.java:280)
+	at org.jboss.weld.module.web.util.el.ForwardingMethodExpression.invoke(ForwardingMethodExpression.java:40)
+	at org.jboss.weld.module.web.el.WeldMethodExpression.invoke(WeldMethodExpression.java:50)
+	at org.jboss.weld.module.web.util.el.ForwardingMethodExpression.invoke(ForwardingMethodExpression.java:40)
+	at org.jboss.weld.module.web.el.WeldMethodExpression.invoke(WeldMethodExpression.java:50)
+	at com.sun.faces.facelets.el.TagMethodExpression.invoke(TagMethodExpression.java:65)
+	at javax.faces.event.MethodExpressionActionListener.processAction(MethodExpressionActionListener.java:124)
+	at javax.faces.event.ActionEvent.processListener(ActionEvent.java:72)
+	at javax.faces.component.UIComponentBase.broadcast(UIComponentBase.java:490)
+	at javax.faces.component.UICommand.broadcast(UICommand.java:211)
+	at javax.faces.component.UIViewRoot.broadcastEvents(UIViewRoot.java:847)
+	at javax.faces.component.UIViewRoot.processApplication(UIViewRoot.java:1395)
+	at com.sun.faces.lifecycle.InvokeApplicationPhase.execute(InvokeApplicationPhase.java:58)
+	at com.sun.faces.lifecycle.Phase.doPhase(Phase.java:76)
+	at com.sun.faces.lifecycle.LifecycleImpl.execute(LifecycleImpl.java:177)
+	at javax.faces.webapp.FacesServlet.executeLifecyle(FacesServlet.java:707)
+	at javax.faces.webapp.FacesServlet.service(FacesServlet.java:451)
+	at io.undertow.servlet.handlers.ServletHandler.handleRequest(ServletHandler.java:74)
+	at io.undertow.servlet.handlers.FilterHandler$FilterChainImpl.doFilter(FilterHandler.java:129)
+	at io.opentracing.contrib.jaxrs2.server.SpanFinishingFilter.doFilter(SpanFinishingFilter.java:55)
+	at io.undertow.servlet.core.ManagedFilter.doFilter(ManagedFilter.java:61)
+	at io.undertow.servlet.handlers.FilterHandler$FilterChainImpl.doFilter(FilterHandler.java:131)
+	at io.undertow.servlet.handlers.FilterHandler.handleRequest(FilterHandler.java:84)
+	at io.undertow.servlet.handlers.security.ServletSecurityRoleHandler.handleRequest(ServletSecurityRoleHandler.java:62)
+	at io.undertow.servlet.handlers.ServletChain$1.handleRequest(ServletChain.java:68)
+	at io.undertow.servlet.handlers.ServletDispatchingHandler.handleRequest(ServletDispatchingHandler.java:36)
+	at org.wildfly.extension.undertow.security.SecurityContextAssociationHandler.handleRequest(SecurityContextAssociationHandler.java:78)
+	at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+	at io.undertow.servlet.handlers.security.SSLInformationAssociationHandler.handleRequest(SSLInformationAssociationHandler.java:132)
+	at io.undertow.servlet.handlers.security.ServletAuthenticationCallHandler.handleRequest(ServletAuthenticationCallHandler.java:57)
+	at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+	at io.undertow.security.handlers.AbstractConfidentialityHandler.handleRequest(AbstractConfidentialityHandler.java:46)
+	at io.undertow.servlet.handlers.security.ServletConfidentialityConstraintHandler.handleRequest(ServletConfidentialityConstraintHandler.java:64)
+	at io.undertow.security.handlers.AuthenticationMechanismsHandler.handleRequest(AuthenticationMechanismsHandler.java:60)
+	at io.undertow.servlet.handlers.security.CachedAuthenticatedSessionHandler.handleRequest(CachedAuthenticatedSessionHandler.java:77)
+	at io.undertow.security.handlers.NotificationReceiverHandler.handleRequest(NotificationReceiverHandler.java:50)
+	at io.undertow.security.handlers.AbstractSecurityContextAssociationHandler.handleRequest(AbstractSecurityContextAssociationHandler.java:43)
+	at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+	at org.wildfly.extension.undertow.security.jacc.JACCContextIdHandler.handleRequest(JACCContextIdHandler.java:61)
+	at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+	at org.wildfly.extension.undertow.deployment.GlobalRequestControllerHandler.handleRequest(GlobalRequestControllerHandler.java:68)
+	at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+	at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:292)
+	at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:81)
+	at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:138)
+	at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:135)
+	at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
+	at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
+	at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
+	at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1502)
+	at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1502)
+	at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1502)
+	at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1502)
+	at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1502)
+	at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:272)
+	at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:81)
+	at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:104)
+	at io.undertow.server.Connectors.executeRootHandler(Connectors.java:364)
+	at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:830)
+	at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+	at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1982)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
+	at java.lang.Thread.run(Thread.java:748)
+2020/05/01 14:18:24.570 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#authenticate 開始
+2020/05/01 14:28:47.297 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 開始
+2020/05/01 14:28:47.298 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 終了
+2020/05/01 15:08:21.658 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 開始
+2020/05/01 15:08:21.660 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 終了
+2020/05/01 15:08:35.633 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 開始
+2020/05/01 15:08:35.634 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 終了
+2020/05/01 15:28:29.233 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 開始
+2020/05/01 15:28:29.234 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 終了
+2020/05/01 15:28:35.942 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 開始
+2020/05/01 15:28:35.943 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 終了
+2020/05/01 15:28:52.719 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 開始
+2020/05/01 15:28:52.719 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 終了
+2020/05/01 15:28:56.325 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 開始
+2020/05/01 15:28:56.325 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 終了
+2020/05/01 15:29:43.802 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 開始
+2020/05/01 15:29:45.656 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 終了
+2020/05/01 15:29:58.864 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 開始
+2020/05/01 15:29:59.860 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 終了
+2020/05/01 15:30:14.534 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 開始
+2020/05/01 15:30:15.528 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 終了
+2020/05/01 15:30:23.839 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 開始
+2020/05/01 15:30:24.281 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 終了
+2020/05/01 15:30:35.135 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 開始
+2020/05/01 15:30:35.869 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 終了
+2020/05/01 15:31:51.149 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 開始
+2020/05/01 15:31:51.151 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 終了
+2020/05/01 15:32:01.649 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#authenticate 開始
+2020/05/01 15:32:01.665 [default task-1] INFO  sample-webapp-jsf application.LoginBean#authenticate 認証開始
+2020/05/01 15:32:01.865 [default task-1] INFO  sample-webapp-jsf application.LoginBean#authenticate 認証失敗
+2020/05/01 15:32:01.866 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#authenticate 終了
+2020/05/01 15:32:01.866 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#login 開始
+2020/05/01 15:32:01.867 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#login 終了
+2020/05/01 15:32:12.362 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#authenticate 開始
+2020/05/01 15:32:16.462 [default task-1] INFO  sample-webapp-jsf application.LoginBean#authenticate 認証開始
+2020/05/01 15:32:20.078 [default task-1] INFO  sample-webapp-jsf application.LoginBean#authenticate 認証失敗
+2020/05/01 15:32:20.078 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#authenticate 終了
+2020/05/01 15:32:20.078 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#login 開始
+2020/05/01 15:32:20.078 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#login 終了
+2020/05/01 15:32:35.340 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#authenticate 開始
+2020/05/01 15:32:39.240 [default task-1] INFO  sample-webapp-jsf application.LoginBean#authenticate 認証開始
+2020/05/01 16:15:28.583 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 開始
+2020/05/01 16:15:28.584 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 終了
+2020/05/01 17:00:10.619 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 開始
+2020/05/01 17:00:10.623 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 終了
+2020/05/01 17:00:21.054 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#authenticate 開始
+2020/05/01 17:00:21.074 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#authenticate 終了
+2020/05/01 17:00:21.078 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#login 開始
+2020/05/01 17:00:29.506 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#login 終了
+2020/05/01 17:00:41.263 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 開始
+2020/05/01 17:00:41.263 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 終了
+2020/05/01 17:00:46.517 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#authenticate 開始
+2020/05/01 17:00:53.761 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#authenticate 終了
+2020/05/01 17:00:53.765 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#login 開始
+2020/05/01 17:00:58.621 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#login 終了
+2020/05/01 17:02:14.437 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#authenticate 開始
+2020/05/01 17:02:20.759 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#authenticate 終了
+2020/05/01 17:02:20.759 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#login 開始
+2020/05/01 17:02:20.767 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#login 終了
+2020/05/01 17:08:04.736 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 開始
+2020/05/01 17:08:04.740 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 終了
+2020/05/01 17:08:22.976 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#authenticate 開始
+2020/05/01 17:08:32.128 [default task-1] ERROR log.ActionLogInterceptor#around null
+java.lang.NullPointerException
+	at application.LoginBean.authenticate(LoginBean.java:124)
+	at application.LoginBean$Proxy$_$$_WeldSubclass.authenticate$$super(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.proceedInternal(TerminalAroundInvokeInvocationContext.java:51)
+	at org.jboss.weld.interceptor.proxy.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:78)
+	at log.ActionLogInterceptor.around(ActionLogInterceptor.java:37)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.weld.interceptor.reader.SimpleInterceptorInvocation$SimpleMethodInvocation.invoke(SimpleInterceptorInvocation.java:73)
+	at org.jboss.weld.interceptor.proxy.InterceptorMethodHandler.executeAroundInvoke(InterceptorMethodHandler.java:84)
+	at org.jboss.weld.interceptor.proxy.InterceptorMethodHandler.executeInterception(InterceptorMethodHandler.java:72)
+	at org.jboss.weld.interceptor.proxy.InterceptorMethodHandler.invoke(InterceptorMethodHandler.java:56)
+	at org.jboss.weld.bean.proxy.CombinedInterceptorAndDecoratorStackMethodHandler.invoke(CombinedInterceptorAndDecoratorStackMethodHandler.java:79)
+	at org.jboss.weld.bean.proxy.CombinedInterceptorAndDecoratorStackMethodHandler.invoke(CombinedInterceptorAndDecoratorStackMethodHandler.java:68)
+	at application.LoginBean$Proxy$_$$_WeldSubclass.authenticate(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.sun.el.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:157)
+	at com.sun.el.parser.AstValue.invoke(AstValue.java:265)
+	at com.sun.el.MethodExpressionImpl.invoke(MethodExpressionImpl.java:280)
+	at org.jboss.weld.module.web.util.el.ForwardingMethodExpression.invoke(ForwardingMethodExpression.java:40)
+	at org.jboss.weld.module.web.el.WeldMethodExpression.invoke(WeldMethodExpression.java:50)
+	at org.jboss.weld.module.web.util.el.ForwardingMethodExpression.invoke(ForwardingMethodExpression.java:40)
+	at org.jboss.weld.module.web.el.WeldMethodExpression.invoke(WeldMethodExpression.java:50)
+	at com.sun.faces.facelets.el.TagMethodExpression.invoke(TagMethodExpression.java:65)
+	at javax.faces.event.MethodExpressionActionListener.processAction(MethodExpressionActionListener.java:124)
+	at javax.faces.event.ActionEvent.processListener(ActionEvent.java:72)
+	at javax.faces.component.UIComponentBase.broadcast(UIComponentBase.java:490)
+	at javax.faces.component.UICommand.broadcast(UICommand.java:211)
+	at javax.faces.component.UIViewRoot.broadcastEvents(UIViewRoot.java:847)
+	at javax.faces.component.UIViewRoot.processApplication(UIViewRoot.java:1395)
+	at com.sun.faces.lifecycle.InvokeApplicationPhase.execute(InvokeApplicationPhase.java:58)
+	at com.sun.faces.lifecycle.Phase.doPhase(Phase.java:76)
+	at com.sun.faces.lifecycle.LifecycleImpl.execute(LifecycleImpl.java:177)
+	at javax.faces.webapp.FacesServlet.executeLifecyle(FacesServlet.java:707)
+	at javax.faces.webapp.FacesServlet.service(FacesServlet.java:451)
+	at io.undertow.servlet.handlers.ServletHandler.handleRequest(ServletHandler.java:74)
+	at io.undertow.servlet.handlers.FilterHandler$FilterChainImpl.doFilter(FilterHandler.java:129)
+	at io.opentracing.contrib.jaxrs2.server.SpanFinishingFilter.doFilter(SpanFinishingFilter.java:55)
+	at io.undertow.servlet.core.ManagedFilter.doFilter(ManagedFilter.java:61)
+	at io.undertow.servlet.handlers.FilterHandler$FilterChainImpl.doFilter(FilterHandler.java:131)
+	at io.undertow.servlet.handlers.FilterHandler.handleRequest(FilterHandler.java:84)
+	at io.undertow.servlet.handlers.security.ServletSecurityRoleHandler.handleRequest(ServletSecurityRoleHandler.java:62)
+	at io.undertow.servlet.handlers.ServletChain$1.handleRequest(ServletChain.java:68)
+	at io.undertow.servlet.handlers.ServletDispatchingHandler.handleRequest(ServletDispatchingHandler.java:36)
+	at org.wildfly.extension.undertow.security.SecurityContextAssociationHandler.handleRequest(SecurityContextAssociationHandler.java:78)
+	at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+	at io.undertow.servlet.handlers.security.SSLInformationAssociationHandler.handleRequest(SSLInformationAssociationHandler.java:132)
+	at io.undertow.servlet.handlers.security.ServletAuthenticationCallHandler.handleRequest(ServletAuthenticationCallHandler.java:57)
+	at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+	at io.undertow.security.handlers.AbstractConfidentialityHandler.handleRequest(AbstractConfidentialityHandler.java:46)
+	at io.undertow.servlet.handlers.security.ServletConfidentialityConstraintHandler.handleRequest(ServletConfidentialityConstraintHandler.java:64)
+	at io.undertow.security.handlers.AuthenticationMechanismsHandler.handleRequest(AuthenticationMechanismsHandler.java:60)
+	at io.undertow.servlet.handlers.security.CachedAuthenticatedSessionHandler.handleRequest(CachedAuthenticatedSessionHandler.java:77)
+	at io.undertow.security.handlers.NotificationReceiverHandler.handleRequest(NotificationReceiverHandler.java:50)
+	at io.undertow.security.handlers.AbstractSecurityContextAssociationHandler.handleRequest(AbstractSecurityContextAssociationHandler.java:43)
+	at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+	at org.wildfly.extension.undertow.security.jacc.JACCContextIdHandler.handleRequest(JACCContextIdHandler.java:61)
+	at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+	at org.wildfly.extension.undertow.deployment.GlobalRequestControllerHandler.handleRequest(GlobalRequestControllerHandler.java:68)
+	at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+	at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:292)
+	at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:81)
+	at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:138)
+	at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:135)
+	at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
+	at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
+	at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
+	at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1502)
+	at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1502)
+	at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1502)
+	at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1502)
+	at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1502)
+	at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:272)
+	at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:81)
+	at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:104)
+	at io.undertow.server.Connectors.executeRootHandler(Connectors.java:364)
+	at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:830)
+	at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+	at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1982)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
+	at java.lang.Thread.run(Thread.java:748)
+2020/05/01 17:09:32.909 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 開始
+2020/05/01 17:09:32.909 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 終了
+2020/05/01 17:09:38.401 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#authenticate 開始
+2020/05/01 17:09:44.457 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#authenticate 終了
+2020/05/01 17:09:44.457 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#login 開始
+2020/05/01 17:09:44.461 [default task-1] DEBUG log.ActionLogInterceptor#around application.LoginBean#login 終了
+2020/05/01 17:12:07.967 [default task-2] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 開始
+2020/05/01 17:12:07.975 [default task-2] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 終了
+2020/05/01 17:12:13.545 [default task-2] DEBUG log.ActionLogInterceptor#around application.LoginBean#authenticate 開始
+2020/05/01 17:12:18.845 [default task-2] ERROR log.ActionLogInterceptor#around null
+java.lang.NullPointerException
+	at application.LoginBean.authenticate(LoginBean.java:124)
+	at application.LoginBean$Proxy$_$$_WeldSubclass.authenticate$$super(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.proceedInternal(TerminalAroundInvokeInvocationContext.java:51)
+	at org.jboss.weld.interceptor.proxy.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:78)
+	at log.ActionLogInterceptor.around(ActionLogInterceptor.java:37)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.weld.interceptor.reader.SimpleInterceptorInvocation$SimpleMethodInvocation.invoke(SimpleInterceptorInvocation.java:73)
+	at org.jboss.weld.interceptor.proxy.InterceptorMethodHandler.executeAroundInvoke(InterceptorMethodHandler.java:84)
+	at org.jboss.weld.interceptor.proxy.InterceptorMethodHandler.executeInterception(InterceptorMethodHandler.java:72)
+	at org.jboss.weld.interceptor.proxy.InterceptorMethodHandler.invoke(InterceptorMethodHandler.java:56)
+	at org.jboss.weld.bean.proxy.CombinedInterceptorAndDecoratorStackMethodHandler.invoke(CombinedInterceptorAndDecoratorStackMethodHandler.java:79)
+	at org.jboss.weld.bean.proxy.CombinedInterceptorAndDecoratorStackMethodHandler.invoke(CombinedInterceptorAndDecoratorStackMethodHandler.java:68)
+	at application.LoginBean$Proxy$_$$_WeldSubclass.authenticate(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.sun.el.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:157)
+	at com.sun.el.parser.AstValue.invoke(AstValue.java:265)
+	at com.sun.el.MethodExpressionImpl.invoke(MethodExpressionImpl.java:280)
+	at org.jboss.weld.module.web.util.el.ForwardingMethodExpression.invoke(ForwardingMethodExpression.java:40)
+	at org.jboss.weld.module.web.el.WeldMethodExpression.invoke(WeldMethodExpression.java:50)
+	at org.jboss.weld.module.web.util.el.ForwardingMethodExpression.invoke(ForwardingMethodExpression.java:40)
+	at org.jboss.weld.module.web.el.WeldMethodExpression.invoke(WeldMethodExpression.java:50)
+	at com.sun.faces.facelets.el.TagMethodExpression.invoke(TagMethodExpression.java:65)
+	at javax.faces.event.MethodExpressionActionListener.processAction(MethodExpressionActionListener.java:124)
+	at javax.faces.event.ActionEvent.processListener(ActionEvent.java:72)
+	at javax.faces.component.UIComponentBase.broadcast(UIComponentBase.java:490)
+	at javax.faces.component.UICommand.broadcast(UICommand.java:211)
+	at javax.faces.component.UIViewRoot.broadcastEvents(UIViewRoot.java:847)
+	at javax.faces.component.UIViewRoot.processApplication(UIViewRoot.java:1395)
+	at com.sun.faces.lifecycle.InvokeApplicationPhase.execute(InvokeApplicationPhase.java:58)
+	at com.sun.faces.lifecycle.Phase.doPhase(Phase.java:76)
+	at com.sun.faces.lifecycle.LifecycleImpl.execute(LifecycleImpl.java:177)
+	at javax.faces.webapp.FacesServlet.executeLifecyle(FacesServlet.java:707)
+	at javax.faces.webapp.FacesServlet.service(FacesServlet.java:451)
+	at io.undertow.servlet.handlers.ServletHandler.handleRequest(ServletHandler.java:74)
+	at io.undertow.servlet.handlers.FilterHandler$FilterChainImpl.doFilter(FilterHandler.java:129)
+	at io.opentracing.contrib.jaxrs2.server.SpanFinishingFilter.doFilter(SpanFinishingFilter.java:55)
+	at io.undertow.servlet.core.ManagedFilter.doFilter(ManagedFilter.java:61)
+	at io.undertow.servlet.handlers.FilterHandler$FilterChainImpl.doFilter(FilterHandler.java:131)
+	at io.undertow.servlet.handlers.FilterHandler.handleRequest(FilterHandler.java:84)
+	at io.undertow.servlet.handlers.security.ServletSecurityRoleHandler.handleRequest(ServletSecurityRoleHandler.java:62)
+	at io.undertow.servlet.handlers.ServletChain$1.handleRequest(ServletChain.java:68)
+	at io.undertow.servlet.handlers.ServletDispatchingHandler.handleRequest(ServletDispatchingHandler.java:36)
+	at org.wildfly.extension.undertow.security.SecurityContextAssociationHandler.handleRequest(SecurityContextAssociationHandler.java:78)
+	at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+	at io.undertow.servlet.handlers.security.SSLInformationAssociationHandler.handleRequest(SSLInformationAssociationHandler.java:132)
+	at io.undertow.servlet.handlers.security.ServletAuthenticationCallHandler.handleRequest(ServletAuthenticationCallHandler.java:57)
+	at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+	at io.undertow.security.handlers.AbstractConfidentialityHandler.handleRequest(AbstractConfidentialityHandler.java:46)
+	at io.undertow.servlet.handlers.security.ServletConfidentialityConstraintHandler.handleRequest(ServletConfidentialityConstraintHandler.java:64)
+	at io.undertow.security.handlers.AuthenticationMechanismsHandler.handleRequest(AuthenticationMechanismsHandler.java:60)
+	at io.undertow.servlet.handlers.security.CachedAuthenticatedSessionHandler.handleRequest(CachedAuthenticatedSessionHandler.java:77)
+	at io.undertow.security.handlers.NotificationReceiverHandler.handleRequest(NotificationReceiverHandler.java:50)
+	at io.undertow.security.handlers.AbstractSecurityContextAssociationHandler.handleRequest(AbstractSecurityContextAssociationHandler.java:43)
+	at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+	at org.wildfly.extension.undertow.security.jacc.JACCContextIdHandler.handleRequest(JACCContextIdHandler.java:61)
+	at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+	at org.wildfly.extension.undertow.deployment.GlobalRequestControllerHandler.handleRequest(GlobalRequestControllerHandler.java:68)
+	at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+	at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:292)
+	at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:81)
+	at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:138)
+	at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:135)
+	at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
+	at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
+	at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
+	at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1502)
+	at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1502)
+	at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1502)
+	at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1502)
+	at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1502)
+	at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:272)
+	at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:81)
+	at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:104)
+	at io.undertow.server.Connectors.executeRootHandler(Connectors.java:364)
+	at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:830)
+	at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+	at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1982)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
+	at java.lang.Thread.run(Thread.java:748)

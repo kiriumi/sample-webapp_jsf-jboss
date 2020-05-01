@@ -8,7 +8,7 @@ public class MyExceptionHandlerFactory extends ExceptionHandlerFactory {
     @Override
     public ExceptionHandler getExceptionHandler() {
         // TODO 自動生成されたメソッド・スタブ
-        return new MyExceptionHandler();
+        return null;
     }
 
 }

@@ -14,7 +14,7 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
 import context.SystemDirContext;
-import domain.Principal;
+import domain.MyPrincipal;
 import log.ActionLogging;
 import log.ApplicationLogger;
 import lombok.Getter;
@@ -42,7 +42,7 @@ public abstract class BaseBackingBean {
 
     @Getter
     @Setter
-    private Principal principal;
+    private MyPrincipal principal;
 
     @Getter
     @Inject
@@ -122,6 +122,11 @@ public abstract class BaseBackingBean {
 
     protected String redirect(final String pageName) {
         return String.join("", pageName, "?faces-redirect=true");
+    }
+
+    protected String logout() {
+        FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+        return redirect("logout");
     }
 
 }

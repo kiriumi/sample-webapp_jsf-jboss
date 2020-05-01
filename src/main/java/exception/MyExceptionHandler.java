@@ -5,6 +5,7 @@ import java.util.Map;
 
 import javax.faces.FacesException;
 import javax.faces.application.NavigationHandler;
+import javax.faces.context.ExceptionHandler;
 import javax.faces.context.ExceptionHandlerWrapper;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ExceptionQueuedEvent;
@@ -14,6 +15,17 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class MyExceptionHandler extends ExceptionHandlerWrapper {
+
+    private final ExceptionHandler exceptionHandler;
+
+    public MyExceptionHandler(final ExceptionHandler exceptionHandler) {
+        this.exceptionHandler = exceptionHandler;
+    }
+
+    @Override
+    public ExceptionHandler getWrapped() {
+        return exceptionHandler;
+    }
 
     @Override
     public void handle() throws FacesException {
