@@ -79,8 +79,7 @@ public abstract class BaseBackingBean {
     }
 
     protected String redirect(final String pageName) {
-        String pageContext = pageName.contains("login") ? "" : "application/";
-        return String.join("", pageContext, pageName, "?faces-redirect=true");
+        return String.join("", "/application/", pageName, ".xhtml", "?faces-redirect=true");
     }
 
 }

@@ -51,7 +51,11 @@
             </h:commandButton>
         </h:panelGrid>
 
-        <h:commandButton value="戻る" action="#{signupBean.back()}">
+<!--         <h:commandButton value="戻る" action="#{signupBean.back()}"> -->
+<!--             <o:skipValidators /> -->
+<!--         </h:commandButton> -->
+
+        <h:commandButton value="戻る" onclick="history.back(-1);return false;">
             <o:skipValidators />
         </h:commandButton>
 
