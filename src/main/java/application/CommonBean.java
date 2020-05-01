@@ -1,14 +1,10 @@
 package application;
 
-import java.io.IOException;
-
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.enterprise.inject.Model;
 import javax.faces.context.ExternalContext;
-import javax.faces.context.FacesContext;
 import javax.inject.Inject;
-import javax.security.enterprise.SecurityContext;
 
 import context.SystemDirContext;
 import lombok.Getter;
@@ -18,10 +14,7 @@ import mode.TraceMode;
 
 @Model // @Named＋@RequestScoped
 @Slf4j
-public class CommonBean extends BaseBackingBean {
-
-    @Inject
-    private SecurityContext securityContext;
+public class CommonBean {
 
     @Inject
     private ExternalContext externalContext;
@@ -45,12 +38,11 @@ public class CommonBean extends BaseBackingBean {
     }
 
     public String logout() {
-        FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
-        return redirect("logout");
+        return "/application/logout.xhtml?faces-redirect=true";
     }
 
     @PostConstruct
-    public void postConstruct() throws IOException {
+    public void postConstruct() {
         log.debug("");
     }
 
