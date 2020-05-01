@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+    xmlns:o="http://omnifaces.org/ui"
+    xmlns:of="http://omnifaces.org/functions">
+
+<h:head>
+    <title>トップページ</title>
+</h:head>
+<h:body>
+    <f:metadata>
+        <f:viewAction action="#{commonBean.viewAction()}" />
+        <f:viewAction action="#{topBean.viewAction()}" />
+    </f:metadata>
+    <h:form>
+        <h:messages />
+
+        <h:panelGrid columns="6">
+            名前：<h:outputText value="#{topBean.name}" />
+            アドミン権限：<h:outputText value="#{topBean.adminRole}" />
+            ユーザ権限：<h:outputText value="#{topBean.userRole}" />
+        </h:panelGrid>
+
+        <h:panelGrid columns="2">
+            <h:commandButton value="ユーザ登録" action="#{topBean.goSignupPage()}">
+                <o:skipValidators />
+            </h:commandButton>
+
+            <h:commandButton value="ログアウト" action="#{commonBean.logout()}">
+                <o:skipValidators />
+            </h:commandButton>
+        </h:panelGrid>
+    </h:form>
+</h:body>
+</html>
+

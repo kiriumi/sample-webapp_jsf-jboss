@@ -26,11 +26,11 @@ public class CustomIdentityStore implements IdentityStore {
     @Override
     public CredentialValidationResult validate(final Credential credential) {
 
-        UsernamePasswordCredential login = (UsernamePasswordCredential) credential;
+        UsernamePasswordCredential userPassCrediental = (UsernamePasswordCredential) credential;
 
-        log.debug("認証開始 {}/{}", login.getCaller(), login.getPasswordAsString());
+        log.debug("認証開始 {}/{}", userPassCrediental.getCaller(), userPassCrediental.getPasswordAsString());
 
-        User user = userService.find(login.getCaller(), login.getPasswordAsString());
+        User user = userService.find(userPassCrediental.getCaller(), userPassCrediental.getPasswordAsString());
         if (user != null) {
 
             log.debug("認証成功");

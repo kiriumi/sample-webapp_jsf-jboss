@@ -1,10 +1,14 @@
 package application;
 
+import java.io.IOException;
+
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.enterprise.inject.Model;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
+import javax.security.enterprise.SecurityContext;
 
 import context.SystemDirContext;
 import lombok.Getter;
@@ -15,6 +19,12 @@ import mode.TraceMode;
 @Model // @Named＋@RequestScoped
 @Slf4j
 public class CommonBean extends BaseBackingBean {
+
+    @Inject
+    private SecurityContext securityContext;
+
+    @Inject
+    private ExternalContext externalContext;
 
     @Inject
     @Getter
@@ -40,7 +50,7 @@ public class CommonBean extends BaseBackingBean {
     }
 
     @PostConstruct
-    public void postConstruct() {
+    public void postConstruct() throws IOException {
         log.debug("");
     }
 

@@ -7,6 +7,8 @@ import javax.faces.context.FacesContext;
 import javax.faces.context.Flash;
 import javax.inject.Inject;
 
+import org.apache.commons.lang3.StringUtils;
+
 import log.ActionLogging;
 import log.ApplicationLogger;
 import lombok.Getter;
@@ -31,21 +33,45 @@ public abstract class BaseBackingBean {
         return facesContext.getExternalContext().getFlash();
     }
 
-    protected void setInfoMessage(final String messageId) {
+    protected void setInfoMessage(final String message) {
+
+        if (StringUtils.isBlank(message)) {
+            return;
+        }
+        facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, message, null));
+    }
+
+    protected void setWarnMessage(final String message) {
+
+        if (StringUtils.isBlank(message)) {
+            return;
+        }
+        facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, message, null));
+    }
+
+    protected void setErrorMessage(final String message) {
+
+        if (StringUtils.isBlank(message)) {
+            return;
+        }
+        facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, message, null));
+    }
+
+    protected void setInfoMessageById(final String messageId, final String... params) {
 
         ResourceBundle resourceBundle = ResourceBundle.getBundle("application-messages");
         String message = resourceBundle.getString(messageId);
         facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, message, null));
     }
 
-    protected void setWarnMessage(final String messageId) {
+    protected void setWarnMessageById(final String messageId, final String... params) {
 
         ResourceBundle resourceBundle = ResourceBundle.getBundle("application-messages");
         String message = resourceBundle.getString(messageId);
         facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, message, null));
     }
 
-    protected void setErrorMessage(final String messageId) {
+    protected void setErrorMessageById(final String messageId, final String... params) {
 
         ResourceBundle resourceBundle = ResourceBundle.getBundle("ValidationMessages");
         String message = resourceBundle.getString(messageId);
@@ -53,7 +79,8 @@ public abstract class BaseBackingBean {
     }
 
     protected String redirect(final String pageName) {
-        return String.join("", pageName, "?faces-redirect=true");
+        String pageContext = pageName.contains("login") ? "" : "application/";
+        return String.join("", pageContext, pageName, "?faces-redirect=true");
     }
 
 }

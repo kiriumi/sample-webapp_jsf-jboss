@@ -1,7 +1,5 @@
 package application;
 
-import java.io.IOException;
-
 import javax.enterprise.inject.Model;
 import javax.faces.annotation.FacesConfig;
 import javax.faces.context.ExternalContext;
@@ -110,7 +108,7 @@ public class LoginBean extends BaseBackingBean {
                         .credential(new UsernamePasswordCredential(emailAddress, password)));
     }
 
-    public void authenticate(final ActionEvent event) throws IOException {
+    public void authenticate(final ActionEvent event) {
 
         AuthenticationStatus authStatus = getAuthStatus();
 
