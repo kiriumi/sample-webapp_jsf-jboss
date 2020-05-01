@@ -26,6 +26,7 @@
         </h:panelGrid>
 
         <br />
+
         リクエストから取得
         <h:panelGrid columns="2">
             アドミン権限：<h:outputText
@@ -34,7 +35,8 @@
         </h:panelGrid>
 
         <h:panelGrid columns="2">
-            <h:commandButton value="ユーザ登録" action="#{topBean.goSignupPage()}" rendered="#{request.isUserInRole('admin')}">
+            <h:commandButton value="ユーザ登録" action="#{topBean.goSignupPage()}"
+                rendered="#{request.isUserInRole('admin')}">
                 <o:skipValidators />
             </h:commandButton>
             <h:commandButton value="ログアウト" action="#{commonBean.logout()}">
