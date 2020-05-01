@@ -13,17 +13,17 @@
 </h:head>
 <h:body>
     <f:metadata>
-        <f:viewAction action="#{loginBean.viewAction()}" />
-        <f:event type="preRenderView" listener="#{loginBean.preRender()}" />
+        <f:viewAction action="#{commonBean.viewAction()}" />
+        <f:event type="preRenderView" listener="#{commonBean.preRender()}" />
     </f:metadata>
     <h:form>
-        <h:outputLabel value="#{loginBean.infoMessage}" />
-        <h:messages style="color:red;" />
+        <h:messages />
 
         <h:panelGrid columns="3">
 
             <h:outputLabel value="Emailアドレス" p:type="email" />
-            <h:inputText id="emailAddress" value="#{loginBean.emailAddress}" />
+            <h:inputText id="emailAddress" value="#{loginBean.emailAddress}"
+                p:placeholder="hoge@com" />
             <h:message for="emailAddress" />
 
             <h:outputLabel value="Password" />
@@ -34,14 +34,6 @@
             <h:commandButton value="ログイン" action="#{loginBean.login()}"
                 actionListener="#{loginBean.authenticate}">
                 <o:validateBean validationGroups="validation.AuthGroup" />
-            </h:commandButton>
-
-            <h:commandButton value="ユーザ登録" action="#{loginBean.goSignupPage()}">
-                <o:skipValidators />
-            </h:commandButton>
-
-            <h:commandButton value="ログアウト" action="#{loginBean.goLogoutPage()}">
-                <o:skipValidators />
             </h:commandButton>
 
         </h:panelGrid>

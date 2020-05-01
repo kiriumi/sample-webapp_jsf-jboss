@@ -12,11 +12,16 @@
     <title>サインアップ</title>
 </h:head>
 <h:body>
+    <f:metadata>
+        <f:viewAction action="#{commonBean.viewAction()}" />
+        <f:event type="preRenderView" listener="#{commonBean.preRender()}" />
+    </f:metadata>
     <h:form>
 
         <h:panelGrid columns="3">
             <h:outputLabel value="Emailアドレス" p:type="email" />
-            <h:inputText id="emailAddress" value="#{signupBean.emailAddress}" />
+            <h:inputText id="emailAddress" value="#{signupBean.emailAddress}"
+                p:placeholder="hoge@com" />
             <h:message for="emailAddress" />
 
             <h:outputLabel value="名前" />
@@ -36,16 +41,23 @@
                 action="#{signupBean.signupUserWithJpa()}" />
 
             <h:commandButton value="テストモード変更"
-                action="#{loginBean.switchTestMode()}">
+                action="#{commonBean.switchTestMode()}">
                 <o:skipValidators />
             </h:commandButton>
 
             <h:commandButton value="トレースモード変更"
-                action="#{loginBean.switchTraceMode()}">
+                action="#{commonBean.switchTraceMode()}">
                 <o:skipValidators />
             </h:commandButton>
         </h:panelGrid>
 
+        <h:commandButton value="戻る" action="#{signupBean.back()}">
+            <o:skipValidators />
+        </h:commandButton>
+
+        <h:commandButton value="ログアウト" action="#{commonBean.logout()}">
+            <o:skipValidators />
+        </h:commandButton>
     </h:form>
 </h:body>
 </html>

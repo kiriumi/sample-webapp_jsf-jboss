@@ -15,7 +15,7 @@ import javax.security.enterprise.authentication.mechanism.http.LoginToContinue;
 //        hashAlgorithmParameters = {
 //            "Pbkdf2PasswordHash.Iterations=3072",
 //            "${applicationConfig.dyna}"
-//        } // just for test / example
+//        }
 //)
 @CustomFormAuthenticationMechanismDefinition(loginToContinue = @LoginToContinue(loginPage = "/login.xhtml", useForwardToLogin = false))
 @FacesConfig

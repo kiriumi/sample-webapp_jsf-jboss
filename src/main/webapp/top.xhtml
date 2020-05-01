@@ -9,7 +9,7 @@
     xmlns:of="http://omnifaces.org/functions">
 
 <h:head>
-    <title>ログアウトページ</title>
+    <title>トップページ</title>
 </h:head>
 <h:body>
     <f:metadata>
@@ -17,7 +17,16 @@
         <f:event type="preRenderView" listener="#{commonBean.preRender()}" />
     </f:metadata>
     <h:form>
-        ログアウトしたよ
+        <h:messages />
+
+        <h:commandButton value="ユーザ登録" action="#{topBean.goSignupPage()}">
+            <o:skipValidators />
+        </h:commandButton>
+
+        <h:commandButton value="ログアウト" action="#{commonBean.logout()}">
+            <o:skipValidators />
+        </h:commandButton>
     </h:form>
 </h:body>
 </html>
+

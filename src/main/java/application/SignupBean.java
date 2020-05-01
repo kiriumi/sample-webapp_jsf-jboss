@@ -41,7 +41,6 @@ public class SignupBean extends BaseBackingBean {
     @Inject
     private UserService userService;
 
-    //    @Transactional
     @TestModeTransactional
     public String signupUser() {
 
@@ -56,7 +55,6 @@ public class SignupBean extends BaseBackingBean {
         return redirect("login");
     }
 
-    //    @Transactional
     @TestModeTransactional
     public String signupUserWithJpa() {
 
@@ -84,6 +82,10 @@ public class SignupBean extends BaseBackingBean {
         user.setUpdatedtime(dateTime.toString());
 
         return user;
+    }
+
+    public String back() {
+        return redirect("top");
     }
 
 }

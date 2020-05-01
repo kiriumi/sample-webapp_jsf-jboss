@@ -1,12 +1,9 @@
 package application;
 
-import static javax.faces.application.FacesMessage.*;
-
 import java.io.IOException;
 
 import javax.enterprise.inject.Model;
 import javax.faces.annotation.FacesConfig;
-import javax.faces.application.FacesMessage;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
@@ -65,12 +62,11 @@ import validation.AuthGroup;
  * @author Kengo
  *
  */
-@Model // @Named＋@RequestScoped
+@Model
 @Data
 @EqualsAndHashCode(callSuper = false)
-@Auth(emailAddress = "emailAddress", password = "password")
-//@ServletSecurity(@HttpConstraint(rolesAllowed = "admin"))
 @FacesConfig
+@Auth(emailAddress = "emailAddress", password = "password")
 public class LoginBean extends BaseBackingBean {
 
     @NotBlank(groups = AuthGroup.class)
@@ -96,11 +92,6 @@ public class LoginBean extends BaseBackingBean {
 
     private boolean authed = false;
 
-    @Override
-    protected void preConstruct() {
-        setInfoMessage((String) getFlash().get("signupSccessMessage"));
-    }
-
     //	/**
     //	 * Springでなければ、メソッドバリデーションが行える
     //	 * @param emailAddress
@@ -110,7 +101,7 @@ public class LoginBean extends BaseBackingBean {
     //	public void auth(final String emailAddress, final String password) {
     //	};
 
-    private AuthenticationStatus continueAuthentication() {
+    private AuthenticationStatus getAuthStatus() {
 
         return securityContext.authenticate(
                 (HttpServletRequest) externalContext.getRequest(),
@@ -121,91 +112,28 @@ public class LoginBean extends BaseBackingBean {
 
     public void authenticate(final ActionEvent event) throws IOException {
 
-        switch (continueAuthentication()) {
-        case SEND_CONTINUE:
-            facesContext.responseComplete();
-            break;
-        case SEND_FAILURE:
-            facesContext.addMessage(null,
-                    new FacesMessage(FacesMessage.SEVERITY_ERROR, "Login failed", null));
-            break;
-        case SUCCESS:
-            facesContext.addMessage(null,
-                    new FacesMessage(FacesMessage.SEVERITY_INFO, "Login succeed", null));
+        AuthenticationStatus authStatus = getAuthStatus();
 
+        getLogger().info("anything", "認証ステータス：" + authStatus);
+
+        if (authStatus.equals(AuthenticationStatus.SUCCESS)) {
+
+            // ２段階認証する場合は、SEND_CONTINUEで１段階目を確認
             this.authed = true;
-
-            externalContext.redirect(externalContext.getRequestContextPath() + "loginSuccess.xhtml");
-            break;
-        case NOT_DONE:
+            return;
         }
 
-        //        Credential credential = new UsernamePasswordCredential(emailAddress, new Password(password));
-        //
-        //        AuthenticationStatus status = securityContext.authenticate(getRequest(), getResoponse(),
-        //                withParams().credential(credential));
-        //
-        //        if (status.equals(SEND_CONTINUE)) {
-        //            facesContext.responseComplete();
-        //        } else if (status.equals(SEND_FAILURE)) {
-        //            addError("Authentication failed");
-        //        }
-
-        //        HttpServletRequest request = getRequest();
-        //        try {
-        //            getLogger().info("anything", "認証開始");
-        //            request.login(emailAddress, password);
-        //            User user = userService.find(emailAddress, password);
-        //
-        //            if (user != null) {
-        //
-        //                this.authed = true;
-        //                getLogger().info("anything", "認証成功");
-        //                return;
-        //            }
-        //
-        //        } catch (ServletException e) {
-        //            e.printStackTrace();
-        //        }
-        //
-        //        getLogger().info("anything", "認証失敗");
-        //        setError(event, "error.message.login");
+        setErrorMessage("error.message.auth");
     }
 
     public String login() {
 
         if (authed) {
             getFlash().put("loginSccessMessage", "ログインできたよ");
-            return redirect("loginSuccess");
+            return redirect("top");
         }
 
         return null;
     }
 
-    public String goSignupPage() throws Exception {
-        return redirect("signup");
-    }
-
-    public String goLogoutPage() {
-        return redirect("logout");
-    }
-
-    private HttpServletRequest getRequest() {
-        return (HttpServletRequest) facesContext
-                .getExternalContext()
-                .getRequest();
-    }
-
-    private HttpServletResponse getResoponse() {
-        return (HttpServletResponse) facesContext
-                .getExternalContext()
-                .getResponse();
-    }
-
-    private void addError(final String message) {
-        facesContext
-                .addMessage(
-                        null,
-                        new FacesMessage(SEVERITY_ERROR, message, null));
-    }
 }

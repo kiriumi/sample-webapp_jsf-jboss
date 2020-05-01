@@ -1,5 +1,6 @@
 package domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.enterprise.context.Dependent;
@@ -10,8 +11,11 @@ import javax.persistence.PersistenceContext;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.ibatis.session.SqlSession;
 
+import dto.Role;
+import dto.RoleExample;
 import dto.User;
 import dto.UserExample;
+import mapper.RoleMapper;
 import mapper.UserMapper;
 
 @Dependent
@@ -38,6 +42,19 @@ public class UserService {
         User user = mapper.selectByPrimaryKey(emailAddress);
 
         return user == null || StringUtils.isBlank(user.getEmailaddress()) ? false : true;
+    }
+
+    public List<String> getRolesOnly(final User user) {
+
+        RoleExample example = new RoleExample();
+        example.createCriteria().andEmailaddressEqualTo(user.getEmailaddress());
+
+        RoleMapper mapper = sqlSession.getMapper(RoleMapper.class);
+        List<Role> roles = mapper.selectByExample(example);
+
+        List<String> rolesOnly = new ArrayList<>();
+        roles.forEach(role -> rolesOnly.add(role.getRole()));
+        return rolesOnly;
     }
 
     public void addUser(final User user) {
