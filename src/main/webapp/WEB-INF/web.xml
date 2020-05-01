@@ -52,13 +52,6 @@
         </auth-constraint>
     </security-constraint>
 
-    <security-role>
-        <role-name>admin</role-name>
-    </security-role>
-    <security-role>
-        <role-name>user</role-name>
-    </security-role>
-
     <login-config>
         <auth-method>FORM</auth-method>
         <realm-name>Sample Realm</realm-name>
@@ -68,4 +61,10 @@
         </form-login-config>
     </login-config>
 
+    <security-role>
+        <role-name>admin</role-name>
+    </security-role>
+    <security-role>
+        <role-name>user</role-name>
+    </security-role>
 </web-app>
