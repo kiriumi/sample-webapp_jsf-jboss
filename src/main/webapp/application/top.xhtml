@@ -19,17 +19,24 @@
     <h:form>
         <h:messages />
 
-        <h:panelGrid columns="6">
+        <h:panelGrid columns="2">
             名前：<h:outputText value="#{topBean.name}" />
             アドミン権限：<h:outputText value="#{topBean.adminRole}" />
             ユーザ権限：<h:outputText value="#{topBean.userRole}" />
+        </h:panelGrid>
+
+        <br />
+        リクエストから取得
+        <h:panelGrid columns="2">
+            アドミン権限：<h:outputText
+                value="#{request.isUserInRole('admin')}" />
+            ユーザ権限：<h:outputText value="#{request.isUserInRole('user')}" />
         </h:panelGrid>
 
         <h:panelGrid columns="2">
             <h:commandButton value="ユーザ登録" action="#{topBean.goSignupPage()}">
                 <o:skipValidators />
             </h:commandButton>
-
             <h:commandButton value="ログアウト" action="#{commonBean.logout()}">
                 <o:skipValidators />
             </h:commandButton>
