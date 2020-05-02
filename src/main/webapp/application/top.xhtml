@@ -4,20 +4,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
     xmlns:o="http://omnifaces.org/ui"
-    xmlns:of="http://omnifaces.org/functions">
+    xmlns:of="http://omnifaces.org/functions"
+    xmlns:b="http://bootsfaces.net/ui">
 
-<h:head>
-    <title>トップページ</title>
-</h:head>
-<h:body>
-    <f:metadata>
-        <f:viewAction action="#{commonBean.viewAction()}" />
-        <f:viewAction action="#{topBean.viewAction()}" />
-    </f:metadata>
-    <h:form>
-        <h:messages />
+<ui:composition template="../template/template.xhtml">
+    <ui:define name="content">
 
         <fieldset>
             <legend>SecurityContexから取得した権限情報</legend>
@@ -69,8 +64,8 @@
             </h:commandButton>
         </h:panelGrid>
 
+    </ui:define>
+</ui:composition>
 
-    </h:form>
-</h:body>
 </html>
 

@@ -11,16 +11,18 @@
     xmlns:of="http://omnifaces.org/functions"
     xmlns:b="http://bootsfaces.net/ui">
 
-
 <h:head>
-    <title>ログアウトページ</title>
+    <title>サンプルWebアプリケーション</title>
 </h:head>
 <h:body>
     <f:metadata>
-        <f:viewAction action="#{logoutBean.viewAction()}" />
+        <f:viewAction action="#{commonBean.viewAction()}" />
+        <f:event type="preRenderView" listener="#{commonBean.preRender()}" />
     </f:metadata>
     <h:form>
-        ログアウトしたよ
+        <h:messages />
+        <ui:insert name="content" />
     </h:form>
 </h:body>
 </html>
+
