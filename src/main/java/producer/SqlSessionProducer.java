@@ -49,7 +49,7 @@ public class SqlSessionProducer {
 
     @Produces
     @RequestScoped
-    @SqliteQualifier
+    @SqliteQualifier // Sqlite用とJavaが判断するための印（限定子）
     public SqlSession openSqliteSession() {
         return sqlSessionFactoryCash.get(Environment.sqlite.name()).openSession();
     }
