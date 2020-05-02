@@ -18,7 +18,7 @@
         <h:panelGrid columns="3">
 
             <!-- 複合コンポーネントを利用（ラベルの値が表示されない＋プレースホルダーも表示されない） -->
-            <!-- <my:labelText id="emailAddressComposite" lavel="Emailアドレス" value="#{loginBean.emailAddress}"/> -->
+            <!-- <my:labelText id="emailAddressComposite" lavel="Emailアドレス" value="#{loginBean.emailAddress}" pt:placeholder="hoge@com"/> -->
 
             <h:outputLabel value="Emailアドレス" pt:type="email" />
             <h:inputText id="emailAddress" value="#{loginBean.emailAddress}"
