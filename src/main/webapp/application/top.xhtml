@@ -19,20 +19,45 @@
     <h:form>
         <h:messages />
 
-        <h:panelGrid columns="2">
+        <fieldset>
+            <legend>SecurityContexから取得した権限情報</legend>
+            <h:panelGrid columns="2">
             名前：<h:outputText value="#{topBean.name}" />
             アドミン権限：<h:outputText value="#{topBean.adminRole}" />
             ユーザ権限：<h:outputText value="#{topBean.userRole}" />
-        </h:panelGrid>
+            </h:panelGrid>
+        </fieldset>
 
         <br />
 
-        リクエストから取得
-        <h:panelGrid columns="2">
+        <fieldset>
+            <legend>リクエストから取得した権限情報</legend>
+            <h:panelGrid columns="2">
+            名前：<h:outputText value="#{request.userPrincipal.name}" />
             アドミン権限：<h:outputText
-                value="#{request.isUserInRole('admin')}" />
+                    value="#{request.isUserInRole('admin')}" />
             ユーザ権限：<h:outputText value="#{request.isUserInRole('user')}" />
-        </h:panelGrid>
+            </h:panelGrid>
+        </fieldset>
+
+        <br />
+
+        <fieldset>
+            <legend>Ajaxのサンプル（入力値を変えたら、自動で計算される）</legend>
+            <h:inputText id="value1" value="#{topBean.value1}">
+                <f:ajax execute="value1 value2" event="change"
+                    listener="#{topBean.sum()}" render="sumedValue" />
+            </h:inputText>
+            ＋
+            <h:inputText id="value2" value="#{topBean.value2}">
+                <f:ajax execute="value1 value2" event="change"
+                    listener="#{topBean.sum()}" render="sumedValue" />
+            </h:inputText>
+            ＝
+            <h:outputText id="sumedValue" value="#{topBean.sumedValue}" />
+        </fieldset>
+
+        <br />
 
         <h:panelGrid columns="2">
             <h:commandButton value="ユーザ登録" action="#{topBean.goSignupPage()}"
@@ -43,6 +68,8 @@
                 <o:skipValidators />
             </h:commandButton>
         </h:panelGrid>
+
+
     </h:form>
 </h:body>
 </html>

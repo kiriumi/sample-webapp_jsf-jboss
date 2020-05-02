@@ -32,6 +32,17 @@ public class TopBean extends BaseBackingBean {
 
     private boolean userRole;
 
+    private int value1 = 0;
+
+    private int value2 = 0;
+
+    private int sumedValue = 0;
+
+    public String sum() {
+        this.sumedValue = value1 + value2;
+        return null;
+    }
+
     public void viewAction() {
 
         String loginSuccessMessage = (String) getFlash().get("loginSccessMessage");
