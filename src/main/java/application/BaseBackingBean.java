@@ -3,7 +3,6 @@ package application;
 import java.util.ResourceBundle;
 
 import javax.faces.application.FacesMessage;
-import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.context.Flash;
 import javax.inject.Inject;
@@ -19,9 +18,6 @@ public abstract class BaseBackingBean {
 
     @Inject
     private FacesContext facesContext;
-
-    @Inject
-    private ExternalContext externalContext;
 
     @Getter
     @Inject
