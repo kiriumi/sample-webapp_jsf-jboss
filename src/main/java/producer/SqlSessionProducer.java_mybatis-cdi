@@ -1,0 +1,62 @@
+package producer;
+
+import java.io.IOException;
+import java.io.InputStream;
+
+import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.inject.Produces;
+import javax.inject.Named;
+
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.mybatis.cdi.SessionFactoryProvider;
+
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+public class SqlSessionProducer {
+
+    private static final String MYBATIS_CONFIG_PATH = "mybatis/mybatis-config.xml";
+
+    private enum Environment {
+        postgres, sqlite
+    }
+
+    @Produces
+    @ApplicationScoped
+    @SessionFactoryProvider
+    @Named("default")
+    public SqlSessionFactory produceDefaultSqlSessionFactory() {
+
+        SqlSessionFactory sqlSessionFactory = null;
+
+        try (InputStream inputStream = Resources.getResourceAsStream(MYBATIS_CONFIG_PATH)) {
+            sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+
+        } catch (IOException e) {
+            log.error(e.getMessage(), e);
+        }
+
+        return sqlSessionFactory;
+    }
+
+    @Produces
+    @ApplicationScoped
+    @SessionFactoryProvider
+    @Named("sqlite")
+    public SqlSessionFactory produceSqliteSqlSessionFactory() {
+
+        SqlSessionFactory sqlSessionFactory = null;
+
+        try (InputStream inputStream = Resources.getResourceAsStream(MYBATIS_CONFIG_PATH)) {
+            sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream, Environment.sqlite.name());
+
+        } catch (IOException e) {
+            log.error(e.getMessage(), e);
+        }
+
+        return sqlSessionFactory;
+    }
+
+}

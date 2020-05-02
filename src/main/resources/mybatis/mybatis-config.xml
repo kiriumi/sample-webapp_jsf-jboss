@@ -5,7 +5,7 @@
 <configuration>
 
     <settings>
-<!-- 		<setting name="logImpl" value="LOG4J2" /> -->
+        <!-- <setting name="logImpl" value="LOG4J2" /> -->
         <setting name="logImpl" value="SLF4J" />
     </settings>
 
@@ -14,6 +14,15 @@
             <transactionManager type="MANAGED" />
             <dataSource type="JNDI">
                 <property name="data_source" value="java:/PostgresDS" />
+            </dataSource>
+        </environment>
+
+        <environment id="sqlite">
+            <transactionManager type="MANAGED" />
+            <dataSource type="POOLED">
+                <property name="driver" value="org.sqlite.JDBC" />
+                <property name="url"
+                    value="jdbc:sqlite:C:\Users\kengo\git\sample-webapp_jsf-jboss\db\user.db" />
             </dataSource>
         </environment>
     </environments>

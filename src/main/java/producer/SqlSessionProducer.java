@@ -2,77 +2,75 @@ package producer;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.PostConstruct;
-import javax.ejb.Singleton;
-import javax.ejb.Startup;
+import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Disposes;
 import javax.enterprise.inject.Produces;
 
 import org.apache.ibatis.io.Resources;
-import org.apache.ibatis.session.Configuration;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-@Singleton
-@Startup
+import lombok.extern.slf4j.Slf4j;
+
+@ApplicationScoped
+@Slf4j
 public class SqlSessionProducer {
 
-	private Map<String, SqlSessionFactory> sqlSessionFactoryCash = new HashMap<>();
-	private String defaultId;
+    private static String MYBATIS_CONFIG_PATH = "mybatis/mybatis-config.xml";
 
-	private static String MYBATIS_CONFIG_PATH = "mybatis/mybatis-config.xml";
+    private final Map<String, SqlSessionFactory> sqlSessionFactoryCash = new HashMap<>();
 
-	@PostConstruct
-	public void initialize() throws IOException {
-		loadDefaultEnvironment();
-	}
+    private enum Environment {
+        postgres, sqlite,
+    }
 
-	private void loadDefaultEnvironment() {
+    @PostConstruct
+    public void init() {
+        Arrays.asList(Environment.values())
+                .forEach(environment -> loadSessionSqlFactory(environment.name()));
+    }
 
-		try (InputStream in = Resources.getResourceAsStream(MYBATIS_CONFIG_PATH)) {
+    @Produces
+    @RequestScoped // 接続プールが満杯になるのを防止するため、リクエストごとにオープン・クローズする
+    public SqlSession openSession() {
+        return sqlSessionFactoryCash.get(Environment.postgres.name()).openSession();
+    }
 
-			SqlSessionFactoryBuilder builder = new SqlSessionFactoryBuilder();
+    @Produces
+    @RequestScoped
+    @SqliteQualifier
+    public SqlSession openSqliteSession() {
+        return sqlSessionFactoryCash.get(Environment.sqlite.name()).openSession();
+    }
 
-			// デフォルトのenvironmentを読み込む
-			SqlSessionFactory defaultEnvironmentFactory = builder.build(in);
-			Configuration con = defaultEnvironmentFactory.getConfiguration();
-			defaultId = con.getEnvironment().getId();
-			sqlSessionFactoryCash.put(defaultId, defaultEnvironmentFactory);
+    public void closeSession(@Disposes final SqlSession sqlSession) {
+        sqlSession.close();
+    }
 
-		} catch (IOException e) {
-			System.out.println(e);
+    public void closeSqliteSession(@Disposes @SqliteQualifier final SqlSession sqlSession) {
+        sqlSession.close();
+    }
 
-		}
-	}
+    private void loadSessionSqlFactory(final String environment) {
 
-	private void loadEnvironment(String environment) {
+        SqlSessionFactory sqlSessionFactory = null;
 
-		try (InputStream in = Resources.getResourceAsStream(MYBATIS_CONFIG_PATH)) {
+        try (InputStream inputStream = Resources.getResourceAsStream(MYBATIS_CONFIG_PATH)) {
 
-			SqlSessionFactoryBuilder builder = new SqlSessionFactoryBuilder();
+            SqlSessionFactoryBuilder builder = new SqlSessionFactoryBuilder();
+            sqlSessionFactory = builder.build(inputStream, environment);
+            sqlSessionFactoryCash.put(environment, sqlSessionFactory);
 
-			// デフォルト以外のenvironmentを読み込む
-			SqlSessionFactory factory = builder.build(in, environment);
-			sqlSessionFactoryCash.put(environment, factory);
-
-		} catch (IOException e) {
-
-		}
-	}
-
-	@Produces
-	@RequestScoped
-	public SqlSession openSession() {
-		return sqlSessionFactoryCash.get(defaultId).openSession();
-	}
-
-	public void closeSession(@Disposes SqlSession sqlSession) {
-		sqlSession.close();
-	}
+        } catch (IOException e) {
+            log.error(e.getMessage(), e);
+        }
+    }
 
 }

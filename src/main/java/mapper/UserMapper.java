@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Param;
 import dto.User;
 import dto.UserExample;
 
+//@Mapper // mybatis-cdiの残骸
 public interface UserMapper {
 
     /**

@@ -24,22 +24,28 @@ public class UserService {
     @Inject
     private SqlSession sqlSession;
 
+    //    @Inject
+    //    UserMapper userMapper; // mybatis-cdiの残骸
+
+    //    @Inject
+    //    RoleMapper roleMapper;
+
     public User find(final String emailAddress, final String password) {
 
         UserExample example = new UserExample();
         example.createCriteria().andEmailaddressEqualTo(emailAddress);
         example.createCriteria().andPasswordEqualTo(password);
 
-        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
-        List<User> users = mapper.selectByExample(example);
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+        List<User> users = userMapper.selectByExample(example);
 
         return users.size() == 1 ? users.get(0) : null;
     }
 
     public boolean hasUser(final String emailAddress) {
 
-        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
-        User user = mapper.selectByPrimaryKey(emailAddress);
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+        User user = userMapper.selectByPrimaryKey(emailAddress);
 
         return user == null || StringUtils.isBlank(user.getEmailaddress()) ? false : true;
     }
@@ -49,8 +55,8 @@ public class UserService {
         RoleExample example = new RoleExample();
         example.createCriteria().andEmailaddressEqualTo(user.getEmailaddress());
 
-        RoleMapper mapper = sqlSession.getMapper(RoleMapper.class);
-        List<Role> roles = mapper.selectByExample(example);
+        RoleMapper roleMapper = sqlSession.getMapper(RoleMapper.class);
+        List<Role> roles = roleMapper.selectByExample(example);
 
         List<String> rolesOnly = new ArrayList<>();
         roles.forEach(role -> rolesOnly.add(role.getRole()));
@@ -58,9 +64,8 @@ public class UserService {
     }
 
     public void addUser(final User user) {
-
-        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
-        mapper.insert(user);
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+        userMapper.insert(user);
     }
 
     // ↑MyBatis

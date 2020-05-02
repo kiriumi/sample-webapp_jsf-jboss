@@ -104,3 +104,31 @@
 2020/05/02 00:51:30.908 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: admin@hoge(String)
 2020/05/02 00:51:30.909 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 2
 2020/05/02 00:51:30.931 [default task-2] INFO  sample-webapp-jsf application.LoginBean#authenticate 認証ステータス：SEND_CONTINUE
+2020/05/02 15:15:52.579 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user WHERE ( emailaddress = ? ) 
+2020/05/02 15:15:52.594 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: admin@hoge(String)
+2020/05/02 15:15:52.626 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 1
+2020/05/02 15:15:52.631 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, role from public.role WHERE ( emailaddress = ? ) 
+2020/05/02 15:15:52.631 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: admin@hoge(String)
+2020/05/02 15:15:52.633 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 2
+2020/05/02 15:15:52.663 [default task-1] INFO  sample-webapp-jsf application.LoginBean#authenticate 認証ステータス：SUCCESS
+2020/05/02 15:17:13.308 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user WHERE ( emailaddress = ? ) 
+2020/05/02 15:17:13.323 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: admin@hoge(String)
+2020/05/02 15:17:13.338 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 1
+2020/05/02 15:17:13.344 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, role from public.role WHERE ( emailaddress = ? ) 
+2020/05/02 15:17:13.345 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: admin@hoge(String)
+2020/05/02 15:17:13.346 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 2
+2020/05/02 15:17:13.370 [default task-2] INFO  sample-webapp-jsf application.LoginBean#authenticate 認証ステータス：SEND_CONTINUE
+2020/05/02 15:18:04.071 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user WHERE ( emailaddress = ? ) 
+2020/05/02 15:18:04.085 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: admin@hoge(String)
+2020/05/02 15:18:04.097 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 1
+2020/05/02 15:18:04.102 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, role from public.role WHERE ( emailaddress = ? ) 
+2020/05/02 15:18:04.102 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: admin@hoge(String)
+2020/05/02 15:18:04.103 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 2
+2020/05/02 15:18:04.129 [default task-1] INFO  sample-webapp-jsf application.LoginBean#authenticate 認証ステータス：SUCCESS
+2020/05/02 15:18:25.410 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user where emailaddress = ? 
+2020/05/02 15:18:25.411 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: hoge@hoge(String)
+2020/05/02 15:18:25.412 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 0
+2020/05/02 15:18:25.413 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: insert into public.user (emailaddress, name, password, createdtime, updatedtime) values (?, ?, ?, ?, ?) 
+2020/05/02 15:18:25.415 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: hoge@hoge(String), hoge(String), hoge(String), 2020-05-02T15:18:25.412(String), 2020-05-02T15:18:25.412(String)
+2020/05/02 15:18:25.420 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==    Updates: 1
+2020/05/02 15:18:25.422 [default task-1] DEBUG mode.TestMode#setRollbackOnlyIfTesMode コミット
