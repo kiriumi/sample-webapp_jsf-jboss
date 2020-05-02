@@ -1,16 +1,23 @@
 package soap;
 
-import webservice.HelloEndpoint;
-import webservice.HelloEndpointService;
+import webservice.greet.GreetingEndpoint;
+import webservice.greet.GreetingEndpointService;
+import webservice.user.UserEndpoint;
+import webservice.user.UserEndpointService;
 
 public class SoapClient {
 
     public static void main(final String[] args) {
 
-        HelloEndpointService service = new HelloEndpointService();
-        HelloEndpoint endpoint = service.getHelloEndpointPort();
+        GreetingEndpointService greetingService = new GreetingEndpointService();
+        GreetingEndpoint greetingEndpoint = greetingService.getGreetingEndpointPort();
 
-        System.out.println(endpoint.hello("SOAP"));
+        System.out.println(greetingEndpoint.goodMorning("ほげ"));
+        System.out.println(greetingEndpoint.hello("ふー"));
+
+        UserEndpointService userService = new UserEndpointService();
+        UserEndpoint userEndpoint = userService.getUserEndpointPort();
+
+        System.out.println(userEndpoint.tellNameByEmailAddress("user@hoge"));
     }
-
 }
