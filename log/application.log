@@ -185,3 +185,10 @@
 2020/05/02 18:34:19.062 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: admin@hoge(String)
 2020/05/02 18:34:19.065 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 2
 2020/05/02 18:34:19.095 [default task-1] INFO  sample-webapp-jsf application.LoginBean#authenticate 認証ステータス：SUCCESS
+2020/05/02 20:26:25.261 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user WHERE ( emailaddress = ? ) 
+2020/05/02 20:26:25.289 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: admin@hoge(String)
+2020/05/02 20:26:25.329 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 1
+2020/05/02 20:26:25.338 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, role from public.role WHERE ( emailaddress = ? ) 
+2020/05/02 20:26:25.342 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: admin@hoge(String)
+2020/05/02 20:26:25.342 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 2
+2020/05/02 20:26:25.406 [default task-1] INFO  sample-webapp-jsf application.LoginBean#authenticate 認証ステータス：SUCCESS
