@@ -43,15 +43,15 @@ public class SqlSessionProducer {
         return sqlSessionFactoryCash.get(Environment.postgres.name()).openSession();
     }
 
+    public void closeSession(@Disposes final SqlSession sqlSession) {
+        sqlSession.close();
+    }
+
     @Produces
     @RequestScoped
     @SqliteQualifier
     public SqlSession openSqliteSession() {
         return sqlSessionFactoryCash.get(Environment.sqlite.name()).openSession();
-    }
-
-    public void closeSession(@Disposes final SqlSession sqlSession) {
-        sqlSession.close();
     }
 
     public void closeSqliteSession(@Disposes @SqliteQualifier final SqlSession sqlSession) {
