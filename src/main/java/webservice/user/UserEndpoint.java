@@ -10,14 +10,21 @@ import dto.User;
 @WebService
 public class UserEndpoint {
 
-    @Inject // ポートが異なる（＝Webアプリケーション外）ため、Injectできない（nullになる）
+    @Inject // 注入できない（nullになる）
     UserService userService;
 
     @WebMethod
     public String tellNameByEmailAddress(final String emailAddress) {
 
         User user = userService.findByEmailAddressWithJpa(emailAddress);
-        return "あなたの名前は「" + user + "」だよ";
+        return "あなたの名前は「" + user.getName() + "」だよ";
+    }
+
+    @WebMethod
+    public User setEmailAddress(final User user) {
+
+        user.setEmailaddress(user.getName() + "@com");
+        return user;
     }
 
 }

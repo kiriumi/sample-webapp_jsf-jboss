@@ -2,6 +2,7 @@ package soap;
 
 import webservice.greet.GreetingEndpoint;
 import webservice.greet.GreetingEndpointService;
+import webservice.user.User;
 import webservice.user.UserEndpoint;
 import webservice.user.UserEndpointService;
 
@@ -18,6 +19,14 @@ public class SoapClient {
         UserEndpointService userService = new UserEndpointService();
         UserEndpoint userEndpoint = userService.getUserEndpointPort();
 
-        System.out.println(userEndpoint.tellNameByEmailAddress("user@hoge"));
+        User user = new User();
+        user.setName("hoge");
+
+        User settedUser = userEndpoint.setEmailAddress(user);
+
+        System.out.println(settedUser.getEmailaddress());
+
+        // CDI管理BeanのUserを注入できないため、失敗する
+        // System.out.println(userEndpoint.tellNameByEmailAddress("admin@hoge"));
     }
 }
