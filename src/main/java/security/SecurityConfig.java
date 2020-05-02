@@ -21,7 +21,7 @@ import javax.security.enterprise.authentication.mechanism.http.LoginToContinue;
 @FacesConfig
 @Named
 @ApplicationScoped
-public class ApplicationConfig {
+public class SecurityConfig {
 
     //    JavaEE Security API の参考：https://github.com/rieckpil/blog-tutorials/tree/master/jsf-simple-login-with-java-ee-security-api
 
