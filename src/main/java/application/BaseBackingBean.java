@@ -9,7 +9,7 @@ import javax.inject.Inject;
 
 import org.apache.commons.lang3.StringUtils;
 
-import inject.ActionLogging;
+import log.ActionLogging;
 import log.ApplicationLogger;
 import lombok.Getter;
 import security.AvailableTime;

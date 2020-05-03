@@ -1,4 +1,4 @@
-package inject;
+package log;
 
 import javax.annotation.Priority;
 import javax.faces.context.ExternalContext;
