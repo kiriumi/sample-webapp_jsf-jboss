@@ -10,10 +10,10 @@ import javax.enterprise.inject.Stereotype;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+@Stereotype
 @Entity
 @Table(schema = "public") // Postgresの場合、スキーマ名が必要
 @Dependent
-@Stereotype
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Dto {
