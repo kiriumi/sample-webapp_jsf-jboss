@@ -20,35 +20,16 @@
         <param-value>cyborg</param-value>
     </context-param>
 
-<!--     <listener> -->
-<!--         <listener-class> -->
-<!--             com.sun.xml.ws.transport.http.servlet.WSServletContextListener -->
-<!--         </listener-class> -->
-<!--     </listener> -->
-
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
 
-<!--     <servlet> -->
-<!--         <servlet-name>wsdl</servlet-name> -->
-<!--         <servlet-class> -->
-<!--             com.sun.xml.ws.transport.http.servlet.WSServlet -->
-<!--         </servlet-class> -->
-<!--         <load-on-startup>1</load-on-startup> -->
-<!--     </servlet> -->
-
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>*.xhtml</url-pattern>
     </servlet-mapping>
-
-<!--     <servlet-mapping> -->
-<!--         <servlet-name>wsdl</servlet-name> -->
-<!--         <url-pattern>/soap</url-pattern> -->
-<!--     </servlet-mapping> -->
 
     <!-- URLにファイル名を指定しなかったら、このページを表示する -->
     <welcome-file-list>

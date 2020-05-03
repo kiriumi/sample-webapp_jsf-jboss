@@ -2,6 +2,7 @@ package application;
 
 import java.security.Principal;
 
+import javax.annotation.security.RolesAllowed;
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 import javax.security.enterprise.SecurityContext;
@@ -61,6 +62,11 @@ public class TopBean extends BaseBackingBean {
 
     public String goSignupPage() {
         return redirect("signup");
+    }
+
+    @RolesAllowed("admin")
+    public String allowdAdminOnlyt() {
+        return null;
     }
 
 }

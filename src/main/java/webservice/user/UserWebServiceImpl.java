@@ -1,10 +1,8 @@
 package webservice.user;
 
-import javax.annotation.Resource;
 import javax.inject.Inject;
 import javax.jws.WebService;
 import javax.xml.ws.BindingType;
-import javax.xml.ws.WebServiceContext;
 import javax.xml.ws.WebServiceException;
 import javax.xml.ws.soap.SOAPBinding;
 
@@ -15,14 +13,18 @@ import dto.User;
 @BindingType(SOAPBinding.SOAP12HTTP_BINDING) // 何もつけない場合は「SOAP1.1」になる
 public class UserWebServiceImpl implements UserWebService {
 
-    @Resource
-    private WebServiceContext webServiceContext;
+    //    @Inject
+    //    private WebServiceContext webServiceContext;
 
     @Inject
     UserService userService;
 
     @Override
     public String hello(final String name) {
+
+        //        System.out.println(webServiceContext.getUserPrincipal().getName());
+        //        System.out.println(webServiceContext.isUserInRole("admin"));
+
         return "こんちは " + name;
     }
 

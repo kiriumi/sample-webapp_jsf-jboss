@@ -28,6 +28,6 @@ public class AuthSpringValidator implements ConstraintValidator<Auth, Object[]> 
         String emailAddress = (String) values[0];
         String password = (String) values[1];
 
-        return userService.find(emailAddress, password) != null;
+        return userService.authenticate(emailAddress, password);
     }
 }

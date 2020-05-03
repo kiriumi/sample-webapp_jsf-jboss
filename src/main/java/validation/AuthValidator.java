@@ -40,6 +40,6 @@ public class AuthValidator implements ConstraintValidator<Auth, Object> {
             e.printStackTrace();
         }
 
-        return userService.find(emailAddress, password) != null;
+        return userService.authenticate(emailAddress, password);
     }
 }

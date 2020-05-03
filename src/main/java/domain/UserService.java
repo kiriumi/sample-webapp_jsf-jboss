@@ -3,7 +3,7 @@ package domain;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.enterprise.context.Dependent;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -18,7 +18,7 @@ import dto.UserExample;
 import mapper.RoleMapper;
 import mapper.UserMapper;
 
-@Dependent
+@RequestScoped
 public class UserService {
 
     @Inject
@@ -40,6 +40,18 @@ public class UserService {
         List<User> users = userMapper.selectByExample(example);
 
         return users.size() == 1 ? users.get(0) : null;
+    }
+
+    public boolean authenticate(final String emailAddress, final String password) {
+
+        UserExample example = new UserExample();
+        example.createCriteria().andEmailaddressEqualTo(emailAddress);
+        example.createCriteria().andPasswordEqualTo(password);
+
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+        List<User> users = userMapper.selectByExample(example);
+
+        return users.size() == 1;
     }
 
     public boolean hasUser(final String emailAddress) {

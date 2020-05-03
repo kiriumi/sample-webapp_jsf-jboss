@@ -1,6 +1,9 @@
 package application;
 
+import java.util.Base64;
+
 import javax.enterprise.inject.Model;
+import javax.faces.context.FacesContext;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
@@ -10,6 +13,7 @@ import javax.ws.rs.core.UriBuilder;
 
 import dto.User;
 import lombok.Data;
+import security.CustomPrincipal;
 
 /**
  * REST送信するクラス
@@ -41,7 +45,8 @@ public class RestClientBean {
         // http://localhost:8080/sample-webapp-jsf/webresources/user-name/ほげ
         UriBuilder userNameUri = baseRestUriBuilder.path("user-name").path("ほげ").queryParam("age", 17);
 
-        String greetingMessage = client.target(userNameUri).request(MediaType.TEXT_PLAIN).get(String.class);
+        String greetingMessage = client.target(userNameUri).request(MediaType.TEXT_PLAIN)
+                .header("Authorization", getBasicAuthHttpHeaderValue()).get(String.class);
         setGreetingMessage(greetingMessage);
 
         return null;
@@ -88,5 +93,16 @@ public class RestClientBean {
         setResponseStatus(response.getStatus());
 
         return null;
+    }
+
+    private String getBasicAuthHttpHeaderValue() {
+
+        CustomPrincipal principal = (CustomPrincipal) FacesContext.getCurrentInstance().getExternalContext()
+                .getUserPrincipal();
+
+        String usernameAndPassword = String.join(":", principal.getEmailAddress(), principal.getPassword());
+        String credentials = Base64.getEncoder().encodeToString(usernameAndPassword.getBytes());
+
+        return "Basic " + credentials;
     }
 }
