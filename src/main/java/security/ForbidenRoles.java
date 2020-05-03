@@ -10,7 +10,7 @@ import javax.interceptor.InterceptorBinding;
 @InterceptorBinding
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ ElementType.TYPE, ElementType.METHOD })
-public @interface JsfForbidenRoles {
+public @interface ForbidenRoles {
 
     String[] value() default "";
 }
