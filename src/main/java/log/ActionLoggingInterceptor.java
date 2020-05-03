@@ -12,7 +12,7 @@ import javax.interceptor.InvocationContext;
 import lombok.extern.slf4j.Slf4j;
 
 @Interceptor
-@Priority(Interceptor.Priority.APPLICATION)
+@Priority(Interceptor.Priority.APPLICATION - 10)
 @ActionLogging
 @Slf4j
 public class ActionLoggingInterceptor {
