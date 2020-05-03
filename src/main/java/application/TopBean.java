@@ -6,8 +6,6 @@ import javax.annotation.security.RolesAllowed;
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 import javax.security.enterprise.SecurityContext;
-import javax.servlet.annotation.HttpConstraint;
-import javax.servlet.annotation.ServletSecurity;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -21,7 +19,6 @@ import lombok.EqualsAndHashCode;
 @Model
 @Data
 @EqualsAndHashCode(callSuper = false)
-@ServletSecurity(@HttpConstraint(rolesAllowed = "admin"))
 public class TopBean extends BaseBackingBean {
 
     @Inject

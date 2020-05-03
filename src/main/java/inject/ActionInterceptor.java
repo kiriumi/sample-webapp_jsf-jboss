@@ -3,6 +3,7 @@ package inject;
 import java.time.LocalTime;
 
 import javax.annotation.Priority;
+import javax.faces.application.FacesMessage;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.event.PhaseId;
@@ -36,13 +37,13 @@ public class ActionInterceptor {
             return context.proceed();
         }
 
-        //        if (refOnly()) {
-        //
-        //            if (facesContext.getMessageList().size() == 0) {
-        //                facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "時間外だよ", null));
-        //            }
-        //            return null;
-        //        }
+        if (refOnly()) {
+
+            if (facesContext.getMessageList().size() == 0) {
+                facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "時間外だよ", null));
+            }
+            return null;
+        }
 
         // そのままだとProxyである印が付くため除去
         String classNameWithoutProxy = context.getTarget().getClass().getName().replaceAll("\\$Proxy.*$", "");
