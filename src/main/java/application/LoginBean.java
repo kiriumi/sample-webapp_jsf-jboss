@@ -2,6 +2,7 @@ package application;
 
 import javax.enterprise.inject.Model;
 import javax.faces.annotation.FacesConfig;
+import javax.faces.application.FacesMessage;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
@@ -121,7 +122,7 @@ public class LoginBean extends BaseBackingBean {
             return;
         }
 
-        setErrorMessage("error.message.auth");
+        getMessageManager().setAppMessageById(FacesMessage.SEVERITY_ERROR, "error.message.auth");
     }
 
     public String login() {
