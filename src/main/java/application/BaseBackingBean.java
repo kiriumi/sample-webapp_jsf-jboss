@@ -9,11 +9,11 @@ import javax.inject.Inject;
 
 import org.apache.commons.lang3.StringUtils;
 
-import inject.Action;
+import inject.ActionLogging;
 import log.ApplicationLogger;
 import lombok.Getter;
 
-@Action
+@ActionLogging
 public abstract class BaseBackingBean {
 
     @Inject
