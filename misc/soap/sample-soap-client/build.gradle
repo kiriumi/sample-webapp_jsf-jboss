@@ -8,5 +8,4 @@ repositories {
 
 dependencies {
 
-    compile fileTree(dir: 'lib', include: '*.jar')
 }

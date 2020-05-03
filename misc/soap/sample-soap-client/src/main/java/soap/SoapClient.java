@@ -1,32 +1,55 @@
 package soap;
 
-import webservice.greet.GreetingEndpoint;
-import webservice.greet.GreetingEndpointService;
-import webservice.user.User;
-import webservice.user.UserEndpoint;
-import webservice.user.UserEndpointService;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.time.LocalDateTime;
+
+import javax.jws.WebService;
+import javax.xml.namespace.QName;
+import javax.xml.ws.Service;
+
+import dto.User;
+import webservice.greet.GreetingWebService;
+import webservice.user.UserWebService;
 
 public class SoapClient {
 
-    public static void main(final String[] args) {
+    public static void main(final String[] args) throws MalformedURLException {
 
-        GreetingEndpointService greetingService = new GreetingEndpointService();
-        GreetingEndpoint greetingEndpoint = greetingService.getGreetingEndpointPort();
+        GreetingWebService greetWebService = getEndpoint(
+                "http://localhost:8080/sample-webapp-jsf/GreetingWebService?wsdl", GreetingWebService.class);
 
-        System.out.println(greetingEndpoint.goodMorning("ほげ"));
-        System.out.println(greetingEndpoint.hello("ふー"));
+        System.out.println(greetWebService.goodMorning("ほげ"));
+        System.out.println(greetWebService.hello("ふー"));
 
-        UserEndpointService userService = new UserEndpointService();
-        UserEndpoint userEndpoint = userService.getUserEndpointPort();
+        // ----
+
+        UserWebService userWebService = getEndpoint("http://localhost:8080/sample-webapp-jsf/UserWebService?wsdl",
+                UserWebService.class);
+
+        System.out.println(userWebService.hello("そーぷ"));
+        System.out.println(userWebService.getUserByEmailAddress("admin@hoge").getName());
 
         User user = new User();
-        user.setName("hoge");
+        user.setEmailaddress("soap@hoge");
+        user.setName("soap");
+        user.setPassword("soap");
+        user.setCreatedtime(LocalDateTime.now().toString());
+        user.setUpdatedtime(LocalDateTime.now().toString());
 
-        User settedUser = userEndpoint.setEmailAddress(user);
-
-        System.out.println(settedUser.getEmailaddress());
-
-        // CDI管理BeanのUserを注入できないため、失敗する
-        // System.out.println(userEndpoint.tellNameByEmailAddress("admin@hoge"));
+        userWebService.addUser(user);
     }
+
+    private static <T> T getEndpoint(final String wsdlUrl, final Class<T> endpointInterface)
+            throws MalformedURLException {
+
+        WebService webServiceAnnotation = endpointInterface.getAnnotation(WebService.class);
+
+        URL url = new URL(wsdlUrl);
+        QName qName = new QName(webServiceAnnotation.targetNamespace(), endpointInterface.getSimpleName());
+        Service service = Service.create(url, qName);
+
+        return service.getPort(endpointInterface);
+    }
+
 }
