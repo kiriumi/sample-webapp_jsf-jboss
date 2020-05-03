@@ -12,8 +12,10 @@ import org.apache.commons.lang3.StringUtils;
 import inject.ActionLogging;
 import log.ApplicationLogger;
 import lombok.Getter;
+import security.AvailableTime;
 
 @ActionLogging
+@AvailableTime
 public abstract class BaseBackingBean {
 
     @Inject

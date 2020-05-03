@@ -1,7 +1,5 @@
 package security;
 
-import java.time.LocalTime;
-
 import javax.annotation.Priority;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.ExternalContext;
@@ -11,7 +9,6 @@ import javax.inject.Inject;
 import javax.interceptor.AroundInvoke;
 import javax.interceptor.Interceptor;
 import javax.interceptor.InvocationContext;
-import javax.servlet.http.HttpServletRequest;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -27,6 +24,9 @@ public class AvailableTimeInterceptor {
     @Inject
     ExternalContext externalContext;
 
+    @Inject
+    AviableValidator aviableValidator;
+
     @AroundInvoke
     public Object around(final InvocationContext context) throws Exception {
 
@@ -36,7 +36,7 @@ public class AvailableTimeInterceptor {
             return context.proceed();
         }
 
-        if (available()) {
+        if (aviableValidator.available()) {
             return context.proceed();
         }
 
@@ -47,30 +47,6 @@ public class AvailableTimeInterceptor {
         log.warn("利用時間外だよ");
 
         return null;
-    }
-
-    private boolean available() {
-
-        HttpServletRequest request = (HttpServletRequest) externalContext.getRequest();
-
-        if (request.isUserInRole("admin")) {
-            return true;
-        }
-
-        if (isAvailableTime()) {
-            return true;
-        }
-
-        return false;
-    }
-
-    private boolean isAvailableTime() {
-
-        LocalTime now = LocalTime.now();
-        LocalTime nightTime = LocalTime.of(22, 0);
-        LocalTime morningTime = LocalTime.of(7, 0);
-
-        return now.isAfter(morningTime) && now.isBefore(nightTime);
     }
 
 }

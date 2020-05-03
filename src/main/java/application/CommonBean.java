@@ -10,6 +10,7 @@ import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import mode.TestMode;
 import mode.TraceMode;
+import security.AviableValidator;
 
 @Model // @Named＋@RequestScoped
 @Slf4j
@@ -24,6 +25,12 @@ public class CommonBean {
 
     @Inject
     private TraceMode traceMode;
+
+    @Inject
+    AviableValidator aviableValidator;
+
+    @Getter
+    private boolean aviable;
 
     public void switchTestMode() {
         testMode.switchMode();
@@ -52,6 +59,7 @@ public class CommonBean {
     }
 
     public void preRender() {
+        this.aviable = aviableValidator.available();
         log.debug("");
     }
 
