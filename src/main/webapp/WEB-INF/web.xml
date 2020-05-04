@@ -45,24 +45,24 @@
 
     <!-- URLにディレクトリ名のみ指定（ファイル名を指定しない）があったら、このページを表示する -->
     <welcome-file-list>
-        <welcome-file>top.xhtml</welcome-file>
+        <welcome-file>/application/top.xhtml</welcome-file>
     </welcome-file-list>
 
     <error-page>
         <exception-type>javax.faces.application.ProtectedViewException</exception-type>
-        <location>/error.xhtml</location>
+        <location>/application/error.xhtml</location>
     </error-page>
     <error-page>
         <exception-type>javax.faces.application.ViewExpiredException</exception-type>
-        <location>/session-error.xhtml</location>
+        <location>/application/error-session.xhtml</location>
     </error-page>
     <error-page>
         <error-code>403</error-code>
-        <location>/error-forbidden.xhtml</location>
+        <location>/application/error-forbidden.xhtml</location>
     </error-page>
     <error-page>
         <exception-type>java.lang.Exception</exception-type>
-        <location>/error.xhtml</location>
+        <location>/application/error.xhtml</location>
     </error-page>
 
     <security-constraint>
@@ -86,7 +86,7 @@
         <realm-name>Sample Realm</realm-name>
         <form-login-config>
             <form-login-page>/login.xhtml</form-login-page>
-            <form-error-page>/error.xhtml</form-error-page>
+            <form-error-page>/application/error.xhtml</form-error-page>
         </form-login-config>
     </login-config>
 
