@@ -16,22 +16,22 @@ Webアプリケーションのアーキテクチャや主要な機能を学ぶ�
 
 # 使用するフレームワーク・ライブラリ
 ## 基盤
-* JavaSE 8
-* JavaEE 8
+* JavaSE 8.x
+* JavaEE 8.x
 
 ## APサーバ
-* WildFly 17
+* WildFly 17.x
 
 ## DB
-* PostgreSQL 11.7
+* PostgreSQL 11.x
 
 ## Webアプリケーション
 * JSF 2.3
-  * PrimeFaces 3.4
-  * OmniFaces 1.1
+  * PrimeFaces 3.x
+  * OmniFaces 1.x
 
 ## DBアクセス
-* MyBatis 3.4
+* MyBatis 3.x
 * JPA (+ EcliseLink)
 
 ## ログ
