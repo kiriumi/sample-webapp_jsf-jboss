@@ -34,7 +34,7 @@
         <session-timeout>30</session-timeout>
 
         <cookie-config>
-            <!-- HTTPSが必要なのは外部～Webサーバまでで、そこから先（APサーバ）HTTPで良いため -->
+            <!-- HTTPSが必要なのは外部～Webサーバまでで、そこから先（APサーバ）はHTTPで良いため -->
             <http-only>true</http-only>
         </cookie-config>
 
