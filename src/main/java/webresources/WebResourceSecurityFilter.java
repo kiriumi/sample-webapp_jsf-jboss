@@ -7,12 +7,12 @@ import java.util.List;
 
 import javax.annotation.Priority;
 import javax.inject.Inject;
+import javax.ws.rs.ForbiddenException;
 import javax.ws.rs.Priorities;
 import javax.ws.rs.container.ContainerRequestContext;
 import javax.ws.rs.container.ContainerRequestFilter;
 import javax.ws.rs.container.PreMatching;
 import javax.ws.rs.core.HttpHeaders;
-import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 import javax.ws.rs.ext.Provider;
 
@@ -45,9 +45,7 @@ public class WebResourceSecurityFilter implements ContainerRequestFilter {
 
         String authorization = requestContext.getHeaderString(HttpHeaders.AUTHORIZATION);
         if (StringUtils.isBlank(authorization)) {
-            requestContext.abortWith(
-                    Response.status(Response.Status.FORBIDDEN).entity("Access blocked for all users !!").build());
-            return null;
+            throw new ForbiddenException();
         }
 
         String credientals = authorization.split(" ")[1];
@@ -61,7 +59,12 @@ public class WebResourceSecurityFilter implements ContainerRequestFilter {
 
         log.debug("RESTのBasic認証開始：{}/{}", emailAddress, password);
 
-        return userService.find(emailAddress, password);
+        User user = userService.find(emailAddress, password);
+        if (user == null) {
+            throw new ForbiddenException();
+        }
+
+        return user;
     }
 
     private void setSecurityContext(final ContainerRequestContext requestContext, final User user,

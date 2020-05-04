@@ -19,6 +19,12 @@
         <param-value>cyborg</param-value>
     </context-param>
 
+    <!-- RESTで認可処理を行う場合、必要 -->
+    <context-param>
+        <param-name>resteasy.role.based.security</param-name>
+        <param-value>true</param-value>
+    </context-param>
+
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
@@ -88,18 +94,19 @@
         <!-- </user-data-constraint> -->
     </security-constraint>
 
-    <login-config>
-        <auth-method>FORM</auth-method>
-        <realm-name>Sample Realm</realm-name>
-        <form-login-config>
-            <form-login-page>/login.xhtml</form-login-page>
-            <form-error-page>/application/error.xhtml</form-error-page>
-        </form-login-config>
-    </login-config>
+<!--     <login-config> -->
+<!--         <auth-method>FORM</auth-method> -->
+<!--         <realm-name>Sample Realm</realm-name> -->
+<!--         <form-login-config> -->
+<!--             <form-login-page>/login.xhtml</form-login-page> -->
+<!--             <form-error-page>/application/error.xhtml</form-error-page> -->
+<!--         </form-login-config> -->
+<!--     </login-config> -->
 
     <security-role>
         <role-name>*</role-name>
     </security-role>
+
 
 
 </web-app>

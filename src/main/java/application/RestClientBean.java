@@ -3,7 +3,9 @@ package application;
 import java.util.Base64;
 
 import javax.enterprise.inject.Model;
+import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
@@ -11,6 +13,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
 
+import domain.MessageService;
 import dto.User;
 import lombok.Data;
 import security.CustomPrincipal;
@@ -34,20 +37,28 @@ public class RestClientBean {
 
     private User user;
 
+    @Inject
+    private MessageService messageService;
+
     /**
      * GETメソッドであいさつ文を取得する
      * @return
      */
     public String greet() {
 
-        Client client = ClientBuilder.newClient();
+        try {
 
-        // http://localhost:8080/sample-webapp-jsf/webresources/user-name/ほげ
-        UriBuilder userNameUri = baseRestUriBuilder.path("user-name").path("ほげ").queryParam("age", 17);
+            // http://localhost:8080/sample-webapp-jsf/webresources/user-name/ほげ
 
-        String greetingMessage = client.target(userNameUri).request(MediaType.TEXT_PLAIN)
-                .header("Authorization", getBasicAuthHttpHeaderValue()).get(String.class);
-        setGreetingMessage(greetingMessage);
+            Client client = ClientBuilder.newClient();
+            UriBuilder userNameUri = baseRestUriBuilder.path("user-name").path("ほげ").queryParam("age", 17);
+            String greetingMessage = client.target(userNameUri).request(MediaType.TEXT_PLAIN)
+                    .header("Authorization", getBasicAuthHttpHeaderValue()).get(String.class);
+            setGreetingMessage(greetingMessage);
+
+        } catch (Exception e) {
+            messageService.setMessage(FacesMessage.SEVERITY_ERROR, e.getMessage());
+        }
 
         return null;
     }

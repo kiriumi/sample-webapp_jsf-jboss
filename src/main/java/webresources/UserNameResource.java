@@ -1,14 +1,12 @@
 package webresources;
 
 import javax.annotation.security.RolesAllowed;
-import javax.ejb.Stateless;
 import javax.validation.constraints.NotNull;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.QueryParam;
 
-@Stateless
 @Path("user-name/{name}")
 public class UserNameResource {
 
@@ -24,6 +22,7 @@ public class UserNameResource {
     @RolesAllowed("admin")
     public String getGreetingMessageWithAge(@PathParam("name") final String name,
             @QueryParam("age") @NotNull final Integer age) {
+
         return "ウチの名前は " + name + " で、年齢は " + age.toString() + " よ！";
     }
 
