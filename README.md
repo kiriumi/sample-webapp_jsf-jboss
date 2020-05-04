@@ -47,3 +47,28 @@ Webアプリケーションのアーキテクチャや主要な機能を学ぶ�
 ## CSS
 * Bootstrap
   * BootsFaces
+
+# 機能
+## Webアプリ開発機能
+* 入力チェック
+* メッセージ管理
+* Ajax
+
+## Web API
+* RESTful
+* SOAP
+
+## DBアクセス
+* MyBatis
+* JPA
+
+## セキュリティ対策
+* 認証
+* 認可
+* XSS
+* SQLインジェクション
+* CSRF
+
+## その他
+* ロギング
+* プロパティ管理
