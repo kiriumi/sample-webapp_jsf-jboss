@@ -79,7 +79,7 @@
 <!--             <AppenderRef ref="file-app" /> -->
         </Root>
 
-        <Logger name="log.ActionLogInterceptor" level="DEBUG" additivity="false">
+        <Logger name="log.ActionLoggingInterceptor" level="DEBUG" additivity="false">
             <AppenderRef ref="file-archi" />
         </Logger>
 
