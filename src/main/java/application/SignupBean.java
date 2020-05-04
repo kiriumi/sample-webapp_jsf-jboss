@@ -52,10 +52,11 @@ public class SignupBean extends BaseBackingBean {
 
         getFlash().put("signupSccessMessage", "登録できたよ");
 
-        return redirect("login");
+        return redirect("top");
     }
 
     @TestModeTransactional
+    //    @Transactional
     public String signupUserWithJpa() {
 
         if (userService.hasUserWithJpa(getEmailAddress())) {
@@ -63,11 +64,10 @@ public class SignupBean extends BaseBackingBean {
         }
 
         userService.addUserWithJpa(createUser());
-        userService.addUserWithJpa(createUser());
 
         getFlash().put("signupSccessMessage", "登録できたよ");
 
-        return redirect("login");
+        return redirect("top");
     }
 
     private User createUser() {

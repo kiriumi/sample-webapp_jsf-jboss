@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<faces-config xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+<faces-config
+    version="2.3"
+    xmlns="http://xmlns.jcp.org/xml/ns/javaee"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_3.xsd"
-    version="2.3">
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_3.xsd">
 
     <application>
         <locale-config>
@@ -14,7 +15,7 @@
         <phase-listener>listener.InvokeApplicationLisener</phase-listener>
     </lifecycle>
 
-<!-- GETに対するトークンチェック対象のページ（正規表現は使えない） -->
+    <!-- GETに対するトークンチェック対象のページ（正規表現は使えない） -->
     <!-- <protected-views> -->
     <!-- <url-pattern>/signup.xhtml</url-pattern> -->
     <!-- </protected-views> -->

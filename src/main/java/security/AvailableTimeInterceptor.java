@@ -30,13 +30,13 @@ public class AvailableTimeInterceptor {
     @AroundInvoke
     public Object around(final InvocationContext context) throws Exception {
 
-        PhaseId currentPhaseId = FacesContext.getCurrentInstance().getCurrentPhaseId();
+        PhaseId currentPhaseId = facesContext.getCurrentPhaseId();
         if (!currentPhaseId.equals(PhaseId.INVOKE_APPLICATION)) {
             // アクション以外は何もしない
             return context.proceed();
         }
 
-        if (aviableValidator.available()) {
+        if (isLoginLogout(context) || aviableValidator.available()) {
             return context.proceed();
         }
 
@@ -47,6 +47,12 @@ public class AvailableTimeInterceptor {
         log.warn("利用時間外だよ");
 
         return null;
+    }
+
+    private boolean isLoginLogout(final InvocationContext context) {
+
+        LoginLogout loginLogoutAnnotation = context.getMethod().getAnnotation(LoginLogout.class);
+        return loginLogoutAnnotation != null;
     }
 
 }

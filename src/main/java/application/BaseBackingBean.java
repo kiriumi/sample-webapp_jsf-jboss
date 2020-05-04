@@ -1,6 +1,6 @@
 package application;
 
-import javax.faces.context.FacesContext;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.Flash;
 import javax.inject.Inject;
 
@@ -15,7 +15,7 @@ import security.AvailableTime;
 public abstract class BaseBackingBean {
 
     @Inject
-    private FacesContext facesContext;
+    private ExternalContext externalContext;
 
     @Getter
     @Inject
@@ -32,7 +32,7 @@ public abstract class BaseBackingBean {
      * @return
      */
     protected Flash getFlash() {
-        return facesContext.getExternalContext().getFlash();
+        return externalContext.getFlash();
     }
 
     protected String redirect(final String pageName) {

@@ -11,7 +11,6 @@ public class FacesLogBridgeListener implements ServletContextListener {
     public void contextInitialized(final ServletContextEvent arg) {
 
         // 参考：https://mkyong.com/jsf2/jsf-2-log4j-integration-example/
-        //        SLF4JBridgeHandler.removeHandlersForRootLogger(); // JSFのルートLoggerによるログ出力との重複をさけるため
         SLF4JBridgeHandler.install();
     }
 

@@ -1,8 +1,6 @@
 package security;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.faces.annotation.FacesConfig;
-import javax.inject.Named;
 import javax.security.enterprise.authentication.mechanism.http.CustomFormAuthenticationMechanismDefinition;
 import javax.security.enterprise.authentication.mechanism.http.LoginToContinue;
 
@@ -17,13 +15,13 @@ import javax.security.enterprise.authentication.mechanism.http.LoginToContinue;
 //            "${applicationConfig.dyna}"
 //        }
 //)
-@CustomFormAuthenticationMechanismDefinition(loginToContinue = @LoginToContinue(loginPage = "/login.xhtml", useForwardToLogin = false))
-@FacesConfig
-@Named
+@CustomFormAuthenticationMechanismDefinition(loginToContinue = @LoginToContinue(loginPage = "/login.xhtml", errorPage = "/application/error.xhtml", useForwardToLogin = false))
 @ApplicationScoped
 public class SecurityConfig {
 
-    //    JavaEE Security API の参考：https://github.com/rieckpil/blog-tutorials/tree/master/jsf-simple-login-with-java-ee-security-api
+    // JavaEE Security API の参考
+    //   https://github.com/rieckpil/blog-tutorials/tree/master/jsf-simple-login-with-java-ee-security-api
+    //   https://github.com/openknowledge/java-ee-8-security-api-example/tree/master/src/main/java/de/openknowledge/samples/javaee8
 
     //    public String[] getDyna() {
     //        return new String[]{"Pbkdf2PasswordHash.Algorithm=PBKDF2WithHmacSHA512", "Pbkdf2PasswordHash.SaltSizeBytes=64"};

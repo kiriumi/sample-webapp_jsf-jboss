@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<persistence version="2.2"
-    xmlns="http://xmlns.jcp.org/xml/ns/persistence"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<persistence version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
 
-    <persistence-unit name="sampleUnit"
-        transaction-type="JTA">
+    <persistence-unit name="sampleUnit" transaction-type="JTA">
 
         <!-- 参考：https://wiki.eclipse.org/EclipseLink/Examples/JPA/JBoss_Web_Tutorial#JTA_Persistence.xml -->
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
@@ -23,17 +20,14 @@
 
             <!-- Eclipselinkの場合 -->
             <property name="eclipselink.target-server" value="JBoss" />
-            <property name="eclipselink.target-database"
-                value="PostgreSQL" />
+            <property name="eclipselink.target-database" value="PostgreSQL" />
 
             <property name="eclipselink.ddl-generation" value="update" />
-            <property name="eclipselink.ddl-generation.output-mode"
-                value="database" />
+            <property name="eclipselink.ddl-generation.output-mode" value="database" />
 
             <!-- Log4j2でEclipselinkのログを出力するため -->
             <!-- 参考：https://wiki.eclipse.org/EclipseLink/Examples/JPA/CustomLogger -->
-            <property name="eclipselink.session.customizer"
-                value="log.JpaEclipseLinkSessionCustomizer" />
+            <property name="eclipselink.session.customizer" value="log.JpaEclipseLinkSessionCustomizer" />
 
             <!-- ログレベル参考：https://www.eclipse.org/eclipselink/documentation/2.4/jpa/extensions/p_logging_level.htm -->
             <property name="eclipselink.logging.level" value="SEVERE" />
