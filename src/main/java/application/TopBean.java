@@ -8,7 +8,6 @@ import javax.faces.application.FacesMessage;
 import javax.inject.Inject;
 import javax.security.enterprise.SecurityContext;
 
-import domain.FacesMessageManager;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -25,9 +24,6 @@ public class TopBean extends BaseBackingBean {
 
     @Inject
     SecurityContext securityContext;
-
-    @Inject
-    FacesMessageManager messageManager;
 
     private String name;
 
@@ -49,7 +45,7 @@ public class TopBean extends BaseBackingBean {
     public void viewAction() {
 
         String loginSuccessMessage = (String) getFlash().get("loginSccessMessage");
-        messageManager.setMessage(FacesMessage.SEVERITY_INFO, loginSuccessMessage);
+        getMessageService().setMessage(FacesMessage.SEVERITY_INFO, loginSuccessMessage);
 
         Principal principal = securityContext.getCallerPrincipal();
 

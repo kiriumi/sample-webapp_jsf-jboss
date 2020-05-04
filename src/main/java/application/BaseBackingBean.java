@@ -4,7 +4,7 @@ import javax.faces.context.ExternalContext;
 import javax.faces.context.Flash;
 import javax.inject.Inject;
 
-import domain.FacesMessageManager;
+import domain.MessageService;
 import log.ActionLogging;
 import log.ApplicationLogger;
 import lombok.Getter;
@@ -23,7 +23,7 @@ public abstract class BaseBackingBean {
 
     @Getter
     @Inject
-    private FacesMessageManager messageManager;
+    private MessageService messageService;
 
     /**
      * Flashを取得する

@@ -13,7 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @RequestScoped
 @Slf4j
-public class FacesMessageManager {
+public class MessageService {
 
     @Inject
     private FacesContext facesContext;
