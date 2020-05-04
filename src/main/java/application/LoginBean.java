@@ -22,7 +22,6 @@ import domain.UserService;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import security.LoginLogout;
-import security.PermittedRoles;
 import validation.Auth;
 import validation.AuthGroup;
 
@@ -129,7 +128,6 @@ public class LoginBean extends BaseBackingBean {
     }
 
     @LoginLogout
-    @PermittedRoles("admin")
     public String login() {
 
         if (authed) {

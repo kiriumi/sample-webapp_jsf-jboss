@@ -14,6 +14,7 @@ import dto.User;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import mode.TestModeTransactional;
+import security.ForbidenRoles;
 
 /**
  * ログインページクラス
@@ -42,6 +43,8 @@ public class SignupBean extends BaseBackingBean {
     private UserService userService;
 
     @TestModeTransactional
+    //    @PermittedRoles("admin")
+    @ForbidenRoles("user")
     public String signupUser() {
 
         if (userService.hasUser(getEmailAddress())) {
@@ -56,7 +59,6 @@ public class SignupBean extends BaseBackingBean {
     }
 
     @TestModeTransactional
-    //    @Transactional
     public String signupUserWithJpa() {
 
         if (userService.hasUserWithJpa(getEmailAddress())) {
