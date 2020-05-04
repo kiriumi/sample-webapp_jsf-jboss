@@ -48,6 +48,13 @@
         <welcome-file>/application/top.xhtml</welcome-file>
     </welcome-file-list>
 
+    <!-- JSFのログをSLF4Jで出力するため -->
+    <listener>
+        <listener-class>
+                listener.FacesLogBridgeListener
+          </listener-class>
+    </listener>
+
     <error-page>
         <exception-type>javax.faces.application.ProtectedViewException</exception-type>
         <location>/application/error.xhtml</location>

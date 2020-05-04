@@ -1,2 +1,11 @@
-2020/04/30 21:11:00.459 [default task-2] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 開始
-2020/04/30 21:11:01.772 [default task-2] DEBUG log.ActionLogInterceptor#around application.LoginBean#viewAction 終了
+2020/05/04 19:37:40.569 [ServerService Thread Pool -- 76] INFO  ?# This application is running on BootsFaces1.4.2-
+2020/05/04 19:37:42.119 [ServerService Thread Pool -- 76] INFO  ?# Running on PrimeFaces 7.0
+2020/05/04 19:37:42.634 [ServerService Thread Pool -- 76] INFO  ?# RESTEASY002225: Deploying javax.ws.rs.core.Application: class webresources.RestConfig
+2020/05/04 19:37:42.786 [ServerService Thread Pool -- 76] INFO  ?# WFLYUT0021: Registered web context: %s for server %s
+2020/05/04 19:37:42.866 [Controller Boot Thread] INFO  ?# WFLYSRV0010: Deployed "%s" (runtime-name : "%s")
+2020/05/04 19:37:42.870 [Controller Boot Thread] INFO  ?# WFLYSRV0010: Deployed "%s" (runtime-name : "%s")
+2020/05/04 19:37:42.870 [ServerService Thread Pool -- 44] INFO  ?# WFLYSRV0010: Deployed "%s" (runtime-name : "%s")
+2020/05/04 19:37:42.970 [Controller Boot Thread] INFO  ?# WFLYSRV0212: Resuming server
+2020/05/04 19:37:42.976 [Controller Boot Thread] INFO  ?# WFLYSRV0060: Http management interface listening on http://%s:%d/management
+2020/05/04 19:37:42.977 [Controller Boot Thread] INFO  ?# WFLYSRV0051: Admin console listening on http://%s:%d
+2020/05/04 19:37:42.978 [Controller Boot Thread] INFO  ?# WFLYSRV0025: %s started in %dms - Started %d of %d services (%d services are lazy, passive or on-demand)

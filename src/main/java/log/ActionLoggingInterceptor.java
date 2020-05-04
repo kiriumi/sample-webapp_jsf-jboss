@@ -40,13 +40,7 @@ public class ActionLoggingInterceptor {
 
         Object result = null;
 
-        try {
-            result = context.proceed();
-
-        } catch (Exception e) {
-            log.error(e.getMessage(), e);
-            throw e;
-        }
+        result = context.proceed();
 
         log.debug("{}#{} 終了", classNameWithoutProxy, methodName);
 

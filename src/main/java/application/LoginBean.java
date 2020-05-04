@@ -109,7 +109,11 @@ public class LoginBean extends BaseBackingBean {
                         .credential(new UsernamePasswordCredential(emailAddress, password)));
     }
 
-    public void authenticate(final ActionEvent event) {
+    public void authenticate(final ActionEvent event) throws Exception {
+
+        if (true) {
+            throw new Exception("わざと");
+        }
 
         AuthenticationStatus authStatus = getAuthStatus();
 
