@@ -16,7 +16,7 @@
 
         <RollingFile name="file-system"
             fileName="${logPath}/system.log"
-            filePattern="${logPath}/%d{yyyyMM}/system_%d{yyyyMMdd}_%i.log">
+            filePattern="${logPath}/%d{yyyyMM}/system_%d{yyyyMMdd}_%i.zip">
 
             <PatternLayout pattern="${basePattern}" />
 
@@ -30,7 +30,7 @@
 
         <RollingFile name="file-archi"
             fileName="${logPath}/application.log"
-            filePattern="${logPath}/%d{yyyyMM}/application_%d{yyyyMMdd}_%i.log">
+            filePattern="${logPath}/%d{yyyyMM}/application_%d{yyyyMMdd}_%i.zip">
 
             <PatternLayout pattern="${basePattern}" />
 
@@ -44,7 +44,7 @@
 
         <RollingFile name="file-app"
             fileName="${logPath}/application.log"
-            filePattern="${logPath}/%d{yyyyMM}/application_%d{yyyyMMdd}_%i.log">
+            filePattern="${logPath}/%d{yyyyMM}/application_%d{yyyyMMdd}_%i.zip">
 
             <PatternLayout pattern="${appPattern}" />
 
@@ -58,7 +58,7 @@
 
         <RollingFile name="file-trace"
             fileName="${logPath}/application.log"
-            filePattern="${logPath}/%d{yyyyMM}/application_%d{yyyyMMdd}_%i.log">
+            filePattern="${logPath}/%d{yyyyMM}/application_%d{yyyyMMdd}_%i.zip">
 
             <PatternLayout pattern="${basePattern}" />
 
