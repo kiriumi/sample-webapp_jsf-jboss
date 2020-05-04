@@ -5,12 +5,8 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import javax.interceptor.InterceptorBinding;
-
-@InterceptorBinding
 @Retention(RetentionPolicy.RUNTIME)
-@Target({ ElementType.TYPE, ElementType.METHOD })
-public @interface ForbidenRoles {
+@Target(ElementType.METHOD)
+public @interface LoginLogout {
 
-    String[] value() default "";
 }

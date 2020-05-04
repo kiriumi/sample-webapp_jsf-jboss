@@ -5,20 +5,20 @@
 
     <Properties>
         <Property name="logPath">C:/Users/kengo/git/sample-webapp_jsf-jboss/log</Property>
-        <Property name="basePattern">%d{yyyy/MM/dd HH:mm:ss.SSS} [%t] %-5p %C#%M %m%n%ex</Property>
+
+        <Property name="sysPattern">%d{yyyy/MM/dd HH:mm:ss.SSS} [%t] %-5p %m%n%ex</Property>
+        <Property name="archiPattern">%d{yyyy/MM/dd HH:mm:ss.SSS} [%t] %-5p %C#%M %m%n%ex</Property>
         <Property name="appPattern">%d{yyyy/MM/dd HH:mm:ss.SSS} [%t] %-5p %X{contextPath} %X{class}#%X{method} %m%n%ex</Property>
     </Properties>
 
     <Appenders>
         <Console name="console" target="SYSTEM_OUT">
-            <PatternLayout pattern="${basePattern}" />
+            <PatternLayout pattern="${sysPattern}" />
         </Console>
 
-        <RollingFile name="file-system"
-            fileName="${logPath}/system.log"
-            filePattern="${logPath}/%d{yyyyMM}/system_%d{yyyyMMdd}_%i.log">
+        <RollingFile name="file-system" fileName="${logPath}/system.log" filePattern="${logPath}/%d{yyyyMM}/system_%d{yyyyMMdd}_%i.zip">
 
-            <PatternLayout pattern="${basePattern}" />
+            <PatternLayout pattern="${sysPattern}" />
 
             <Policies>
                 <SizeBasedTriggeringPolicy size="20 MB" />
@@ -28,11 +28,10 @@
             <DefaultRolloverStrategy min="1" max="10" />
         </RollingFile>
 
-        <RollingFile name="file-archi"
-            fileName="${logPath}/application.log"
-            filePattern="${logPath}/%d{yyyyMM}/application_%d{yyyyMMdd}_%i.log">
+        <RollingFile name="file-faces" fileName="${logPath}/application.log"
+            filePattern="${logPath}/%d{yyyyMM}/application_%d{yyyyMMdd}_%i.zip">
 
-            <PatternLayout pattern="${basePattern}" />
+            <PatternLayout pattern="${sysPattern}" />
 
             <Policies>
                 <SizeBasedTriggeringPolicy size="20 MB" />
@@ -42,25 +41,23 @@
             <DefaultRolloverStrategy min="1" max="10" />
         </RollingFile>
 
-        <RollingFile name="file-app"
-            fileName="${logPath}/application.log"
-            filePattern="${logPath}/%d{yyyyMM}/application_%d{yyyyMMdd}_%i.log">
+        <RollingFile name="file-archi" fileName="${logPath}/application.log"
+            filePattern="${logPath}/%d{yyyyMM}/application_%d{yyyyMMdd}_%i.zip">
+
+            <PatternLayout pattern="${archiPattern}" />
+
+            <Policies>
+                <SizeBasedTriggeringPolicy size="20 MB" />
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+
+            <DefaultRolloverStrategy min="1" max="10" />
+        </RollingFile>
+
+        <RollingFile name="file-app" fileName="${logPath}/application.log"
+            filePattern="${logPath}/%d{yyyyMM}/application_%d{yyyyMMdd}_%i.zip">
 
             <PatternLayout pattern="${appPattern}" />
-
-            <Policies>
-                <SizeBasedTriggeringPolicy size="20 MB" />
-                <TimeBasedTriggeringPolicy />
-            </Policies>
-
-            <DefaultRolloverStrategy min="1" max="10" />
-        </RollingFile>
-
-        <RollingFile name="file-trace"
-            fileName="${logPath}/application.log"
-            filePattern="${logPath}/%d{yyyyMM}/application_%d{yyyyMMdd}_%i.log">
-
-            <PatternLayout pattern="${basePattern}" />
 
             <Policies>
                 <SizeBasedTriggeringPolicy size="20 MB" />
@@ -73,34 +70,42 @@
     </Appenders>
 
     <Loggers>
-        <Root level="ALL">
+        <Logger name="javax.enterprise.resource.webcontainer.jsf" level="INFO" additivity="false">
             <AppenderRef ref="console" />
-<!--             <AppenderRef ref="file-system" /> -->
-<!--             <AppenderRef ref="file-app" /> -->
-        </Root>
+            <AppenderRef ref="file-system" />
+            <AppenderRef ref="file-faces" />
+        </Logger>
 
-        <Logger name="log.ActionLogInterceptor" level="DEBUG" additivity="false">
+        <Logger name="log.ActionLoggingInterceptor" level="INFO" additivity="false">
+            <AppenderRef ref="console" />
+            <AppenderRef ref="file-system" />
             <AppenderRef ref="file-archi" />
         </Logger>
 
-        <Logger name="log.BaseLogger" level="DEBUG" additivity="false">
-            <AppenderRef ref="file-app" />
-        </Logger>
+        <!-- モード -->
+        <logger name="mode" level="DEBUG" additivity="false">
+            <AppenderRef ref="console" />
+            <AppenderRef ref="file-archi" />
+        </logger>
 
         <!-- MyBatis -->
         <Logger name="mapper" level="DEBUG" additivity="false">
-            <AppenderRef ref="file-trace" />
+            <AppenderRef ref="console" />
+            <AppenderRef ref="file-archi" />
         </Logger>
 
         <!-- JPA -->
         <logger name="log.JpaEclipselinkLogger" level="DEBUG" additivity="false">
-            <AppenderRef ref="file-trace" />
+            <AppenderRef ref="console" />
+            <AppenderRef ref="file-archi" />
         </logger>
 
-        <!-- モード -->
-        <logger name="mode" level="DEBUG" additivity="false">
-            <AppenderRef ref="file-trace" />
-        </logger>
+        <!-- Webアプリケーション -->
+        <Logger name="log.BaseLogger" level="DEBUG" additivity="false">
+            <AppenderRef ref="console" />
+            <AppenderRef ref="file-system" />
+            <AppenderRef ref="file-app" />
+        </Logger>
     </Loggers>
 
 </Configuration>

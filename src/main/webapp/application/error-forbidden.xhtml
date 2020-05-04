@@ -7,13 +7,20 @@
     xmlns:o="http://omnifaces.org/ui" xmlns:of="http://omnifaces.org/functions"
     xmlns:b="http://bootsfaces.net/ui">
 
+
 <h:head>
-    <title>ウェルカムページ</title>
+    <title>エラーページ</title>
 </h:head>
 <h:body>
-
     <h:form>
-        Welcome
+        エラーだよ
+
+        #{requestScope['error-message']}
+
+
+            <ui:repeat value="#{requestScope['error-stack']}" var="stack">
+            <li>#{stack.className} - #{stack.methodName} - #{stack.fileName} (#{stack.lineNumber})</li>
+        </ui:repeat>
     </h:form>
 </h:body>
 </html>

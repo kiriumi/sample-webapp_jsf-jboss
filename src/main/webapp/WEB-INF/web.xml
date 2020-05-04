@@ -1,9 +1,8 @@
-<!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
-
-<web-app>
-    <display-name>Archetype Created Web Application</display-name>
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+    version="3.0">
 
     <context-param>
         <param-name>javax.faces.PROJECT_STAGE</param-name>
@@ -31,18 +30,46 @@
         <url-pattern>*.xhtml</url-pattern>
     </servlet-mapping>
 
-    <!-- URLにファイル名を指定しなかったら、このページを表示する -->
+    <session-config>
+        <session-timeout>30</session-timeout>
+
+        <cookie-config>
+            <!-- HTTPSが必要なのは外部～Webサーバまでで、そこから先（APサーバ）はHTTPで良いため -->
+            <http-only>true</http-only>
+        </cookie-config>
+
+        <!-- 初回アクセス時に、URLにセッションIDが表示されるのを防ぐため -->
+        <tracking-mode>COOKIE</tracking-mode>
+
+    </session-config>
+
+    <!-- URLにディレクトリ名のみ指定（ファイル名を指定しない）があったら、このページを表示する -->
     <welcome-file-list>
-        <welcome-file>top.xhtml</welcome-file>
+        <welcome-file>/application/top.xhtml</welcome-file>
     </welcome-file-list>
+
+    <!-- JSFのログをSLF4Jで出力するため -->
+    <listener>
+        <listener-class>
+                listener.FacesLogBridgeListener
+          </listener-class>
+    </listener>
 
     <error-page>
         <exception-type>javax.faces.application.ProtectedViewException</exception-type>
-        <location>/error.xhtml</location>
+        <location>/application/error.xhtml</location>
     </error-page>
     <error-page>
         <exception-type>javax.faces.application.ViewExpiredException</exception-type>
-        <location>/session-error.xhtml</location>
+        <location>/application/error-session.xhtml</location>
+    </error-page>
+    <error-page>
+        <error-code>403</error-code>
+        <location>/application/error-forbidden.xhtml</location>
+    </error-page>
+    <error-page>
+        <exception-type>java.lang.Exception</exception-type>
+        <location>/application/error.xhtml</location>
     </error-page>
 
     <security-constraint>
@@ -66,11 +93,13 @@
         <realm-name>Sample Realm</realm-name>
         <form-login-config>
             <form-login-page>/login.xhtml</form-login-page>
-            <form-error-page>/error.xhtml</form-error-page>
+            <form-error-page>/application/error.xhtml</form-error-page>
         </form-login-config>
     </login-config>
 
     <security-role>
         <role-name>*</role-name>
     </security-role>
+
+
 </web-app>

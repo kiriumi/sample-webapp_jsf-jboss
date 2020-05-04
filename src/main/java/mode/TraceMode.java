@@ -24,8 +24,8 @@ public class TraceMode implements Serializable {
     private final LoggerContext loggerContext = (LoggerContext) LogManager.getContext(false);
     private final Configuration configuration = loggerContext.getConfiguration();
 
-    private final List<String> targetLoggerNames = Arrays.asList("mapper", JpaEclipselinkLogger.class.getName(),
-            "model");
+    private final List<String> targetLoggerNames = Arrays.asList(
+            "mapper", JpaEclipselinkLogger.class.getName(), "model");
 
     public void switchMode() {
         this.trace = trace ? false : true;

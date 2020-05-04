@@ -9,9 +9,9 @@ public class JpaEclipseLinkSessionCustomizer implements SessionCustomizer {
     @Override
     public void customize(final Session session) throws Exception {
 
-        JpaEclipselinkLogger logger = new JpaEclipselinkLogger();
-        logger.setLevel(SessionLog.FINEST);
-        session.setSessionLog(logger);
+        JpaEclipselinkLogger jpaLogger = new JpaEclipselinkLogger();
+        jpaLogger.setLevel(SessionLog.FINEST);
+        session.setSessionLog(jpaLogger);
     }
 
 }

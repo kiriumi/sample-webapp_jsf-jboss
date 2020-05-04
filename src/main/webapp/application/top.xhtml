@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:f="http://java.sun.com/jsf/core"
-    xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-    xmlns:p="http://primefaces.org/ui"
-    xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
-    xmlns:o="http://omnifaces.org/ui"
-    xmlns:of="http://omnifaces.org/functions"
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui" xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+    xmlns:o="http://omnifaces.org/ui" xmlns:of="http://omnifaces.org/functions"
     xmlns:b="http://bootsfaces.net/ui">
 
 <ui:composition template="../template/template.xhtml">
@@ -32,8 +28,7 @@
             <legend>リクエストから取得した権限情報</legend>
             <h:panelGrid columns="2">
             名前：<h:outputText value="#{request.userPrincipal.name}" />
-            アドミン権限：<h:outputText
-                    value="#{request.isUserInRole('admin')}" />
+            アドミン権限：<h:outputText value="#{request.isUserInRole('admin')}" />
             ユーザ権限：<h:outputText value="#{request.isUserInRole('user')}" />
             </h:panelGrid>
         </fieldset>
@@ -43,13 +38,11 @@
         <fieldset>
             <legend>Ajaxのサンプル（入力値を変えたら、自動で計算される）</legend>
             <h:inputText id="value1" value="#{topBean.value1}">
-                <f:ajax execute="value1 value2" event="change"
-                    listener="#{topBean.sum()}" render="sumedValue" />
+                <f:ajax execute="value1 value2" event="change" listener="#{topBean.sum()}" render="sumedValue" />
             </h:inputText>
             ＋
             <h:inputText id="value2" value="#{topBean.value2}">
-                <f:ajax execute="value1 value2" event="change"
-                    listener="#{topBean.sum()}" render="sumedValue" />
+                <f:ajax execute="value1 value2" event="change" listener="#{topBean.sum()}" render="sumedValue" />
             </h:inputText>
             ＝
             <h:outputText id="sumedValue" value="#{topBean.sumedValue}" />

@@ -33,8 +33,7 @@ public class UserService {
     public User find(final String emailAddress, final String password) {
 
         UserExample example = new UserExample();
-        example.createCriteria().andEmailaddressEqualTo(emailAddress);
-        example.createCriteria().andPasswordEqualTo(password);
+        example.createCriteria().andEmailaddressEqualTo(emailAddress).andPasswordEqualTo(password);
 
         UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
         List<User> users = userMapper.selectByExample(example);
@@ -45,8 +44,7 @@ public class UserService {
     public boolean authenticate(final String emailAddress, final String password) {
 
         UserExample example = new UserExample();
-        example.createCriteria().andEmailaddressEqualTo(emailAddress);
-        example.createCriteria().andPasswordEqualTo(password);
+        example.createCriteria().andEmailaddressEqualTo(emailAddress).andPasswordEqualTo(password);
 
         UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
         List<User> users = userMapper.selectByExample(example);

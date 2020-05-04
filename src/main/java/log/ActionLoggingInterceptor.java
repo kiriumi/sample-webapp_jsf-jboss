@@ -36,19 +36,13 @@ public class ActionLoggingInterceptor {
         String classNameWithoutProxy = context.getTarget().getClass().getName().replaceAll("\\$Proxy.*$", "");
         String methodName = context.getMethod().getName();
 
-        log.debug("{}#{} 開始", classNameWithoutProxy, methodName);
+        log.info("{}#{} 開始", classNameWithoutProxy, methodName);
 
         Object result = null;
 
-        try {
-            result = context.proceed();
+        result = context.proceed();
 
-        } catch (Exception e) {
-            log.error(e.getMessage(), e);
-            throw e;
-        }
-
-        log.debug("{}#{} 終了", classNameWithoutProxy, methodName);
+        log.info("{}#{} 終了", classNameWithoutProxy, methodName);
 
         return result;
     }

@@ -48,6 +48,6 @@ public class CustomIdentityStore implements IdentityStore {
 
         log.debug("認証失敗");
 
-        return CredentialValidationResult.NOT_VALIDATED_RESULT;
+        return CredentialValidationResult.INVALID_RESULT;
     }
 }

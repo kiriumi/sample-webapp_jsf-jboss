@@ -21,6 +21,7 @@ import javax.validation.constraints.Size;
 import domain.UserService;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import security.LoginLogout;
 import validation.Auth;
 import validation.AuthGroup;
 
@@ -109,7 +110,8 @@ public class LoginBean extends BaseBackingBean {
                         .credential(new UsernamePasswordCredential(emailAddress, password)));
     }
 
-    public void authenticate(final ActionEvent event) {
+    @LoginLogout
+    public void authenticate(final ActionEvent event) throws Exception {
 
         AuthenticationStatus authStatus = getAuthStatus();
 
@@ -125,6 +127,7 @@ public class LoginBean extends BaseBackingBean {
         getMessageManager().setAppMessageById(FacesMessage.SEVERITY_ERROR, "error.message.auth");
     }
 
+    @LoginLogout
     public String login() {
 
         if (authed) {
