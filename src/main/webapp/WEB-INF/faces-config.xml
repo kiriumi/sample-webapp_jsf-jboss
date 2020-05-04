@@ -14,8 +14,8 @@
         <phase-listener>listener.InvokeApplicationLisener</phase-listener>
     </lifecycle>
 
-    <protected-views>
-        <!-- GETに対するトークンチェック対象のページ（正規表現は使えない） -->
-        <url-pattern>/signup.xhtml</url-pattern>
-    </protected-views>
+<!-- GETに対するトークンチェック対象のページ（正規表現は使えない） -->
+    <!-- <protected-views> -->
+    <!-- <url-pattern>/signup.xhtml</url-pattern> -->
+    <!-- </protected-views> -->
 </faces-config>
