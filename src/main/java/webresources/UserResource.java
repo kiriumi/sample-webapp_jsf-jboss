@@ -3,6 +3,8 @@ package webresources;
 import java.time.LocalDateTime;
 
 import javax.inject.Inject;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -28,7 +30,9 @@ public class UserResource {
     @GET
     @Path("get")
     @Produces("application/json")
-    public User getUserByName(@QueryParam("name") final String name) {
+    public User getUserByName(@NotBlank @QueryParam("name") final String name) {
+
+        // name がnullや空文字だったら、BadRequestException: HTTP 400 Bad Requestの例外がクライアントで発生する
 
         User user = new User();
         user.setName(name);
@@ -58,7 +62,7 @@ public class UserResource {
     @Path("post")
     @Consumes("application/json")
     @Produces("application/json")
-    public User postByJson(final User user, @QueryParam("name") final String name) {
+    public User postByJson(@NotNull final User user, @NotBlank @QueryParam("name") final String name) {
 
         userService.toString();
         user.setUpdatedtime(LocalDateTime.now().toString());
@@ -86,7 +90,7 @@ public class UserResource {
     @POST
     @Consumes("application/xml")
     @Produces("application/xml")
-    public User postByXml(final User user) {
+    public User postByXml(@NotNull final User user) {
 
         user.setUpdatedtime(LocalDateTime.now().toString());
         return user;

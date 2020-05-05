@@ -1,7 +1,8 @@
 package webresources;
 
 import javax.annotation.security.RolesAllowed;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.Min;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -21,7 +22,7 @@ public class UserNameResource {
     @GET
     @RolesAllowed("admin")
     public String getGreetingMessageWithAge(@PathParam("name") final String name,
-            @QueryParam("age") @NotNull final Integer age) {
+            @Digits(integer = 3, fraction = 0) @Min(0) @QueryParam("age") final Integer age) {
 
         return "ウチの名前は " + name + " で、年齢は " + age.toString() + " よ！";
     }

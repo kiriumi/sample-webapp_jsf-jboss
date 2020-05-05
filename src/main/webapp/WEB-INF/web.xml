@@ -56,9 +56,7 @@
 
     <!-- JSFのログをSLF4Jで出力するため -->
     <listener>
-        <listener-class>
-                listener.FacesLogBridgeListener
-          </listener-class>
+        <listener-class>log.FacesLogBridgeListener </listener-class>
     </listener>
 
     <error-page>

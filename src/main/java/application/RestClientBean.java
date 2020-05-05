@@ -9,6 +9,7 @@ import javax.inject.Inject;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
+import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
@@ -48,12 +49,14 @@ public class RestClientBean {
 
         try {
 
-            // http://localhost:8080/sample-webapp-jsf/webresources/user-name/ほげ
-
             Client client = ClientBuilder.newClient();
+
+            // http://localhost:8080/sample-webapp-jsf/webresources/user-name/ほげ?age=17
             UriBuilder userNameUri = baseRestUriBuilder.path("user-name").path("ほげ").queryParam("age", 17);
+
             String greetingMessage = client.target(userNameUri).request(MediaType.TEXT_PLAIN)
-                    .header("Authorization", getBasicAuthHttpHeaderValue()).get(String.class);
+                    .header(HttpHeaders.AUTHORIZATION, getBasicAuthHttpHeaderValue()).get(String.class);
+
             setGreetingMessage(greetingMessage);
 
         } catch (Exception e) {
@@ -75,7 +78,8 @@ public class RestClientBean {
         // http://localhost:8080/sample-webapp-jsf/webresources/user/get?name=foo
         UriBuilder userGetUri = baseRestUriBuilder.path("user").path("get").queryParam("name", "foo");
 
-        User user = client.target(userGetUri).request(MediaType.APPLICATION_JSON).get(User.class);
+        User user = client.target(userGetUri).request(MediaType.APPLICATION_JSON)
+                .header(HttpHeaders.AUTHORIZATION, getBasicAuthHttpHeaderValue()).get(User.class);
 
         setUser(user);
 
@@ -99,7 +103,8 @@ public class RestClientBean {
         UriBuilder userPostUri = baseRestUriBuilder.path("user").path("post").queryParam("name", user.getName());
 
         Response response = client.target(userPostUri)
-                .request(MediaType.APPLICATION_JSON).post(Entity.json(user));
+                .request(MediaType.APPLICATION_JSON).header(HttpHeaders.AUTHORIZATION, getBasicAuthHttpHeaderValue())
+                .post(Entity.json(user));
 
         setResponseStatus(response.getStatus());
 

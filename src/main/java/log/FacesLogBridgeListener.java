@@ -1,4 +1,4 @@
-package listener;
+package log;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
