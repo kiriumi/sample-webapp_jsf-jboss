@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns="http://java.sun.com/xml/ns/javaee"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
-    version="3.0">
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
 
     <context-param>
         <param-name>javax.faces.PROJECT_STAGE</param-name>
@@ -56,29 +54,33 @@
 
     <!-- JSFのログをSLF4Jで出力するため -->
     <listener>
-        <listener-class>log.FacesLogBridgeListener </listener-class>
+        <listener-class>log.FacesLogBridgeListener</listener-class>
     </listener>
 
     <error-page>
         <exception-type>javax.faces.application.ProtectedViewException</exception-type>
-        <location>/application/error.xhtml</location>
+        <location>/error.xhtml</location>
     </error-page>
     <error-page>
         <exception-type>javax.faces.application.ViewExpiredException</exception-type>
-        <location>/application/error-session.xhtml</location>
+        <location>/error-session.xhtml</location>
+    </error-page>
+    <error-page>
+        <error-code>401</error-code>
+        <location>/login.xhtml</location>
     </error-page>
     <error-page>
         <error-code>403</error-code>
-        <location>/application/error-forbidden.xhtml</location>
+        <location>/error-forbidden.xhtml</location>
     </error-page>
     <error-page>
         <exception-type>java.lang.Exception</exception-type>
-        <location>/application/error.xhtml</location>
+        <location>/error.xhtml</location>
     </error-page>
 
     <security-constraint>
         <web-resource-collection>
-            <web-resource-name>Sample Pages</web-resource-name>
+            <web-resource-name>Application Pages</web-resource-name>
             <url-pattern>/application/*</url-pattern>
             <!-- <http-method>GET</http-method> 記述していない場合、全てのHTTPメソッドが対象になる -->
         </web-resource-collection>
@@ -92,19 +94,17 @@
         <!-- </user-data-constraint> -->
     </security-constraint>
 
-<!--     <login-config> -->
-<!--         <auth-method>FORM</auth-method> -->
-<!--         <realm-name>Sample Realm</realm-name> -->
-<!--         <form-login-config> -->
-<!--             <form-login-page>/login.xhtml</form-login-page> -->
-<!--             <form-error-page>/application/error.xhtml</form-error-page> -->
-<!--         </form-login-config> -->
-<!--     </login-config> -->
+    <!-- CustomFormAuthenticationMechanismDefinition で設定しているため、不要 -->
+    <!-- <login-config> -->
+    <!-- <auth-method>FORM</auth-method> -->
+    <!-- <form-login-config> -->
+    <!-- <form-login-page>/login.xhtml</form-login-page> -->
+    <!-- <form-error-page>/login.xhtml</form-error-page> -->
+    <!-- </form-login-config> -->
+    <!-- </login-config> -->
 
     <security-role>
         <role-name>*</role-name>
     </security-role>
-
-
 
 </web-app>

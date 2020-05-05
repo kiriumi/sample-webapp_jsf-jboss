@@ -4,13 +4,11 @@ import java.util.HashSet;
 import java.util.List;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.faces.context.ExternalContext;
 import javax.inject.Inject;
 import javax.security.enterprise.credential.Credential;
 import javax.security.enterprise.credential.UsernamePasswordCredential;
 import javax.security.enterprise.identitystore.CredentialValidationResult;
 import javax.security.enterprise.identitystore.IdentityStore;
-import javax.transaction.Transactional;
 
 import domain.UserService;
 import dto.User;
@@ -21,12 +19,8 @@ import lombok.extern.slf4j.Slf4j;
 public class CustomIdentityStore implements IdentityStore {
 
     @Inject
-    ExternalContext externalContext;
-
-    @Inject
     UserService userService;
 
-    @Transactional
     @Override
     public CredentialValidationResult validate(final Credential credential) {
 
@@ -50,4 +44,10 @@ public class CustomIdentityStore implements IdentityStore {
 
         return CredentialValidationResult.INVALID_RESULT;
     }
+
+    @Override
+    public int priority() {
+        return IdentityStore.super.priority();
+    }
+
 }

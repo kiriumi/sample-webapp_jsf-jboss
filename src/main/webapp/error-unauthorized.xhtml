@@ -13,14 +13,7 @@
 </h:head>
 <h:body>
     <h:form>
-        エラーだよ
-
-        #{requestScope['error-message']}
-
-
-            <ui:repeat value="#{requestScope['error-stack']}" var="stack">
-            <li>#{stack.className} - #{stack.methodName} - #{stack.fileName} (#{stack.lineNumber})</li>
-        </ui:repeat>
+        未認証だよ
     </h:form>
 </h:body>
 </html>

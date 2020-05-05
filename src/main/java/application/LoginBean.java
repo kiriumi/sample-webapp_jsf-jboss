@@ -118,8 +118,6 @@ public class LoginBean extends BaseBackingBean {
         getLogger().info("anything", "認証ステータス：" + authStatus);
 
         if (authStatus.equals(AuthenticationStatus.SUCCESS)) {
-
-            // ２段階認証する場合は、SEND_CONTINUEで１段階目を確認
             this.authed = true;
             return;
         }

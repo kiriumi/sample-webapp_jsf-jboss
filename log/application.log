@@ -371,3 +371,313 @@ Caused by: javax.ws.rs.BadRequestException: HTTP 400 Bad Request
 2020/05/05 13:34:22.058 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, role from public.role WHERE ( emailaddress = ? ) 
 2020/05/05 13:34:22.059 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: admin@hoge(String)
 2020/05/05 13:34:22.061 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 2
+2020/05/05 14:19:38.089 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 14:19:39.360 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 14:19:56.578 [default task-2] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 開始
+2020/05/05 14:20:20.504 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user WHERE ( emailaddress = ? and password = ? ) 
+2020/05/05 14:20:20.518 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: user@hoge(String), user(String)
+2020/05/05 14:20:20.580 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 1
+2020/05/05 14:20:20.584 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, role from public.role WHERE ( emailaddress = ? ) 
+2020/05/05 14:20:20.585 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: user@hoge(String)
+2020/05/05 14:20:20.589 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 1
+2020/05/05 14:20:21.844 [default task-2] INFO  sample-webapp-jsf application.LoginBean#authenticate 認証ステータス：SEND_CONTINUE
+2020/05/05 14:20:21.887 [default task-2] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 終了
+2020/05/05 14:20:21.890 [default task-2] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 開始
+2020/05/05 14:20:24.603 [default task-2] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 終了
+2020/05/05 14:21:58.571 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 14:21:59.957 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 14:22:10.216 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 開始
+2020/05/05 14:22:26.315 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user WHERE ( emailaddress = ? and password = ? ) 
+2020/05/05 14:22:26.329 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: user@hoge(String), user(String)
+2020/05/05 14:22:26.344 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 1
+2020/05/05 14:22:26.347 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, role from public.role WHERE ( emailaddress = ? ) 
+2020/05/05 14:22:26.348 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: user@hoge(String)
+2020/05/05 14:22:26.349 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 1
+2020/05/05 14:22:27.625 [default task-1] INFO  sample-webapp-jsf application.LoginBean#authenticate 認証ステータス：SUCCESS
+2020/05/05 14:22:27.626 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 終了
+2020/05/05 14:22:27.627 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 開始
+2020/05/05 14:22:36.225 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 終了
+2020/05/05 15:08:51.214 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 15:08:52.580 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 15:09:55.284 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 15:09:56.741 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 15:14:10.619 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 15:14:11.827 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 15:26:24.174 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 15:26:25.503 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 15:27:55.584 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 15:27:56.847 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 15:28:53.258 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 15:28:54.491 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 15:28:59.400 [default task-1] ERROR JSF1094: Could not decode flash data from incoming cookie value Invalid characters in decrypted value.  Processing will continue, but the flash is unavailable for this request.
+2020/05/05 15:31:19.565 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 15:31:20.844 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 15:33:03.343 [ServerService Thread Pool -- 79] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 15:33:04.530 [ServerService Thread Pool -- 79] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 15:33:49.126 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 15:33:50.357 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 15:34:45.545 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 15:34:46.706 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 15:35:49.016 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 15:35:50.241 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 15:36:26.464 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 15:36:27.769 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 15:36:57.445 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 15:36:58.671 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 15:37:41.822 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 15:37:43.103 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 15:38:23.334 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 15:38:24.658 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 15:38:55.009 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 15:38:56.214 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 15:39:49.968 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 15:39:51.378 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 15:41:13.822 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 15:41:15.047 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 15:41:30.940 [default task-2] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 開始
+2020/05/05 15:41:43.609 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user WHERE ( emailaddress = ? and password = ? ) 
+2020/05/05 15:41:43.624 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: user@hoge(String), user(String)
+2020/05/05 15:41:43.662 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 1
+2020/05/05 15:41:43.667 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, role from public.role WHERE ( emailaddress = ? ) 
+2020/05/05 15:41:43.668 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: user@hoge(String)
+2020/05/05 15:41:43.671 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 1
+2020/05/05 15:41:47.017 [default task-2] INFO  sample-webapp-jsf application.LoginBean#authenticate 認証ステータス：SEND_CONTINUE
+2020/05/05 15:41:47.056 [default task-2] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 終了
+2020/05/05 15:41:47.058 [default task-2] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 開始
+2020/05/05 15:41:47.058 [default task-2] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 終了
+2020/05/05 15:42:25.225 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 15:42:26.497 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 15:42:37.868 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 開始
+2020/05/05 15:42:44.286 [default task-1] INFO  sample-webapp-jsf application.LoginBean#authenticate 認証ステータス：SEND_FAILURE
+2020/05/05 15:42:44.314 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 終了
+2020/05/05 15:42:44.316 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 開始
+2020/05/05 15:42:44.316 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 終了
+2020/05/05 15:42:52.606 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 開始
+2020/05/05 15:42:55.800 [default task-1] INFO  sample-webapp-jsf application.LoginBean#authenticate 認証ステータス：SEND_FAILURE
+2020/05/05 15:42:55.803 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 終了
+2020/05/05 15:42:55.804 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 開始
+2020/05/05 15:42:55.805 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 終了
+2020/05/05 15:43:13.182 [default task-2] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 開始
+2020/05/05 15:43:23.346 [default task-2] INFO  sample-webapp-jsf application.LoginBean#authenticate 認証ステータス：SEND_FAILURE
+2020/05/05 15:43:23.348 [default task-2] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 終了
+2020/05/05 15:43:23.349 [default task-2] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 開始
+2020/05/05 15:43:23.350 [default task-2] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 終了
+2020/05/05 15:43:29.146 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 開始
+2020/05/05 15:43:36.688 [default task-1] INFO  sample-webapp-jsf application.LoginBean#authenticate 認証ステータス：SEND_FAILURE
+2020/05/05 15:43:36.690 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 終了
+2020/05/05 15:43:36.691 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 開始
+2020/05/05 15:43:36.692 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 終了
+2020/05/05 15:43:45.149 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 開始
+2020/05/05 15:43:55.848 [default task-1] INFO  sample-webapp-jsf application.LoginBean#authenticate 認証ステータス：SEND_FAILURE
+2020/05/05 15:43:55.850 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 終了
+2020/05/05 15:43:55.851 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 開始
+2020/05/05 15:43:55.852 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 終了
+2020/05/05 15:45:57.852 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 15:45:59.452 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 15:47:03.968 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 15:47:05.272 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 15:49:18.867 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 15:49:20.124 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 15:58:38.127 [Mojarra-WebResourceMonitor-1-thread-1] INFO  file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml changed!
+2020/05/05 15:58:38.129 [Mojarra-WebResourceMonitor-1-thread-1] INFO  Reloading JSF configuration for context /sample-webapp-jsf
+2020/05/05 15:58:38.129 [Mojarra-WebResourceMonitor-1-thread-1] INFO  Removing application scoped managed bean: startup
+2020/05/05 15:58:38.895 [Mojarra-WebResourceMonitor-1-thread-1] INFO  Reload complete.
+2020/05/05 15:58:42.125 [Mojarra-WebResourceMonitor-1-thread-1] INFO  file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml changed!
+2020/05/05 15:58:42.126 [Mojarra-WebResourceMonitor-1-thread-1] INFO  Reloading JSF configuration for context /sample-webapp-jsf
+2020/05/05 15:58:42.126 [Mojarra-WebResourceMonitor-1-thread-1] INFO  Removing application scoped managed bean: startup
+2020/05/05 15:58:42.584 [Mojarra-WebResourceMonitor-1-thread-1] INFO  Reload complete.
+2020/05/05 16:01:46.487 [ServerService Thread Pool -- 92] ERROR Unexpected exception when attempting to tear down the Mojarra runtime
+java.lang.NullPointerException
+	at com.sun.faces.context.ApplicationMap.containsKey(ApplicationMap.java:100)
+	at com.sun.faces.util.Util.getCdiBeanManager(Util.java:1548)
+	at com.sun.faces.el.ELUtils.tryAddCDIELResolver(ELUtils.java:283)
+	at com.sun.faces.el.ELUtils.buildFacesResolver(ELUtils.java:218)
+	at com.sun.faces.application.ApplicationAssociate.initializeELResolverChains(ApplicationAssociate.java:467)
+	at com.sun.faces.application.applicationimpl.ExpressionLanguage.performOneTimeELInitialization(ExpressionLanguage.java:184)
+	at com.sun.faces.application.applicationimpl.ExpressionLanguage.getELResolver(ExpressionLanguage.java:120)
+	at com.sun.faces.application.ApplicationImpl.getELResolver(ApplicationImpl.java:213)
+	at javax.faces.application.ApplicationWrapper.getELResolver(ApplicationWrapper.java:645)
+	at javax.faces.application.ApplicationWrapper.getELResolver(ApplicationWrapper.java:645)
+	at com.sun.faces.config.ConfigureListener.contextDestroyed(ConfigureListener.java:335)
+	at io.undertow.servlet.core.ApplicationListeners.contextDestroyed(ApplicationListeners.java:202)
+	at io.undertow.servlet.core.DeploymentImpl.destroy(DeploymentImpl.java:291)
+	at io.undertow.servlet.core.DeploymentManagerImpl$4.call(DeploymentManagerImpl.java:674)
+	at io.undertow.servlet.core.DeploymentManagerImpl$4.call(DeploymentManagerImpl.java:664)
+	at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:42)
+	at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
+	at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
+	at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1502)
+	at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1502)
+	at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1502)
+	at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1502)
+	at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1502)
+	at io.undertow.servlet.core.DeploymentManagerImpl.undeploy(DeploymentManagerImpl.java:679)
+	at org.wildfly.extension.undertow.deployment.UndertowDeploymentService.stopContext(UndertowDeploymentService.java:139)
+	at org.wildfly.extension.undertow.deployment.UndertowDeploymentService$2.run(UndertowDeploymentService.java:117)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+	at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1982)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
+	at java.lang.Thread.run(Thread.java:748)
+	at org.jboss.threads.JBossThread.run(JBossThread.java:485)
+2020/05/05 16:02:04.304 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 16:02:05.889 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 16:02:58.528 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 16:03:00.071 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 16:03:40.649 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 16:03:41.897 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 16:06:46.845 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 16:06:48.117 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 16:10:13.373 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 16:10:14.624 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 16:14:47.367 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 16:14:48.722 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 16:15:23.551 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 16:15:24.750 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 16:16:28.146 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 16:16:29.334 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 16:21:20.329 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 16:21:21.624 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 16:23:48.468 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 16:23:49.677 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 16:25:57.047 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 16:25:58.285 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 16:26:54.460 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 16:26:55.715 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 16:28:03.393 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 16:28:04.700 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 16:29:17.253 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 16:29:18.647 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 16:30:48.059 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 16:30:49.258 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 16:33:20.561 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 16:33:21.972 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 16:34:05.497 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 16:34:06.709 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 16:36:23.379 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 16:36:24.631 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 16:37:58.807 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 16:38:00.104 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 16:38:53.519 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 16:38:54.742 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 16:41:47.993 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 16:41:49.176 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 16:48:02.790 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 16:48:04.063 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 16:53:16.829 [ServerService Thread Pool -- 77] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 16:53:18.084 [ServerService Thread Pool -- 77] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 17:01:00.166 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 17:01:01.543 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 17:02:51.810 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 17:02:53.040 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 17:04:36.519 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 17:04:37.984 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 17:12:09.519 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 17:12:12.234 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 17:14:54.477 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 17:14:57.612 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 17:18:19.526 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 17:18:22.342 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 17:19:42.624 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 17:19:45.952 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 17:26:08.122 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 17:26:10.821 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 17:27:38.897 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 17:27:41.911 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 17:28:51.677 [ServerService Thread Pool -- 82] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 17:28:54.940 [ServerService Thread Pool -- 82] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 17:30:46.374 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 17:30:48.822 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 17:33:38.234 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 17:33:40.942 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 17:36:47.758 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 17:36:50.730 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 17:38:26.009 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 17:38:28.648 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 17:39:23.270 [default task-3] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 開始
+2020/05/05 17:39:32.559 [default task-3] INFO  sample-webapp-jsf application.LoginBean#authenticate 認証ステータス：SEND_FAILURE
+2020/05/05 17:39:32.578 [default task-3] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 終了
+2020/05/05 17:39:32.578 [default task-3] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 開始
+2020/05/05 17:39:35.811 [default task-3] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 終了
+2020/05/05 17:42:11.172 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 17:42:13.558 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 17:43:28.973 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 17:43:31.611 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 17:44:53.058 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 17:44:55.734 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 17:46:17.905 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 17:46:20.474 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 17:46:36.705 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 開始
+2020/05/05 17:46:54.761 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user WHERE ( emailaddress = ? and password = ? ) 
+2020/05/05 17:46:54.794 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: user@hoge(String), hoge(String)
+2020/05/05 17:46:54.854 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 0
+2020/05/05 17:46:54.914 [default task-1] INFO  sample-webapp-jsf application.LoginBean#authenticate 認証ステータス：SEND_CONTINUE
+2020/05/05 17:46:55.098 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 終了
+2020/05/05 17:46:55.102 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 開始
+2020/05/05 17:47:02.892 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 終了
+2020/05/05 17:47:25.821 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 開始
+2020/05/05 17:47:30.327 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user WHERE ( emailaddress = ? and password = ? ) 
+2020/05/05 17:47:30.332 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: user@hoge(String), hoge(String)
+2020/05/05 17:47:30.336 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 0
+2020/05/05 17:47:30.336 [default task-1] INFO  sample-webapp-jsf application.LoginBean#authenticate 認証ステータス：SEND_CONTINUE
+2020/05/05 17:47:30.340 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 終了
+2020/05/05 17:47:30.344 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 開始
+2020/05/05 17:47:30.344 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 終了
+2020/05/05 17:47:43.691 [default task-3] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 開始
+2020/05/05 17:47:43.700 [default task-3] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user WHERE ( emailaddress = ? and password = ? ) 
+2020/05/05 17:47:43.700 [default task-3] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: user@hoge(String), hoge(String)
+2020/05/05 17:47:43.704 [default task-3] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 0
+2020/05/05 17:47:43.708 [default task-3] INFO  sample-webapp-jsf application.LoginBean#authenticate 認証ステータス：SEND_CONTINUE
+2020/05/05 17:47:46.907 [default task-3] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 終了
+2020/05/05 17:47:46.909 [default task-3] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 開始
+2020/05/05 17:47:46.909 [default task-3] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 終了
+2020/05/05 17:49:10.879 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/05 17:49:13.671 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/05 17:49:24.644 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 開始
+2020/05/05 17:49:25.663 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user WHERE ( emailaddress = ? and password = ? ) 
+2020/05/05 17:49:25.697 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: user@hoge(String), hoge(String)
+2020/05/05 17:49:25.721 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 0
+2020/05/05 17:49:25.753 [default task-1] INFO  sample-webapp-jsf application.LoginBean#authenticate 認証ステータス：SEND_FAILURE
+2020/05/05 17:49:30.019 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 終了
+2020/05/05 17:49:30.021 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 開始
+2020/05/05 17:49:30.021 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 終了
+2020/05/05 17:49:42.522 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 開始
+2020/05/05 17:49:42.529 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user WHERE ( emailaddress = ? and password = ? ) 
+2020/05/05 17:49:42.533 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: hoge@hoge(String), hoge(String)
+2020/05/05 17:49:42.533 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 0
+2020/05/05 17:49:42.533 [default task-1] INFO  sample-webapp-jsf application.LoginBean#authenticate 認証ステータス：SEND_FAILURE
+2020/05/05 17:49:42.537 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 終了
+2020/05/05 17:49:42.537 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 開始
+2020/05/05 17:49:42.541 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 終了
+2020/05/05 17:49:54.259 [default task-6] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 開始
+2020/05/05 17:49:54.263 [default task-6] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user WHERE ( emailaddress = ? and password = ? ) 
+2020/05/05 17:49:54.267 [default task-6] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: user@hoge(String), user(String)
+2020/05/05 17:49:54.271 [default task-6] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 1
+2020/05/05 17:49:54.279 [default task-6] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, role from public.role WHERE ( emailaddress = ? ) 
+2020/05/05 17:49:54.283 [default task-6] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: user@hoge(String)
+2020/05/05 17:49:54.287 [default task-6] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 1
+2020/05/05 17:49:54.295 [default task-6] INFO  sample-webapp-jsf application.LoginBean#authenticate 認証ステータス：SEND_CONTINUE
+2020/05/05 17:49:54.299 [default task-6] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 終了
+2020/05/05 17:49:54.303 [default task-6] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 開始
+2020/05/05 17:49:54.303 [default task-6] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 終了
+2020/05/05 17:50:15.092 [default task-4] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 開始
+2020/05/05 17:50:15.095 [default task-4] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user WHERE ( emailaddress = ? and password = ? ) 
+2020/05/05 17:50:15.095 [default task-4] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: user@hoge(String), uuu(String)
+2020/05/05 17:50:15.099 [default task-4] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 0
+2020/05/05 17:50:15.099 [default task-4] INFO  sample-webapp-jsf application.LoginBean#authenticate 認証ステータス：SEND_FAILURE
+2020/05/05 17:50:15.103 [default task-4] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 終了
+2020/05/05 17:50:15.103 [default task-4] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 開始
+2020/05/05 17:50:15.103 [default task-4] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 終了
+2020/05/05 17:50:24.093 [default task-4] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 開始
+2020/05/05 17:50:24.097 [default task-4] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user WHERE ( emailaddress = ? and password = ? ) 
+2020/05/05 17:50:24.097 [default task-4] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: user@hoge(String), user(String)
+2020/05/05 17:50:24.101 [default task-4] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 1
+2020/05/05 17:50:24.105 [default task-4] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, role from public.role WHERE ( emailaddress = ? ) 
+2020/05/05 17:50:24.105 [default task-4] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: user@hoge(String)
+2020/05/05 17:50:24.109 [default task-4] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 1
+2020/05/05 17:50:24.109 [default task-4] INFO  sample-webapp-jsf application.LoginBean#authenticate 認証ステータス：SUCCESS
+2020/05/05 17:50:24.109 [default task-4] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 終了
+2020/05/05 17:50:24.113 [default task-4] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 開始
+2020/05/05 17:50:24.117 [default task-4] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 終了
