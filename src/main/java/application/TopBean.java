@@ -2,7 +2,6 @@ package application;
 
 import java.security.Principal;
 
-import javax.annotation.security.RolesAllowed;
 import javax.enterprise.inject.Model;
 import javax.faces.application.FacesMessage;
 import javax.inject.Inject;
@@ -37,11 +36,6 @@ public class TopBean extends BaseBackingBean {
 
     private int sumedValue = 0;
 
-    public String sum() {
-        this.sumedValue = value1 + value2;
-        return null;
-    }
-
     public void viewAction() {
 
         String loginSuccessMessage = (String) getFlash().get("loginSccessMessage");
@@ -58,13 +52,17 @@ public class TopBean extends BaseBackingBean {
         this.userRole = securityContext.isCallerInRole("user");
     }
 
+    public String sum() {
+        this.sumedValue = value1 + value2;
+        return null;
+    }
+
     public String goSignupPage() {
         return redirect("signup");
     }
 
-    @RolesAllowed("admin")
-    public String allowdAdminOnlyt() {
-        return null;
+    public String goRestClientPage() {
+        return redirect("rest-client");
     }
 
 }
