@@ -43,7 +43,6 @@ public class SignupBean extends BaseBackingBean {
     private UserService userService;
 
     @TestModeTransactional
-    //    @PermittedRoles("admin")
     @ForbidenRoles("user")
     public String signupUser() {
 
@@ -69,7 +68,7 @@ public class SignupBean extends BaseBackingBean {
 
         getFlash().put("signupSccessMessage", "登録できたよ");
 
-        return redirect("top");
+        return redirect("signup");
     }
 
     private User createUser() {

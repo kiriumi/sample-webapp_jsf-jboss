@@ -51,7 +51,8 @@
         <br />
 
         <h:panelGrid columns="2">
-            <h:commandButton value="ユーザ登録" action="#{topBean.goSignupPage()}" rendered="#{request.isUserInRole('admin')}">
+            <h:commandButton class="button" value="ユーザ登録" action="#{topBean.goSignupPage()}"
+                rendered="#{request.isUserInRole('admin')}">
                 <o:skipValidators />
             </h:commandButton>
 
@@ -59,6 +60,10 @@
                 <o:skipValidators />
             </h:commandButton>
         </h:panelGrid>
+
+        <h:commandButton class="butonn" value="おためし">
+            <o:skipValidators />
+        </h:commandButton>
 
     </ui:define>
 </ui:composition>

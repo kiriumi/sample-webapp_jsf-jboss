@@ -8,10 +8,11 @@
     xmlns:b="http://bootsfaces.net/ui">
 
 <h:head>
+    <link rel="stylesheet" type="text/css" href="../css/base.css" />
     <title><ui:insert name="title" /></title>
-    <script type="text/javascript" src="../js/backPage.js" />
 </h:head>
 <h:body>
+
     <f:metadata>
         <f:viewAction action="#{commonBean.viewAction()}" />
         <f:event type="preRenderView" listener="#{commonBean.preRender()}" />
@@ -27,6 +28,10 @@
         <ui:include src="footer.xhtml" />
 
     </h:form>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous" />
+    <script type="text/javascript" src="../js/back-page.js" />
+    <script type="text/javascript" src="../js/re-submit-preventer.js" />
 </h:body>
 </html>
 

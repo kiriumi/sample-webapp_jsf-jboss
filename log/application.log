@@ -1253,3 +1253,764 @@ Caused by: javax.ws.rs.RedirectionException: HTTP 302 Found
 2020/05/06 15:52:12.724 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, role from public.role WHERE ( emailaddress = ? ) 
 2020/05/06 15:52:12.725 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: user@hoge(String)
 2020/05/06 15:52:12.726 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 1
+2020/05/06 16:02:36.975 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/06 16:02:38.277 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/06 16:02:59.805 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#viewAction 開始
+2020/05/06 16:02:59.808 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#viewAction 終了
+2020/05/06 16:03:08.688 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 開始
+2020/05/06 16:03:09.208 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user WHERE ( emailaddress = ? and password = ? ) 
+2020/05/06 16:03:09.223 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: admin@hoge(String), admin(String)
+2020/05/06 16:03:09.263 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 1
+2020/05/06 16:03:09.267 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, role from public.role WHERE ( emailaddress = ? ) 
+2020/05/06 16:03:09.268 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: admin@hoge(String)
+2020/05/06 16:03:09.273 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 2
+2020/05/06 16:03:09.301 [default task-1] INFO  sample-webapp-jsf application.LoginBean#authenticate 認証ステータス：SUCCESS
+2020/05/06 16:03:09.302 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 終了
+2020/05/06 16:03:09.303 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 開始
+2020/05/06 16:03:09.305 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 終了
+2020/05/06 16:03:10.720 [default task-1] INFO  log.ActionLoggingInterceptor#around application.TopBean#goSignupPage 開始
+2020/05/06 16:03:10.721 [default task-1] INFO  log.ActionLoggingInterceptor#around application.TopBean#goSignupPage 終了
+2020/05/06 16:03:35.290 [default task-1] INFO  log.ActionLoggingInterceptor#around application.SignupBean#signupUser 開始
+2020/05/06 16:03:35.347 [default task-1] INFO  log.ActionLoggingInterceptor#around application.SignupBean#signupUser 終了
+2020/05/06 16:03:35.496 [default task-1] INFO  log.ActionLoggingInterceptor#around application.SignupBean#signupUser 開始
+2020/05/06 16:03:35.497 [default task-1] INFO  log.ActionLoggingInterceptor#around application.SignupBean#signupUser 終了
+2020/05/06 16:03:50.856 [default task-1] INFO  log.ActionLoggingInterceptor#around application.SignupBean#signupUserWithJpa 開始
+2020/05/06 16:03:50.976 [default task-1] DEBUG log.JpaEclipselinkLogger#log SELECT EMAILADDRESS, CREATEDTIME, NAME, PASSWORD, UPDATEDTIME FROM public.USER WHERE (EMAILADDRESS = ?)
+	bind => [hoge@hog]
+2020/05/06 16:03:50.994 [default task-1] DEBUG mode.TestMode#setRollbackOnlyIfTesMode コミット
+2020/05/06 16:03:50.995 [default task-1] INFO  log.ActionLoggingInterceptor#around application.SignupBean#signupUserWithJpa 終了
+2020/05/06 16:03:51.001 [default task-1] DEBUG log.JpaEclipselinkLogger#log INSERT INTO public.USER (EMAILADDRESS, CREATEDTIME, NAME, PASSWORD, UPDATEDTIME) VALUES (?, ?, ?, ?, ?)
+	bind => [hoge@hog, 2020-05-06T16:03:50.979, hoge, hoge, 2020-05-06T16:03:50.979]
+2020/05/06 16:03:51.104 [default task-1] INFO  log.ActionLoggingInterceptor#around application.SignupBean#signupUserWithJpa 開始
+2020/05/06 16:03:51.107 [default task-1] DEBUG log.JpaEclipselinkLogger#log SELECT EMAILADDRESS, CREATEDTIME, NAME, PASSWORD, UPDATEDTIME FROM public.USER WHERE (EMAILADDRESS = ?)
+	bind => [hoge@hog]
+2020/05/06 16:03:51.116 [default task-1] DEBUG mode.TestMode#setRollbackOnlyIfTesMode コミット
+2020/05/06 16:03:51.116 [default task-1] INFO  log.ActionLoggingInterceptor#around application.SignupBean#signupUserWithJpa 終了
+2020/05/06 16:03:51.265 [default task-1] INFO  log.ActionLoggingInterceptor#around application.SignupBean#signupUserWithJpa 開始
+2020/05/06 16:03:51.267 [default task-1] DEBUG log.JpaEclipselinkLogger#log SELECT EMAILADDRESS, CREATEDTIME, NAME, PASSWORD, UPDATEDTIME FROM public.USER WHERE (EMAILADDRESS = ?)
+	bind => [hoge@hog]
+2020/05/06 16:03:51.268 [default task-1] DEBUG mode.TestMode#setRollbackOnlyIfTesMode コミット
+2020/05/06 16:03:51.268 [default task-1] INFO  log.ActionLoggingInterceptor#around application.SignupBean#signupUserWithJpa 終了
+2020/05/06 16:04:38.783 [default task-1] INFO  log.ActionLoggingInterceptor#around application.SignupBean#signupUserWithJpa 開始
+2020/05/06 16:04:38.784 [default task-1] DEBUG log.JpaEclipselinkLogger#log SELECT EMAILADDRESS, CREATEDTIME, NAME, PASSWORD, UPDATEDTIME FROM public.USER WHERE (EMAILADDRESS = ?)
+	bind => [abc@hoge]
+2020/05/06 16:04:38.785 [default task-1] DEBUG mode.TestMode#setRollbackOnlyIfTesMode コミット
+2020/05/06 16:04:38.786 [default task-1] INFO  log.ActionLoggingInterceptor#around application.SignupBean#signupUserWithJpa 終了
+2020/05/06 16:04:38.786 [default task-1] DEBUG log.JpaEclipselinkLogger#log INSERT INTO public.USER (EMAILADDRESS, CREATEDTIME, NAME, PASSWORD, UPDATEDTIME) VALUES (?, ?, ?, ?, ?)
+	bind => [abc@hoge, 2020-05-06T16:04:38.785, hoge, hoge, 2020-05-06T16:04:38.785]
+2020/05/06 16:05:52.572 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/06 16:05:53.715 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/06 16:06:15.414 [default task-2] ERROR JSF1094: Could not decode flash data from incoming cookie value Invalid characters in decrypted value.  Processing will continue, but the flash is unavailable for this request.
+2020/05/06 16:06:15.545 [default task-2] INFO  log.ActionLoggingInterceptor#around application.LoginBean#viewAction 開始
+2020/05/06 16:06:15.546 [default task-2] INFO  log.ActionLoggingInterceptor#around application.LoginBean#viewAction 終了
+2020/05/06 16:06:19.772 [default task-2] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 開始
+2020/05/06 16:06:20.231 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user WHERE ( emailaddress = ? and password = ? ) 
+2020/05/06 16:06:20.283 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: user@hoge(String), user(String)
+2020/05/06 16:06:20.298 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 1
+2020/05/06 16:06:20.302 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, role from public.role WHERE ( emailaddress = ? ) 
+2020/05/06 16:06:20.303 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: user@hoge(String)
+2020/05/06 16:06:20.305 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 1
+2020/05/06 16:06:20.322 [default task-1] ERROR JSF1094: Could not decode flash data from incoming cookie value Invalid characters in decrypted value.  Processing will continue, but the flash is unavailable for this request.
+2020/05/06 16:06:20.326 [default task-2] INFO  sample-webapp-jsf application.LoginBean#authenticate 認証ステータス：SEND_CONTINUE
+2020/05/06 16:06:20.360 [default task-2] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 終了
+2020/05/06 16:06:20.361 [default task-2] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 開始
+2020/05/06 16:06:20.362 [default task-2] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 終了
+2020/05/06 16:06:28.571 [default task-2] INFO  log.ActionLoggingInterceptor#around application.SignupBean#signupUser 開始
+2020/05/06 16:06:28.573 [default task-2] INFO  log.ActionLoggingInterceptor#around application.SignupBean#signupUser 終了
+2020/05/06 16:06:35.371 [default task-2] INFO  log.ActionLoggingInterceptor#around application.SignupBean#signupUserWithJpa 開始
+2020/05/06 16:06:35.491 [default task-2] DEBUG log.JpaEclipselinkLogger#log SELECT EMAILADDRESS, CREATEDTIME, NAME, PASSWORD, UPDATEDTIME FROM public.USER WHERE (EMAILADDRESS = ?)
+	bind => [hoge@com]
+2020/05/06 16:06:35.505 [default task-2] DEBUG mode.TestMode#setRollbackOnlyIfTesMode コミット
+2020/05/06 16:06:35.506 [default task-2] INFO  log.ActionLoggingInterceptor#around application.SignupBean#signupUserWithJpa 終了
+2020/05/06 16:06:35.511 [default task-2] DEBUG log.JpaEclipselinkLogger#log INSERT INTO public.USER (EMAILADDRESS, CREATEDTIME, NAME, PASSWORD, UPDATEDTIME) VALUES (?, ?, ?, ?, ?)
+	bind => [hoge@com, 2020-05-06T16:06:35.493, hoge, hoge, 2020-05-06T16:06:35.493]
+2020/05/06 16:07:02.212 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/06 16:07:03.552 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/06 16:07:07.665 [default task-2] ERROR JSF1094: Could not decode flash data from incoming cookie value g ia=.  Processing will continue, but the flash is unavailable for this request.
+2020/05/06 16:07:07.767 [default task-2] INFO  log.ActionLoggingInterceptor#around application.LoginBean#viewAction 開始
+2020/05/06 16:07:07.768 [default task-2] INFO  log.ActionLoggingInterceptor#around application.LoginBean#viewAction 終了
+2020/05/06 16:07:14.867 [default task-2] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 開始
+2020/05/06 16:07:15.476 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user WHERE ( emailaddress = ? and password = ? ) 
+2020/05/06 16:07:15.489 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: admin@hoge(String), admin(String)
+2020/05/06 16:07:15.503 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 1
+2020/05/06 16:07:15.507 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, role from public.role WHERE ( emailaddress = ? ) 
+2020/05/06 16:07:15.508 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: admin@hoge(String)
+2020/05/06 16:07:15.509 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 2
+2020/05/06 16:07:15.526 [default task-1] ERROR JSF1094: Could not decode flash data from incoming cookie value g ia=.  Processing will continue, but the flash is unavailable for this request.
+2020/05/06 16:07:15.529 [default task-2] INFO  sample-webapp-jsf application.LoginBean#authenticate 認証ステータス：SEND_CONTINUE
+2020/05/06 16:07:15.565 [default task-2] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 終了
+2020/05/06 16:07:15.565 [default task-2] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 開始
+2020/05/06 16:07:15.566 [default task-2] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 終了
+2020/05/06 16:07:16.744 [default task-2] INFO  log.ActionLoggingInterceptor#around application.TopBean#goSignupPage 開始
+2020/05/06 16:07:16.745 [default task-2] INFO  log.ActionLoggingInterceptor#around application.TopBean#goSignupPage 終了
+2020/05/06 16:07:23.846 [default task-1] INFO  log.ActionLoggingInterceptor#around application.SignupBean#signupUser 開始
+2020/05/06 16:07:23.848 [default task-1] INFO  log.ActionLoggingInterceptor#around application.SignupBean#signupUser 終了
+2020/05/06 16:08:05.628 [default task-2] INFO  log.ActionLoggingInterceptor#around application.SignupBean#signupUser 開始
+2020/05/06 16:09:06.574 [default task-2] INFO  log.ActionLoggingInterceptor#around application.SignupBean#signupUser 終了
+2020/05/06 16:09:35.069 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/06 16:09:36.496 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/06 16:09:44.108 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#viewAction 開始
+2020/05/06 16:09:44.111 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#viewAction 終了
+2020/05/06 16:09:52.118 [default task-2] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 開始
+2020/05/06 16:09:52.619 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user WHERE ( emailaddress = ? and password = ? ) 
+2020/05/06 16:09:52.635 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: admin@hoge(String), admin(String)
+2020/05/06 16:09:52.649 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 1
+2020/05/06 16:09:52.653 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, role from public.role WHERE ( emailaddress = ? ) 
+2020/05/06 16:09:52.654 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: admin@hoge(String)
+2020/05/06 16:09:52.656 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 1
+2020/05/06 16:09:52.677 [default task-2] INFO  sample-webapp-jsf application.LoginBean#authenticate 認証ステータス：SEND_CONTINUE
+2020/05/06 16:09:52.720 [default task-2] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 終了
+2020/05/06 16:09:52.721 [default task-2] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 開始
+2020/05/06 16:09:52.722 [default task-2] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 終了
+2020/05/06 16:10:00.937 [default task-1] INFO  log.ActionLoggingInterceptor#around application.SignupBean#signupUser 開始
+2020/05/06 16:10:08.857 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user where emailaddress = ? 
+2020/05/06 16:10:08.859 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: hoge@com(String)
+2020/05/06 16:10:08.862 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 0
+2020/05/06 16:10:08.863 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: insert into public.user (emailaddress, name, password, createdtime, updatedtime) values (?, ?, ?, ?, ?) 
+2020/05/06 16:10:08.864 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: hoge@com(String), hoge(String), hoge(String), 2020-05-06T16:10:08.862(String), 2020-05-06T16:10:08.862(String)
+2020/05/06 16:10:08.867 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==    Updates: 1
+2020/05/06 16:10:08.870 [default task-1] DEBUG mode.TestMode#setRollbackOnlyIfTesMode コミット
+2020/05/06 16:10:08.871 [default task-1] INFO  log.ActionLoggingInterceptor#around application.SignupBean#signupUser 終了
+2020/05/06 16:10:13.127 [default task-2] INFO  log.ActionLoggingInterceptor#around application.LoginBean#viewAction 開始
+2020/05/06 16:10:13.127 [default task-2] INFO  log.ActionLoggingInterceptor#around application.LoginBean#viewAction 終了
+2020/05/06 16:11:05.159 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/06 16:11:06.452 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/06 16:11:27.216 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#viewAction 開始
+2020/05/06 16:11:27.218 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#viewAction 終了
+2020/05/06 16:12:36.685 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/06 16:12:38.099 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/06 16:12:46.522 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#viewAction 開始
+2020/05/06 16:12:46.526 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#viewAction 終了
+2020/05/06 16:12:58.629 [default task-2] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 開始
+2020/05/06 16:12:59.085 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user WHERE ( emailaddress = ? and password = ? ) 
+2020/05/06 16:12:59.099 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: admin@hoge(String), admin(String)
+2020/05/06 16:12:59.112 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 1
+2020/05/06 16:12:59.117 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, role from public.role WHERE ( emailaddress = ? ) 
+2020/05/06 16:12:59.118 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: admin@hoge(String)
+2020/05/06 16:12:59.120 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 1
+2020/05/06 16:12:59.176 [default task-2] INFO  sample-webapp-jsf application.LoginBean#authenticate 認証ステータス：SUCCESS
+2020/05/06 16:12:59.177 [default task-2] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 終了
+2020/05/06 16:12:59.178 [default task-2] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 開始
+2020/05/06 16:12:59.180 [default task-2] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 終了
+2020/05/06 16:13:02.235 [default task-2] INFO  log.ActionLoggingInterceptor#around application.TopBean#goSignupPage 開始
+2020/05/06 16:13:02.236 [default task-2] INFO  log.ActionLoggingInterceptor#around application.TopBean#goSignupPage 終了
+2020/05/06 16:13:14.347 [default task-2] INFO  log.ActionLoggingInterceptor#around application.SignupBean#signupUser 開始
+2020/05/06 16:13:14.358 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user where emailaddress = ? 
+2020/05/06 16:13:14.359 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: hoge@hoge(String)
+2020/05/06 16:13:14.361 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 0
+2020/05/06 16:13:14.362 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: insert into public.user (emailaddress, name, password, createdtime, updatedtime) values (?, ?, ?, ?, ?) 
+2020/05/06 16:13:14.365 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: hoge@hoge(String), hoge(String), hoge(String), 2020-05-06T16:13:14.361(String), 2020-05-06T16:13:14.361(String)
+2020/05/06 16:13:14.366 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==    Updates: 1
+2020/05/06 16:13:14.370 [default task-2] DEBUG mode.TestMode#setRollbackOnlyIfTesMode コミット
+2020/05/06 16:13:14.371 [default task-2] INFO  log.ActionLoggingInterceptor#around application.SignupBean#signupUser 終了
+2020/05/06 16:13:23.766 [default task-1] INFO  log.ActionLoggingInterceptor#around application.TopBean#goSignupPage 開始
+2020/05/06 16:13:23.767 [default task-1] INFO  log.ActionLoggingInterceptor#around application.TopBean#goSignupPage 終了
+2020/05/06 16:13:42.269 [default task-1] INFO  log.ActionLoggingInterceptor#around application.SignupBean#signupUserWithJpa 開始
+2020/05/06 16:13:42.378 [default task-1] DEBUG log.JpaEclipselinkLogger#log SELECT EMAILADDRESS, CREATEDTIME, NAME, PASSWORD, UPDATEDTIME FROM public.USER WHERE (EMAILADDRESS = ?)
+	bind => [hoge@hoge]
+2020/05/06 16:13:42.400 [default task-1] DEBUG mode.TestMode#setRollbackOnlyIfTesMode コミット
+2020/05/06 16:13:42.402 [default task-1] INFO  log.ActionLoggingInterceptor#around application.SignupBean#signupUserWithJpa 終了
+2020/05/06 16:13:42.408 [default task-1] DEBUG log.JpaEclipselinkLogger#log INSERT INTO public.USER (EMAILADDRESS, CREATEDTIME, NAME, PASSWORD, UPDATEDTIME) VALUES (?, ?, ?, ?, ?)
+	bind => [hoge@hoge, 2020-05-06T16:13:42.382, hoge, hoge, 2020-05-06T16:13:42.382]
+2020/05/06 16:14:22.084 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/06 16:14:23.332 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/06 16:14:28.542 [default task-1] ERROR JSF1094: Could not decode flash data from incoming cookie value Invalid characters in decrypted value.  Processing will continue, but the flash is unavailable for this request.
+2020/05/06 16:14:28.650 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#viewAction 開始
+2020/05/06 16:14:28.653 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#viewAction 終了
+2020/05/06 16:14:37.811 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 開始
+2020/05/06 16:14:38.432 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user WHERE ( emailaddress = ? and password = ? ) 
+2020/05/06 16:14:38.447 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: admin@hoge(String), admin(String)
+2020/05/06 16:14:38.461 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 1
+2020/05/06 16:14:38.465 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, role from public.role WHERE ( emailaddress = ? ) 
+2020/05/06 16:14:38.466 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: admin@hoge(String)
+2020/05/06 16:14:38.467 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 1
+2020/05/06 16:14:38.485 [default task-2] ERROR JSF1094: Could not decode flash data from incoming cookie value Invalid characters in decrypted value.  Processing will continue, but the flash is unavailable for this request.
+2020/05/06 16:14:38.488 [default task-1] INFO  sample-webapp-jsf application.LoginBean#authenticate 認証ステータス：SEND_CONTINUE
+2020/05/06 16:14:38.520 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 終了
+2020/05/06 16:14:38.521 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 開始
+2020/05/06 16:14:38.521 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 終了
+2020/05/06 16:14:45.294 [default task-2] INFO  log.ActionLoggingInterceptor#around application.SignupBean#signupUserWithJpa 開始
+2020/05/06 16:14:45.406 [default task-2] DEBUG log.JpaEclipselinkLogger#log SELECT EMAILADDRESS, CREATEDTIME, NAME, PASSWORD, UPDATEDTIME FROM public.USER WHERE (EMAILADDRESS = ?)
+	bind => [hoge@hoge]
+2020/05/06 16:14:45.415 [default task-2] DEBUG mode.TestMode#setRollbackOnlyIfTesMode コミット
+2020/05/06 16:14:45.416 [default task-2] INFO  log.ActionLoggingInterceptor#around application.SignupBean#signupUserWithJpa 終了
+2020/05/06 16:14:56.568 [default task-2] INFO  log.ActionLoggingInterceptor#around application.SignupBean#signupUserWithJpa 開始
+2020/05/06 16:14:56.569 [default task-2] DEBUG log.JpaEclipselinkLogger#log SELECT EMAILADDRESS, CREATEDTIME, NAME, PASSWORD, UPDATEDTIME FROM public.USER WHERE (EMAILADDRESS = ?)
+	bind => [hoge@hoge]
+2020/05/06 16:14:56.571 [default task-2] DEBUG mode.TestMode#setRollbackOnlyIfTesMode コミット
+2020/05/06 16:14:56.572 [default task-2] INFO  log.ActionLoggingInterceptor#around application.SignupBean#signupUserWithJpa 終了
+2020/05/06 16:15:05.445 [default task-2] INFO  log.ActionLoggingInterceptor#around application.SignupBean#signupUserWithJpa 開始
+2020/05/06 16:15:05.447 [default task-2] DEBUG log.JpaEclipselinkLogger#log SELECT EMAILADDRESS, CREATEDTIME, NAME, PASSWORD, UPDATEDTIME FROM public.USER WHERE (EMAILADDRESS = ?)
+	bind => [hoge@hoge]
+2020/05/06 16:15:05.448 [default task-2] DEBUG mode.TestMode#setRollbackOnlyIfTesMode コミット
+2020/05/06 16:15:05.448 [default task-2] INFO  log.ActionLoggingInterceptor#around application.SignupBean#signupUserWithJpa 終了
+2020/05/06 16:15:27.117 [default task-2] INFO  log.ActionLoggingInterceptor#around application.SignupBean#signupUserWithJpa 開始
+2020/05/06 16:15:27.118 [default task-2] DEBUG log.JpaEclipselinkLogger#log SELECT EMAILADDRESS, CREATEDTIME, NAME, PASSWORD, UPDATEDTIME FROM public.USER WHERE (EMAILADDRESS = ?)
+	bind => [hoge@com]
+2020/05/06 16:15:27.129 [default task-2] DEBUG mode.TestMode#setRollbackOnlyIfTesMode コミット
+2020/05/06 16:15:27.129 [default task-2] INFO  log.ActionLoggingInterceptor#around application.SignupBean#signupUserWithJpa 終了
+2020/05/06 16:15:27.135 [default task-2] DEBUG log.JpaEclipselinkLogger#log INSERT INTO public.USER (EMAILADDRESS, CREATEDTIME, NAME, PASSWORD, UPDATEDTIME) VALUES (?, ?, ?, ?, ?)
+	bind => [hoge@com, 2020-05-06T16:15:27.119, hoge, hoge, 2020-05-06T16:15:27.119]
+2020/05/06 16:16:11.905 [default task-2] INFO  log.ActionLoggingInterceptor#around application.SignupBean#signupUserWithJpa 開始
+2020/05/06 16:16:11.989 [default task-1] INFO  log.ActionLoggingInterceptor#around application.SignupBean#signupUserWithJpa 開始
+2020/05/06 16:16:15.338 [default task-2] DEBUG log.JpaEclipselinkLogger#log SELECT EMAILADDRESS, CREATEDTIME, NAME, PASSWORD, UPDATEDTIME FROM public.USER WHERE (EMAILADDRESS = ?)
+	bind => [hoge@hoge]
+2020/05/06 16:16:16.682 [default task-2] DEBUG mode.TestMode#setRollbackOnlyIfTesMode コミット
+2020/05/06 16:16:16.683 [default task-2] INFO  log.ActionLoggingInterceptor#around application.SignupBean#signupUserWithJpa 終了
+2020/05/06 16:16:16.684 [default task-2] DEBUG log.JpaEclipselinkLogger#log INSERT INTO public.USER (EMAILADDRESS, CREATEDTIME, NAME, PASSWORD, UPDATEDTIME) VALUES (?, ?, ?, ?, ?)
+	bind => [hoge@hoge, 2020-05-06T16:16:16.680, hoge, hoge, 2020-05-06T16:16:16.680]
+2020/05/06 16:16:17.747 [default task-1] DEBUG log.JpaEclipselinkLogger#log SELECT EMAILADDRESS, CREATEDTIME, NAME, PASSWORD, UPDATEDTIME FROM public.USER WHERE (EMAILADDRESS = ?)
+	bind => [hoge@hoge]
+2020/05/06 16:16:18.617 [default task-1] DEBUG mode.TestMode#setRollbackOnlyIfTesMode コミット
+2020/05/06 16:16:18.618 [default task-1] INFO  log.ActionLoggingInterceptor#around application.SignupBean#signupUserWithJpa 終了
+2020/05/06 16:29:49.206 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/06 16:29:50.484 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/06 16:29:51.582 [default task-2] INFO  log.ActionLoggingInterceptor#around application.LoginBean#viewAction 開始
+2020/05/06 16:29:51.585 [default task-2] INFO  log.ActionLoggingInterceptor#around application.LoginBean#viewAction 終了
+2020/05/06 16:30:00.530 [default task-2] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 開始
+2020/05/06 16:30:01.047 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user WHERE ( emailaddress = ? and password = ? ) 
+2020/05/06 16:30:01.069 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: admin@hoge(String), admin(String)
+2020/05/06 16:30:01.084 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 1
+2020/05/06 16:30:01.089 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, role from public.role WHERE ( emailaddress = ? ) 
+2020/05/06 16:30:01.090 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: admin@hoge(String)
+2020/05/06 16:30:01.092 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 1
+2020/05/06 16:30:01.113 [default task-2] INFO  sample-webapp-jsf application.LoginBean#authenticate 認証ステータス：SEND_CONTINUE
+2020/05/06 16:30:01.150 [default task-2] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 終了
+2020/05/06 16:30:01.151 [default task-2] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 開始
+2020/05/06 16:30:01.152 [default task-2] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 終了
+2020/05/06 16:30:13.716 [default task-2] INFO  log.ActionLoggingInterceptor#around application.SignupBean#signupUserWithJpa 開始
+2020/05/06 16:30:13.936 [default task-1] INFO  log.ActionLoggingInterceptor#around application.SignupBean#signupUserWithJpa 開始
+2020/05/06 16:30:18.249 [default task-2] DEBUG mode.TestMode#setRollbackOnlyIfTesMode コミット
+2020/05/06 16:30:18.249 [default task-2] INFO  log.ActionLoggingInterceptor#around application.SignupBean#signupUserWithJpa 終了
+2020/05/06 16:30:18.260 [default task-2] DEBUG log.JpaEclipselinkLogger#log INSERT INTO public.USER (EMAILADDRESS, CREATEDTIME, NAME, PASSWORD, UPDATEDTIME) VALUES (?, ?, ?, ?, ?)
+	bind => [hoge@hoge, 2020-05-06T16:30:18.111, hoge, hoge, 2020-05-06T16:30:18.111]
+2020/05/06 16:30:18.762 [default task-1] DEBUG mode.TestMode#setRollbackOnlyIfTesMode コミット
+2020/05/06 16:30:18.763 [default task-1] INFO  log.ActionLoggingInterceptor#around application.SignupBean#signupUserWithJpa 終了
+2020/05/06 16:30:18.765 [default task-1] DEBUG log.JpaEclipselinkLogger#log INSERT INTO public.USER (EMAILADDRESS, CREATEDTIME, NAME, PASSWORD, UPDATEDTIME) VALUES (?, ?, ?, ?, ?)
+	bind => [hoge@hoge, 2020-05-06T16:30:18.762, hoge, hoge, 2020-05-06T16:30:18.762]
+2020/05/06 16:30:18.779 [default task-1] DEBUG log.JpaEclipselinkLogger#log SELECT 1
+2020/05/06 16:30:18.789 [default task-1] WARN  #{signupBean.signupUserWithJpa()}: javax.transaction.RollbackException: ARJUNA016053: Could not commit transaction.
+javax.faces.FacesException: #{signupBean.signupUserWithJpa()}: javax.transaction.RollbackException: ARJUNA016053: Could not commit transaction.
+	at com.sun.faces.application.ActionListenerImpl.getNavigationOutcome(ActionListenerImpl.java:96)
+	at com.sun.faces.application.ActionListenerImpl.processAction(ActionListenerImpl.java:71)
+	at javax.faces.component.UICommand.broadcast(UICommand.java:222)
+	at javax.faces.component.UIViewRoot.broadcastEvents(UIViewRoot.java:847)
+	at javax.faces.component.UIViewRoot.processApplication(UIViewRoot.java:1395)
+	at com.sun.faces.lifecycle.InvokeApplicationPhase.execute(InvokeApplicationPhase.java:58)
+	at com.sun.faces.lifecycle.Phase.doPhase(Phase.java:76)
+	at com.sun.faces.lifecycle.LifecycleImpl.execute(LifecycleImpl.java:177)
+	at javax.faces.webapp.FacesServlet.executeLifecyle(FacesServlet.java:707)
+	at javax.faces.webapp.FacesServlet.service(FacesServlet.java:451)
+	at io.undertow.servlet.handlers.ServletHandler.handleRequest(ServletHandler.java:74)
+	at io.undertow.servlet.handlers.FilterHandler$FilterChainImpl.doFilter(FilterHandler.java:129)
+	at io.opentracing.contrib.jaxrs2.server.SpanFinishingFilter.doFilter(SpanFinishingFilter.java:55)
+	at io.undertow.servlet.core.ManagedFilter.doFilter(ManagedFilter.java:61)
+	at io.undertow.servlet.handlers.FilterHandler$FilterChainImpl.doFilter(FilterHandler.java:131)
+	at io.undertow.servlet.handlers.FilterHandler.handleRequest(FilterHandler.java:84)
+	at io.undertow.servlet.handlers.security.ServletSecurityRoleHandler.handleRequest(ServletSecurityRoleHandler.java:62)
+	at io.undertow.servlet.handlers.ServletChain$1.handleRequest(ServletChain.java:68)
+	at io.undertow.servlet.handlers.ServletDispatchingHandler.handleRequest(ServletDispatchingHandler.java:36)
+	at org.wildfly.extension.undertow.security.SecurityContextAssociationHandler.handleRequest(SecurityContextAssociationHandler.java:78)
+	at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+	at io.undertow.servlet.handlers.security.SSLInformationAssociationHandler.handleRequest(SSLInformationAssociationHandler.java:132)
+	at io.undertow.servlet.handlers.security.ServletAuthenticationCallHandler.handleRequest(ServletAuthenticationCallHandler.java:57)
+	at io.undertow.server.handlers.DisableCacheHandler.handleRequest(DisableCacheHandler.java:33)
+	at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+	at io.undertow.security.handlers.AuthenticationConstraintHandler.handleRequest(AuthenticationConstraintHandler.java:53)
+	at io.undertow.security.handlers.AbstractConfidentialityHandler.handleRequest(AbstractConfidentialityHandler.java:46)
+	at io.undertow.servlet.handlers.security.ServletConfidentialityConstraintHandler.handleRequest(ServletConfidentialityConstraintHandler.java:64)
+	at io.undertow.servlet.handlers.security.ServletSecurityConstraintHandler.handleRequest(ServletSecurityConstraintHandler.java:59)
+	at io.undertow.security.handlers.AuthenticationMechanismsHandler.handleRequest(AuthenticationMechanismsHandler.java:60)
+	at io.undertow.servlet.handlers.security.CachedAuthenticatedSessionHandler.handleRequest(CachedAuthenticatedSessionHandler.java:77)
+	at io.undertow.security.handlers.NotificationReceiverHandler.handleRequest(NotificationReceiverHandler.java:50)
+	at io.undertow.security.handlers.AbstractSecurityContextAssociationHandler.handleRequest(AbstractSecurityContextAssociationHandler.java:43)
+	at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+	at org.wildfly.extension.undertow.security.jacc.JACCContextIdHandler.handleRequest(JACCContextIdHandler.java:61)
+	at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+	at org.wildfly.extension.undertow.security.jaspi.JASPICSecureResponseHandler.handleRequest(JASPICSecureResponseHandler.java:48)
+	at org.wildfly.extension.undertow.deployment.GlobalRequestControllerHandler.handleRequest(GlobalRequestControllerHandler.java:68)
+	at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+	at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:292)
+	at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:81)
+	at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:138)
+	at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:135)
+	at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
+	at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
+	at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
+	at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1502)
+	at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1502)
+	at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1502)
+	at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1502)
+	at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1502)
+	at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:272)
+	at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:81)
+	at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:104)
+	at io.undertow.server.Connectors.executeRootHandler(Connectors.java:364)
+	at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:830)
+	at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+	at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1982)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: javax.faces.el.EvaluationException: javax.transaction.RollbackException: ARJUNA016053: Could not commit transaction.
+	at com.sun.faces.application.MethodBindingMethodExpressionAdapter.invoke(MethodBindingMethodExpressionAdapter.java:76)
+	at com.sun.faces.application.ActionListenerImpl.getNavigationOutcome(ActionListenerImpl.java:82)
+	... 60 more
+Caused by: javax.transaction.RollbackException: ARJUNA016053: Could not commit transaction.
+	at com.arjuna.ats.internal.jta.transaction.arjunacore.TransactionImple.commitAndDisassociate(TransactionImple.java:1300)
+	at com.arjuna.ats.internal.jta.transaction.arjunacore.BaseTransaction.commit(BaseTransaction.java:126)
+	at com.arjuna.ats.jbossatx.BaseTransactionManagerDelegate.commit(BaseTransactionManagerDelegate.java:89)
+	at org.wildfly.transaction.client.LocalTransaction.commitAndDissociate(LocalTransaction.java:75)
+	at org.wildfly.transaction.client.ContextTransactionManager.commit(ContextTransactionManager.java:71)
+	at com.arjuna.ats.jta.cdi.DelegatingTransactionManager.commit(DelegatingTransactionManager.java:112)
+	at com.arjuna.ats.jta.cdi.NarayanaTransactionManager.commit(NarayanaTransactionManager.java:276)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.weld.bean.proxy.AbstractBeanInstance.invoke(AbstractBeanInstance.java:38)
+	at org.jboss.weld.bean.proxy.ProxyMethodHandler.invoke(ProxyMethodHandler.java:106)
+	at org.jboss.weldx.transaction.TransactionManager$2036334561$Proxy$_$$_WeldClientProxy.commit(Unknown Source)
+	at com.arjuna.ats.jta.cdi.transactional.TransactionalInterceptorBase.endTransaction(TransactionalInterceptorBase.java:232)
+	at com.arjuna.ats.jta.cdi.transactional.TransactionalInterceptorBase.invokeInOurTx(TransactionalInterceptorBase.java:178)
+	at com.arjuna.ats.jta.cdi.transactional.TransactionalInterceptorRequiresNew.doIntercept(TransactionalInterceptorRequiresNew.java:60)
+	at com.arjuna.ats.jta.cdi.transactional.TransactionalInterceptorBase.intercept(TransactionalInterceptorBase.java:88)
+	at com.arjuna.ats.jta.cdi.transactional.TransactionalInterceptorRequiresNew.intercept(TransactionalInterceptorRequiresNew.java:47)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.weld.interceptor.reader.SimpleInterceptorInvocation$SimpleMethodInvocation.invoke(SimpleInterceptorInvocation.java:73)
+	at org.jboss.weld.interceptor.proxy.InterceptorMethodHandler.executeAroundInvoke(InterceptorMethodHandler.java:84)
+	at org.jboss.weld.interceptor.proxy.InterceptorMethodHandler.executeInterception(InterceptorMethodHandler.java:72)
+	at org.jboss.weld.interceptor.proxy.InterceptorMethodHandler.invoke(InterceptorMethodHandler.java:56)
+	at org.jboss.weld.bean.proxy.CombinedInterceptorAndDecoratorStackMethodHandler.invoke(CombinedInterceptorAndDecoratorStackMethodHandler.java:79)
+	at org.jboss.weld.bean.proxy.CombinedInterceptorAndDecoratorStackMethodHandler.invoke(CombinedInterceptorAndDecoratorStackMethodHandler.java:68)
+	at application.SignupBean$Proxy$_$$_WeldSubclass.signupUserWithJpa(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at javax.el.ELUtil.invokeMethod(ELUtil.java:311)
+	at javax.el.BeanELResolver.invoke(BeanELResolver.java:415)
+	at javax.el.CompositeELResolver.invoke(CompositeELResolver.java:256)
+	at com.sun.el.parser.AstValue.invoke(AstValue.java:261)
+	at com.sun.el.MethodExpressionImpl.invoke(MethodExpressionImpl.java:280)
+	at org.jboss.weld.module.web.util.el.ForwardingMethodExpression.invoke(ForwardingMethodExpression.java:40)
+	at org.jboss.weld.module.web.el.WeldMethodExpression.invoke(WeldMethodExpression.java:50)
+	at org.jboss.weld.module.web.util.el.ForwardingMethodExpression.invoke(ForwardingMethodExpression.java:40)
+	at org.jboss.weld.module.web.el.WeldMethodExpression.invoke(WeldMethodExpression.java:50)
+	at com.sun.faces.facelets.el.TagMethodExpression.invoke(TagMethodExpression.java:65)
+	at com.sun.faces.application.MethodBindingMethodExpressionAdapter.invoke(MethodBindingMethodExpressionAdapter.java:66)
+	... 61 more
+Caused by: javax.persistence.PersistenceException: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.6.v20200131-b7c997804f): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.postgresql.util.PSQLException: ERROR: 重複キーが一意性制約"user_pkey"に違反しています
+  詳細: キー (emailaddress)=(hoge@hoge) はすでに存在します。
+Error Code: 0
+Call: INSERT INTO public.USER (EMAILADDRESS, CREATEDTIME, NAME, PASSWORD, UPDATEDTIME) VALUES (?, ?, ?, ?, ?)
+	bind => [hoge@hoge, 2020-05-06T16:30:18.762, hoge, hoge, 2020-05-06T16:30:18.762]
+Query: InsertObjectQuery(dto.User@60b1b714)
+	at org.eclipse.persistence.internal.jpa.EntityManagerSetupImpl$1.handleException(EntityManagerSetupImpl.java:787)
+	at org.eclipse.persistence.transaction.AbstractSynchronizationListener.handleException(AbstractSynchronizationListener.java:277)
+	at org.eclipse.persistence.transaction.AbstractSynchronizationListener.beforeCompletion(AbstractSynchronizationListener.java:172)
+	at org.eclipse.persistence.transaction.JTASynchronizationListener.beforeCompletion(JTASynchronizationListener.java:70)
+	at org.wildfly.transaction.client.AbstractTransaction.performConsumer(AbstractTransaction.java:236)
+	at org.wildfly.transaction.client.AbstractTransaction.performConsumer(AbstractTransaction.java:247)
+	at org.wildfly.transaction.client.AbstractTransaction$AssociatingSynchronization.beforeCompletion(AbstractTransaction.java:292)
+	at com.arjuna.ats.internal.jta.resources.arjunacore.SynchronizationImple.beforeCompletion(SynchronizationImple.java:76)
+	at com.arjuna.ats.arjuna.coordinator.TwoPhaseCoordinator.beforeCompletion(TwoPhaseCoordinator.java:360)
+	at com.arjuna.ats.arjuna.coordinator.TwoPhaseCoordinator.end(TwoPhaseCoordinator.java:91)
+	at com.arjuna.ats.arjuna.AtomicAction.commit(AtomicAction.java:162)
+	at com.arjuna.ats.internal.jta.transaction.arjunacore.TransactionImple.commitAndDisassociate(TransactionImple.java:1288)
+	... 105 more
+Caused by: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.6.v20200131-b7c997804f): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.postgresql.util.PSQLException: ERROR: 重複キーが一意性制約"user_pkey"に違反しています
+  詳細: キー (emailaddress)=(hoge@hoge) はすでに存在します。
+Error Code: 0
+Call: INSERT INTO public.USER (EMAILADDRESS, CREATEDTIME, NAME, PASSWORD, UPDATEDTIME) VALUES (?, ?, ?, ?, ?)
+	bind => [hoge@hoge, 2020-05-06T16:30:18.762, hoge, hoge, 2020-05-06T16:30:18.762]
+Query: InsertObjectQuery(dto.User@60b1b714)
+	at org.eclipse.persistence.exceptions.DatabaseException.sqlException(DatabaseException.java:342)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.processExceptionForCommError(DatabaseAccessor.java:1650)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.executeDirectNoSelect(DatabaseAccessor.java:906)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.executeNoSelect(DatabaseAccessor.java:970)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.basicExecuteCall(DatabaseAccessor.java:640)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.executeCall(DatabaseAccessor.java:567)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.basicExecuteCall(AbstractSession.java:2099)
+	at org.eclipse.persistence.sessions.server.ClientSession.executeCall(ClientSession.java:313)
+	at org.eclipse.persistence.internal.queries.DatasourceCallQueryMechanism.executeCall(DatasourceCallQueryMechanism.java:275)
+	at org.eclipse.persistence.internal.queries.DatasourceCallQueryMechanism.executeCall(DatasourceCallQueryMechanism.java:261)
+	at org.eclipse.persistence.internal.queries.DatasourceCallQueryMechanism.insertObject(DatasourceCallQueryMechanism.java:411)
+	at org.eclipse.persistence.internal.queries.StatementQueryMechanism.insertObject(StatementQueryMechanism.java:167)
+	at org.eclipse.persistence.internal.queries.StatementQueryMechanism.insertObject(StatementQueryMechanism.java:182)
+	at org.eclipse.persistence.internal.queries.DatabaseQueryMechanism.insertObjectForWrite(DatabaseQueryMechanism.java:504)
+	at org.eclipse.persistence.queries.InsertObjectQuery.executeCommit(InsertObjectQuery.java:82)
+	at org.eclipse.persistence.queries.InsertObjectQuery.executeCommitWithChangeSet(InsertObjectQuery.java:92)
+	at org.eclipse.persistence.internal.queries.DatabaseQueryMechanism.executeWriteWithChangeSet(DatabaseQueryMechanism.java:316)
+	at org.eclipse.persistence.queries.WriteObjectQuery.executeDatabaseQuery(WriteObjectQuery.java:60)
+	at org.eclipse.persistence.queries.DatabaseQuery.execute(DatabaseQuery.java:911)
+	at org.eclipse.persistence.queries.DatabaseQuery.executeInUnitOfWork(DatabaseQuery.java:810)
+	at org.eclipse.persistence.queries.ObjectLevelModifyQuery.executeInUnitOfWorkObjectLevelModifyQuery(ObjectLevelModifyQuery.java:110)
+	at org.eclipse.persistence.queries.ObjectLevelModifyQuery.executeInUnitOfWork(ObjectLevelModifyQuery.java:87)
+	at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.internalExecuteQuery(UnitOfWorkImpl.java:2983)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.executeQuery(AbstractSession.java:1898)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.executeQuery(AbstractSession.java:1880)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.executeQuery(AbstractSession.java:1830)
+	at org.eclipse.persistence.internal.sessions.CommitManager.commitNewObjectsForClassWithChangeSet(CommitManager.java:229)
+	at org.eclipse.persistence.internal.sessions.CommitManager.commitAllObjectsWithChangeSet(CommitManager.java:128)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.writeAllObjectsWithChangeSet(AbstractSession.java:4398)
+	at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.commitToDatabase(UnitOfWorkImpl.java:1495)
+	at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.commitToDatabaseWithChangeSet(UnitOfWorkImpl.java:1585)
+	at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.issueSQLbeforeCompletion(UnitOfWorkImpl.java:3260)
+	at org.eclipse.persistence.internal.sessions.RepeatableWriteUnitOfWork.issueSQLbeforeCompletion(RepeatableWriteUnitOfWork.java:357)
+	at org.eclipse.persistence.transaction.AbstractSynchronizationListener.beforeCompletion(AbstractSynchronizationListener.java:160)
+	... 114 more
+Caused by: org.postgresql.util.PSQLException: ERROR: 重複キーが一意性制約"user_pkey"に違反しています
+  詳細: キー (emailaddress)=(hoge@hoge) はすでに存在します。
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2533)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2268)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:313)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:159)
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:125)
+	at org.jboss.jca.adapters.jdbc.WrappedPreparedStatement.executeUpdate(WrappedPreparedStatement.java:537)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.executeDirectNoSelect(DatabaseAccessor.java:898)
+	... 145 more
+2020/05/06 16:39:10.100 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/06 16:39:11.419 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/06 16:39:19.715 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#viewAction 開始
+2020/05/06 16:39:19.718 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#viewAction 終了
+2020/05/06 16:39:25.545 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 開始
+2020/05/06 16:39:26.109 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user WHERE ( emailaddress = ? and password = ? ) 
+2020/05/06 16:39:26.125 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: admin@hoge(String), admin(String)
+2020/05/06 16:39:26.139 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 1
+2020/05/06 16:39:26.143 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, role from public.role WHERE ( emailaddress = ? ) 
+2020/05/06 16:39:26.144 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: admin@hoge(String)
+2020/05/06 16:39:26.146 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 1
+2020/05/06 16:39:26.166 [default task-2] ERROR correctSecretKeyValue = mHhx33AowbdwZP8Rkvpq5j0BY9JI%2Bg7xa4BUaX4%3D incomingSecretKeyValue = null
+2020/05/06 16:39:26.172 [default task-1] INFO  sample-webapp-jsf application.LoginBean#authenticate 認証ステータス：SEND_CONTINUE
+2020/05/06 16:39:26.205 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 終了
+2020/05/06 16:39:26.206 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 開始
+2020/05/06 16:39:26.207 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 終了
+2020/05/06 16:39:35.695 [default task-2] INFO  log.ActionLoggingInterceptor#around application.TopBean#goSignupPage 開始
+2020/05/06 16:39:35.696 [default task-2] INFO  log.ActionLoggingInterceptor#around application.TopBean#goSignupPage 終了
+2020/05/06 16:39:57.339 [default task-1] INFO  log.ActionLoggingInterceptor#around application.SignupBean#signupUser 開始
+2020/05/06 16:39:57.348 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user where emailaddress = ? 
+2020/05/06 16:39:57.350 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: hoge@hoge(String)
+2020/05/06 16:39:57.352 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 0
+2020/05/06 16:39:57.353 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: insert into public.user (emailaddress, name, password, createdtime, updatedtime) values (?, ?, ?, ?, ?) 
+2020/05/06 16:39:57.354 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: hoge@hoge(String), hoge(String), hoge(String), 2020-05-06T16:39:57.352(String), 2020-05-06T16:39:57.352(String)
+2020/05/06 16:39:57.356 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==    Updates: 1
+2020/05/06 16:39:57.359 [default task-1] DEBUG mode.TestMode#setRollbackOnlyIfTesMode コミット
+2020/05/06 16:39:57.359 [default task-1] INFO  log.ActionLoggingInterceptor#around application.SignupBean#signupUser 終了
+2020/05/06 16:40:04.823 [default task-2] INFO  log.ActionLoggingInterceptor#around application.TopBean#goSignupPage 開始
+2020/05/06 16:40:04.824 [default task-2] INFO  log.ActionLoggingInterceptor#around application.TopBean#goSignupPage 終了
+2020/05/06 16:40:13.627 [default task-2] INFO  log.ActionLoggingInterceptor#around application.SignupBean#signupUserWithJpa 開始
+2020/05/06 16:40:13.763 [default task-1] INFO  log.ActionLoggingInterceptor#around application.SignupBean#signupUserWithJpa 開始
+2020/05/06 16:40:23.227 [default task-2] DEBUG mode.TestMode#setRollbackOnlyIfTesMode コミット
+2020/05/06 16:40:23.228 [default task-2] INFO  log.ActionLoggingInterceptor#around application.SignupBean#signupUserWithJpa 終了
+2020/05/06 16:40:23.237 [default task-2] DEBUG log.JpaEclipselinkLogger#log INSERT INTO public.USER (EMAILADDRESS, CREATEDTIME, NAME, PASSWORD, UPDATEDTIME) VALUES (?, ?, ?, ?, ?)
+	bind => [hoge@com, 2020-05-06T16:40:16.929, hoge, hoge, 2020-05-06T16:40:16.929]
+2020/05/06 16:40:24.690 [default task-1] DEBUG mode.TestMode#setRollbackOnlyIfTesMode コミット
+2020/05/06 16:40:24.691 [default task-1] INFO  log.ActionLoggingInterceptor#around application.SignupBean#signupUserWithJpa 終了
+2020/05/06 16:40:24.693 [default task-1] DEBUG log.JpaEclipselinkLogger#log INSERT INTO public.USER (EMAILADDRESS, CREATEDTIME, NAME, PASSWORD, UPDATEDTIME) VALUES (?, ?, ?, ?, ?)
+	bind => [hoge@com, 2020-05-06T16:40:24.689, hoge, hoge, 2020-05-06T16:40:24.689]
+2020/05/06 16:40:24.706 [default task-1] DEBUG log.JpaEclipselinkLogger#log SELECT 1
+2020/05/06 16:40:24.717 [default task-1] WARN  #{signupBean.signupUserWithJpa()}: javax.transaction.RollbackException: ARJUNA016053: Could not commit transaction.
+javax.faces.FacesException: #{signupBean.signupUserWithJpa()}: javax.transaction.RollbackException: ARJUNA016053: Could not commit transaction.
+	at com.sun.faces.application.ActionListenerImpl.getNavigationOutcome(ActionListenerImpl.java:96)
+	at com.sun.faces.application.ActionListenerImpl.processAction(ActionListenerImpl.java:71)
+	at javax.faces.component.UICommand.broadcast(UICommand.java:222)
+	at javax.faces.component.UIViewRoot.broadcastEvents(UIViewRoot.java:847)
+	at javax.faces.component.UIViewRoot.processApplication(UIViewRoot.java:1395)
+	at com.sun.faces.lifecycle.InvokeApplicationPhase.execute(InvokeApplicationPhase.java:58)
+	at com.sun.faces.lifecycle.Phase.doPhase(Phase.java:76)
+	at com.sun.faces.lifecycle.LifecycleImpl.execute(LifecycleImpl.java:177)
+	at javax.faces.webapp.FacesServlet.executeLifecyle(FacesServlet.java:707)
+	at javax.faces.webapp.FacesServlet.service(FacesServlet.java:451)
+	at io.undertow.servlet.handlers.ServletHandler.handleRequest(ServletHandler.java:74)
+	at io.undertow.servlet.handlers.FilterHandler$FilterChainImpl.doFilter(FilterHandler.java:129)
+	at io.opentracing.contrib.jaxrs2.server.SpanFinishingFilter.doFilter(SpanFinishingFilter.java:55)
+	at io.undertow.servlet.core.ManagedFilter.doFilter(ManagedFilter.java:61)
+	at io.undertow.servlet.handlers.FilterHandler$FilterChainImpl.doFilter(FilterHandler.java:131)
+	at io.undertow.servlet.handlers.FilterHandler.handleRequest(FilterHandler.java:84)
+	at io.undertow.servlet.handlers.security.ServletSecurityRoleHandler.handleRequest(ServletSecurityRoleHandler.java:62)
+	at io.undertow.servlet.handlers.ServletChain$1.handleRequest(ServletChain.java:68)
+	at io.undertow.servlet.handlers.ServletDispatchingHandler.handleRequest(ServletDispatchingHandler.java:36)
+	at org.wildfly.extension.undertow.security.SecurityContextAssociationHandler.handleRequest(SecurityContextAssociationHandler.java:78)
+	at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+	at io.undertow.servlet.handlers.security.SSLInformationAssociationHandler.handleRequest(SSLInformationAssociationHandler.java:132)
+	at io.undertow.servlet.handlers.security.ServletAuthenticationCallHandler.handleRequest(ServletAuthenticationCallHandler.java:57)
+	at io.undertow.server.handlers.DisableCacheHandler.handleRequest(DisableCacheHandler.java:33)
+	at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+	at io.undertow.security.handlers.AuthenticationConstraintHandler.handleRequest(AuthenticationConstraintHandler.java:53)
+	at io.undertow.security.handlers.AbstractConfidentialityHandler.handleRequest(AbstractConfidentialityHandler.java:46)
+	at io.undertow.servlet.handlers.security.ServletConfidentialityConstraintHandler.handleRequest(ServletConfidentialityConstraintHandler.java:64)
+	at io.undertow.servlet.handlers.security.ServletSecurityConstraintHandler.handleRequest(ServletSecurityConstraintHandler.java:59)
+	at io.undertow.security.handlers.AuthenticationMechanismsHandler.handleRequest(AuthenticationMechanismsHandler.java:60)
+	at io.undertow.servlet.handlers.security.CachedAuthenticatedSessionHandler.handleRequest(CachedAuthenticatedSessionHandler.java:77)
+	at io.undertow.security.handlers.NotificationReceiverHandler.handleRequest(NotificationReceiverHandler.java:50)
+	at io.undertow.security.handlers.AbstractSecurityContextAssociationHandler.handleRequest(AbstractSecurityContextAssociationHandler.java:43)
+	at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+	at org.wildfly.extension.undertow.security.jacc.JACCContextIdHandler.handleRequest(JACCContextIdHandler.java:61)
+	at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+	at org.wildfly.extension.undertow.security.jaspi.JASPICSecureResponseHandler.handleRequest(JASPICSecureResponseHandler.java:48)
+	at org.wildfly.extension.undertow.deployment.GlobalRequestControllerHandler.handleRequest(GlobalRequestControllerHandler.java:68)
+	at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+	at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:292)
+	at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:81)
+	at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:138)
+	at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:135)
+	at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
+	at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
+	at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
+	at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1502)
+	at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1502)
+	at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1502)
+	at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1502)
+	at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1502)
+	at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:272)
+	at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:81)
+	at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:104)
+	at io.undertow.server.Connectors.executeRootHandler(Connectors.java:364)
+	at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:830)
+	at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+	at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1982)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: javax.faces.el.EvaluationException: javax.transaction.RollbackException: ARJUNA016053: Could not commit transaction.
+	at com.sun.faces.application.MethodBindingMethodExpressionAdapter.invoke(MethodBindingMethodExpressionAdapter.java:76)
+	at com.sun.faces.application.ActionListenerImpl.getNavigationOutcome(ActionListenerImpl.java:82)
+	... 60 more
+Caused by: javax.transaction.RollbackException: ARJUNA016053: Could not commit transaction.
+	at com.arjuna.ats.internal.jta.transaction.arjunacore.TransactionImple.commitAndDisassociate(TransactionImple.java:1300)
+	at com.arjuna.ats.internal.jta.transaction.arjunacore.BaseTransaction.commit(BaseTransaction.java:126)
+	at com.arjuna.ats.jbossatx.BaseTransactionManagerDelegate.commit(BaseTransactionManagerDelegate.java:89)
+	at org.wildfly.transaction.client.LocalTransaction.commitAndDissociate(LocalTransaction.java:75)
+	at org.wildfly.transaction.client.ContextTransactionManager.commit(ContextTransactionManager.java:71)
+	at com.arjuna.ats.jta.cdi.DelegatingTransactionManager.commit(DelegatingTransactionManager.java:112)
+	at com.arjuna.ats.jta.cdi.NarayanaTransactionManager.commit(NarayanaTransactionManager.java:276)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.weld.bean.proxy.AbstractBeanInstance.invoke(AbstractBeanInstance.java:38)
+	at org.jboss.weld.bean.proxy.ProxyMethodHandler.invoke(ProxyMethodHandler.java:106)
+	at org.jboss.weldx.transaction.TransactionManager$2036334561$Proxy$_$$_WeldClientProxy.commit(Unknown Source)
+	at com.arjuna.ats.jta.cdi.transactional.TransactionalInterceptorBase.endTransaction(TransactionalInterceptorBase.java:232)
+	at com.arjuna.ats.jta.cdi.transactional.TransactionalInterceptorBase.invokeInOurTx(TransactionalInterceptorBase.java:178)
+	at com.arjuna.ats.jta.cdi.transactional.TransactionalInterceptorRequiresNew.doIntercept(TransactionalInterceptorRequiresNew.java:60)
+	at com.arjuna.ats.jta.cdi.transactional.TransactionalInterceptorBase.intercept(TransactionalInterceptorBase.java:88)
+	at com.arjuna.ats.jta.cdi.transactional.TransactionalInterceptorRequiresNew.intercept(TransactionalInterceptorRequiresNew.java:47)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.weld.interceptor.reader.SimpleInterceptorInvocation$SimpleMethodInvocation.invoke(SimpleInterceptorInvocation.java:73)
+	at org.jboss.weld.interceptor.proxy.InterceptorMethodHandler.executeAroundInvoke(InterceptorMethodHandler.java:84)
+	at org.jboss.weld.interceptor.proxy.InterceptorMethodHandler.executeInterception(InterceptorMethodHandler.java:72)
+	at org.jboss.weld.interceptor.proxy.InterceptorMethodHandler.invoke(InterceptorMethodHandler.java:56)
+	at org.jboss.weld.bean.proxy.CombinedInterceptorAndDecoratorStackMethodHandler.invoke(CombinedInterceptorAndDecoratorStackMethodHandler.java:79)
+	at org.jboss.weld.bean.proxy.CombinedInterceptorAndDecoratorStackMethodHandler.invoke(CombinedInterceptorAndDecoratorStackMethodHandler.java:68)
+	at application.SignupBean$Proxy$_$$_WeldSubclass.signupUserWithJpa(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at javax.el.ELUtil.invokeMethod(ELUtil.java:311)
+	at javax.el.BeanELResolver.invoke(BeanELResolver.java:415)
+	at javax.el.CompositeELResolver.invoke(CompositeELResolver.java:256)
+	at com.sun.el.parser.AstValue.invoke(AstValue.java:261)
+	at com.sun.el.MethodExpressionImpl.invoke(MethodExpressionImpl.java:280)
+	at org.jboss.weld.module.web.util.el.ForwardingMethodExpression.invoke(ForwardingMethodExpression.java:40)
+	at org.jboss.weld.module.web.el.WeldMethodExpression.invoke(WeldMethodExpression.java:50)
+	at org.jboss.weld.module.web.util.el.ForwardingMethodExpression.invoke(ForwardingMethodExpression.java:40)
+	at org.jboss.weld.module.web.el.WeldMethodExpression.invoke(WeldMethodExpression.java:50)
+	at com.sun.faces.facelets.el.TagMethodExpression.invoke(TagMethodExpression.java:65)
+	at com.sun.faces.application.MethodBindingMethodExpressionAdapter.invoke(MethodBindingMethodExpressionAdapter.java:66)
+	... 61 more
+Caused by: javax.persistence.PersistenceException: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.6.v20200131-b7c997804f): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.postgresql.util.PSQLException: ERROR: 重複キーが一意性制約"user_pkey"に違反しています
+  詳細: キー (emailaddress)=(hoge@com) はすでに存在します。
+Error Code: 0
+Call: INSERT INTO public.USER (EMAILADDRESS, CREATEDTIME, NAME, PASSWORD, UPDATEDTIME) VALUES (?, ?, ?, ?, ?)
+	bind => [hoge@com, 2020-05-06T16:40:24.689, hoge, hoge, 2020-05-06T16:40:24.689]
+Query: InsertObjectQuery(dto.User@5180adad)
+	at org.eclipse.persistence.internal.jpa.EntityManagerSetupImpl$1.handleException(EntityManagerSetupImpl.java:787)
+	at org.eclipse.persistence.transaction.AbstractSynchronizationListener.handleException(AbstractSynchronizationListener.java:277)
+	at org.eclipse.persistence.transaction.AbstractSynchronizationListener.beforeCompletion(AbstractSynchronizationListener.java:172)
+	at org.eclipse.persistence.transaction.JTASynchronizationListener.beforeCompletion(JTASynchronizationListener.java:70)
+	at org.wildfly.transaction.client.AbstractTransaction.performConsumer(AbstractTransaction.java:236)
+	at org.wildfly.transaction.client.AbstractTransaction.performConsumer(AbstractTransaction.java:247)
+	at org.wildfly.transaction.client.AbstractTransaction$AssociatingSynchronization.beforeCompletion(AbstractTransaction.java:292)
+	at com.arjuna.ats.internal.jta.resources.arjunacore.SynchronizationImple.beforeCompletion(SynchronizationImple.java:76)
+	at com.arjuna.ats.arjuna.coordinator.TwoPhaseCoordinator.beforeCompletion(TwoPhaseCoordinator.java:360)
+	at com.arjuna.ats.arjuna.coordinator.TwoPhaseCoordinator.end(TwoPhaseCoordinator.java:91)
+	at com.arjuna.ats.arjuna.AtomicAction.commit(AtomicAction.java:162)
+	at com.arjuna.ats.internal.jta.transaction.arjunacore.TransactionImple.commitAndDisassociate(TransactionImple.java:1288)
+	... 105 more
+Caused by: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.6.v20200131-b7c997804f): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.postgresql.util.PSQLException: ERROR: 重複キーが一意性制約"user_pkey"に違反しています
+  詳細: キー (emailaddress)=(hoge@com) はすでに存在します。
+Error Code: 0
+Call: INSERT INTO public.USER (EMAILADDRESS, CREATEDTIME, NAME, PASSWORD, UPDATEDTIME) VALUES (?, ?, ?, ?, ?)
+	bind => [hoge@com, 2020-05-06T16:40:24.689, hoge, hoge, 2020-05-06T16:40:24.689]
+Query: InsertObjectQuery(dto.User@5180adad)
+	at org.eclipse.persistence.exceptions.DatabaseException.sqlException(DatabaseException.java:342)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.processExceptionForCommError(DatabaseAccessor.java:1650)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.executeDirectNoSelect(DatabaseAccessor.java:906)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.executeNoSelect(DatabaseAccessor.java:970)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.basicExecuteCall(DatabaseAccessor.java:640)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.executeCall(DatabaseAccessor.java:567)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.basicExecuteCall(AbstractSession.java:2099)
+	at org.eclipse.persistence.sessions.server.ClientSession.executeCall(ClientSession.java:313)
+	at org.eclipse.persistence.internal.queries.DatasourceCallQueryMechanism.executeCall(DatasourceCallQueryMechanism.java:275)
+	at org.eclipse.persistence.internal.queries.DatasourceCallQueryMechanism.executeCall(DatasourceCallQueryMechanism.java:261)
+	at org.eclipse.persistence.internal.queries.DatasourceCallQueryMechanism.insertObject(DatasourceCallQueryMechanism.java:411)
+	at org.eclipse.persistence.internal.queries.StatementQueryMechanism.insertObject(StatementQueryMechanism.java:167)
+	at org.eclipse.persistence.internal.queries.StatementQueryMechanism.insertObject(StatementQueryMechanism.java:182)
+	at org.eclipse.persistence.internal.queries.DatabaseQueryMechanism.insertObjectForWrite(DatabaseQueryMechanism.java:504)
+	at org.eclipse.persistence.queries.InsertObjectQuery.executeCommit(InsertObjectQuery.java:82)
+	at org.eclipse.persistence.queries.InsertObjectQuery.executeCommitWithChangeSet(InsertObjectQuery.java:92)
+	at org.eclipse.persistence.internal.queries.DatabaseQueryMechanism.executeWriteWithChangeSet(DatabaseQueryMechanism.java:316)
+	at org.eclipse.persistence.queries.WriteObjectQuery.executeDatabaseQuery(WriteObjectQuery.java:60)
+	at org.eclipse.persistence.queries.DatabaseQuery.execute(DatabaseQuery.java:911)
+	at org.eclipse.persistence.queries.DatabaseQuery.executeInUnitOfWork(DatabaseQuery.java:810)
+	at org.eclipse.persistence.queries.ObjectLevelModifyQuery.executeInUnitOfWorkObjectLevelModifyQuery(ObjectLevelModifyQuery.java:110)
+	at org.eclipse.persistence.queries.ObjectLevelModifyQuery.executeInUnitOfWork(ObjectLevelModifyQuery.java:87)
+	at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.internalExecuteQuery(UnitOfWorkImpl.java:2983)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.executeQuery(AbstractSession.java:1898)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.executeQuery(AbstractSession.java:1880)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.executeQuery(AbstractSession.java:1830)
+	at org.eclipse.persistence.internal.sessions.CommitManager.commitNewObjectsForClassWithChangeSet(CommitManager.java:229)
+	at org.eclipse.persistence.internal.sessions.CommitManager.commitAllObjectsWithChangeSet(CommitManager.java:128)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.writeAllObjectsWithChangeSet(AbstractSession.java:4398)
+	at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.commitToDatabase(UnitOfWorkImpl.java:1495)
+	at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.commitToDatabaseWithChangeSet(UnitOfWorkImpl.java:1585)
+	at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.issueSQLbeforeCompletion(UnitOfWorkImpl.java:3260)
+	at org.eclipse.persistence.internal.sessions.RepeatableWriteUnitOfWork.issueSQLbeforeCompletion(RepeatableWriteUnitOfWork.java:357)
+	at org.eclipse.persistence.transaction.AbstractSynchronizationListener.beforeCompletion(AbstractSynchronizationListener.java:160)
+	... 114 more
+Caused by: org.postgresql.util.PSQLException: ERROR: 重複キーが一意性制約"user_pkey"に違反しています
+  詳細: キー (emailaddress)=(hoge@com) はすでに存在します。
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2533)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2268)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:313)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:159)
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:125)
+	at org.jboss.jca.adapters.jdbc.WrappedPreparedStatement.executeUpdate(WrappedPreparedStatement.java:537)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.executeDirectNoSelect(DatabaseAccessor.java:898)
+	... 145 more
+2020/05/06 17:25:09.435 [default task-2] INFO  log.ActionLoggingInterceptor#around application.LoginBean#viewAction 開始
+2020/05/06 17:25:09.450 [default task-2] INFO  log.ActionLoggingInterceptor#around application.LoginBean#viewAction 終了
+2020/05/06 17:25:20.412 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 開始
+2020/05/06 17:25:20.502 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user WHERE ( emailaddress = ? and password = ? ) 
+2020/05/06 17:25:20.505 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: admin@hoge(String), admin(String)
+2020/05/06 17:25:20.519 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 1
+2020/05/06 17:25:20.520 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, role from public.role WHERE ( emailaddress = ? ) 
+2020/05/06 17:25:20.520 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: admin@hoge(String)
+2020/05/06 17:25:20.521 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 1
+2020/05/06 17:25:20.525 [default task-1] INFO  sample-webapp-jsf application.LoginBean#authenticate 認証ステータス：SEND_CONTINUE
+2020/05/06 17:25:20.534 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 終了
+2020/05/06 17:25:20.535 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 開始
+2020/05/06 17:25:20.535 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 終了
+2020/05/06 17:25:20.537 [default task-2] ERROR correctSecretKeyValue = 7PnM3kJvwBKAnLWWjQb6isn3zqBV9%2BWJWNks19A%3D incomingSecretKeyValue = mHhx33AowbdwZP8Rkvpq5j0BY9JI%2Bg7xa4BUaX4%3D
+2020/05/06 17:29:45.468 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/06 17:29:46.745 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/06 17:29:52.677 [default task-2] INFO  log.ActionLoggingInterceptor#around application.LoginBean#viewAction 開始
+2020/05/06 17:29:52.680 [default task-2] INFO  log.ActionLoggingInterceptor#around application.LoginBean#viewAction 終了
+2020/05/06 17:30:02.129 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 開始
+2020/05/06 17:30:02.704 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user WHERE ( emailaddress = ? and password = ? ) 
+2020/05/06 17:30:02.721 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: user@hoge(String), user(String)
+2020/05/06 17:30:02.759 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 1
+2020/05/06 17:30:02.764 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, role from public.role WHERE ( emailaddress = ? ) 
+2020/05/06 17:30:02.765 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: user@hoge(String)
+2020/05/06 17:30:02.768 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 1
+2020/05/06 17:30:02.788 [default task-1] INFO  sample-webapp-jsf application.LoginBean#authenticate 認証ステータス：SEND_CONTINUE
+2020/05/06 17:30:02.824 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 終了
+2020/05/06 17:30:02.825 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 開始
+2020/05/06 17:30:02.826 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 終了
+2020/05/06 17:34:13.417 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/06 17:34:14.604 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/06 17:34:15.700 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#viewAction 開始
+2020/05/06 17:34:15.704 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#viewAction 終了
+2020/05/06 17:34:25.570 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 開始
+2020/05/06 17:34:26.059 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user WHERE ( emailaddress = ? and password = ? ) 
+2020/05/06 17:34:26.072 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: admin@hoge(String), admin(String)
+2020/05/06 17:34:26.106 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 1
+2020/05/06 17:34:26.110 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, role from public.role WHERE ( emailaddress = ? ) 
+2020/05/06 17:34:26.111 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: admin@hoge(String)
+2020/05/06 17:34:26.113 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 1
+2020/05/06 17:34:26.131 [default task-1] INFO  sample-webapp-jsf application.LoginBean#authenticate 認証ステータス：SEND_CONTINUE
+2020/05/06 17:34:26.165 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 終了
+2020/05/06 17:34:26.166 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 開始
+2020/05/06 17:34:26.166 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 終了
+2020/05/06 17:34:32.878 [default task-1] INFO  log.ActionLoggingInterceptor#around application.TopBean#goSignupPage 開始
+2020/05/06 17:34:32.879 [default task-1] INFO  log.ActionLoggingInterceptor#around application.TopBean#goSignupPage 終了
+2020/05/06 17:34:35.371 [default task-1] INFO  log.ActionLoggingInterceptor#around application.TopBean#goSignupPage 開始
+2020/05/06 17:34:35.375 [default task-1] INFO  log.ActionLoggingInterceptor#around application.TopBean#goSignupPage 終了
+2020/05/06 17:34:38.190 [default task-2] INFO  log.ActionLoggingInterceptor#around application.TopBean#goSignupPage 開始
+2020/05/06 17:34:38.191 [default task-2] INFO  log.ActionLoggingInterceptor#around application.TopBean#goSignupPage 終了
+2020/05/06 17:34:40.653 [default task-1] INFO  log.ActionLoggingInterceptor#around application.TopBean#goSignupPage 開始
+2020/05/06 17:34:40.654 [default task-1] INFO  log.ActionLoggingInterceptor#around application.TopBean#goSignupPage 終了
+2020/05/06 17:34:42.846 [default task-1] INFO  log.ActionLoggingInterceptor#around application.TopBean#goSignupPage 開始
+2020/05/06 17:34:42.847 [default task-1] INFO  log.ActionLoggingInterceptor#around application.TopBean#goSignupPage 終了
+2020/05/06 17:36:19.243 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/06 17:36:20.440 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/06 17:36:29.612 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#viewAction 開始
+2020/05/06 17:36:29.615 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#viewAction 終了
+2020/05/06 17:36:37.434 [default task-2] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 開始
+2020/05/06 17:36:37.982 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user WHERE ( emailaddress = ? and password = ? ) 
+2020/05/06 17:36:38.002 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: admin@hoge(String), admin(String)
+2020/05/06 17:36:38.071 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 1
+2020/05/06 17:36:38.077 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, role from public.role WHERE ( emailaddress = ? ) 
+2020/05/06 17:36:38.079 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: admin@hoge(String)
+2020/05/06 17:36:38.080 [default task-2] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 1
+2020/05/06 17:36:38.107 [default task-2] INFO  sample-webapp-jsf application.LoginBean#authenticate 認証ステータス：SEND_CONTINUE
+2020/05/06 17:36:38.147 [default task-2] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 終了
+2020/05/06 17:36:38.148 [default task-2] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 開始
+2020/05/06 17:36:38.149 [default task-2] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 終了
+2020/05/06 17:37:21.213 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/06 17:37:22.430 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/06 17:37:29.389 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#viewAction 開始
+2020/05/06 17:37:29.392 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#viewAction 終了
+2020/05/06 17:37:36.983 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 開始
+2020/05/06 17:37:37.477 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user WHERE ( emailaddress = ? and password = ? ) 
+2020/05/06 17:37:37.491 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: admin@hoge(String), admin(String)
+2020/05/06 17:37:37.504 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 1
+2020/05/06 17:37:37.508 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, role from public.role WHERE ( emailaddress = ? ) 
+2020/05/06 17:37:37.509 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: admin@hoge(String)
+2020/05/06 17:37:37.510 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 1
+2020/05/06 17:37:37.535 [default task-1] INFO  sample-webapp-jsf application.LoginBean#authenticate 認証ステータス：SUCCESS
+2020/05/06 17:37:37.536 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 終了
+2020/05/06 17:37:37.536 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 開始
+2020/05/06 17:37:37.538 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 終了
+2020/05/06 17:38:28.179 [default task-4] INFO  log.ActionLoggingInterceptor#around application.TopBean#goSignupPage 開始
+2020/05/06 17:38:28.180 [default task-4] INFO  log.ActionLoggingInterceptor#around application.TopBean#goSignupPage 終了
+2020/05/06 17:39:06.450 [default task-1] INFO  log.ActionLoggingInterceptor#around application.TopBean#goSignupPage 開始
+2020/05/06 17:39:06.451 [default task-1] INFO  log.ActionLoggingInterceptor#around application.TopBean#goSignupPage 終了
+2020/05/06 17:40:22.007 [default task-4] INFO  log.ActionLoggingInterceptor#around application.TopBean#goSignupPage 開始
+2020/05/06 17:40:22.008 [default task-4] INFO  log.ActionLoggingInterceptor#around application.TopBean#goSignupPage 終了
+2020/05/06 17:42:39.994 [default task-3] INFO  log.ActionLoggingInterceptor#around application.TopBean#goSignupPage 開始
+2020/05/06 17:42:39.995 [default task-3] INFO  log.ActionLoggingInterceptor#around application.TopBean#goSignupPage 終了
+2020/05/06 17:45:51.010 [default task-3] INFO  log.ActionLoggingInterceptor#around application.TopBean#goSignupPage 開始
+2020/05/06 17:45:51.010 [default task-3] INFO  log.ActionLoggingInterceptor#around application.TopBean#goSignupPage 終了
+2020/05/06 18:00:06.350 [default task-9] INFO  log.ActionLoggingInterceptor#around application.TopBean#goSignupPage 開始
+2020/05/06 18:00:06.351 [default task-9] INFO  log.ActionLoggingInterceptor#around application.TopBean#goSignupPage 終了
+2020/05/06 18:00:20.778 [default task-4] INFO  log.ActionLoggingInterceptor#around application.TopBean#goSignupPage 開始
+2020/05/06 18:00:20.779 [default task-4] INFO  log.ActionLoggingInterceptor#around application.TopBean#goSignupPage 終了
+2020/05/06 18:24:26.461 [default task-11] INFO  log.ActionLoggingInterceptor#around application.TopBean#goRestClientPage 開始
+2020/05/06 18:24:26.465 [default task-11] INFO  log.ActionLoggingInterceptor#around application.TopBean#goRestClientPage 終了
+2020/05/06 18:27:03.505 [default task-13] INFO  log.ActionLoggingInterceptor#around application.TopBean#goSignupPage 開始
+2020/05/06 18:27:03.506 [default task-13] INFO  log.ActionLoggingInterceptor#around application.TopBean#goSignupPage 終了
+2020/05/06 18:27:39.298 [default task-13] INFO  log.ActionLoggingInterceptor#around application.SignupBean#signupUserWithJpa 開始
+2020/05/06 18:27:50.080 [default task-11] DEBUG mode.TestMode#switchMode テストモードを切り替えたよ：true
+2020/05/06 18:28:00.224 [default task-13] DEBUG mode.TestMode#setRollbackOnlyIfTesMode ロールバック
+2020/05/06 18:28:00.225 [default task-13] INFO  log.ActionLoggingInterceptor#around application.SignupBean#signupUserWithJpa 終了
+2020/05/06 18:28:16.040 [default task-13] INFO  log.ActionLoggingInterceptor#around application.SignupBean#signupUserWithJpa 開始
+2020/05/06 18:28:41.361 [default task-13] DEBUG mode.TestMode#setRollbackOnlyIfTesMode ロールバック
+2020/05/06 18:28:41.362 [default task-13] INFO  log.ActionLoggingInterceptor#around application.SignupBean#signupUserWithJpa 終了

@@ -16,7 +16,7 @@
     </lifecycle>
 
     <!-- GETに対するトークンチェック対象のページ（正規表現は使えない） -->
-    <!-- <protected-views> -->
-    <!-- <url-pattern>/signup.xhtml</url-pattern> -->
-    <!-- </protected-views> -->
+    <protected-views>
+        <url-pattern>/application/signup.xhtml</url-pattern>
+    </protected-views>
 </faces-config>
