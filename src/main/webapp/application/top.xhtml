@@ -50,17 +50,12 @@
 
         <br />
 
-        <h:panelGrid columns="3">
-            <h:commandButton value="ユーザ登録" action="#{topBean.goSignupPage()}"
-                rendered="#{request.isUserInRole('admin')}">
+        <h:panelGrid columns="2">
+            <h:commandButton value="ユーザ登録" action="#{topBean.goSignupPage()}" rendered="#{request.isUserInRole('admin')}">
                 <o:skipValidators />
             </h:commandButton>
 
-            <h:commandButton value="管理者限定" action="#{topBean.allowdAdminOnlyt()}">
-                <o:skipValidators />
-            </h:commandButton>
-
-            <h:commandButton value="ログアウト" action="#{commonBean.logout()}">
+            <h:commandButton value="RESTクライアント" action="#{topBean.goRestClientPage()}">
                 <o:skipValidators />
             </h:commandButton>
         </h:panelGrid>

@@ -10,7 +10,6 @@
 <ui:composition template="../template/template.xhtml">
 
     <ui:define name="title">ユーザー登録</ui:define>
-
     <ui:define name="content">
 
         <h:panelGrid columns="3">
@@ -40,14 +39,6 @@
                 <o:skipValidators />
             </h:commandButton>
         </h:panelGrid>
-
-        <h:commandButton value="戻る" onclick="history.back(-1);return false;">
-            <o:skipValidators />
-        </h:commandButton>
-
-        <h:commandButton value="ログアウト" action="#{commonBean.logout()}">
-            <o:skipValidators />
-        </h:commandButton>
 
     </ui:define>
 </ui:composition>
