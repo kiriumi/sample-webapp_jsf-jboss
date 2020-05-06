@@ -22,7 +22,6 @@ import domain.UserService;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import security.LoginLogout;
-import validation.Auth;
 import validation.AuthGroup;
 
 /*
@@ -66,8 +65,17 @@ import validation.AuthGroup;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @FacesConfig
-@Auth(emailAddress = "emailAddress", password = "password")
+//@Auth(emailAddress = "emailAddress", password = "password")
 public class LoginBean extends BaseBackingBean {
+
+    @Inject
+    private FacesContext facesContext;
+
+    @Inject
+    private ExternalContext externalContext;
+
+    @Inject
+    private SecurityContext securityContext;
 
     @NotBlank(groups = AuthGroup.class)
     @Email
@@ -81,17 +89,6 @@ public class LoginBean extends BaseBackingBean {
     @Inject
     UserService userService;
 
-    @Inject
-    private SecurityContext securityContext;
-
-    @Inject
-    private ExternalContext externalContext;
-
-    @Inject
-    private FacesContext facesContext;
-
-    private boolean authed = false;
-
     //	/**
     //	 * Springでなければ、メソッドバリデーションが行える
     //	 * @param emailAddress
@@ -100,6 +97,25 @@ public class LoginBean extends BaseBackingBean {
     //	@AuthSpring
     //	public void auth(final String emailAddress, final String password) {
     //	};
+
+    @LoginLogout
+    public String viewAction() {
+        return login();
+    }
+
+    @LoginLogout
+    public void authenticate(final ActionEvent event) throws Exception {
+
+        AuthenticationStatus authStatus = getAuthStatus();
+
+        getLogger().info("anything", "認証ステータス：" + authStatus);
+
+        if (authStatus.equals(AuthenticationStatus.SUCCESS)) {
+            return;
+        }
+
+        getMessageService().setAppMessageById(FacesMessage.SEVERITY_ERROR, "error.message.auth");
+    }
 
     private AuthenticationStatus getAuthStatus() {
 
@@ -111,24 +127,10 @@ public class LoginBean extends BaseBackingBean {
     }
 
     @LoginLogout
-    public void authenticate(final ActionEvent event) throws Exception {
-
-        AuthenticationStatus authStatus = getAuthStatus();
-
-        getLogger().info("anything", "認証ステータス：" + authStatus);
-
-        if (authStatus.equals(AuthenticationStatus.SUCCESS)) {
-            this.authed = true;
-            return;
-        }
-
-        getMessageService().setAppMessageById(FacesMessage.SEVERITY_ERROR, "error.message.auth");
-    }
-
-    @LoginLogout
     public String login() {
 
-        if (authed) {
+        HttpServletRequest request = (HttpServletRequest) externalContext.getRequest();
+        if (request.getUserPrincipal() != null) {
             getFlash().put("loginSccessMessage", "ログインできたよ");
             return redirect("top");
         }
