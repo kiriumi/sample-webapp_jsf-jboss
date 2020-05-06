@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core"
-    xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-    xmlns:p="http://primefaces.org/ui" xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
-    xmlns:o="http://omnifaces.org/ui" xmlns:of="http://omnifaces.org/functions"
-    xmlns:b="http://bootsfaces.net/ui">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:p="http://primefaces.org/ui"
+    xmlns:pt="http://xmlns.jcp.org/jsf/passthrough" xmlns:o="http://omnifaces.org/ui" xmlns:of="http://omnifaces.org/functions" xmlns:b="http://bootsfaces.net/ui">
 
 <h:head>
     <title>ログイン</title>
@@ -16,34 +13,224 @@
     </f:metadata>
     <h:form>
 
-        <h:panelGrid columns="3">
+        <div class='fixed-top'>
+
+            <nav class="navbar navbar-expand-sm navbar-dark bg-dark"> <a href="#" class="navbar-brand">ブランド</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navmenu1" aria-controls="navmenu1" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navmenu1">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link" href="#">Menu#1</a>
+                    <a class="nav-item nav-link" href="#">Menu#2</a>
+                    <a class="nav-item nav-link" href="#">Menu#3</a>
+                </div>
+            </div>
+            <input type="text" class="form-control" pracleholder="検索"/>
+            </nav>
+        </div>
+
+
+        <!-- ナビゲーション -->
+        <nav class="nav" data-spy="affix"> <a class="nav-link active" href="#">Active</a> <a class="nav-link" href="#">Link</a> <a class="nav-link" href="#">Link</a> <a class="nav-link disabled"
+            href="#">Disabled</a> </nav>
+
+
+        <!-- パンくずリスト -->
+        <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">親</a></li>
+            <li class="breadcrumb-item"><a href="#">子</a></li>
+            <li class="breadcrumb-item active" aria-current="page">孫</li>
+            <!-- active:現在表示している箇所のスタイル，aria-current：現在表示している箇所 -->
+        </ol>
+        </nav>
+
+        <h:messages class="alert-warning" />
+
+        <div class="container-fluid">
 
             <!-- 複合コンポーネントを利用（ラベルの値が表示されない＋プレースホルダーも表示されない） -->
             <!-- <my:labelText id="emailAddressComposite" lavel="Emailアドレス" value="#{loginBean.emailAddress}" pt:placeholder="hoge@com"/> -->
 
-            <h:outputLabel value="Emailアドレス" pt:type="email" />
-            <h:inputText id="emailAddress" value="#{loginBean.emailAddress}" pt:placeholder="hoge@com" />
-            <h:message for="emailAddress" />
+            <h:outputLabel for="emailAddress" value="Emailアドレス" pt:type="email" />
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">@</span>
+                </div>
+                <h:inputText id="emailAddress" class="form-control" value="#{loginBean.emailAddress}" pt:placeholder="hoge@com" />
+            </div>
+            <h:message class="alert alert-danger" for="emailAddress" />
 
-            <h:outputLabel value="Password" />
-            <h:inputSecret id="password" value="#{loginBean.password}" />
-            <h:message for="password" />
+
+            <div class="form-group">
+                <h:outputLabel for="password" value="パスワード" />
+                <h:inputSecret class="form-control" id="password" value="#{loginBean.password}" />
+                <h:message class="alert alert-danger" for="password" />
+            </div>
 
             <!-- actionLister：actionより前に実行される -->
-            <h:commandButton value="ログイン" action="#{loginBean.login()}"
-                actionListener="#{loginBean.authenticate}">
+            <h:commandButton class="btn btn-primary" value="ログイン" action="#{loginBean.login()}" actionListener="#{loginBean.authenticate}">
                 <o:validateBean validationGroups="validation.AuthGroup" />
             </h:commandButton>
 
-        </h:panelGrid>
+        </div>
 
-        <b:container>
-            <b:row>
-                <b:column>
-                    <h1>Hello,BootsFaces!</h1>
-                </b:column>
-            </b:row>
-        </b:container>
+        <div class="container-fluid">
+            <h:panelGrid columns="2">
+                おしらせ<span class="badge badge-info">New</span>
+            </h:panelGrid>
+        </div>
+
+
+
+        <!-- モーダルのトリガーボタン -->
+        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#confirmModal">確認する？</button>
+
+        <!-- モーダル（確認ダイアログ） -->
+        <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">確認ダイアログだよ</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        登録する？
+                        <div class="spinner-border" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+                        <button type="button" class="btn btn-primary">登録</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <!-- 12分割を超えると改行して下に来る -->
+                <div class="col-6">col-6</div>
+                <div class="col-3">col-3</div>
+                <div class="col-3">col-3</div>
+                <div class="col-3">col-3</div>
+            </div>
+        </div>
+
+        <div class="container-fluid" style="background-color: gray;">
+            <div class="row">
+                <!-- sm：スマホ以上は横並び -->
+                <!-- スマホサイズは縦並びになる -->
+                <div class="col-sm">A</div>
+                <div class="col-sm">B</div>
+                <div class="col-sm">C</div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <!-- md：タブレット以上のサイズは2,8,2 -->
+                <!-- sm：スマホ以上は4,4,4 -->
+                <!-- sm：それ以下は縦並び -->
+                <div class="col-sm-4 col-md-2">A</div>
+                <div class="col-sm-4 col-md-8">B</div>
+                <div class="col-sm-4 col-md-2">C</div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <!-- md：タブレット以上のサイズは2,8,2 -->
+                <!-- sm：スマホ以上は4,4,4 -->
+                <!-- sm：それ以下は縦並び -->
+                <div class="my-box col-3">col-3</div>
+                <div class="my-box col-auto">col-auto</div>
+                <div class="my-box col-3">col-3</div>
+            </div>
+        </div>
+
+        <div>
+            <div class="d-flex flex-row">
+                <!-- 並び方：左→右 -->
+                <div class="my-box w-25">Flex 1</div>
+                <div class="my-box w-25">Flex 2</div>
+                <div class="my-box w-25">Flex 3</div>
+            </div>
+
+            <div class="d-flex flex-row-reverse">
+                <!-- 並び方：右→左 -->
+                <div class="my-box w-25">Flex 1</div>
+                <div class="my-box w-25">Flex 2</div>
+                <div class="my-box w-25">Flex 3</div>
+            </div>
+
+            <div class="d-flex flex-column">
+                <!-- 並び方：上→下 -->
+
+                <div class="my-box w-25">Flex 1</div>
+                <div class="my-box w-25">Flex 2</div>
+                <div class="my-box w-25">Flex 3</div>
+            </div>
+
+            <div class="d-flex flex-column-reverse">
+                <!-- 並び方：下→右 -->
+                <div class="my-box w-25">Flex 1</div>
+                <div class="my-box w-25">Flex 2</div>
+                <div class="my-box w-25">Flex 3</div>
+            </div>
+        </div>
+
+        <div class="card" style="width: 18rem;">
+            <h:graphicImage library="img" name="sayo.png" />
+            <div class="card-body">
+                <h5 class="card-title">カードのタイトル</h5>
+                <p class="card-text">以下のテキストを追加のコンテンツへの自然な導入としてサポート。 カードのコンテンツ カードのコンテンツ</p>
+                <a href="#" class="btn btn-primary">ボタン</a>
+            </div>
+        </div>
+
+        カルーセル（画像が自動的に切り替わる）
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+            <!-- スライドさせる画像の設定 -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <h:graphicImage library="img" name="yukina.png" />
+                </div>
+                <!-- /.carousel-item -->
+                <div class="carousel-item">
+                    <h:graphicImage library="img" name="sayo.png" />
+                </div>
+                <!-- /.carousel-item -->
+                <div class="carousel-item">
+                    <h:graphicImage library="img" name="lisa.png" />
+                </div>
+                <div class="carousel-item">
+                    <h:graphicImage library="img" name="ako.png" />
+                </div>
+                <div class="carousel-item">
+                    <h:graphicImage library="img" name="rinko.png" />
+                </div>
+                <!-- /.carousel-item -->
+            </div>
+            <!-- /.carousel-inner -->
+        </div>
+        <!-- /.carousel -->
+
+
+        画面の横幅：<span id="width" />px
+
+        <ui:include src="./template/bootstrap.xhtml" />
+
+        <script>
+                                    $(window).resize(function() {
+                                        $("#width").html($(window).width());
+                                    });
+                                </script>
 
     </h:form>
 </h:body>

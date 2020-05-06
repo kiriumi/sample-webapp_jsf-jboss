@@ -8,7 +8,7 @@
     xmlns:b="http://bootsfaces.net/ui">
 
 <h:head>
-    <link rel="stylesheet" type="text/css" href="../css/base.css" />
+    <h:outputStylesheet library = "css" name = "base.css"  />
     <title><ui:insert name="title" /></title>
 </h:head>
 <h:body>
@@ -29,9 +29,10 @@
 
     </h:form>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous" />
-    <script type="text/javascript" src="../js/back-page.js" />
-    <script type="text/javascript" src="../js/re-submit-preventer.js" />
+    <ui:include src="bootstrap.xhtml" />
+
+    <h:outputScript library="js" name="back-page.js" />
+    <h:outputScript library="js" name="re-submit-preventer.js" />
 </h:body>
 </html>
 

@@ -12,10 +12,10 @@
         <param-value>true</param-value>
     </context-param>
 
-    <context-param>
-        <param-name>BootsFaces_THEME</param-name>
-        <param-value>cyborg</param-value>
-    </context-param>
+    <!-- <context-param> -->
+    <!-- <param-name>BootsFaces_THEME</param-name> -->
+    <!-- <param-value>cyborg</param-value> -->
+    <!-- </context-param> -->
 
     <!-- RESTで認可処理を行う場合、必要 -->
     <context-param>

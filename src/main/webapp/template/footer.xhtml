@@ -9,10 +9,10 @@
 
 <ui:composition>
 
-    <h:commandButton value="戻る" onclick="return backPage()">
+    <h:commandButton class="btn btn-secondary" value="戻る" onclick="return backPage()">
         <o:skipValidators />
     </h:commandButton>
-    <h:commandButton value="ログアウト" action="#{commonBean.logout()}">
+    <h:commandButton class="btn btn-warning" value="ログアウト" action="#{commonBean.logout()}">
         <o:skipValidators />
     </h:commandButton>
 
