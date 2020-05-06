@@ -568,3 +568,181 @@ Caused by: javax.ws.rs.RedirectionException: HTTP 302 Found
 2020/05/06 11:39:02.293 [default task-1] INFO  application.LoginBean#login 終了
 2020/05/06 11:39:08.036 [default task-1] INFO  application.TopBean#goRestClientPage 開始
 2020/05/06 11:39:08.037 [default task-1] INFO  application.TopBean#goRestClientPage 終了
+2020/05/06 12:13:20.401 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/06 12:13:21.672 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/06 12:13:22.559 [default task-2] INFO  application.LoginBean#viewAction 開始
+2020/05/06 12:13:22.562 [default task-2] INFO  application.LoginBean#viewAction 終了
+2020/05/06 12:13:25.088 [default task-1] INFO  application.LoginBean#viewAction 開始
+2020/05/06 12:13:25.090 [default task-1] INFO  application.LoginBean#viewAction 終了
+2020/05/06 12:13:32.933 [default task-2] INFO  application.LoginBean#authenticate 開始
+2020/05/06 12:13:33.485 [default task-2] INFO  認証ステータス：SEND_CONTINUE
+2020/05/06 12:13:33.515 [default task-2] INFO  application.LoginBean#authenticate 終了
+2020/05/06 12:13:33.516 [default task-2] INFO  application.LoginBean#login 開始
+2020/05/06 12:13:33.516 [default task-2] INFO  application.LoginBean#login 終了
+2020/05/06 12:13:36.706 [default task-2] INFO  application.TopBean#goRestClientPage 開始
+2020/05/06 12:13:36.707 [default task-2] INFO  application.TopBean#goRestClientPage 終了
+2020/05/06 12:13:41.809 [default task-1] INFO  application.TopBean#goRestClientPage 開始
+2020/05/06 12:13:41.810 [default task-1] INFO  application.TopBean#goRestClientPage 終了
+2020/05/06 12:13:54.555 [default task-1] INFO  application.TopBean#goRestClientPage 開始
+2020/05/06 12:13:54.556 [default task-1] INFO  application.TopBean#goRestClientPage 終了
+2020/05/06 14:57:28.785 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/06 14:57:30.265 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/06 14:57:51.406 [default task-1] INFO  application.LoginBean#viewAction 開始
+2020/05/06 14:57:51.409 [default task-1] INFO  application.LoginBean#viewAction 終了
+2020/05/06 14:58:04.664 [default task-1] INFO  application.LoginBean#authenticate 開始
+2020/05/06 14:58:05.321 [default task-1] INFO  認証ステータス：SEND_CONTINUE
+2020/05/06 14:58:05.354 [default task-1] INFO  application.LoginBean#authenticate 終了
+2020/05/06 14:58:05.355 [default task-1] INFO  application.LoginBean#login 開始
+2020/05/06 14:58:05.356 [default task-1] INFO  application.LoginBean#login 終了
+2020/05/06 15:08:25.056 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/06 15:08:26.372 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/06 15:08:42.492 [default task-2] INFO  application.LoginBean#viewAction 開始
+2020/05/06 15:08:42.494 [default task-2] INFO  application.LoginBean#viewAction 終了
+2020/05/06 15:08:53.308 [default task-2] INFO  application.LoginBean#authenticate 開始
+2020/05/06 15:08:53.906 [default task-2] INFO  認証ステータス：SEND_CONTINUE
+2020/05/06 15:08:53.951 [default task-2] INFO  application.LoginBean#authenticate 終了
+2020/05/06 15:08:53.953 [default task-2] INFO  application.LoginBean#login 開始
+2020/05/06 15:08:53.955 [default task-2] INFO  application.LoginBean#login 終了
+2020/05/06 15:09:40.700 [default task-1] INFO  application.TopBean#goRestClientPage 開始
+2020/05/06 15:09:40.701 [default task-1] INFO  application.TopBean#goRestClientPage 終了
+2020/05/06 15:10:33.226 [default task-2] INFO  application.LoginBean#viewAction 開始
+2020/05/06 15:10:33.227 [default task-2] INFO  application.LoginBean#viewAction 終了
+2020/05/06 15:10:39.286 [default task-2] INFO  application.LoginBean#authenticate 開始
+2020/05/06 15:10:39.293 [default task-2] INFO  認証ステータス：SUCCESS
+2020/05/06 15:10:39.294 [default task-2] INFO  application.LoginBean#authenticate 終了
+2020/05/06 15:10:39.294 [default task-2] INFO  application.LoginBean#login 開始
+2020/05/06 15:10:39.296 [default task-2] INFO  application.LoginBean#login 終了
+2020/05/06 15:12:22.085 [default task-2] INFO  application.TopBean#goRestClientPage 開始
+2020/05/06 15:12:22.086 [default task-2] INFO  application.TopBean#goRestClientPage 終了
+2020/05/06 15:15:44.022 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/06 15:15:45.286 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/06 15:15:58.774 [default task-1] INFO  application.LoginBean#viewAction 開始
+2020/05/06 15:15:58.776 [default task-1] INFO  application.LoginBean#viewAction 終了
+2020/05/06 15:16:07.104 [default task-1] INFO  application.LoginBean#authenticate 開始
+2020/05/06 15:16:07.729 [default task-1] INFO  認証ステータス：SEND_CONTINUE
+2020/05/06 15:16:07.769 [default task-1] INFO  application.LoginBean#authenticate 終了
+2020/05/06 15:16:07.771 [default task-1] INFO  application.LoginBean#login 開始
+2020/05/06 15:16:07.772 [default task-1] INFO  application.LoginBean#login 終了
+2020/05/06 15:17:07.002 [default task-3] INFO  application.TopBean#goRestClientPage 開始
+2020/05/06 15:17:07.003 [default task-3] INFO  application.TopBean#goRestClientPage 終了
+2020/05/06 15:20:08.753 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/06 15:20:10.025 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/06 15:20:24.690 [default task-1] INFO  application.LoginBean#viewAction 開始
+2020/05/06 15:20:24.693 [default task-1] INFO  application.LoginBean#viewAction 終了
+2020/05/06 15:20:33.383 [default task-2] INFO  application.LoginBean#authenticate 開始
+2020/05/06 15:20:34.181 [default task-2] INFO  認証ステータス：SEND_CONTINUE
+2020/05/06 15:20:34.220 [default task-2] INFO  application.LoginBean#authenticate 終了
+2020/05/06 15:20:34.221 [default task-2] INFO  application.LoginBean#login 開始
+2020/05/06 15:20:34.222 [default task-2] INFO  application.LoginBean#login 終了
+2020/05/06 15:20:59.206 [default task-1] INFO  application.TopBean#goRestClientPage 開始
+2020/05/06 15:20:59.207 [default task-1] INFO  application.TopBean#goRestClientPage 終了
+2020/05/06 15:23:08.805 [default task-2] INFO  application.LoginBean#viewAction 開始
+2020/05/06 15:23:08.805 [default task-2] INFO  application.LoginBean#viewAction 終了
+2020/05/06 15:23:13.910 [default task-2] INFO  application.LoginBean#authenticate 開始
+2020/05/06 15:23:13.920 [default task-2] INFO  認証ステータス：SEND_FAILURE
+2020/05/06 15:23:13.921 [default task-2] INFO  application.LoginBean#authenticate 終了
+2020/05/06 15:23:13.922 [default task-2] INFO  application.LoginBean#login 開始
+2020/05/06 15:23:13.922 [default task-2] INFO  application.LoginBean#login 終了
+2020/05/06 15:23:16.826 [default task-3] INFO  application.LoginBean#authenticate 開始
+2020/05/06 15:23:16.831 [default task-3] INFO  認証ステータス：SEND_FAILURE
+2020/05/06 15:23:16.833 [default task-3] INFO  application.LoginBean#authenticate 終了
+2020/05/06 15:23:16.833 [default task-3] INFO  application.LoginBean#login 開始
+2020/05/06 15:23:16.834 [default task-3] INFO  application.LoginBean#login 終了
+2020/05/06 15:23:20.129 [default task-2] INFO  application.LoginBean#authenticate 開始
+2020/05/06 15:23:20.140 [default task-2] INFO  認証ステータス：SUCCESS
+2020/05/06 15:23:20.140 [default task-2] INFO  application.LoginBean#authenticate 終了
+2020/05/06 15:23:20.141 [default task-2] INFO  application.LoginBean#login 開始
+2020/05/06 15:23:20.143 [default task-2] INFO  application.LoginBean#login 終了
+2020/05/06 15:23:30.011 [default task-4] INFO  application.TopBean#goRestClientPage 開始
+2020/05/06 15:23:30.013 [default task-4] INFO  application.TopBean#goRestClientPage 終了
+2020/05/06 15:25:21.203 [default task-4] INFO  application.LoginBean#viewAction 開始
+2020/05/06 15:25:21.204 [default task-4] INFO  application.LoginBean#viewAction 終了
+2020/05/06 15:25:26.905 [default task-4] INFO  application.LoginBean#authenticate 開始
+2020/05/06 15:25:26.922 [default task-4] INFO  認証ステータス：SUCCESS
+2020/05/06 15:25:26.922 [default task-4] INFO  application.LoginBean#authenticate 終了
+2020/05/06 15:25:26.923 [default task-4] INFO  application.LoginBean#login 開始
+2020/05/06 15:25:26.924 [default task-4] INFO  application.LoginBean#login 終了
+2020/05/06 15:25:36.125 [default task-7] INFO  application.TopBean#goRestClientPage 開始
+2020/05/06 15:25:36.126 [default task-7] INFO  application.TopBean#goRestClientPage 終了
+2020/05/06 15:26:17.045 [default task-7] INFO  application.TopBean#goRestClientPage 開始
+2020/05/06 15:26:17.046 [default task-7] INFO  application.TopBean#goRestClientPage 終了
+2020/05/06 15:39:05.793 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/06 15:39:07.096 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/06 15:40:24.845 [default task-2] INFO  application.LoginBean#viewAction 開始
+2020/05/06 15:40:24.848 [default task-2] INFO  application.LoginBean#viewAction 終了
+2020/05/06 15:40:30.457 [default task-2] INFO  application.LoginBean#authenticate 開始
+2020/05/06 15:40:31.035 [default task-2] INFO  認証ステータス：SEND_CONTINUE
+2020/05/06 15:40:31.073 [default task-2] INFO  application.LoginBean#authenticate 終了
+2020/05/06 15:40:31.074 [default task-2] INFO  application.LoginBean#login 開始
+2020/05/06 15:40:31.075 [default task-2] INFO  application.LoginBean#login 終了
+2020/05/06 15:40:33.084 [default task-3] INFO  application.TopBean#goRestClientPage 開始
+2020/05/06 15:40:33.085 [default task-3] INFO  application.TopBean#goRestClientPage 終了
+2020/05/06 15:40:36.805 [default task-1] INFO  application.TopBean#goRestClientPage 開始
+2020/05/06 15:40:36.806 [default task-1] INFO  application.TopBean#goRestClientPage 終了
+2020/05/06 15:40:59.539 [default task-3] INFO  application.TopBean#goRestClientPage 開始
+2020/05/06 15:40:59.540 [default task-3] INFO  application.TopBean#goRestClientPage 終了
+2020/05/06 15:41:02.184 [default task-3] INFO  application.TopBean#goRestClientPage 開始
+2020/05/06 15:41:02.184 [default task-3] INFO  application.TopBean#goRestClientPage 終了
+2020/05/06 15:41:11.489 [default task-1] INFO  application.TopBean#goRestClientPage 開始
+2020/05/06 15:41:11.490 [default task-1] INFO  application.TopBean#goRestClientPage 終了
+2020/05/06 15:41:23.091 [default task-3] INFO  application.TopBean#goRestClientPage 開始
+2020/05/06 15:41:23.093 [default task-3] INFO  application.TopBean#goRestClientPage 終了
+2020/05/06 15:41:30.396 [default task-1] INFO  application.TopBean#goRestClientPage 開始
+2020/05/06 15:41:30.397 [default task-1] INFO  application.TopBean#goRestClientPage 終了
+2020/05/06 15:42:31.053 [default task-3] INFO  application.TopBean#goRestClientPage 開始
+2020/05/06 15:42:31.054 [default task-3] INFO  application.TopBean#goRestClientPage 終了
+2020/05/06 15:44:00.876 [default task-1] INFO  application.TopBean#goRestClientPage 開始
+2020/05/06 15:44:00.877 [default task-1] INFO  application.TopBean#goRestClientPage 終了
+2020/05/06 15:44:11.450 [default task-1] INFO  application.TopBean#goRestClientPage 開始
+2020/05/06 15:44:11.451 [default task-1] INFO  application.TopBean#goRestClientPage 終了
+2020/05/06 15:44:21.976 [default task-1] INFO  application.TopBean#sum 開始
+2020/05/06 15:44:21.977 [default task-1] INFO  application.TopBean#sum 終了
+2020/05/06 15:44:23.558 [default task-1] INFO  application.TopBean#goRestClientPage 開始
+2020/05/06 15:44:23.559 [default task-1] INFO  application.TopBean#goRestClientPage 終了
+2020/05/06 15:44:33.028 [default task-1] INFO  application.TopBean#goRestClientPage 開始
+2020/05/06 15:44:33.029 [default task-1] INFO  application.TopBean#goRestClientPage 終了
+2020/05/06 15:46:14.687 [default task-1] INFO  application.TopBean#goRestClientPage 開始
+2020/05/06 15:46:14.688 [default task-1] INFO  application.TopBean#goRestClientPage 終了
+2020/05/06 15:46:31.177 [default task-1] INFO  application.TopBean#goRestClientPage 開始
+2020/05/06 15:46:31.179 [default task-1] INFO  application.TopBean#goRestClientPage 終了
+2020/05/06 15:46:39.338 [default task-3] INFO  application.TopBean#goRestClientPage 開始
+2020/05/06 15:46:39.339 [default task-3] INFO  application.TopBean#goRestClientPage 終了
+2020/05/06 15:46:53.580 [default task-1] INFO  application.TopBean#goRestClientPage 開始
+2020/05/06 15:46:53.581 [default task-1] INFO  application.TopBean#goRestClientPage 終了
+2020/05/06 15:47:17.601 [default task-1] INFO  application.TopBean#sum 開始
+2020/05/06 15:47:17.602 [default task-1] INFO  application.TopBean#sum 終了
+2020/05/06 15:47:18.614 [default task-1] INFO  application.TopBean#goRestClientPage 開始
+2020/05/06 15:47:18.615 [default task-1] INFO  application.TopBean#goRestClientPage 終了
+2020/05/06 15:48:51.357 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/06 15:48:52.574 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/06 15:48:57.602 [default task-2] INFO  application.LoginBean#viewAction 開始
+2020/05/06 15:48:57.604 [default task-2] INFO  application.LoginBean#viewAction 終了
+2020/05/06 15:49:09.018 [default task-2] INFO  application.LoginBean#authenticate 開始
+2020/05/06 15:49:09.530 [default task-2] INFO  認証ステータス：SEND_CONTINUE
+2020/05/06 15:49:09.562 [default task-2] INFO  application.LoginBean#authenticate 終了
+2020/05/06 15:49:09.563 [default task-2] INFO  application.LoginBean#login 開始
+2020/05/06 15:49:09.563 [default task-2] INFO  application.LoginBean#login 終了
+2020/05/06 15:49:53.162 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/06 15:49:54.505 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/06 15:49:56.169 [default task-2] INFO  application.LoginBean#viewAction 開始
+2020/05/06 15:49:56.172 [default task-2] INFO  application.LoginBean#viewAction 終了
+2020/05/06 15:50:04.119 [default task-2] INFO  application.LoginBean#authenticate 開始
+2020/05/06 15:50:04.707 [default task-2] INFO  認証ステータス：SEND_CONTINUE
+2020/05/06 15:50:04.746 [default task-2] INFO  application.LoginBean#authenticate 終了
+2020/05/06 15:50:04.747 [default task-2] INFO  application.LoginBean#login 開始
+2020/05/06 15:50:04.748 [default task-2] INFO  application.LoginBean#login 終了
+2020/05/06 15:51:30.108 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/06 15:51:31.458 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/06 15:51:39.413 [default task-1] INFO  application.LoginBean#viewAction 開始
+2020/05/06 15:51:39.415 [default task-1] INFO  application.LoginBean#viewAction 終了
+2020/05/06 15:51:45.609 [default task-1] INFO  application.LoginBean#authenticate 開始
+2020/05/06 15:51:46.151 [default task-1] INFO  認証ステータス：SEND_CONTINUE
+2020/05/06 15:51:46.191 [default task-1] INFO  application.LoginBean#authenticate 終了
+2020/05/06 15:51:46.193 [default task-1] INFO  application.LoginBean#login 開始
+2020/05/06 15:51:46.194 [default task-1] INFO  application.LoginBean#login 終了
+2020/05/06 15:51:51.087 [default task-1] INFO  application.TopBean#goRestClientPage 開始
+2020/05/06 15:51:51.088 [default task-1] INFO  application.TopBean#goRestClientPage 終了
+2020/05/06 15:52:03.439 [default task-2] INFO  application.TopBean#goRestClientPage 開始
+2020/05/06 15:52:03.440 [default task-2] INFO  application.TopBean#goRestClientPage 終了
+2020/05/06 15:52:08.701 [default task-1] INFO  application.TopBean#goRestClientPage 開始
+2020/05/06 15:52:08.702 [default task-1] INFO  application.TopBean#goRestClientPage 終了

@@ -1,7 +1,7 @@
 function backPage() {
 
     var backCount = sessionStorage.getItem('backCount');
-    history.back(backCount);
+    history.go(backCount * -1);
     return false;
 }
 
@@ -12,16 +12,13 @@ window.onload = (event) => {
     var beforeLocation = sessionStorage.getItem('beforeLocation');
 
     if (beforeLocation == null) {
-        alert("別画面に遷移したよ");
-        backCount = -1;
+        backCount = 1;
 
     } else if (thisLocation == beforeLocation) {
-        alert("自画面に遷移したよ");
-        backCount--;
+        backCount++;
 
     } else {
-        alert("別画面に遷移したよ");
-        backCount = -1;
+        backCount = 1;
     }
 
     sessionStorage.setItem('beforeLocation', thisLocation);
