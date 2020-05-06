@@ -82,8 +82,6 @@
         <web-resource-collection>
             <web-resource-name>Application Pages</web-resource-name>
             <url-pattern>/application/*</url-pattern>
-            <url-pattern>/webresources/*</url-pattern>
-<!--             <url-pattern>/*Service</url-pattern> -->
             <!-- <http-method>GET</http-method> 記述していない場合、全てのHTTPメソッドが対象になる -->
         </web-resource-collection>
 
