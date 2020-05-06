@@ -7,7 +7,6 @@ import java.util.List;
 
 import javax.annotation.Priority;
 import javax.inject.Inject;
-import javax.security.enterprise.CallerPrincipal;
 import javax.ws.rs.ForbiddenException;
 import javax.ws.rs.Priorities;
 import javax.ws.rs.container.ContainerRequestContext;
@@ -22,6 +21,7 @@ import org.apache.commons.lang3.StringUtils;
 import domain.UserService;
 import dto.User;
 import lombok.extern.slf4j.Slf4j;
+import security.CustomPrincipal;
 
 @Provider
 @PreMatching
@@ -74,7 +74,7 @@ public class WebResourceSecurityFilter implements ContainerRequestFilter {
 
             @Override
             public Principal getUserPrincipal() {
-                return new CallerPrincipal("ユーザー名"); //new CustomPrincipal(user, roles);
+                return new CustomPrincipal(user, roles);
             }
 
             @Override
