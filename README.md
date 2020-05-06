@@ -46,7 +46,6 @@ Webアプリケーションのアーキテクチャや主要な機能を学ぶ�
 
 ## CSS
 * Bootstrap
-  * BootsFaces
 
 # 機能
 ## Webアプリ開発機能
