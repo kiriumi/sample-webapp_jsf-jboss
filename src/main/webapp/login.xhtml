@@ -5,13 +5,16 @@
     xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
     xmlns:p="http://primefaces.org/ui" xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
     xmlns:o="http://omnifaces.org/ui" xmlns:of="http://omnifaces.org/functions"
-    xmlns:b="http://bootsfaces.net/ui" xmlns:my="http://java.sun.com/jsf/composite/mycomp">
+    xmlns:b="http://bootsfaces.net/ui">
 
-<ui:composition template="template/template.xhtml">
-
-    <ui:define name="title">ログイン</ui:define>
-
-    <ui:define name="content">
+<h:head>
+    <title>ログイン</title>
+</h:head>
+<h:body>
+    <f:metadata>
+        <f:viewAction action="#{loginBean.viewAction()}" />
+    </f:metadata>
+    <h:form>
 
         <h:panelGrid columns="3">
 
@@ -42,8 +45,6 @@
             </b:row>
         </b:container>
 
-    </ui:define>
-</ui:composition>
-
+    </h:form>
+</h:body>
 </html>
-
