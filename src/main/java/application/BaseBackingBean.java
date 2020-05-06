@@ -27,7 +27,7 @@ public abstract class BaseBackingBean {
 
     /**
      * Flashを取得する
-     * ※ 画面遷移後に１度だけ値を参照できる
+     * ※ 画面遷移の１度きりだけ有効なキー：値マップ
      *
      * @return
      */

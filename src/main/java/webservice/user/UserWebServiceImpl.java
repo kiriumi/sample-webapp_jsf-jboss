@@ -1,5 +1,6 @@
 package webservice.user;
 
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.jws.WebService;
 import javax.xml.ws.BindingType;
@@ -13,18 +14,12 @@ import dto.User;
 @BindingType(SOAPBinding.SOAP12HTTP_BINDING) // 何もつけない場合は「SOAP1.1」になる
 public class UserWebServiceImpl implements UserWebService {
 
-    //    @Inject
-    //    private WebServiceContext webServiceContext;
-
     @Inject
     UserService userService;
 
+    @RolesAllowed("admin")
     @Override
     public String hello(final String name) {
-
-        //        System.out.println(webServiceContext.getUserPrincipal().getName());
-        //        System.out.println(webServiceContext.isUserInRole("admin"));
-
         return "こんちは " + name;
     }
 

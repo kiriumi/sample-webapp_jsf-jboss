@@ -82,6 +82,8 @@
         <web-resource-collection>
             <web-resource-name>Application Pages</web-resource-name>
             <url-pattern>/application/*</url-pattern>
+            <url-pattern>/webresources/*</url-pattern>
+<!--             <url-pattern>/*Service</url-pattern> -->
             <!-- <http-method>GET</http-method> 記述していない場合、全てのHTTPメソッドが対象になる -->
         </web-resource-collection>
 
@@ -104,7 +106,10 @@
     <!-- </login-config> -->
 
     <security-role>
-        <role-name>*</role-name>
+        <role-name>admin</role-name>
+    </security-role>
+    <security-role>
+        <role-name>user</role-name>
     </security-role>
 
 </web-app>
