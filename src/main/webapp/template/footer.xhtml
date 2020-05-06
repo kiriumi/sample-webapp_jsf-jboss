@@ -9,7 +9,7 @@
 
 <ui:composition>
 
-    <h:commandButton value="戻る" onclick="history.back(-1);return false;">
+    <h:commandButton value="戻る" onclick="return backPage()">
         <o:skipValidators />
     </h:commandButton>
     <h:commandButton value="ログアウト" action="#{commonBean.logout()}">
