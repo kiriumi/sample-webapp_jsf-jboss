@@ -5,7 +5,7 @@ function backPage() {
     return false;
 }
 
-window.onload = (event) => {
+$('window').on('load', function() {
 
     var backCount = sessionStorage.getItem('backCount');
     var thisLocation = location.href;
@@ -23,4 +23,4 @@ window.onload = (event) => {
 
     sessionStorage.setItem('beforeLocation', thisLocation);
     sessionStorage.setItem('backCount', backCount);
-};
+});
