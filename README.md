@@ -47,7 +47,10 @@ Webアプリケーションのアーキテクチャや主要な機能を学ぶ�
 * Gradle 4.1
 
 ## CSS
-* Bootstrap
+* Bootstrap 4
+
+# JavaScrip
+* jQuery
 
 # 機能
 ## Webアプリ開発機能
