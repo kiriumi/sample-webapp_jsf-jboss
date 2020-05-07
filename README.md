@@ -41,6 +41,7 @@ Webアプリケーションのアーキテクチャや主要な機能を学ぶ�
 * JUnit 5.x
 * Selenide
 * Mockit
+* DB Unit
 
 ## ビルド
 * Gradle 4.1
