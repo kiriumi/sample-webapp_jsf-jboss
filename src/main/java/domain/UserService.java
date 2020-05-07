@@ -99,4 +99,7 @@ public class UserService {
         entitiyManager.persist(user);
     }
 
+    public void throwNullPointerException() throws NullPointerException {
+        throw new NullPointerException("ぬるぽ");
+    }
 }
