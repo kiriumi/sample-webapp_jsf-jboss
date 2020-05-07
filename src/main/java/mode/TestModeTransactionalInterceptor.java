@@ -22,7 +22,7 @@ public class TestModeTransactionalInterceptor {
 
         Object result = context.proceed();
 
-        testMode.setRollbackOnlyIfTesMode();
+        testMode.setRollbackOnlyIfTestMode();
 
         return result;
     }
