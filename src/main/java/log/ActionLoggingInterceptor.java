@@ -9,6 +9,7 @@ import javax.interceptor.AroundInvoke;
 import javax.interceptor.Interceptor;
 import javax.interceptor.InvocationContext;
 
+import application.BaseBackingBean;
 import lombok.extern.slf4j.Slf4j;
 
 @Interceptor
@@ -37,14 +38,26 @@ public class ActionLoggingInterceptor {
         String methodName = context.getMethod().getName();
 
         log.info("{}#{} 開始", classNameWithoutProxy, methodName);
+        logBeanPropertiesIfRedirect(context, methodName);
 
-        Object result = null;
+        Object result = context.proceed();
 
-        result = context.proceed();
-
+        logBeanPropertiesIfRedirect(context, methodName);
         log.info("{}#{} 終了", classNameWithoutProxy, methodName);
 
         return result;
+    }
+
+    private void logBeanPropertiesIfRedirect(final InvocationContext context, final String methodName) {
+
+        if (methodName.equals("redirect")) {
+            try {
+                BaseBackingBean backingBean = (BaseBackingBean) context.getTarget();
+                log.info(backingBean.toString());
+
+            } catch (Exception e) {
+            }
+        }
     }
 
 }
