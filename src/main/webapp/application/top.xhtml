@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core"
-    xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-    xmlns:p="http://primefaces.org/ui" xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
-    xmlns:o="http://omnifaces.org/ui" xmlns:of="http://omnifaces.org/functions"
-    xmlns:b="http://bootsfaces.net/ui">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:p="http://primefaces.org/ui"
+    xmlns:pt="http://xmlns.jcp.org/jsf/passthrough" xmlns:o="http://omnifaces.org/ui" xmlns:of="http://omnifaces.org/functions" xmlns:b="http://bootsfaces.net/ui">
 
 <ui:composition template="../template/template.xhtml">
 
@@ -50,28 +47,20 @@
 
         <br />
 
-        <h:panelGrid columns="2">
-            <h:commandButton class="button" value="ユーザ登録" action="#{topBean.goSignupPage()}"
-                rendered="#{request.isUserInRole('admin')}">
-                <o:skipValidators />
-            </h:commandButton>
-
-            <h:commandButton value="RESTクライアント" action="#{topBean.goRestClientPage()}">
-                <o:skipValidators />
-            </h:commandButton>
-        </h:panelGrid>
-
-        <h:commandButton class="button" value="おためし">
+        <h:commandButton class="btn btn-primary" value="ユーザ登録" action="#{topBean.goSignupPage()}" rendered="#{request.isUserInRole('admin')}">
             <o:skipValidators />
         </h:commandButton>
 
-        <p:commandButton class="button" value="ファイルダウンロード" ajax="false" actionListener="#{topBean.makeDownloadFile()}">
+        <h:commandButton class="btn btn-primary" value="RESTクライアント" action="#{topBean.goRestClientPage()}">
+            <o:skipValidators />
+        </h:commandButton>
+
+        <h:commandButton class="btn btn-primary" value="ファイルダウンロード" actionListener="#{topBean.makeDownloadFile()}">
             <p:fileDownload value="#{topBean.downloadFile}" />
             <o:skipValidators />
-        </p:commandButton>
+        </h:commandButton>
 
     </ui:define>
 </ui:composition>
 
 </html>
-

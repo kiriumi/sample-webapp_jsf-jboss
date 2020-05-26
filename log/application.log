@@ -279,3 +279,59 @@ Caused by: java.lang.NullPointerException
 2020/05/26 23:45:34.382 [default task-1] INFO  log.ActionLoggingInterceptor#around application.TopBean#makeDownloadFile 終了
 2020/05/26 23:45:34.383 [default task-1] INFO  log.ActionLoggingInterceptor#around application.TopBean#getDownloadFile 開始
 2020/05/26 23:45:34.383 [default task-1] INFO  log.ActionLoggingInterceptor#around application.TopBean#getDownloadFile 終了
+2020/05/26 23:48:00.193 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/26 23:48:01.492 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/26 23:48:08.312 [default task-2] INFO  log.ActionLoggingInterceptor#around application.LoginBean#viewAction 開始
+2020/05/26 23:48:08.315 [default task-2] INFO  log.ActionLoggingInterceptor#around application.LoginBean#viewAction 終了
+2020/05/26 23:48:14.993 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 開始
+2020/05/26 23:48:15.490 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user WHERE ( emailaddress = ? and password = ? ) 
+2020/05/26 23:48:15.504 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: admin@hoge(String), admin(String)
+2020/05/26 23:48:15.517 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 1
+2020/05/26 23:48:15.521 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, role from public.role WHERE ( emailaddress = ? ) 
+2020/05/26 23:48:15.522 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: admin@hoge(String)
+2020/05/26 23:48:15.523 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 1
+2020/05/26 23:48:15.545 [default task-1] INFO  sample-webapp-jsf application.LoginBean#authenticate 認証ステータス：SEND_CONTINUE
+2020/05/26 23:48:15.578 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 終了
+2020/05/26 23:48:15.579 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 開始
+2020/05/26 23:48:15.580 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 終了
+2020/05/26 23:48:51.973 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/26 23:48:53.059 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/26 23:49:11.929 [default task-2] INFO  log.ActionLoggingInterceptor#around application.LoginBean#viewAction 開始
+2020/05/26 23:49:11.932 [default task-2] INFO  log.ActionLoggingInterceptor#around application.LoginBean#viewAction 終了
+2020/05/26 23:49:18.331 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 開始
+2020/05/26 23:49:19.000 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user WHERE ( emailaddress = ? and password = ? ) 
+2020/05/26 23:49:19.015 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: hoge@admin(String), hoge(String)
+2020/05/26 23:49:19.028 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 0
+2020/05/26 23:49:19.108 [default task-1] INFO  sample-webapp-jsf application.LoginBean#authenticate 認証ステータス：SEND_FAILURE
+2020/05/26 23:49:19.130 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 終了
+2020/05/26 23:49:19.131 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 開始
+2020/05/26 23:49:19.131 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 終了
+2020/05/26 23:49:28.637 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 開始
+2020/05/26 23:49:28.639 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user WHERE ( emailaddress = ? and password = ? ) 
+2020/05/26 23:49:28.639 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: admin@hoge(String), hoge(String)
+2020/05/26 23:49:28.640 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 0
+2020/05/26 23:49:28.641 [default task-1] INFO  sample-webapp-jsf application.LoginBean#authenticate 認証ステータス：SEND_FAILURE
+2020/05/26 23:49:28.642 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 終了
+2020/05/26 23:49:28.642 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 開始
+2020/05/26 23:49:28.643 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 終了
+2020/05/26 23:49:32.016 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 開始
+2020/05/26 23:49:32.021 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user WHERE ( emailaddress = ? and password = ? ) 
+2020/05/26 23:49:32.022 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: admin@hoge(String), admin(String)
+2020/05/26 23:49:32.024 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 1
+2020/05/26 23:49:32.029 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, role from public.role WHERE ( emailaddress = ? ) 
+2020/05/26 23:49:32.030 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: admin@hoge(String)
+2020/05/26 23:49:32.034 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 1
+2020/05/26 23:49:32.039 [default task-1] INFO  sample-webapp-jsf application.LoginBean#authenticate 認証ステータス：SEND_CONTINUE
+2020/05/26 23:49:32.041 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 終了
+2020/05/26 23:49:32.042 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 開始
+2020/05/26 23:49:32.043 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 終了
+2020/05/26 23:50:25.397 [default task-3] INFO  log.ActionLoggingInterceptor#around application.TopBean#makeDownloadFile 開始
+2020/05/26 23:50:25.399 [default task-3] INFO  log.ActionLoggingInterceptor#around application.TopBean#makeDownloadFile 終了
+2020/05/26 23:50:25.399 [default task-3] INFO  log.ActionLoggingInterceptor#around application.TopBean#getDownloadFile 開始
+2020/05/26 23:50:25.400 [default task-3] INFO  log.ActionLoggingInterceptor#around application.TopBean#getDownloadFile 終了
+2020/05/26 23:50:30.323 [default task-3] INFO  log.ActionLoggingInterceptor#around application.TopBean#sum 開始
+2020/05/26 23:50:30.325 [default task-3] INFO  log.ActionLoggingInterceptor#around application.TopBean#sum 終了
+2020/05/26 23:50:32.146 [default task-3] INFO  log.ActionLoggingInterceptor#around application.TopBean#sum 開始
+2020/05/26 23:50:32.147 [default task-3] INFO  log.ActionLoggingInterceptor#around application.TopBean#sum 終了
+2020/05/26 23:50:39.902 [default task-3] INFO  log.ActionLoggingInterceptor#around application.LoginBean#viewAction 開始
+2020/05/26 23:50:39.903 [default task-3] INFO  log.ActionLoggingInterceptor#around application.LoginBean#viewAction 終了
