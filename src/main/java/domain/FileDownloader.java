@@ -16,7 +16,7 @@ public class FileDownloader {
 
     private File tempDownloadFile;
 
-    public StreamedContent getDownloadFileAsStreamedContent(final File tempDownloadFile, final String downloadFileName,
+    public StreamedContent getDownloadFileAsStreamContent(final File tempDownloadFile, final String downloadFileName,
             final String contentType) throws FileNotFoundException {
 
         this.tempDownloadFile = tempDownloadFile;
@@ -28,7 +28,7 @@ public class FileDownloader {
     }
 
     @PreDestroy
-    public void deleteTempDownloadFiles() {
+    public void deleteTempDownloadFile() {
         tempDownloadFile.delete();
     }
 }

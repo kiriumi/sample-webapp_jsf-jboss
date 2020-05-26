@@ -48,12 +48,6 @@
 
         <h:messages class="alert-warning" />
 
-        <p:commandButton value="Download" ajax="false" actionListener="#{loginBean.makeDownloadFile()}">
-            <p:fileDownload value="#{loginBean.downloadFile}" />
-            <o:skipValidators />
-        </p:commandButton>
-
-
         <div class="container-fluid">
 
             <!-- 複合コンポーネントを利用（ラベルの値が表示されない＋プレースホルダーも表示されない） -->

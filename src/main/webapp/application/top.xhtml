@@ -61,9 +61,14 @@
             </h:commandButton>
         </h:panelGrid>
 
-        <h:commandButton class="butonn" value="おためし">
+        <h:commandButton class="button" value="おためし">
             <o:skipValidators />
         </h:commandButton>
+
+        <p:commandButton class="button" value="ファイルダウンロード" ajax="false" actionListener="#{topBean.makeDownloadFile()}">
+            <p:fileDownload value="#{topBean.downloadFile}" />
+            <o:skipValidators />
+        </p:commandButton>
 
     </ui:define>
 </ui:composition>
