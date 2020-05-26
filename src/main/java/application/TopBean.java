@@ -15,7 +15,6 @@ import domain.FileDownloader;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.Setter;
 
 /**
  * ログインページクラス
@@ -47,7 +46,6 @@ public class TopBean extends BaseBackingBean {
     private FileDownloader fileDownloader;
 
     @Getter
-    @Setter
     private StreamedContent downloadFile;
 
     public void viewAction() {
