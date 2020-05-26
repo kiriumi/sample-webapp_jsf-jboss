@@ -27,8 +27,7 @@
                     <a class="nav-item nav-link" href="#">Menu#3</a>
                 </div>
             </div>
-            <input type="text" class="form-control" pracleholder="検索"/>
-            </nav>
+            <input type="text" class="form-control" pracleholder="検索" /> </nav>
         </div>
 
 
@@ -48,6 +47,12 @@
         </nav>
 
         <h:messages class="alert-warning" />
+
+        <p:commandButton value="Download" ajax="false" actionListener="#{loginBean.makeDownloadFile()}">
+            <p:fileDownload value="#{loginBean.downloadFile}" />
+            <o:skipValidators />
+        </p:commandButton>
+
 
         <div class="container-fluid">
 
@@ -82,8 +87,6 @@
                 おしらせ<span class="badge badge-info">New</span>
             </h:panelGrid>
         </div>
-
-
 
         <!-- モーダルのトリガーボタン -->
         <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#confirmModal">確認する？</button>

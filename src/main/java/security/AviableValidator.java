@@ -31,7 +31,7 @@ public class AviableValidator {
     private boolean isAvailableTime() {
 
         LocalTime now = LocalTime.now();
-        LocalTime nightTime = LocalTime.of(22, 0);
+        LocalTime nightTime = LocalTime.of(23, 59);
         LocalTime morningTime = LocalTime.of(7, 0);
 
         return now.isAfter(morningTime) && now.isBefore(nightTime);

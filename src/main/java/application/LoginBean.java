@@ -1,5 +1,8 @@
 package application;
 
+import java.io.File;
+import java.io.IOException;
+
 import javax.enterprise.inject.Model;
 import javax.faces.annotation.FacesConfig;
 import javax.faces.application.FacesMessage;
@@ -18,9 +21,14 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import org.primefaces.model.StreamedContent;
+
+import domain.FileDownloader;
 import domain.UserService;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 import security.LoginLogout;
 import validation.AuthGroup;
 
@@ -136,6 +144,20 @@ public class LoginBean extends BaseBackingBean {
         }
 
         return null;
+    }
+
+    @Inject
+    private FileDownloader fileDownloader;
+
+    @Getter
+    @Setter
+    private StreamedContent downloadFile;
+
+    public void makeDownloadFile() throws IOException {
+
+        File newFile = new File("C:/Users/kengo/git/sample-webapp_jsf-jboss/misc/sample.txt");
+        newFile.createNewFile();
+        downloadFile = fileDownloader.getDownloadFileAsStreamedContent(newFile, "hoge.txt", "text/plain");
     }
 
 }
