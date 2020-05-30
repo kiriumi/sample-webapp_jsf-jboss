@@ -15,7 +15,40 @@
     </f:metadata>
 
     <h:form>
-        <h:messages />
+
+        <div class='fixed-top'>
+
+            <nav class="navbar navbar-expand-sm navbar-dark bg-dark"> <a href="#" class="navbar-brand">ブランド</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navmenu1" aria-controls="navmenu1" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navmenu1">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link" href="#">Menu#1</a>
+                    <a class="nav-item nav-link" href="#">Menu#2</a>
+                    <a class="nav-item nav-link" href="#">Menu#3</a>
+                </div>
+            </div>
+            <input type="text" class="form-control" pracleholder="検索" /> </nav>
+        </div>
+
+        <!-- ナビゲーション -->
+        <nav class="nav" data-spy="affix"> <a class="nav-link active" href="#">Active</a> <a class="nav-link" href="#">Link</a> <a class="nav-link" href="#">Link</a> <a class="nav-link disabled"
+            href="#">Disabled</a> </nav>
+
+
+        <!-- パンくずリスト -->
+        <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">親</a></li>
+            <li class="breadcrumb-item"><a href="#">子</a></li>
+            <li class="breadcrumb-item active" aria-current="page">孫</li>
+            <!-- active:現在表示している箇所のスタイル，aria-current：現在表示している箇所 -->
+        </ol>
+        </nav>
+
+        <p:messages />
 
         <ui:insert name="content" />
 

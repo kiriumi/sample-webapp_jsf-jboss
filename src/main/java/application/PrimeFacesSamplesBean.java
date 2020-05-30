@@ -10,4 +10,7 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = false)
 public class PrimeFacesSamplesBean extends BaseBackingBean {
 
+    public String actionAfterConfirm() {
+        return null;
+    }
 }

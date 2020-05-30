@@ -10,6 +10,17 @@
 
     <ui:define name="content">
 
+        <p:growl id="message" showDetail="true" />
+
+       <p:commandButton value="確認ダイアログだよ" action="#{primeFacesSamplesBean.actionAfterConfirm()}">
+            <p:confirm header="Confirmation" message="やっちゃう？?" icon="pi pi-exclamation-triangle" />
+        </p:commandButton>
+
+        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+            <p:commandButton value="OK" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
+            <p:commandButton value="キャンセル" type="button" styleClass="ui-confirmdialog-no" icon="pi pi-times" />
+        </p:confirmDialog>
+
     </ui:define>
 </ui:composition>
 

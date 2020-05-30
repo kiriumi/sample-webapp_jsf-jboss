@@ -22,15 +22,17 @@ repositories {
 
      mavenCentral()
      maven { url "https://repository.jboss.org/nexus/content/repositories/releases/" }
+     maven { url "https://repository.primefaces.org/" }
 }
 
 dependencies {
 
-    compile group: 'org.primefaces', name: 'primefaces', version: '7.0'
+    compile group: 'org.primefaces', name: 'primefaces', version: '8.0'
     compile group: 'org.omnifaces', name: 'omnifaces', version: '3.4.1'
     //compile group: 'org.omnifaces', name: 'javax.security.enterprise', version: '1.1-m02'
     compile group: 'org.glassfish.soteria', name: 'javax.security.enterprise', version: '1.0'
 
+    compile group: 'org.primefaces.themes', name: 'bootstrap', version: '1.0.10'
     // compile group: 'net.bootsfaces', name: 'bootsfaces', version: '1.4.2'
 
     // ログ
