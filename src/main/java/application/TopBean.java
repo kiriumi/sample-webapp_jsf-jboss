@@ -75,6 +75,14 @@ public class TopBean extends BaseBackingBean {
         return redirect("rest-client");
     }
 
+    public String goPrimeFacesSamplesPage() {
+        return redirect("primefaces-samples");
+    }
+
+    public String goBootstrapSamplesPage() {
+        return redirect("bootstrap-samples");
+    }
+
     public void makeDownloadFile() throws IOException {
 
         File newFile = new File("C:/Users/kengo/git/sample-webapp_jsf-jboss/misc/sample.txt");

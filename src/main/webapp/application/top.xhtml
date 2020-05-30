@@ -55,6 +55,14 @@
             <o:skipValidators />
         </h:commandButton>
 
+        <h:commandButton class="btn btn-primary" value="PrimeFacesサンプル" action="#{topBean.goPrimeFacesSamplesPage()}">
+            <o:skipValidators />
+        </h:commandButton>
+
+        <h:commandButton class="btn btn-primary" value="Bootstrapサンプル" action="#{topBean.goBootstrapSamplesPage()}">
+            <o:skipValidators />
+        </h:commandButton>
+
         <h:commandButton class="btn btn-primary" value="ファイルダウンロード" actionListener="#{topBean.makeDownloadFile()}">
             <p:fileDownload value="#{topBean.downloadFile}" />
             <o:skipValidators />
