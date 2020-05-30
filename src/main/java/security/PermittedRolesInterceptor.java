@@ -10,7 +10,6 @@ import javax.inject.Inject;
 import javax.interceptor.AroundInvoke;
 import javax.interceptor.Interceptor;
 import javax.interceptor.InvocationContext;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import domain.MessageService;
@@ -32,13 +31,11 @@ public class PermittedRolesInterceptor {
         PermittedRoles annotation = context.getMethod().getAnnotation(PermittedRoles.class);
         List<String> permittedRoles = Arrays.asList(annotation.value());
 
-        HttpServletRequest request = (HttpServletRequest) externalContext.getRequest();
-
         boolean permitted = false;
 
         for (String permittedRole : permittedRoles) {
 
-            if (request.isUserInRole(permittedRole)) {
+            if (externalContext.isUserInRole(permittedRole)) {
                 permitted = true;
                 break;
             }

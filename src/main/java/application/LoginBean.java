@@ -129,8 +129,7 @@ public class LoginBean extends BaseBackingBean {
     @LoginLogout
     public String login() {
 
-        HttpServletRequest request = (HttpServletRequest) externalContext.getRequest();
-        if (request.getUserPrincipal() != null) {
+        if (externalContext.getUserPrincipal() != null) {
             getFlash().put("loginSccessMessage", "ログインできたよ");
             return redirect("top");
         }

@@ -10,7 +10,6 @@ import javax.inject.Inject;
 import javax.interceptor.AroundInvoke;
 import javax.interceptor.Interceptor;
 import javax.interceptor.InvocationContext;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import domain.MessageService;
@@ -32,13 +31,11 @@ public class ForbidenRolesInteceptor {
         ForbidenRoles annotation = context.getMethod().getAnnotation(ForbidenRoles.class);
         List<String> forbidenRoles = Arrays.asList(annotation.value());
 
-        HttpServletRequest request = (HttpServletRequest) externalContext.getRequest();
-
         boolean forbiden = false;
 
         for (String forbidenRole : forbidenRoles) {
 
-            if (request.isUserInRole(forbidenRole)) {
+            if (externalContext.isUserInRole(forbidenRole)) {
                 forbiden = true;
                 break;
             }

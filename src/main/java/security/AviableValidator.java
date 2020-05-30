@@ -5,7 +5,6 @@ import java.time.LocalTime;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.context.ExternalContext;
 import javax.inject.Inject;
-import javax.servlet.http.HttpServletRequest;
 
 @RequestScoped
 public class AviableValidator {
@@ -15,9 +14,7 @@ public class AviableValidator {
 
     public boolean available() {
 
-        HttpServletRequest request = (HttpServletRequest) externalContext.getRequest();
-
-        if (request.isUserInRole("admin")) {
+        if (externalContext.isUserInRole("admin")) {
             return true;
         }
 
