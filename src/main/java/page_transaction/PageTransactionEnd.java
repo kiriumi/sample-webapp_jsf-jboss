@@ -1,4 +1,4 @@
-package transaction_pages;
+package page_transaction;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

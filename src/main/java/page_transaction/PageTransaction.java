@@ -1,4 +1,4 @@
-package transaction_pages;
+package page_transaction;
 
 import java.io.Serializable;
 import java.util.ArrayList;

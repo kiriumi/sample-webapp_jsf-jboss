@@ -14,8 +14,8 @@ import dto.User;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import mode.TestModeTransactional;
+import page_transaction.PageTransactionEnd;
 import security.ForbidenRoles;
-import transaction_pages.PageTransactionEnd;
 
 /**
  * ログインページクラス

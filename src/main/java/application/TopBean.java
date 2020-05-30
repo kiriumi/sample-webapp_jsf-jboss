@@ -15,7 +15,7 @@ import domain.FileDownloader;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import transaction_pages.PageTransactionBegin;
+import page_transaction.PageTransactionBegin;
 
 /**
  * トップページクラス

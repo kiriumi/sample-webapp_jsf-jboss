@@ -1,4 +1,4 @@
-package transaction_pages;
+package page_transaction;
 
 import javax.annotation.Priority;
 import javax.faces.application.FacesMessage;
