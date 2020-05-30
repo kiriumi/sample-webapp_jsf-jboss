@@ -8,7 +8,7 @@ import javax.interceptor.AroundInvoke;
 import javax.interceptor.Interceptor;
 import javax.interceptor.InvocationContext;
 
-import context.MyApplicationContext;
+import context.WebApplicationContext;
 
 @Interceptor
 @Priority(Interceptor.Priority.APPLICATION)
@@ -19,7 +19,7 @@ public class TransactionPagesEndInterceptor {
     FacesContext facesContext;
 
     @Inject
-    MyApplicationContext appContext;
+    WebApplicationContext appContext;
 
     @Inject
     TransactionPagesBean transactionPage;

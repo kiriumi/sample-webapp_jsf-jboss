@@ -7,7 +7,7 @@ import javax.enterprise.context.ApplicationScoped;
 import lombok.Getter;
 
 @ApplicationScoped
-public class MyApplicationContext implements Serializable {
+public class WebApplicationContext implements Serializable {
 
     @Getter
     private final String baseApplicationPagePath = "/application/";

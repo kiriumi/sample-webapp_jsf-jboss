@@ -4,7 +4,7 @@ import javax.faces.context.ExternalContext;
 import javax.faces.context.Flash;
 import javax.inject.Inject;
 
-import context.MyApplicationContext;
+import context.WebApplicationContext;
 import domain.MessageService;
 import log.ActionLogging;
 import log.ApplicationLogger;
@@ -23,7 +23,7 @@ public abstract class BaseBackingBean {
     private ApplicationLogger logger;
 
     @Inject
-    private MyApplicationContext appContext;
+    private WebApplicationContext appContext;
 
     @Getter
     @Inject

@@ -11,14 +11,14 @@ import javax.faces.event.ExceptionQueuedEvent;
 import javax.faces.event.ExceptionQueuedEventContext;
 import javax.inject.Inject;
 
-import context.MyApplicationContext;
+import context.WebApplicationContext;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class CustomExceptionHandler extends ExceptionHandlerWrapper {
 
     @Inject
-    private MyApplicationContext appContext;
+    private WebApplicationContext appContext;
 
     private final ExceptionHandler wrapped;
 

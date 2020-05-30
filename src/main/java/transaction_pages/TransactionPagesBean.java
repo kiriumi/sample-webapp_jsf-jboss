@@ -11,7 +11,7 @@ import javax.inject.Inject;
 
 import org.apache.commons.lang3.StringUtils;
 
-import context.MyApplicationContext;
+import context.WebApplicationContext;
 
 @SessionScoped
 public class TransactionPagesBean implements Serializable {
@@ -20,7 +20,7 @@ public class TransactionPagesBean implements Serializable {
     private ExternalContext externalContext;
 
     @Inject
-    MyApplicationContext appContext;
+    WebApplicationContext appContext;
 
     private List<String> transactionPages = new ArrayList<>();
 
