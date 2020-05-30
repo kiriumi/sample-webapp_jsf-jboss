@@ -15,7 +15,7 @@ import domain.FileDownloader;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import transaction_pages.TransactionPages;
+import transaction_pages.PageTransactionBegin;
 
 /**
  * トップページクラス
@@ -70,7 +70,7 @@ public class TopBean extends BaseBackingBean {
         return null;
     }
 
-    @TransactionPages({ "top", "signup" })
+    @PageTransactionBegin("signup")
     public String goSignupPage() {
         return redirect("signup");
     }

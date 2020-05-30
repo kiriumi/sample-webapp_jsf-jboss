@@ -12,8 +12,8 @@ import context.WebApplicationContext;
 
 @Interceptor
 @Priority(Interceptor.Priority.APPLICATION)
-@TransactionPagesEnd
-public class TransactionPagesEndInterceptor {
+@PageTransactionEnd
+public class PageTransactionEndInterceptor {
 
     @Inject
     FacesContext facesContext;
@@ -22,12 +22,12 @@ public class TransactionPagesEndInterceptor {
     WebApplicationContext appContext;
 
     @Inject
-    TransactionPagesBean transactionPage;
+    PageTransaction pageTransaction;
 
     @AroundInvoke
     public Object around(final InvocationContext context) throws Exception {
 
-        if (!transactionPage.valid()) {
+        if (!pageTransaction.valid()) {
 
             facesContext.addMessage(null,
                     new FacesMessage(FacesMessage.SEVERITY_ERROR, "エラー", "ちゃんとしたルートから登録してよー"));

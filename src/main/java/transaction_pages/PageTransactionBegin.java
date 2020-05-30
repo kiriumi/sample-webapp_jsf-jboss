@@ -11,8 +11,12 @@ import javax.interceptor.InterceptorBinding;
 @InterceptorBinding
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ ElementType.METHOD, ElementType.TYPE })
-public @interface TransactionPages {
+public @interface PageTransactionBegin {
 
+    /**
+     * トランザクションを終了する画面
+     * @return
+     */
     @Nonbinding
     public String[] value();
 }

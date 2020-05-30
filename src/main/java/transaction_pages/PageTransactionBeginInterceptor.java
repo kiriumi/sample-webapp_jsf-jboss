@@ -8,19 +8,19 @@ import javax.interceptor.InvocationContext;
 
 @Interceptor
 @Priority(Interceptor.Priority.APPLICATION)
-@TransactionPages("")
-public class TransactionPagesInterceptor {
+@PageTransactionBegin("")
+public class PageTransactionBeginInterceptor {
 
     @Inject
-    TransactionPagesBean transactionPage;
+    PageTransaction pageTransaction;
 
     @AroundInvoke
     public Object around(final InvocationContext context) throws Exception {
 
         // 参考：https://terasolunaorg.github.io/guideline/public_review/ArchitectureInDetail/DoubleSubmitProtection.html#transactiontokencheck
 
-        TransactionPages annotation = context.getMethod().getAnnotation(TransactionPages.class);
-        transactionPage.begin(annotation);
+        PageTransactionBegin annotation = context.getMethod().getAnnotation(PageTransactionBegin.class);
+        pageTransaction.begin(annotation);
 
         return context.proceed();
     }
