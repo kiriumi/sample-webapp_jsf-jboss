@@ -13,6 +13,7 @@ import mode.TestMode;
 import mode.TraceMode;
 import security.AviableValidator;
 import security.LoginLogout;
+import transaction_pages.TransactionPagesBean;
 
 @Model // @Named＋@RequestScoped
 @Slf4j
@@ -36,6 +37,9 @@ public class CommonBean {
 
     @Getter
     private boolean aviable;
+
+    @Inject
+    TransactionPagesBean transactionToken;
 
     public void switchTestMode() {
         testMode.switchMode();
@@ -62,8 +66,8 @@ public class CommonBean {
     }
 
     public void preRender() {
-        this.aviable = aviableValidator.available();
         log.debug("");
+        this.aviable = aviableValidator.available();
     }
 
 }

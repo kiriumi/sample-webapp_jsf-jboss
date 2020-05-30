@@ -9,11 +9,16 @@ import javax.faces.context.ExceptionHandlerWrapper;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ExceptionQueuedEvent;
 import javax.faces.event.ExceptionQueuedEventContext;
+import javax.inject.Inject;
 
+import context.MyApplicationContext;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class CustomExceptionHandler extends ExceptionHandlerWrapper {
+
+    @Inject
+    private MyApplicationContext appContext;
 
     private final ExceptionHandler wrapped;
 
@@ -39,10 +44,10 @@ public class CustomExceptionHandler extends ExceptionHandlerWrapper {
             try {
                 // エラー画面に遷移
                 String contextPath = facesContext.getExternalContext().getRequestContextPath();
-                facesContext.getExternalContext().redirect(contextPath + "/application/error-system.xhtml");
+                facesContext.getExternalContext().redirect(contextPath + appContext.getSystemErrorPagePath());
 
             } catch (IOException e) {
-                log.error("/application/error.xhtml がないよ");
+                log.error(e.getMessage());
 
             } finally {
                 queuedEvent.remove();

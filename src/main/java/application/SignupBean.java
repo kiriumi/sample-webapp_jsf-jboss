@@ -15,6 +15,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import mode.TestModeTransactional;
 import security.ForbidenRoles;
+import transaction_pages.TransactionPagesEnd;
 
 /**
  * ログインページクラス
@@ -44,6 +45,7 @@ public class SignupBean extends BaseBackingBean {
 
     @TestModeTransactional
     @ForbidenRoles("user")
+    @TransactionPagesEnd
     public String signupUser() {
 
         if (userService.hasUser(getEmailAddress())) {

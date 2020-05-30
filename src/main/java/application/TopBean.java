@@ -15,9 +15,10 @@ import domain.FileDownloader;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import transaction_pages.TransactionPages;
 
 /**
- * ログインページクラス
+ * トップページクラス
  *
  * @author Kengo
  *
@@ -69,6 +70,7 @@ public class TopBean extends BaseBackingBean {
         return null;
     }
 
+    @TransactionPages({ "top", "signup" })
     public String goSignupPage() {
         return redirect("signup");
     }

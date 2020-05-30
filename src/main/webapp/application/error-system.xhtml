@@ -9,13 +9,9 @@
 </h:head>
 <h:body>
 
-    <f:metadata>
-        <f:viewAction action="#{systemErrorBean.viewAction()}" />
-    </f:metadata>
-
     <h:form>
         <h:messages showDetail="true" />
-        <h:outputText value="#{systemErrorBean.sample}" />
+        <h:commandButton value="トップ画面に戻る" action="#{systemErrorBean.goTopPage()}"/>
     </h:form>
 </h:body>
 </html>

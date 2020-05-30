@@ -4,6 +4,7 @@ import javax.faces.context.ExternalContext;
 import javax.faces.context.Flash;
 import javax.inject.Inject;
 
+import context.MyApplicationContext;
 import domain.MessageService;
 import log.ActionLogging;
 import log.ApplicationLogger;
@@ -21,6 +22,9 @@ public abstract class BaseBackingBean {
     @Inject
     private ApplicationLogger logger;
 
+    @Inject
+    private MyApplicationContext appContext;
+
     @Getter
     @Inject
     private MessageService messageService;
@@ -36,7 +40,7 @@ public abstract class BaseBackingBean {
     }
 
     protected String redirect(final String pageName) {
-        return String.join("", "/application/", pageName, ".xhtml", "?faces-redirect=true");
+        return appContext.redirect(pageName);
     }
 
 }
