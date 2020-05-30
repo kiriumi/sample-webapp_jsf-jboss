@@ -25,7 +25,7 @@ public class AvailableTimeInterceptor {
     ExternalContext externalContext;
 
     @Inject
-    AviableTimeValidator aviableValidator;
+    AviableTimeValidator aviableTimeValidator;
 
     @AroundInvoke
     public Object around(final InvocationContext context) throws Exception {
@@ -36,7 +36,7 @@ public class AvailableTimeInterceptor {
             return context.proceed();
         }
 
-        if (isLoginLogout(context) || aviableValidator.available()) {
+        if (aviableTimeValidator.available()) {
             return context.proceed();
         }
 
@@ -47,12 +47,6 @@ public class AvailableTimeInterceptor {
         log.warn("利用時間外だよ");
 
         return null;
-    }
-
-    private boolean isLoginLogout(final InvocationContext context) {
-
-        LoginLogout loginLogoutAnnotation = context.getMethod().getAnnotation(LoginLogout.class);
-        return loginLogoutAnnotation != null;
     }
 
 }

@@ -20,12 +20,12 @@ import lombok.Data;
 import security.CustomPrincipal;
 
 /**
- * REST送信するクラス
+ * REST送信クラス
  *
  * @author kengo
  *
  */
-@Model // @Named＋@RequestScoped
+@Model
 @Data
 public class RestClientBean {
 

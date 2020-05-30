@@ -18,12 +18,12 @@ import page_transaction.PageTransactionEnd;
 import security.ForbidenRoles;
 
 /**
- * ログインページクラス
+ * ユーザ登録画面クラス
  *
  * @author Kengo
  *
  */
-@Model // @Named＋@RequestScoped
+@Model
 @Data
 @EqualsAndHashCode(callSuper = false)
 public class SignupBean extends BaseBackingBean {

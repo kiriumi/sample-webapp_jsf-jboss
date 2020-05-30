@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.security.Principal;
 
 import javax.enterprise.inject.Model;
-import javax.faces.application.FacesMessage;
 import javax.inject.Inject;
 import javax.security.enterprise.SecurityContext;
 
@@ -18,7 +17,7 @@ import lombok.Getter;
 import page_transaction.PageTransactionBegin;
 
 /**
- * トップページクラス
+ * トップ画面クラス
  *
  * @author Kengo
  *
@@ -50,9 +49,6 @@ public class TopBean extends BaseBackingBean {
     private StreamedContent downloadFile;
 
     public void viewAction() {
-
-        String loginSuccessMessage = (String) getFlash().get("loginSccessMessage");
-        getMessageService().setMessage(FacesMessage.SEVERITY_INFO, loginSuccessMessage);
 
         Principal principal = securityContext.getCallerPrincipal();
 

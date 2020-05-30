@@ -18,10 +18,12 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import context.WebApplicationContext;
+import domain.MessageService;
 import domain.UserService;
+import log.ApplicationLogger;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import security.LoginLogout;
 import validation.AuthGroup;
 
 /*
@@ -56,7 +58,7 @@ import validation.AuthGroup;
  *
  */
 /**
- * ログインページのモデルクラス
+ * ログイン画面クラス
  *
  * @author Kengo
  *
@@ -66,7 +68,7 @@ import validation.AuthGroup;
 @EqualsAndHashCode(callSuper = false)
 @FacesConfig
 //@Auth(emailAddress = "emailAddress", password = "password")
-public class LoginBean extends BaseBackingBean {
+public class LoginBean {
 
     @Inject
     private FacesContext facesContext;
@@ -76,6 +78,15 @@ public class LoginBean extends BaseBackingBean {
 
     @Inject
     private SecurityContext securityContext;
+
+    @Inject
+    private WebApplicationContext appContext;
+
+    @Inject
+    private MessageService messageService;
+
+    @Inject
+    private ApplicationLogger logger;
 
     @NotBlank(groups = AuthGroup.class)
     @Email
@@ -98,23 +109,21 @@ public class LoginBean extends BaseBackingBean {
     //	public void auth(final String emailAddress, final String password) {
     //	};
 
-    @LoginLogout
     public String viewAction() {
         return login();
     }
 
-    @LoginLogout
     public void authenticate(final ActionEvent event) throws Exception {
 
         AuthenticationStatus authStatus = getAuthStatus();
 
-        getLogger().info("anything", "認証ステータス：" + authStatus);
+        logger.info("anything", "認証ステータス：" + authStatus);
 
         if (authStatus.equals(AuthenticationStatus.SUCCESS)) {
             return;
         }
 
-        getMessageService().setAppMessageById(FacesMessage.SEVERITY_ERROR, "error.message.auth");
+        messageService.setAppMessageById(FacesMessage.SEVERITY_ERROR, "error.message.auth");
     }
 
     private AuthenticationStatus getAuthStatus() {
@@ -126,12 +135,10 @@ public class LoginBean extends BaseBackingBean {
                         .credential(new UsernamePasswordCredential(emailAddress, password)));
     }
 
-    @LoginLogout
     public String login() {
 
         if (externalContext.getUserPrincipal() != null) {
-            getFlash().put("loginSccessMessage", "ログインできたよ");
-            return redirect("top");
+            return appContext.redirect("top");
         }
 
         return null;

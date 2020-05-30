@@ -6,18 +6,23 @@ import java.util.HashSet;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.enterprise.inject.Model;
+import javax.faces.application.FacesMessage;
 import javax.faces.context.ExternalContext;
 import javax.inject.Inject;
 
-import context.SystemDirContext;
-import lombok.Getter;
+import domain.MessageService;
 import lombok.extern.slf4j.Slf4j;
 import mode.TestMode;
 import mode.TraceMode;
 import security.AviableTimeValidator;
-import security.LoginLogout;
 import security.RoleAuthorizator;
 
+/**
+ * 共通処理クラス
+ *
+ * @author kengo
+ *
+ */
 @Model // @Named＋@RequestScoped
 @Slf4j
 public class CommonBean {
@@ -26,14 +31,7 @@ public class CommonBean {
     private ExternalContext externalContext;
 
     @Inject
-    @Getter
-    private SystemDirContext systemDirContext;
-
-    @Inject
-    private TestMode testMode;
-
-    @Inject
-    private TraceMode traceMode;
+    private MessageService messageService;
 
     @Inject
     private RoleAuthorizator roleAuther;
@@ -41,19 +39,11 @@ public class CommonBean {
     @Inject
     AviableTimeValidator aviableValidator;
 
-    public void switchTestMode() {
-        testMode.switchMode();
-    }
+    @Inject
+    private TestMode testMode;
 
-    public void switchTraceMode() {
-        traceMode.switchMode();
-    }
-
-    @LoginLogout
-    public String logout() {
-        externalContext.invalidateSession();
-        return "/login.xhtml?faces-redirect=true";
-    }
+    @Inject
+    private TraceMode traceMode;
 
     @PostConstruct
     public void postConstruct() {
@@ -66,12 +56,18 @@ public class CommonBean {
     }
 
     public void preRender() {
+
         log.debug("");
+
+        if (!aviableTime()) {
+            messageService.setMessage(FacesMessage.SEVERITY_ERROR, "利用時間外だよ");
+            log.debug("利用時間外だよ");
+        }
     }
 
-    public boolean aviableTime() {
-        return aviableValidator.available();
-
+    public String logout() {
+        externalContext.invalidateSession();
+        return "/login.xhtml?faces-redirect=true";
     }
 
     public boolean permittedRoles(final HashSet<String> roles) {
@@ -80,5 +76,18 @@ public class CommonBean {
 
     public boolean forbidenRoles(final HashSet<String> roles) {
         return !permittedRoles(roles);
+    }
+
+    public boolean aviableTime() {
+        return aviableValidator.available();
+
+    }
+
+    public void switchTestMode() {
+        testMode.switchMode();
+    }
+
+    public void switchTraceMode() {
+        traceMode.switchMode();
     }
 }
