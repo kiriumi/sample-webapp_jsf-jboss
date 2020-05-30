@@ -23,6 +23,9 @@ public class PermittedRolesInterceptor {
     ExternalContext externalContext;
 
     @Inject
+    private RoleAuthorizator roleAuther;
+
+    @Inject
     MessageService messageService;
 
     @AroundInvoke
@@ -31,17 +34,7 @@ public class PermittedRolesInterceptor {
         PermittedRoles annotation = context.getMethod().getAnnotation(PermittedRoles.class);
         List<String> permittedRoles = Arrays.asList(annotation.value());
 
-        boolean permitted = false;
-
-        for (String permittedRole : permittedRoles) {
-
-            if (externalContext.isUserInRole(permittedRole)) {
-                permitted = true;
-                break;
-            }
-        }
-
-        if (permitted) {
+        if (roleAuther.authUserIn(permittedRoles)) {
             return context.proceed();
         }
 

@@ -1,5 +1,6 @@
 package application;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 
 import javax.annotation.PostConstruct;
@@ -15,6 +16,7 @@ import mode.TestMode;
 import mode.TraceMode;
 import security.AviableTimeValidator;
 import security.LoginLogout;
+import security.RoleAuthorizator;
 
 @Model // @Named＋@RequestScoped
 @Slf4j
@@ -32,6 +34,9 @@ public class CommonBean {
 
     @Inject
     private TraceMode traceMode;
+
+    @Inject
+    private RoleAuthorizator roleAuther;
 
     @Inject
     AviableTimeValidator aviableValidator;
@@ -70,13 +75,7 @@ public class CommonBean {
     }
 
     public boolean permittedRoles(final HashSet<String> roles) {
-
-        for (String role : roles) {
-            if (externalContext.isUserInRole(role)) {
-                return true;
-            }
-        }
-        return false;
+        return roleAuther.authUserIn(new ArrayList<String>(roles));
     }
 
     public boolean forbidenRoles(final HashSet<String> roles) {

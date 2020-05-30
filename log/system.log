@@ -4841,3 +4841,23 @@ Caused by: java.lang.IllegalArgumentException: Cannot convert [hoge, admin] of t
 2020/05/30 19:01:50.243 [default task-1] INFO  application.LoginBean#authenticate 終了
 2020/05/30 19:01:50.244 [default task-1] INFO  application.LoginBean#login 開始
 2020/05/30 19:01:50.248 [default task-1] INFO  application.LoginBean#login 終了
+2020/05/30 19:20:39.072 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/05/30 19:20:40.329 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/05/30 19:21:21.510 [default task-1] ERROR JSF1094: Could not decode flash data from incoming cookie value Invalid characters in decrypted value.  Processing will continue, but the flash is unavailable for this request.
+2020/05/30 19:21:21.611 [default task-1] INFO  application.LoginBean#viewAction 開始
+2020/05/30 19:21:21.614 [default task-1] INFO  application.LoginBean#viewAction 終了
+2020/05/30 19:21:25.505 [default task-1] INFO  application.LoginBean#authenticate 開始
+2020/05/30 19:21:26.156 [default task-2] ERROR JSF1094: Could not decode flash data from incoming cookie value Invalid characters in decrypted value.  Processing will continue, but the flash is unavailable for this request.
+2020/05/30 19:21:26.158 [default task-1] INFO  認証ステータス：SEND_CONTINUE
+2020/05/30 19:21:26.193 [default task-1] INFO  application.LoginBean#authenticate 終了
+2020/05/30 19:21:26.194 [default task-1] INFO  application.LoginBean#login 開始
+2020/05/30 19:21:26.195 [default task-1] INFO  application.LoginBean#login 終了
+2020/05/30 19:21:29.716 [default task-5] INFO  application.LoginBean#viewAction 開始
+2020/05/30 19:21:29.717 [default task-5] INFO  application.LoginBean#viewAction 終了
+2020/05/30 19:21:34.473 [default task-5] INFO  application.LoginBean#viewAction 開始
+2020/05/30 19:21:34.474 [default task-5] INFO  application.LoginBean#viewAction 終了
+2020/05/30 19:21:40.175 [default task-2] INFO  application.LoginBean#authenticate 開始
+2020/05/30 19:21:40.189 [default task-2] INFO  認証ステータス：SUCCESS
+2020/05/30 19:21:40.189 [default task-2] INFO  application.LoginBean#authenticate 終了
+2020/05/30 19:21:40.191 [default task-2] INFO  application.LoginBean#login 開始
+2020/05/30 19:21:40.193 [default task-2] INFO  application.LoginBean#login 終了

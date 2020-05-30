@@ -23,6 +23,9 @@ public class ForbidenRolesInteceptor {
     ExternalContext externalContext;
 
     @Inject
+    private RoleAuthorizator roleAuther;
+
+    @Inject
     MessageService messageService;
 
     @AroundInvoke
@@ -31,17 +34,7 @@ public class ForbidenRolesInteceptor {
         ForbidenRoles annotation = context.getMethod().getAnnotation(ForbidenRoles.class);
         List<String> forbidenRoles = Arrays.asList(annotation.value());
 
-        boolean forbiden = false;
-
-        for (String forbidenRole : forbidenRoles) {
-
-            if (externalContext.isUserInRole(forbidenRole)) {
-                forbiden = true;
-                break;
-            }
-        }
-
-        if (forbiden) {
+        if (!roleAuther.authUserIn(forbidenRoles)) {
 
             messageService.setMessage(FacesMessage.SEVERITY_ERROR, "アクセス権限ないよ");
 
