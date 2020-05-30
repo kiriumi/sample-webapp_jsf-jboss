@@ -5,7 +5,6 @@ import javax.annotation.PreDestroy;
 import javax.enterprise.inject.Model;
 import javax.faces.context.ExternalContext;
 import javax.inject.Inject;
-import javax.servlet.http.HttpServletRequest;
 
 import context.SystemDirContext;
 import lombok.Getter;
@@ -60,20 +59,6 @@ public class CommonBean {
     @PreDestroy
     public void preDestroy() {
         log.debug("");
-    }
-
-    public String viewAction() {
-
-        log.debug("");
-
-        HttpServletRequest request = (HttpServletRequest) externalContext.getRequest();
-        request.getUserPrincipal();
-
-        if (request.getUserPrincipal() == null) {
-            return "login.xhtml?faces-redirect=true";
-        }
-
-        return null;
     }
 
     public void preRender() {
