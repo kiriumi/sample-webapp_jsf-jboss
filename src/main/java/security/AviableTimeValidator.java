@@ -7,21 +7,16 @@ import javax.faces.context.ExternalContext;
 import javax.inject.Inject;
 
 @RequestScoped
-public class AviableValidator {
+public class AviableTimeValidator {
 
     @Inject
     ExternalContext externalContext;
 
     public boolean available() {
 
-        if (externalContext.isUserInRole("admin")) {
-            return true;
-        }
-
         if (isAvailableTime()) {
             return true;
         }
-
         return false;
     }
 

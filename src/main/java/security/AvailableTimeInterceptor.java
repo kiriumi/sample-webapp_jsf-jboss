@@ -25,7 +25,7 @@ public class AvailableTimeInterceptor {
     ExternalContext externalContext;
 
     @Inject
-    AviableValidator aviableValidator;
+    AviableTimeValidator aviableValidator;
 
     @AroundInvoke
     public Object around(final InvocationContext context) throws Exception {

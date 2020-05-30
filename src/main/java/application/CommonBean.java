@@ -1,5 +1,7 @@
 package application;
 
+import java.util.HashSet;
+
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.enterprise.inject.Model;
@@ -11,9 +13,8 @@ import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import mode.TestMode;
 import mode.TraceMode;
-import security.AviableValidator;
+import security.AviableTimeValidator;
 import security.LoginLogout;
-import transaction_pages.TransactionPagesBean;
 
 @Model // @Named＋@RequestScoped
 @Slf4j
@@ -33,13 +34,7 @@ public class CommonBean {
     private TraceMode traceMode;
 
     @Inject
-    AviableValidator aviableValidator;
-
-    @Getter
-    private boolean aviable;
-
-    @Inject
-    TransactionPagesBean transactionToken;
+    AviableTimeValidator aviableValidator;
 
     public void switchTestMode() {
         testMode.switchMode();
@@ -67,7 +62,24 @@ public class CommonBean {
 
     public void preRender() {
         log.debug("");
-        this.aviable = aviableValidator.available();
     }
 
+    public boolean aviableTime() {
+        return aviableValidator.available();
+
+    }
+
+    public boolean permittedRoles(final HashSet<String> roles) {
+
+        for (String role : roles) {
+            if (externalContext.isUserInRole(role)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean forbidenRoles(final HashSet<String> roles) {
+        return !permittedRoles(roles);
+    }
 }

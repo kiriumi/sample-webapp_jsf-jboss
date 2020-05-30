@@ -34,6 +34,9 @@ public class CustomExceptionHandler extends ExceptionHandlerWrapper {
 
             ExceptionQueuedEventContext eventContext = queuedEvent.next().getContext();
             Throwable throwable = getRootCause(eventContext.getException()).getCause(); // アプリケーション例外を取得
+            if (throwable == null) {
+                throwable = eventContext.getException();
+            }
 
             // メッセージを設定
             FacesContext facesContext = eventContext.getContext();
@@ -44,7 +47,7 @@ public class CustomExceptionHandler extends ExceptionHandlerWrapper {
             try {
                 // エラー画面に遷移
                 String contextPath = facesContext.getExternalContext().getRequestContextPath();
-                facesContext.getExternalContext().redirect(contextPath + appContext.getSystemErrorPagePath());
+                facesContext.getExternalContext().redirect(contextPath + "/application/error-system.xhtml");
 
             } catch (IOException e) {
                 log.error(e.getMessage());

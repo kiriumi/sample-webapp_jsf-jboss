@@ -47,7 +47,7 @@
 
         <br />
 
-        <h:commandButton class="btn btn-primary" value="ユーザ登録" action="#{topBean.goSignupPage()}" rendered="#{request.isUserInRole('admin')}">
+        <h:commandButton class="btn btn-primary" value="ユーザ登録" action="#{topBean.goSignupPage()}" rendered="#{commonBean.permittedRoles({'admin'})}">
             <o:skipValidators />
         </h:commandButton>
 

@@ -3,21 +3,16 @@ package context;
 import java.io.Serializable;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.faces.context.ExternalContext;
-import javax.inject.Inject;
-import javax.servlet.http.HttpServletRequest;
 
 import lombok.Getter;
 
 @ApplicationScoped
-@Getter
 public class MyApplicationContext implements Serializable {
 
-    @Inject
-    ExternalContext externalContext;
-
+    @Getter
     private final String baseApplicationPagePath = "/application/";
 
+    @Getter
     private final String systemErrorPagePath = baseApplicationPagePath + "error-system.xhtml";
 
     public String redirect(final String pageName) {
@@ -26,13 +21,5 @@ public class MyApplicationContext implements Serializable {
 
     public String redirectSystemErrorPage() {
         return String.join("", systemErrorPagePath, "?faces-redirect=true");
-    }
-
-    public HttpServletRequest getRequest() {
-        return (HttpServletRequest) externalContext.getRequest();
-    }
-
-    public HttpServletRequest getResponse() {
-        return (HttpServletRequest) externalContext.getResponse();
     }
 }
