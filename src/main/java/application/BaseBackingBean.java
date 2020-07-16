@@ -11,7 +11,6 @@ import domain.MessageService;
 import log.ActionLogging;
 import log.ApplicationLogger;
 import lombok.Getter;
-import security.AvailableTime;
 
 /**
  * 基底画面クラス
@@ -19,7 +18,7 @@ import security.AvailableTime;
  *
  */
 @ActionLogging
-@AvailableTime
+//@AvailableTime
 public abstract class BaseBackingBean {
 
     @Inject

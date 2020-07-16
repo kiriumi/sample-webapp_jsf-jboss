@@ -65,11 +65,6 @@ public class CommonBean {
         }
     }
 
-    public String logout() {
-        externalContext.invalidateSession();
-        return "/login.xhtml?faces-redirect=true";
-    }
-
     public boolean permittedRoles(final HashSet<String> roles) {
         return roleAuther.authUserIn(new ArrayList<String>(roles));
     }

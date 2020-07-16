@@ -52,6 +52,10 @@ dependencies {
 
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.8.1'
 
+    // ファイルアップロード
+    compile group: 'commons-fileupload', name: 'commons-fileupload', version: '1.4'
+
+
     // テスト
     testCompile group: 'org.junit.jupiter', name: 'junit-jupiter', version: '5.6.2'
     testCompile group: 'org.dbunit', name: 'dbunit', version: '2.7.0'

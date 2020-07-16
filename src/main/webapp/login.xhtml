@@ -18,13 +18,13 @@
 
             <div class="form-group">
                 <p:outputLabel for="emailAddress" value="Emailアドレス" pt:type="email" />
-                <p:inputText class="form-control" id="emailAddress" value="#{loginBean.emailAddress}" pt:type="email" pt:placeholder="user@hoge" />
+                <p:inputText class="form-control" id="emailAddress" value="#{loginBean.emailAddress}" pt:type="email" placeholder="user@hoge" />
                 <p:message for="emailAddress" />
             </div>
 
             <div class="form-group">
                 <p:outputLabel for="password" value="パスワード" />
-                <p:password class="form-control" id="password" value="#{loginBean.password}" pt:placeholder="英数字（4～8桁）" />
+                <p:password class="form-control" id="password" value="#{loginBean.password}" placeholder="英数字（4～8桁）" />
                 <p:message for="password" />
             </div>
 

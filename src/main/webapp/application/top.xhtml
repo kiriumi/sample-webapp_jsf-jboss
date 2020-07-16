@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:p="http://primefaces.org/ui"
     xmlns:pt="http://xmlns.jcp.org/jsf/passthrough" xmlns:o="http://omnifaces.org/ui" xmlns:of="http://omnifaces.org/functions" xmlns:b="http://bootsfaces.net/ui">
 
-<ui:composition template="../template/template.xhtml">
+<ui:composition template="../template/template-multipart.xhtml">
 
     <ui:define name="title">トップ</ui:define>
 
@@ -47,26 +47,24 @@
 
         <br />
 
-        <h:commandButton class="btn btn-primary" value="ユーザ登録" action="#{topBean.goSignupPage()}" rendered="#{commonBean.permittedRoles({'admin'})}">
-            <o:skipValidators />
-        </h:commandButton>
-
-        <h:commandButton class="btn btn-primary" value="RESTクライアント" action="#{topBean.goRestClientPage()}">
-            <o:skipValidators />
-        </h:commandButton>
-
-        <h:commandButton class="btn btn-primary" value="PrimeFacesサンプル" action="#{topBean.goPrimeFacesSamplesPage()}">
-            <o:skipValidators />
-        </h:commandButton>
-
-        <h:commandButton class="btn btn-primary" value="Bootstrapサンプル" action="#{topBean.goBootstrapSamplesPage()}">
-            <o:skipValidators />
-        </h:commandButton>
-
         <h:commandButton class="btn btn-primary" value="ファイルダウンロード" actionListener="#{topBean.makeDownloadFile()}">
             <p:fileDownload value="#{topBean.downloadFile}" />
             <o:skipValidators />
         </h:commandButton>
+
+        <br />
+
+        <div class="input-group">
+            <div class="custom-file">
+                <h:inputFile id="uploadfile" value="#{topBean.uploadedFile}" />
+
+            </div>
+            <div class="input-group-append">
+                <h:commandButton class="btn btn-primary" value="ファイルアップロード" action="#{topBean.uploadFile()}">
+                    <o:skipValidators />
+                </h:commandButton>
+            </div>
+        </div>
 
     </ui:define>
 </ui:composition>

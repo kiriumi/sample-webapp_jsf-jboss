@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:p="http://primefaces.org/ui"
     xmlns:pt="http://xmlns.jcp.org/jsf/passthrough" xmlns:o="http://omnifaces.org/ui" xmlns:of="http://omnifaces.org/functions" xmlns:b="http://bootsfaces.net/ui">
 
-<ui:composition template="../template/template.xhtml">
+<ui:composition template="../template/template-multipart.xhtml">
 
     <ui:define name="title">PrimeFacesサンプル</ui:define>
 
@@ -12,7 +12,7 @@
 
         <p:growl id="message" showDetail="true" />
 
-       <p:commandButton value="確認ダイアログだよ" action="#{primeFacesSamplesBean.actionAfterConfirm()}">
+        <p:commandButton value="確認ダイアログだよ" action="#{primeFacesSamplesBean.actionAfterConfirm()}">
             <p:confirm header="Confirmation" message="やっちゃう？?" icon="pi pi-exclamation-triangle" />
         </p:commandButton>
 
@@ -20,6 +20,19 @@
             <p:commandButton value="OK" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
             <p:commandButton value="キャンセル" type="button" styleClass="ui-confirmdialog-no" icon="pi pi-times" />
         </p:confirmDialog>
+
+
+        <hr />
+
+        <div>
+            <p:fileUpload listener="#{primeFacesSamplesBean.uploadFile}" label="ファイルを選択" uploadLabel="アップロード" cancelLabel="キャンセル" />
+        </div>
+
+        <div>
+            <p:fileUpload value="#{primeFacesSamplesBean.uploadedFile}" label="ファイルを選択" mode="simple" skinSimple="true" />
+            <br />
+            <p:commandButton value="ファイルアップロード" ajax="false" action="#{primeFacesSamplesBean.uploadFile}" />
+        </div>
 
     </ui:define>
 </ui:composition>

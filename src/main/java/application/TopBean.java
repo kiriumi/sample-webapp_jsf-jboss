@@ -7,14 +7,16 @@ import java.security.Principal;
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 import javax.security.enterprise.SecurityContext;
+import javax.servlet.http.Part;
 
 import org.primefaces.model.StreamedContent;
 
 import domain.FileDownloader;
+import domain.UploadFileService;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import page_transaction.PageTransactionBegin;
+import lombok.Setter;
 
 /**
  * トップ画面クラス
@@ -45,8 +47,15 @@ public class TopBean extends BaseBackingBean {
     @Inject
     private FileDownloader fileDownloader;
 
+    @Inject
+    private UploadFileService uploadFileService;
+
     @Getter
     private StreamedContent downloadFile;
+
+    @Getter
+    @Setter
+    private Part uploadedFile;
 
     public void viewAction() {
 
@@ -66,28 +75,17 @@ public class TopBean extends BaseBackingBean {
         return null;
     }
 
-    @PageTransactionBegin("signup")
-    public String goSignupPage() {
-        return redirect("signup");
-    }
-
-    public String goRestClientPage() {
-        return redirect("rest-client");
-    }
-
-    public String goPrimeFacesSamplesPage() {
-        return redirect("primefaces-samples");
-    }
-
-    public String goBootstrapSamplesPage() {
-        return redirect("bootstrap-samples");
-    }
-
     public void makeDownloadFile() throws IOException {
 
         File newFile = new File("C:/Users/kengo/git/sample-webapp_jsf-jboss/misc/sample.txt");
         newFile.createNewFile();
         downloadFile = fileDownloader.getDownloadFileAsStreamContent(newFile, "hoge.txt", "text/plain");
+    }
+
+    public String uploadFile() throws IOException {
+        uploadFileService.save(uploadedFile, "jsf");
+
+        return null;
     }
 
 }
