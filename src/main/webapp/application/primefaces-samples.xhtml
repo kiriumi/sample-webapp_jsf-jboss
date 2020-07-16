@@ -12,6 +12,13 @@
 
         <p:growl id="message" showDetail="true" />
 
+        <p:inputText id="input" value="#{primeFacesSamplesBean.inputValue}">
+            <f:validateRequired />
+            <f:validateLongRange minimum="10" maximum="100" />
+            <p:ajax update="msgLastname" event="blur" />
+        </p:inputText>
+        <p:message for="input" id="msgLastname" display="text" globalOnly="true" closable="true" />
+
         <p:commandButton value="確認ダイアログだよ" action="#{primeFacesSamplesBean.actionAfterConfirm()}">
             <p:confirm header="Confirmation" message="やっちゃう？?" icon="pi pi-exclamation-triangle" />
         </p:commandButton>
@@ -29,7 +36,7 @@
         </div>
 
         <div>
-            <p:fileUpload value="#{primeFacesSamplesBean.uploadedFile}" label="ファイルを選択" mode="simple" skinSimple="true" />
+            <p:fileUpload value="#{primeFacesSamplesBean.uploadedFile}" label="ファイルを選択" mode="simple" skinSimple="true" required="true" />
             <br />
             <p:commandButton value="ファイルアップロード" ajax="false" action="#{primeFacesSamplesBean.uploadFile}" />
         </div>

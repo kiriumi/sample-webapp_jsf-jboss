@@ -55,14 +55,13 @@ dependencies {
     // ファイルアップロード
     compile group: 'commons-fileupload', name: 'commons-fileupload', version: '1.4'
 
-
     // テスト
     testCompile group: 'org.junit.jupiter', name: 'junit-jupiter', version: '5.6.2'
     testCompile group: 'org.dbunit', name: 'dbunit', version: '2.7.0'
     testCompile group: 'org.mockito', name: 'mockito-core', version: '3.3.3'
     testCompile group: 'com.codeborne', name: 'selenide', version: '5.11.1'
 
-    providedCompile group: 'javax', name: 'javaee-api', version: '8.0.1'
+    providedCompile group: 'javax', name: 'javaee-web-api', version: '8.0.1'
     providedCompile group: 'org.projectlombok', name: 'lombok', version: '1.18.12'
 
     def cargoVersion = '1.4.5'

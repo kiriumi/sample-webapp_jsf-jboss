@@ -3,6 +3,7 @@ package application;
 import javax.enterprise.inject.Model;
 import javax.faces.application.FacesMessage;
 import javax.inject.Inject;
+import javax.validation.constraints.NotBlank;
 
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.file.UploadedFile;
@@ -15,6 +16,9 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = false)
 public class PrimeFacesSamplesBean extends BaseBackingBean {
+
+    @NotBlank
+    private String inputValue;
 
     @Inject
     private UploadFileService uploadFileService;

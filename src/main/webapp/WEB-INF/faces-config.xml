@@ -6,6 +6,12 @@
         <locale-config>
             <default-locale>ja</default-locale>
         </locale-config>
+
+        <resource-bundle>
+            <base-name>ValidationMessages</base-name>
+            <var>messages</var>
+        </resource-bundle>
+        <message-bundle>CustomJsfValidationMessages</message-bundle>
     </application>
 
     <lifecycle>
