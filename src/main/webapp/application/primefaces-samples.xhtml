@@ -12,12 +12,12 @@
 
         <p:growl id="message" showDetail="true" />
 
-        <p:inputText id="input" value="#{primeFacesSamplesBean.inputValue}">
+        <p:inputNumber id="input" value="#{primeFacesSamplesBean.inputValue}" symbol="%" symbolPosition="s" thousandSeparator="" decimalPlaces="0" placeholder="数値">
             <f:validateRequired />
             <f:validateLongRange minimum="10" maximum="100" />
-            <p:ajax update="msgLastname" event="blur" />
-        </p:inputText>
-        <p:message for="input" id="msgLastname" display="text" globalOnly="true" closable="true" />
+            <p:ajax update="message-input" event="blur" />
+        </p:inputNumber>
+        <p:message for="input" id="message-input" display="text" globalOnly="true" closable="true" />
 
         <p:commandButton value="確認ダイアログだよ" action="#{primeFacesSamplesBean.actionAfterConfirm()}">
             <p:confirm header="Confirmation" message="やっちゃう？?" icon="pi pi-exclamation-triangle" />
@@ -27,7 +27,6 @@
             <p:commandButton value="OK" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
             <p:commandButton value="キャンセル" type="button" styleClass="ui-confirmdialog-no" icon="pi pi-times" />
         </p:confirmDialog>
-
 
         <hr />
 
