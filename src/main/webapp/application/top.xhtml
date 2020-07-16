@@ -66,6 +66,26 @@
             </div>
         </div>
 
+        <div>
+            <span class="p-country-name" style="display:none;">Japan</span>
+            <p:outputLabel for="postal-code" value="郵便番号" />
+            <p:inputText id="postal-code" class="p-postal-code" onkeyup="AjaxZip3.zip2addr(this,'','都道府県','市区町村','その他住所');" />
+            <br />
+
+            <p:outputLabel for="region" value="都道府県" />
+            <p:inputText id="region" class="p-region" name="都道府県" />
+            <br />
+
+            <p:outputLabel for="locality" value="市区町村" />
+            <p:inputText id="locality" class="p-locality" name="市区町村" />
+            <br />
+
+            <p:outputLabel for="street-address" value="その他住所" />
+            <p:inputText id="street-address" class="p-street-address p-extended-address" name="その他住所" />
+        </div>
+
+        <script src="https://yubinbango.github.io/yubinbango/yubinbango.js" charset="UTF-8" />
+
     </ui:define>
 </ui:composition>
 

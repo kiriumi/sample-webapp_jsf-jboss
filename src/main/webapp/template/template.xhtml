@@ -14,21 +14,21 @@
         <f:event type="preRenderView" listener="#{commonBean.preRender()}" />
     </f:metadata>
 
-    <h:form>
+    <h:form class="h-adr">
 
-       <div class="container">
+        <div class="container">
 
-       <ui:include src="header.xhtml" />
+            <ui:include src="header.xhtml" />
 
-       <hr />
+            <hr />
 
-        <p:messages />
+            <p:messages />
 
-        <ui:insert name="content" />
+            <ui:insert name="content" />
 
-        <hr />
+            <hr />
 
-        <ui:include src="footer.xhtml" />
+            <ui:include src="footer.xhtml" />
         </div>
 
     </h:form>
