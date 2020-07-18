@@ -1,6 +1,8 @@
 # 準備
 add-user.batで、管理者のIDとパスワードを登録する
 
-# JDBCをDataSourceに登録
+# データソースを登録
 1. JDBCをDeploymentsする
 2. ConfigrationからデプロイしたJDBCをDataSourceに登録する
+
+# SecurityDomainにRealmを登録

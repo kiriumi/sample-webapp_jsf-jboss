@@ -73,6 +73,19 @@ public class UserService {
         return rolesOnly;
     }
 
+    public List<String> getRoles(final String emailaddress) {
+
+        RoleExample example = new RoleExample();
+        example.createCriteria().andEmailaddressEqualTo(emailaddress);
+
+        RoleMapper roleMapper = sqlSession.getMapper(RoleMapper.class);
+        List<Role> roles = roleMapper.selectByExample(example);
+
+        List<String> rolesOnly = new ArrayList<>();
+        roles.forEach(role -> rolesOnly.add(role.getRole()));
+        return rolesOnly;
+    }
+
     public void addUser(final User user) {
         UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
         userMapper.insert(user);

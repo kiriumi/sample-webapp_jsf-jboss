@@ -11,6 +11,7 @@ import javax.security.enterprise.AuthenticationStatus;
 import javax.security.enterprise.SecurityContext;
 import javax.security.enterprise.authentication.mechanism.http.AuthenticationParameters;
 import javax.security.enterprise.credential.UsernamePasswordCredential;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.constraints.Email;
@@ -115,15 +116,24 @@ public class LoginBean {
 
     public void authenticate(final ActionEvent event) throws Exception {
 
-        AuthenticationStatus authStatus = getAuthStatus();
+        HttpServletRequest request = (HttpServletRequest) externalContext.getRequest();
 
-        logger.info("anything", "認証ステータス：" + authStatus);
+        try {
+            request.login(emailAddress, password);
 
-        if (authStatus.equals(AuthenticationStatus.SUCCESS)) {
-            return;
+        } catch (ServletException e) {
+            messageService.setAppMessageById(FacesMessage.SEVERITY_ERROR, "error.message.auth");
         }
 
-        messageService.setAppMessageById(FacesMessage.SEVERITY_ERROR, "error.message.auth");
+        //        AuthenticationStatus authStatus = getAuthStatus();
+        //        logger.info("anything", "認証ステータス：" + authStatus);
+
+        //        if (authStatus.equals(AuthenticationStatus.SUCCESS)) {
+        //        if (true) {
+        //            return;
+        //        }
+
+        //        messageService.setAppMessageById(FacesMessage.SEVERITY_ERROR, "error.message.auth");
     }
 
     private AuthenticationStatus getAuthStatus() {

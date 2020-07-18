@@ -3,6 +3,8 @@ package application;
 import javax.enterprise.inject.Model;
 import javax.faces.context.ExternalContext;
 import javax.inject.Inject;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
 
 import lombok.extern.slf4j.Slf4j;
 import page_transaction.PageTransactionBegin;
@@ -31,7 +33,11 @@ public class MenuBean extends BaseBackingBean {
         return redirect("bootstrap-samples");
     }
 
-    public String logout() {
+    public String logout() throws ServletException {
+
+        HttpServletRequest request = (HttpServletRequest) externalContext.getRequest();
+        request.logout();
+
         externalContext.invalidateSession();
         return "/login.xhtml?faces-redirect=true";
     }

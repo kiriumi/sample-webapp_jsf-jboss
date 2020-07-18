@@ -30,6 +30,7 @@ dependencies {
     compile group: 'org.primefaces', name: 'primefaces', version: '8.0'
     compile group: 'org.omnifaces', name: 'omnifaces', version: '3.4.1'
     //compile group: 'org.omnifaces', name: 'javax.security.enterprise', version: '1.1-m02'
+    compile group: 'javax.security.enterprise', name: 'javax.security.enterprise-api', version: '1.0'
     compile group: 'org.glassfish.soteria', name: 'javax.security.enterprise', version: '1.0'
 
     compile group: 'org.primefaces.themes', name: 'bootstrap', version: '1.0.10'
@@ -62,6 +63,7 @@ dependencies {
     testCompile group: 'com.codeborne', name: 'selenide', version: '5.11.1'
 
     providedCompile group: 'javax', name: 'javaee-web-api', version: '8.0.1'
+
     providedCompile group: 'org.projectlombok', name: 'lombok', version: '1.18.12'
 
     def cargoVersion = '1.4.5'

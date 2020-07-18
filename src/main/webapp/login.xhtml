@@ -16,9 +16,11 @@
 
         <div class="container">
 
+            <p:messages />
+
             <div class="form-group">
                 <p:outputLabel for="emailAddress" value="Emailアドレス" pt:type="email" />
-                <p:inputText class="form-control" id="emailAddress" value="#{loginBean.emailAddress}" pt:type="email" placeholder="user@hoge" />
+                <p:inputText class="form-control" id="emailAddress" value="#{loginBean.emailAddress}" type="email" placeholder="user@hoge" />
                 <p:message for="emailAddress" />
             </div>
 
