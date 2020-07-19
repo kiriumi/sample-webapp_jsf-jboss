@@ -10,8 +10,14 @@
 
     <ui:define name="content">
 
+        <p:breadCrumb class="my-3" lastItemDisabled="true">
+            <p:menuitem value="親" url="#" />
+            <p:menuitem value="子" url="#" />
+            <p:menuitem value="孫" url="#" />
+        </p:breadCrumb>
+
         <div class="ui-g">
-            <p:fieldset class="ui-g-5" toggleable="true" legend="SecurityContexから取得した権限情報">
+            <p:fieldset class="ui-g-6" toggleable="true" legend="SecurityContexから取得した権限情報">
                 <h:panelGrid columns="2">
             名前：<h:outputText value="#{topBean.name}" />
             アドミン権限：<h:outputText value="#{topBean.adminRole}" />
@@ -19,9 +25,9 @@
                 </h:panelGrid>
             </p:fieldset>
 
-            <span class="ui-g-2" />
 
-            <p:fieldset class="ui-g-5" legend="リクエストから取得した権限情報">
+
+            <p:fieldset class="ui-g-6" toggleable="true" legend="リクエストから取得した権限情報">
                 <h:panelGrid columns="2">
             名前：<h:outputText value="#{request.userPrincipal.name}" />
             アドミン権限：<h:outputText value="#{request.isUserInRole('admin')}" />
@@ -30,8 +36,8 @@
             </p:fieldset>
         </div>
 
-        <div class="ui-g-12">
-            <p:fieldset legend="Ajaxのサンプル" toggleable="true" collapsed="true" title="入力値を変えたら、自動で計算される">
+        <p:accordionPanel class="my-4">
+            <p:tab title="Ajaxのサンプル">
                 <h:inputText id="value1" value="#{topBean.value1}">
                     <f:ajax execute="value1 value2" event="change" listener="#{topBean.sum()}" render="sumedValue" />
                 </h:inputText>
@@ -41,14 +47,13 @@
                 </h:inputText>
             ＝
             <h:outputText id="sumedValue" value="#{topBean.sumedValue}" />
-            </p:fieldset>
-        </div>
 
-        <div>
-            <p:commandButton icon="pi pi-download" title="ファイルダウンロード" actionListener="#{topBean.makeDownloadFile()}" ajax="false">
-                <p:fileDownload value="#{topBean.downloadFile}" />
-            </p:commandButton>
-        </div>
+            </p:tab>
+        </p:accordionPanel>
+
+        <p:commandButton icon="pi pi-download " title="ファイルダウンロード" actionListener="#{topBean.makeDownloadFile()}" ajax="false">
+            <p:fileDownload value="#{topBean.downloadFile}" />
+        </p:commandButton>
 
         <div class="form-group">
             <h:outputLabel for="uploadfile" value="ファイルアップロード" />
@@ -87,7 +92,20 @@
             </div>
         </fieldset>
 
-        <br /><br /><br /><br /><br /><br /><br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
 
         <script src="https://yubinbango.github.io/yubinbango/yubinbango.js" charset="UTF-8" />
 

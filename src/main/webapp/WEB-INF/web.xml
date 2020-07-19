@@ -20,7 +20,7 @@
 
     <context-param>
         <param-name>primefaces.THEME</param-name>
-        <param-value>nova-colored</param-value>
+        <param-value>nova-light</param-value>
 <!--         <param-value>none</param-value> -->
     </context-param>
 

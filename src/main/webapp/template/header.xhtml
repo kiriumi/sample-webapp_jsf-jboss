@@ -6,70 +6,45 @@
 
 <ui:composition>
 
-    <!--         <div class='fixed-top'> -->
+    <h:form id="header-form" style="background: white">
+        <p:sticky target="header-form" />
 
-    <!--             <nav class="navbar navbar-expand-sm navbar-dark bg-dark"> <a href="#" class="navbar-brand">ブランド</a> -->
-    <!--             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navmenu1" aria-controls="navmenu1" aria-expanded="false" aria-label="Toggle navigation"> -->
-    <!--                 <span class="navbar-toggler-icon"></span> -->
-    <!--             </button> -->
+        <div class="container-fluid my-2">
 
-    <!--             <div class="collapse navbar-collapse" id="navmenu1"> -->
-    <!--                 <div class="navbar-nav"> -->
-    <!--                     <a class="nav-item nav-link" href="#">Menu#1</a> -->
-    <!--                     <a class="nav-item nav-link" href="#">Menu#2</a> -->
-    <!--                     <a class="nav-item nav-link" href="#">Menu#3</a> -->
-    <!--                 </div> -->
-    <!--             </div> -->
-    <!--             <input type="text" class="form-control" pracleholder="検索" /> </nav> -->
-    <!--         </div> -->
+            <p:megaMenu orientation="horizontal">
 
-    <style type="text/css">
-body {
-    padding-top: 160px;
-}
-</style>
+                <p:menuitem value="トップ" icon="pi pi-home" action="#{menuBean.goTopPage()}" />
+                <p:submenu label="機能" icon="pi pi-briefcase">
+                    <p:column>
+                        <p:submenu label="ユーザ">
+                            <p:menuitem value="ユーザ登録" action="#{menuBean.goSignupPage()}" rendered="#{commonBean.permittedRoles({'admin'})}" />
+                        </p:submenu>
+                        <p:submenu label="WebAPI">
+                            <p:menuitem value="RESTクライアント" action="#{menuBean.goRestClientPage()}" />
+                        </p:submenu>
+                    </p:column>
+                </p:submenu>
+                <p:submenu label="サンプル集" icon="pi">
+                    <p:column>
+                        <p:submenu label="サンプル集">
+                            <p:menuitem value="PrimeFaces" action="#{menuBean.goPrimeFacesSamplesPage()}" />
+                            <p:menuitem value="Bootstrap" action="#{menuBean.goBootstrapSamplesPage()}" />
+                        </p:submenu>
+                    </p:column>
+                </p:submenu>
 
-    <h:form>
-        <div class="fixed-top my-10" style="background: #F8F8FF;">
+                <f:facet name="options">
+                    <p:inputText style="margin:1px 4px 1px 1px;" placeholder="検索" />
+                    <p:commandButton icon="pi pi-search" ajax="false" />
+                </f:facet>
 
-            <div class="container-fluid my-3">
-
-                <p:megaMenu orientation="horizontal" style="margin-top:20px">
-
-                    <p:menuitem value="トップ" icon="pi pi-home" action="#{menuBean.goTopPage()}" />
-                    <p:submenu label="機能" icon="pi pi-briefcase">
-                        <p:column>
-                            <p:submenu label="ユーザ">
-                                <p:menuitem value="ユーザ登録" action="#{menuBean.goSignupPage()}" rendered="#{commonBean.permittedRoles({'admin'})}" />
-                            </p:submenu>
-                            <p:submenu label="WebAPI">
-                                <p:menuitem value="RESTクライアント" action="#{menuBean.goRestClientPage()}" />
-                            </p:submenu>
-                        </p:column>
-                    </p:submenu>
-                    <p:submenu label="サンプル集" icon="pi">
-                        <p:column>
-                            <p:submenu label="サンプル集">
-                                <p:menuitem value="PrimeFaces" action="#{menuBean.goPrimeFacesSamplesPage()}" />
-                                <p:menuitem value="Bootstrap" action="#{menuBean.goBootstrapSamplesPage()}" />
-                            </p:submenu>
-                        </p:column>
-                    </p:submenu>
-
-                    <p:menuitem value="ログアウト" icon="pi pi-sign-out" action="#{menuBean.logout()}" />
-                </p:megaMenu>
-            </div>
-
-            <div class="container">
-                <p:breadCrumb lastItemDisabled="true">
-                    <p:menuitem value="親" url="#" />
-                    <p:menuitem value="子" url="#" />
-                    <p:menuitem value="孫" url="#" />
-                </p:breadCrumb>
-            </div>
+                <p:menuitem value="ログアウト" icon="pi pi-sign-out" action="#{menuBean.logout()}" />
+            </p:megaMenu>
         </div>
 
     </h:form>
+
+    <p:growl sticky="true" />
 
 </ui:composition>
 </html>
