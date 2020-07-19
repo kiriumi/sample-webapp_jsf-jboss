@@ -10,35 +10,47 @@
 
     <ui:define name="content">
 
-        <p:growl id="message" showDetail="true" />
+        <p:tabView dynamic="true" scrollable="true" activeIndex="0">
+            <p:tab title="即時単項目チェック">
+                <p:inputNumber id="input" value="#{primeFacesSamplesBean.inputValue}" symbol="%" symbolPosition="s" thousandSeparator="" decimalPlaces="0" placeholder="数値">
+                    <f:validateRequired />
+                    <f:validateLongRange minimum="10" maximum="100" />
+                    <p:ajax update="message-input" event="blur" />
+                </p:inputNumber>
+                <p:message class="ml-2" for="input" id="message-input" display="text" globalOnly="true" closable="true" />
+            </p:tab>
 
-        <p:inputNumber id="input" value="#{primeFacesSamplesBean.inputValue}" symbol="%" symbolPosition="s" thousandSeparator="" decimalPlaces="0" placeholder="数値">
-            <f:validateRequired />
-            <f:validateLongRange minimum="10" maximum="100" />
-            <p:ajax update="message-input" event="blur" />
-        </p:inputNumber>
-        <p:message for="input" id="message-input" display="text" globalOnly="true" closable="true" />
+            <p:tab title="確認ダイアログ">
+                <p:commandButton value="確認ダイアログだよ" action="#{primeFacesSamplesBean.actionAfterConfirm()}">
+                    <p:confirm header="Confirmation" message="やっちゃう？?" icon="pi pi-exclamation-triangle" />
+                </p:commandButton>
+            </p:tab>
 
-        <p:commandButton value="確認ダイアログだよ" action="#{primeFacesSamplesBean.actionAfterConfirm()}">
-            <p:confirm header="Confirmation" message="やっちゃう？?" icon="pi pi-exclamation-triangle" />
-        </p:commandButton>
+            <p:tab title="ファイルアップロード">
+                <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                    <p:commandButton value="OK" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
+                    <p:commandButton value="キャンセル" type="button" styleClass="ui-confirmdialog-no" icon="pi pi-times" />
+                </p:confirmDialog>
 
-        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
-            <p:commandButton value="OK" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
-            <p:commandButton value="キャンセル" type="button" styleClass="ui-confirmdialog-no" icon="pi pi-times" />
-        </p:confirmDialog>
+                <div>
+                    <p:fileUpload listener="#{primeFacesSamplesBean.uploadFile}" label="ファイルを選択" uploadLabel="アップロード" cancelLabel="キャンセル" />
+                </div>
 
-        <hr />
+                <div>
+                    <p:fileUpload value="#{primeFacesSamplesBean.uploadedFile}" label="ファイルを選択" mode="simple" skinSimple="true" required="true" />
+                    <br />
+                    <p:commandButton value="ファイルアップロード" ajax="false" action="#{primeFacesSamplesBean.uploadFile}" />
+                </div>
+            </p:tab>
 
-        <div>
-            <p:fileUpload listener="#{primeFacesSamplesBean.uploadFile}" label="ファイルを選択" uploadLabel="アップロード" cancelLabel="キャンセル" />
-        </div>
-
-        <div>
-            <p:fileUpload value="#{primeFacesSamplesBean.uploadedFile}" label="ファイルを選択" mode="simple" skinSimple="true" required="true" />
-            <br />
-            <p:commandButton value="ファイルアップロード" ajax="false" action="#{primeFacesSamplesBean.uploadFile}" />
-        </div>
+            <p:tab title="カレンダー">
+                <p:outputLabel for="calendar" value="カレンダー" />
+                <p:calendar id="calendar" value="#{primeFacesSamplesBean.calendar}" pattern="yyyy/MM/dd" showOn="button" placeholder="yyyy/mm/dd">
+                    <p:ajax update="message-calendar" event="blur" />
+                </p:calendar>
+                <p:message class="ml-2" for="calendar" id="message-calendar" display="text" globalOnly="true" closable="true" />
+            </p:tab>
+        </p:tabView>
 
     </ui:define>
 </ui:composition>
