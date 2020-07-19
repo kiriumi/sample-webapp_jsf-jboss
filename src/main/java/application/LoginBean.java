@@ -11,7 +11,6 @@ import javax.security.enterprise.AuthenticationStatus;
 import javax.security.enterprise.SecurityContext;
 import javax.security.enterprise.authentication.mechanism.http.AuthenticationParameters;
 import javax.security.enterprise.credential.UsernamePasswordCredential;
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.constraints.Email;
@@ -21,10 +20,12 @@ import javax.validation.constraints.Size;
 
 import context.WebApplicationContext;
 import domain.MessageService;
+import domain.TwoFactorAuthenticator;
 import domain.UserService;
 import log.ApplicationLogger;
-import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 import validation.AuthGroup;
 
 /*
@@ -65,7 +66,6 @@ import validation.AuthGroup;
  *
  */
 @Model
-@Data
 @EqualsAndHashCode(callSuper = false)
 @FacesConfig
 //@Auth(emailAddress = "emailAddress", password = "password")
@@ -91,15 +91,22 @@ public class LoginBean {
 
     @NotBlank(groups = AuthGroup.class)
     @Email
+    @Getter
+    @Setter
     private String emailAddress;
 
     @NotBlank(groups = AuthGroup.class)
     @Size(min = 4, max = 8)
     @Pattern(regexp = "[0-9a-zA-Z]*")
+    @Getter
+    @Setter
     private String password;
 
     @Inject
     UserService userService;
+
+    @Inject
+    TwoFactorAuthenticator authenticator;
 
     //	/**
     //	 * Springでなければ、メソッドバリデーションが行える
@@ -111,19 +118,19 @@ public class LoginBean {
     //	};
 
     public String viewAction() {
-        return login();
+
+        if (authenticator.isSecondAuthed()) {
+            return appContext.redirect("top");
+        }
+
+        if (authenticator.isFirstAuthed()) {
+            return appContext.redirectTwoFactorAuthPage();
+        }
+
+        return null;
     }
 
     public void authenticate(final ActionEvent event) throws Exception {
-
-        HttpServletRequest request = (HttpServletRequest) externalContext.getRequest();
-
-        try {
-            request.login(emailAddress, password);
-
-        } catch (ServletException e) {
-            messageService.setAppMessageById(FacesMessage.SEVERITY_ERROR, "error.message.auth");
-        }
 
         //        AuthenticationStatus authStatus = getAuthStatus();
         //        logger.info("anything", "認証ステータス：" + authStatus);
@@ -147,9 +154,11 @@ public class LoginBean {
 
     public String login() {
 
-        if (externalContext.getUserPrincipal() != null) {
-            return appContext.redirect("top");
+        if (authenticator.firstAuth(emailAddress, password)) {
+            return appContext.redirectTwoFactorAuthPage();
         }
+
+        messageService.setAppMessageById(FacesMessage.SEVERITY_ERROR, "error.message.auth");
 
         return null;
     }

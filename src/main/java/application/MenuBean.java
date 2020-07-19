@@ -4,7 +4,6 @@ import javax.enterprise.inject.Model;
 import javax.faces.context.ExternalContext;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
 
 import lombok.extern.slf4j.Slf4j;
 import page_transaction.PageTransactionBegin;
@@ -15,6 +14,9 @@ public class MenuBean extends BaseBackingBean {
 
     @Inject
     ExternalContext externalContext;
+
+    @Inject
+    private CommonBean commonBean;
 
     @PageTransactionBegin("signup")
     public String goSignupPage() {
@@ -34,11 +36,7 @@ public class MenuBean extends BaseBackingBean {
     }
 
     public String logout() throws ServletException {
-
-        HttpServletRequest request = (HttpServletRequest) externalContext.getRequest();
-        request.logout();
-
-        externalContext.invalidateSession();
+        commonBean.logout();
         return "/login.xhtml?faces-redirect=true";
     }
 }

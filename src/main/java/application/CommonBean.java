@@ -9,6 +9,8 @@ import javax.enterprise.inject.Model;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.ExternalContext;
 import javax.inject.Inject;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
 
 import domain.MessageService;
 import lombok.extern.slf4j.Slf4j;
@@ -28,7 +30,7 @@ import security.RoleAuthorizator;
 public class CommonBean {
 
     @Inject
-    private ExternalContext externalContext;
+    ExternalContext externalContext;
 
     @Inject
     private MessageService messageService;
@@ -71,6 +73,13 @@ public class CommonBean {
 
     public boolean forbidenRoles(final HashSet<String> roles) {
         return !permittedRoles(roles);
+    }
+
+    public void logout() throws ServletException {
+
+        HttpServletRequest request = (HttpServletRequest) externalContext.getRequest();
+        request.logout();
+        externalContext.invalidateSession();
     }
 
     public boolean aviableTime() {
