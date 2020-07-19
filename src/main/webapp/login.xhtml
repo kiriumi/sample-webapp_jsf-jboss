@@ -13,13 +13,12 @@
     </f:metadata>
 
     <h:form>
-
         <div class="container">
 
             <p:messages />
 
             <div class="form-group">
-                <p:outputLabel for="emailAddress" value="Emailアドレス" pt:type="email" />
+                <p:outputLabel for="emailAddress" value="Emailアドレス" />
                 <p:inputText class="form-control" id="emailAddress" value="#{loginBean.emailAddress}" type="email" placeholder="user@hoge" />
                 <p:message for="emailAddress" />
             </div>
@@ -30,15 +29,12 @@
                 <p:message for="password" />
             </div>
 
-            <!-- actionLister：actionより前に実行される -->
             <h:commandButton class="btn btn-primary" value="ログイン" action="#{loginBean.login()}" actionListener="#{loginBean.authenticate}">
                 <o:validateBean validationGroups="validation.AuthGroup" />
             </h:commandButton>
 
         </div>
-
         <ui:include src="./template/bootstrap.xhtml" />
-
     </h:form>
 </h:body>
 </html>

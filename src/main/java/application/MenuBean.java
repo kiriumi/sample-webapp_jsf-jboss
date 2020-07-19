@@ -23,6 +23,10 @@ public class MenuBean extends BaseBackingBean {
         return redirect("signup");
     }
 
+    public String goTopPage() {
+        return redirect("top");
+    }
+
     public String goRestClientPage() {
         return redirect("rest-client");
     }

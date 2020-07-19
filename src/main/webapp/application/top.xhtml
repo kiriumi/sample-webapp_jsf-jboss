@@ -10,79 +10,82 @@
 
     <ui:define name="content">
 
-        <fieldset>
-            <legend>SecurityContexから取得した権限情報</legend>
-            <h:panelGrid columns="2">
+        <div class="ui-g">
+            <p:fieldset class="ui-g-5" toggleable="true" legend="SecurityContexから取得した権限情報">
+                <h:panelGrid columns="2">
             名前：<h:outputText value="#{topBean.name}" />
             アドミン権限：<h:outputText value="#{topBean.adminRole}" />
             ユーザ権限：<h:outputText value="#{topBean.userRole}" />
-            </h:panelGrid>
-        </fieldset>
+                </h:panelGrid>
+            </p:fieldset>
 
-        <br />
+            <span class="ui-g-2" />
 
-        <fieldset>
-            <legend>リクエストから取得した権限情報</legend>
-            <h:panelGrid columns="2">
+            <p:fieldset class="ui-g-5" legend="リクエストから取得した権限情報">
+                <h:panelGrid columns="2">
             名前：<h:outputText value="#{request.userPrincipal.name}" />
             アドミン権限：<h:outputText value="#{request.isUserInRole('admin')}" />
             ユーザ権限：<h:outputText value="#{request.isUserInRole('user')}" />
-            </h:panelGrid>
-        </fieldset>
+                </h:panelGrid>
+            </p:fieldset>
+        </div>
 
-        <br />
-
-        <fieldset>
-            <legend>Ajaxのサンプル（入力値を変えたら、自動で計算される）</legend>
-            <h:inputText id="value1" value="#{topBean.value1}">
-                <f:ajax execute="value1 value2" event="change" listener="#{topBean.sum()}" render="sumedValue" />
-            </h:inputText>
+        <div class="ui-g-12">
+            <p:fieldset legend="Ajaxのサンプル" toggleable="true" collapsed="true" title="入力値を変えたら、自動で計算される">
+                <h:inputText id="value1" value="#{topBean.value1}">
+                    <f:ajax execute="value1 value2" event="change" listener="#{topBean.sum()}" render="sumedValue" />
+                </h:inputText>
             ＋
             <h:inputText id="value2" value="#{topBean.value2}">
-                <f:ajax execute="value1 value2" event="change" listener="#{topBean.sum()}" render="sumedValue" />
-            </h:inputText>
+                    <f:ajax execute="value1 value2" event="change" listener="#{topBean.sum()}" render="sumedValue" />
+                </h:inputText>
             ＝
             <h:outputText id="sumedValue" value="#{topBean.sumedValue}" />
-        </fieldset>
-
-        <br />
-
-        <h:commandButton class="btn btn-primary" value="ファイルダウンロード" actionListener="#{topBean.makeDownloadFile()}">
-            <p:fileDownload value="#{topBean.downloadFile}" />
-            <o:skipValidators />
-        </h:commandButton>
-
-        <br />
-
-        <div class="input-group">
-            <div class="custom-file">
-                <h:inputFile id="uploadfile" value="#{topBean.uploadedFile}" />
-
-            </div>
-            <div class="input-group-append">
-                <h:commandButton class="btn btn-primary" value="ファイルアップロード" action="#{topBean.uploadFile()}">
-                    <o:skipValidators />
-                </h:commandButton>
-            </div>
+            </p:fieldset>
         </div>
 
         <div>
-            <span class="p-country-name" style="display:none;">Japan</span>
-            <p:outputLabel for="postal-code" value="郵便番号" />
-            <p:inputText id="postal-code" class="p-postal-code" onkeyup="AjaxZip3.zip2addr(this,'','都道府県','市区町村','その他住所');" />
-            <br />
-
-            <p:outputLabel for="region" value="都道府県" />
-            <p:inputText id="region" class="p-region" name="都道府県" />
-            <br />
-
-            <p:outputLabel for="locality" value="市区町村" />
-            <p:inputText id="locality" class="p-locality" name="市区町村" />
-            <br />
-
-            <p:outputLabel for="street-address" value="その他住所" />
-            <p:inputText id="street-address" class="p-street-address p-extended-address" name="その他住所" />
+            <p:commandButton icon="pi pi-download" title="ファイルダウンロード" actionListener="#{topBean.makeDownloadFile()}" ajax="false">
+                <p:fileDownload value="#{topBean.downloadFile}" />
+            </p:commandButton>
         </div>
+
+        <div class="form-group">
+            <h:outputLabel for="uploadfile" value="ファイルアップロード" />
+            <div class="input-group">
+                <div class="custom-file">
+                    <h:inputFile id="uploadfile" class="custom-file-input" value="#{topBean.uploadedFile}" />
+                    <h:outputLabel for="uploadfile" class="custom-file-label" data-browse="参照" value="ファイルを選んでね（ドラッグ＆ドロップも可）" />
+                </div>
+                <div class="input-group-append">
+                    <h:button class="btn input-group-text mr-3" id="uploadfile-cancel" value="Cancel" onclick="deleteUploadFile('uploadfile')" />
+                    <p:commandButton icon="pi pi-upload" title="ファイルアップロード" action="#{topBean.uploadFile()}" ajax="false" />
+                </div>
+            </div>
+
+        </div>
+
+        <fieldset>
+            <legend>住所</legend>
+
+            <span class="p-country-name" style="display: none;">Japan</span>
+            <div class="row my-2">
+                <p:outputLabel class="col-3" for="postal-code" value="郵便番号" />
+                <p:inputText id="postal-code" class="p-postal-code col-6" placeholder="1234567" onkeyup="AjaxZip3.zip2addr(this,'','都道府県','市区町村','その他住所');" />
+            </div>
+            <div class="row my-2">
+                <p:outputLabel class="col-3" for="region" value="都道府県" />
+                <p:inputText id="region" class="p-region col-6" placeholder="広島県" name="都道府県" />
+            </div>
+            <div class="row my-2">
+                <p:outputLabel class="col-3" for="locality" value="市区町村" />
+                <p:inputText id="locality" class="p-locality col-6" placeholder="広島市中区" name="市区町村" />
+            </div>
+            <div class="row my-2">
+                <p:outputLabel class="col-3" for="street-address" value="その他住所" />
+                <p:inputText id="street-address" class="p-street-address p-extended-address col-6" placeholder="大手町" name="その他住所" />
+            </div>
+        </fieldset>
 
         <script src="https://yubinbango.github.io/yubinbango/yubinbango.js" charset="UTF-8" />
 

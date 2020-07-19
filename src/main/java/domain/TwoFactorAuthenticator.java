@@ -10,7 +10,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.codec.digest.DigestUtils;
-import org.apache.commons.lang3.StringUtils;
 
 import dto.User;
 import lombok.Getter;
@@ -72,22 +71,28 @@ public class TwoFactorAuthenticator implements Serializable {
 
     public boolean secondAuth(final String inputtedToken) throws ServletException {
 
-        if (StringUtils.isBlank(inputtedToken)) {
-            return false;
-        }
-
-        if (token.equals(inputtedToken)) {
-
-            resetToken();
-            this.secondAuthed = true;
-
-            HttpServletRequest request = (HttpServletRequest) externalContext.getRequest();
+        HttpServletRequest request = (HttpServletRequest) externalContext.getRequest();
+        if (request.getUserPrincipal() == null) {
             request.login(user.getEmailaddress(), user.getPassword());
-
-            return true;
         }
+        return true;
 
-        return false;
+        //        if (StringUtils.isBlank(inputtedToken)) {
+        //            return false;
+        //        }
+        //
+        //        if (token.equals(inputtedToken)) {
+        //
+        //            resetToken();
+        //            this.secondAuthed = true;
+        //
+        //            HttpServletRequest request = (HttpServletRequest) externalContext.getRequest();
+        //            request.login(user.getEmailaddress(), user.getPassword());
+        //
+        //            return true;
+        //        }
+        //
+        //        return false;
     }
 
     private void resetToken() {

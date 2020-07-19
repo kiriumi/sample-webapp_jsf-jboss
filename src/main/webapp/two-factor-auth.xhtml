@@ -13,18 +13,24 @@
     </f:metadata>
 
     <h:form>
+        <div class="container">
 
-        <p:messages />
+            <p:messages />
 
-        <p:outputLabel for="token" value="トークン" />
-        <p:inputText id="token" value="#{twoFactorAuthBean.token}" />
+            <div class="form-group">
+                <p:outputLabel for="token" value="トークン" />
+                <div class="input-group">
+                    <p:inputText id="token" class="form-control col-4" value="#{twoFactorAuthBean.token}" placeholder="トークン" />
 
-        <br />
+                </div>
+            </div>
 
-        <p:commandButton value="認証" action="#{twoFactorAuthBean.authenticate()}" ajax="false" />
-        <p:commandButton value="トークンを再送" action="#{twoFactorAuthBean.resendToken()}" ajax="false" />
-        <p:commandButton value="ログインに戻る" action="#{twoFactorAuthBean.backLogin()}" ajax="false" />
+            <h:commandButton class="btn btn-primary mr-4" value="認証" action="#{twoFactorAuthBean.authenticate()}" />
+            <h:commandButton class="btn btn-outline-secondary mr-2" value="トークンを再送" action="#{twoFactorAuthBean.resendToken()}" />
+            <h:commandButton class="btn btn-outline-secondary mr-2" value="ログインに戻る" action="#{twoFactorAuthBean.backLogin()}" />
 
+            <ui:include src="./template/bootstrap.xhtml" />
+        </div>
     </h:form>
 </h:body>
 </html>

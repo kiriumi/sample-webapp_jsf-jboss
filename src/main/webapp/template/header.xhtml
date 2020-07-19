@@ -6,61 +6,61 @@
 
 <ui:composition>
 
-<!--         <div class='fixed-top'> -->
+    <!--         <div class='fixed-top'> -->
 
-        <!--             <nav class="navbar navbar-expand-sm navbar-dark bg-dark"> <a href="#" class="navbar-brand">ブランド</a> -->
-        <!--             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navmenu1" aria-controls="navmenu1" aria-expanded="false" aria-label="Toggle navigation"> -->
-        <!--                 <span class="navbar-toggler-icon"></span> -->
-        <!--             </button> -->
+    <!--             <nav class="navbar navbar-expand-sm navbar-dark bg-dark"> <a href="#" class="navbar-brand">ブランド</a> -->
+    <!--             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navmenu1" aria-controls="navmenu1" aria-expanded="false" aria-label="Toggle navigation"> -->
+    <!--                 <span class="navbar-toggler-icon"></span> -->
+    <!--             </button> -->
 
-        <!--             <div class="collapse navbar-collapse" id="navmenu1"> -->
-        <!--                 <div class="navbar-nav"> -->
-        <!--                     <a class="nav-item nav-link" href="#">Menu#1</a> -->
-        <!--                     <a class="nav-item nav-link" href="#">Menu#2</a> -->
-        <!--                     <a class="nav-item nav-link" href="#">Menu#3</a> -->
-        <!--                 </div> -->
-        <!--             </div> -->
-        <!--             <input type="text" class="form-control" pracleholder="検索" /> </nav> -->
-        <!--         </div> -->
+    <!--             <div class="collapse navbar-collapse" id="navmenu1"> -->
+    <!--                 <div class="navbar-nav"> -->
+    <!--                     <a class="nav-item nav-link" href="#">Menu#1</a> -->
+    <!--                     <a class="nav-item nav-link" href="#">Menu#2</a> -->
+    <!--                     <a class="nav-item nav-link" href="#">Menu#3</a> -->
+    <!--                 </div> -->
+    <!--             </div> -->
+    <!--             <input type="text" class="form-control" pracleholder="検索" /> </nav> -->
+    <!--         </div> -->
 
-
-        <p:megaMenu orientation="horizontal" style="margin-top:20px">
-            <p:submenu label="機能" icon="pi">
-                <p:column>
-                    <p:submenu label="ユーザ">
-                        <p:menuitem value="ユーザ登録" action="#{menuBean.goSignupPage()}" rendered="#{commonBean.permittedRoles({'admin'})}" />
-                    </p:submenu>
-                    <p:submenu label="WebAPI">
-                        <p:menuitem value="RESTクライアント" action="#{menuBean.goRestClientPage()}" />
-                    </p:submenu>
-                </p:column>
-            </p:submenu>
-            <p:submenu label="サンプル集" icon="pi">
-                <p:column>
-                    <p:submenu label="サンプル集">
-                        <p:menuitem value="PrimeFaces" action="#{menuBean.goPrimeFacesSamplesPage()}" />
-                        <p:menuitem value="Bootstrap" action="#{menuBean.goBootstrapSamplesPage()}" />
-                    </p:submenu>
-                </p:column>
-            </p:submenu>
-
-            <p:menuitem value="ログアウト" icon="pi pi-times" action="#{menuBean.logout()}"/>
-        </p:megaMenu>
-
-        <!-- ナビゲーション -->
-        <nav class="nav" data-spy="affix"> <a class="nav-link active" href="#">Active</a> <a class="nav-link" href="#">Link</a> <a class="nav-link" href="#">Link</a> <a class="nav-link disabled"
-            href="#">Disabled</a> </nav>
+    <h:form>
 
 
-        <!-- パンくずリスト -->
-        <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">親</a></li>
-            <li class="breadcrumb-item"><a href="#">子</a></li>
-            <li class="breadcrumb-item active" aria-current="page">孫</li>
-            <!-- active:現在表示している箇所のスタイル，aria-current：現在表示している箇所 -->
-        </ol>
-        </nav>
+        <div class="container-fluid my-3">
+            <p:megaMenu orientation="horizontal" style="margin-top:20px">
+                <p:menuitem value="トップ" icon="pi pi-home" action="#{menuBean.goTopPage()}" />
+                <p:submenu label="機能" icon="pi pi-briefcase">
+                    <p:column>
+                        <p:submenu label="ユーザ">
+                            <p:menuitem value="ユーザ登録" action="#{menuBean.goSignupPage()}" rendered="#{commonBean.permittedRoles({'admin'})}" />
+                        </p:submenu>
+                        <p:submenu label="WebAPI">
+                            <p:menuitem value="RESTクライアント" action="#{menuBean.goRestClientPage()}" />
+                        </p:submenu>
+                    </p:column>
+                </p:submenu>
+                <p:submenu label="サンプル集" icon="pi">
+                    <p:column>
+                        <p:submenu label="サンプル集">
+                            <p:menuitem value="PrimeFaces" action="#{menuBean.goPrimeFacesSamplesPage()}" />
+                            <p:menuitem value="Bootstrap" action="#{menuBean.goBootstrapSamplesPage()}" />
+                        </p:submenu>
+                    </p:column>
+                </p:submenu>
+
+                <p:menuitem value="ログアウト" icon="pi pi-sign-out" action="#{menuBean.logout()}" />
+            </p:megaMenu>
+        </div>
+
+        <div class="container my-3">
+            <p:breadCrumb lastItemDisabled="true">
+                <p:menuitem value="親" url="#" />
+                <p:menuitem value="子" url="#" />
+                <p:menuitem value="孫" url="#" />
+            </p:breadCrumb>
+        </div>
+
+    </h:form>
 
 </ui:composition>
 </html>

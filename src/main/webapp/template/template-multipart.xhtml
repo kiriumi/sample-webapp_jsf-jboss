@@ -9,33 +9,25 @@
     <title><ui:insert name="title" /></title>
 </h:head>
 <h:body>
-
     <f:metadata>
         <f:event type="preRenderView" listener="#{commonBean.preRender()}" />
     </f:metadata>
 
-    <h:form enctype="multipart/form-data" class="h-adr">
+    <ui:include src="header.xhtml" />
 
+    <h:form class="h-adr" prependId="false" enctype="multipart/form-data">
         <div class="container">
-
-            <ui:include src="header.xhtml" />
-
+            <p:growl sticky="true" />
             <hr />
-
-            <p:messages />
-
             <ui:insert name="content" />
-
             <hr />
-
             <ui:include src="footer.xhtml" />
         </div>
-
     </h:form>
 
     <ui:include src="bootstrap.xhtml" />
 
-    <h:outputScript library="js" name="back-page.js" />
     <h:outputScript library="js" name="resubmit-preventer.js" />
+    <h:outputScript library="js" name="fileupload-bootstrap.js" />
 </h:body>
 </html>
