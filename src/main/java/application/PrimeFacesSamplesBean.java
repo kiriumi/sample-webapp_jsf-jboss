@@ -43,6 +43,16 @@ public class PrimeFacesSamplesBean extends BaseBackingBean {
         return null;
     }
 
+    public String ajaxButton() {
+        getMessageService().setMessage(FacesMessage.SEVERITY_INFO, "Ajaxボタンだよ");
+        return null;
+    }
+
+    public String nonAjaxButton() {
+        getMessageService().setMessage(FacesMessage.SEVERITY_INFO, "普通のボタンだよ");
+        return null;
+    }
+
     public void uploadFile(final FileUploadEvent event) throws Exception {
 
         UploadedFile uploadedFile = event.getFile();

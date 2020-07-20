@@ -1,0 +1,7 @@
+@charset "UTF-8";
+
+#loading {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}

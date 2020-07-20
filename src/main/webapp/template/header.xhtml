@@ -40,11 +40,14 @@
 
                 <p:menuitem value="ログアウト" icon="pi pi-sign-out" action="#{menuBean.logout()}" />
             </p:megaMenu>
+
+
         </div>
 
     </h:form>
 
-    <p:growl sticky="true" />
+    <p:growl id="growl-message" sticky="true" />
+    <div id="loading" class="spinner-border"  style="display: none;"/>
 
 </ui:composition>
 </html>

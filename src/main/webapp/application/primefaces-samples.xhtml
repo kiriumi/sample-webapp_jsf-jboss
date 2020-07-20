@@ -11,6 +11,11 @@
     <ui:define name="content">
 
         <p:tabView dynamic="true" scrollable="true" activeIndex="0">
+            <p:tab title="ボタン">
+                <p:commandButton update="growl-message" value="Ajaxボタン" action="#{primeFacesSamplesBean.ajaxButton()}" />
+                <p:commandButton value="Non Ajaxボタン" action="#{primeFacesSamplesBean.nonAjaxButton()}" ajax="false"/>
+            </p:tab>
+
             <p:tab title="即時単項目チェック">
                 <p:inputNumber id="input" value="#{primeFacesSamplesBean.inputValue}" symbol="%" symbolPosition="s" thousandSeparator="" decimalPlaces="0" placeholder="数値">
                     <f:validateRequired />
