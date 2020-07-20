@@ -53,6 +53,10 @@ public class PrimeFacesSamplesBean extends BaseBackingBean {
         return null;
     }
 
+    public String doException() {
+        throw new NullPointerException("意図的に例外を発生");
+    }
+
     public void uploadFile(final FileUploadEvent event) throws Exception {
 
         UploadedFile uploadedFile = event.getFile();

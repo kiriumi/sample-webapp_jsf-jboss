@@ -14,6 +14,7 @@
             <p:tab title="ボタン">
                 <p:commandButton update="growl-message" value="Ajaxボタン" action="#{primeFacesSamplesBean.ajaxButton()}" />
                 <p:commandButton value="Non Ajaxボタン" action="#{primeFacesSamplesBean.nonAjaxButton()}" ajax="false"/>
+                <p:commandButton value="例外発生" action="#{primeFacesSamplesBean.doException()}" ajax="false"/>
             </p:tab>
 
             <p:tab title="即時単項目チェック">
