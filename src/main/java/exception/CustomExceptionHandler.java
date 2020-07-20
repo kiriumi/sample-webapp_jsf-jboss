@@ -9,19 +9,15 @@ import javax.faces.context.ExceptionHandlerWrapper;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ExceptionQueuedEvent;
 import javax.faces.event.ExceptionQueuedEventContext;
-import javax.inject.Inject;
 
-import context.WebApplicationContext;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class CustomExceptionHandler extends ExceptionHandlerWrapper {
 
-    @Inject
-    private WebApplicationContext appContext;
-
     private final ExceptionHandler wrapped;
 
+    @SuppressWarnings("deprecation")
     public CustomExceptionHandler(final ExceptionHandler wrapped) {
         this.wrapped = wrapped;
     }

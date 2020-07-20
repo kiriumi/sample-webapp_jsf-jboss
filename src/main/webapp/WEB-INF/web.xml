@@ -74,7 +74,7 @@
 
     <!-- URLにディレクトリ名のみ指定（ファイル名を指定しない）があったら、このページを表示する -->
     <welcome-file-list>
-        <welcome-file>/application/top.xhtml</welcome-file>
+        <welcome-file>/login.xhtml</welcome-file>
     </welcome-file-list>
 
     <!-- JSFのログをSLF4Jで出力するため -->

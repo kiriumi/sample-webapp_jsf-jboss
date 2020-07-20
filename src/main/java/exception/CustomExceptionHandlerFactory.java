@@ -7,6 +7,7 @@ public class CustomExceptionHandlerFactory extends ExceptionHandlerFactory {
 
     private final ExceptionHandlerFactory wrapped;
 
+    @SuppressWarnings("deprecation")
     public CustomExceptionHandlerFactory(final ExceptionHandlerFactory wrapped) {
         this.wrapped = wrapped;
     }

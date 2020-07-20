@@ -5,11 +5,9 @@ import javax.faces.context.ExternalContext;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 
-import lombok.extern.slf4j.Slf4j;
 import page_transaction.PageTransactionBegin;
 
 @Model
-@Slf4j
 public class MenuBean extends BaseBackingBean {
 
     @Inject
