@@ -6,19 +6,23 @@ import javax.enterprise.inject.Model;
 import javax.faces.application.FacesMessage;
 import javax.inject.Inject;
 
+import org.primefaces.PrimeFaces;
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.file.UploadedFile;
 
+import domain.DialogMessage;
+import domain.DialogMessageService;
 import domain.UploadFileService;
-import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
 @Model
-@Data
 @EqualsAndHashCode(callSuper = false)
 public class PrimeFacesSamplesBean extends BaseBackingBean {
+
+    @Inject
+    private DialogMessageService dialogMessage;
 
     @Getter
     @Setter
@@ -54,6 +58,23 @@ public class PrimeFacesSamplesBean extends BaseBackingBean {
             uploadFileService.save(uploadedFile, "primefaces");
             getMessageService().setMessage(FacesMessage.SEVERITY_INFO, "ファイルアップロードしたよ：" + uploadedFile.getFileName());
         }
+    }
+
+    public String showMessageDialog() {
+
+        // メッセージは１つしか表示できない
+        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "メッセージ", "おためしメッセージ");
+        PrimeFaces.current().dialog().showMessageDynamic(message);
+        return null;
+    }
+
+    public String showMessageAsDialog() {
+
+        dialogMessage.addMessage(DialogMessage.Level.INFO, "情報メッセージ");
+        dialogMessage.addMessage(DialogMessage.Level.WARN, "警告メッセージ");
+        dialogMessage.addMessage(DialogMessage.Level.ERROR, "エラーメッセージ");
+
+        return null;
     }
 
 }

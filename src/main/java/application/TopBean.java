@@ -84,7 +84,6 @@ public class TopBean extends BaseBackingBean {
 
     public String uploadFile() throws IOException {
         uploadFileService.save(uploadedFile, "jsf");
-
         return null;
     }
 

@@ -20,9 +20,17 @@
                 <p:message class="ml-2" for="input" id="message-input" display="text" globalOnly="true" closable="true" />
             </p:tab>
 
-            <p:tab title="確認ダイアログ">
-                <p:commandButton value="確認ダイアログだよ" action="#{primeFacesSamplesBean.actionAfterConfirm()}">
+            <p:tab title="ダイアログ">
+                <p:commandButton value="確認ダイアログだよ" action="#{primeFacesSamplesBean.actionAfterConfirm()}" ajax="false">
                     <p:confirm header="Confirmation" message="やっちゃう？?" icon="pi pi-exclamation-triangle" />
+                </p:commandButton>
+
+                <p:commandButton value="メッセージダイアログ（デフォルト）" action="#{primeFacesSamplesBean.showMessageDialog()}" ajax="false">
+                    <o:skipValidators />
+                </p:commandButton>
+
+                <p:commandButton value="メッセージダイアログ" action="#{primeFacesSamplesBean.showMessageAsDialog()}" ajax="false">
+                    <o:skipValidators />
                 </p:commandButton>
             </p:tab>
 
