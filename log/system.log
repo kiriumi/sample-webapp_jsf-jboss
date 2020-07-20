@@ -2436,3 +2436,5 @@ Caused by: java.lang.NullPointerException: 意図的に例外を発生
 2020/07/20 19:27:31.920 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
 2020/07/20 19:27:33.194 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
 2020/07/20 19:27:51.552 [default task-1] ERROR JSF1094: Could not decode flash data from incoming cookie value Invalid characters in decrypted value.  Processing will continue, but the flash is unavailable for this request.
+2020/07/20 19:35:14.032 [default task-5] INFO  application.MenuBean#logout 開始
+2020/07/20 19:35:14.036 [default task-5] INFO  application.MenuBean#logout 終了

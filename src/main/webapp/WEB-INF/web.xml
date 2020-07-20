@@ -110,10 +110,6 @@
         <error-code>500</error-code>
         <location>/error-server.xhtml</location>
     </error-page>
-    <error-page>
-        <exception-type>java.lang.Exception</exception-type>
-        <location>/error.xhtml</location>
-    </error-page>
 
     <security-constraint>
         <web-resource-collection>

@@ -2553,3 +2553,5 @@ Caused by: java.lang.NullPointerException: 意図的に例外を発生
 2020/07/20 19:28:01.072 [default task-3] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user WHERE ( emailaddress = ? and password = ? ) 
 2020/07/20 19:28:01.074 [default task-3] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: user@hoge(String), user(String)
 2020/07/20 19:28:01.077 [default task-3] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 1
+2020/07/20 19:35:14.032 [default task-5] INFO  log.ActionLoggingInterceptor#around application.MenuBean#logout 開始
+2020/07/20 19:35:14.036 [default task-5] INFO  log.ActionLoggingInterceptor#around application.MenuBean#logout 終了
