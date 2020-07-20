@@ -10,16 +10,18 @@
     <h:form>
 
         <div class="container">
-                <p:dataTable var="message" value="#{dialogMessageBean.messages}">
-                    <p:column headerText="レベル">
-                        <h:outputText value="#{message.level}" />
-                    </p:column>
+            <p:dataTable var="message" value="#{dialogMessageBean.messages}" styleClass="message-table" rowIndexVar="rowIndex">
+                <p:column headerText="レベル">
+                    <h:outputText value="#{message.level}" />
+                </p:column>
 
-                    <p:column headerText="メッセージ">
-                        <h:outputText value="#{message.message}" />
-                    </p:column>
-                </p:dataTable>
-            </div>
+                <p:column headerText="メッセージ">
+                    <h:outputText id="message" value="#{message.message}" />
+                    <p:tooltip for="@(.message-table tr[role=row][data-ri=#{rowIndex}] span[id$=message])" value="#{message.message}" position="top" />
+                </p:column>
+
+            </p:dataTable>
+        </div>
 
     </h:form>
 </h:body>
