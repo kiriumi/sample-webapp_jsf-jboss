@@ -21,7 +21,7 @@
     <context-param>
         <param-name>primefaces.THEME</param-name>
         <param-value>nova-light</param-value>
-<!--         <param-value>none</param-value> -->
+        <!-- <param-value>none</param-value> -->
     </context-param>
 
     <!-- RESTで認可処理を行う場合、必要 -->
@@ -82,26 +82,38 @@
         <listener-class>log.FacesLogBridgeListener</listener-class>
     </listener>
 
-    <!-- <error-page> -->
-    <!-- <exception-type>javax.faces.application.ProtectedViewException</exception-type> -->
-    <!-- <location>/error.xhtml</location> -->
-    <!-- </error-page> -->
-    <!-- <error-page> -->
-    <!-- <exception-type>javax.faces.application.ViewExpiredException</exception-type> -->
-    <!-- <location>/error-session.xhtml</location> -->
-    <!-- </error-page> -->
-    <!-- <error-page> -->
-    <!-- <error-code>401</error-code> -->
-    <!-- <location>/login.xhtml</location> -->
-    <!-- </error-page> -->
-    <!-- <error-page> -->
-    <!-- <error-code>403</error-code> -->
-    <!-- <location>/error-forbidden.xhtml</location> -->
-    <!-- </error-page> -->
-    <!-- <error-page> -->
-    <!-- <exception-type>java.lang.Exception</exception-type> -->
-    <!-- <location>/error.xhtml</location> -->
-    <!-- </error-page> -->
+    <error-page>
+        <exception-type>javax.faces.application.ProtectedViewException</exception-type>
+        <location>/error.xhtml</location>
+    </error-page>
+    <error-page>
+        <exception-type>javax.faces.application.ViewExpiredException</exception-type>
+        <location>/error-session.xhtml</location>
+    </error-page>
+    <error-page>
+        <error-code>400</error-code>
+        <location>/lerror-badrequest.xhtml</location>
+    </error-page>
+    <error-page>
+        <error-code>401</error-code>
+        <location>/login.xhtml</location>
+    </error-page>
+    <error-page>
+        <error-code>403</error-code>
+        <location>/error-forbidden.xhtml</location>
+    </error-page>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/error-forbidden.xhtml</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/error-server.xhtml</location>
+    </error-page>
+    <error-page>
+        <exception-type>java.lang.Exception</exception-type>
+        <location>/error.xhtml</location>
+    </error-page>
 
     <security-constraint>
         <web-resource-collection>
