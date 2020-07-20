@@ -48,6 +48,7 @@
 
     <p:growl id="growl-message" sticky="true" />
     <div id="loading" class="spinner-border"  style="display: none;"/>
+    <p:ajaxStatus onstart="$('#loading').show()" oncomplete="$('#loading').hide()" />
 
 </ui:composition>
 </html>
