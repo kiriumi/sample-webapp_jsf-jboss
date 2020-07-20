@@ -88,6 +88,10 @@ public class PrimeFacesSamplesBean extends BaseBackingBean {
         dialogMessage.addMessage(DialogMessage.Level.WARN, "警告メッセージ");
         dialogMessage.addMessage(DialogMessage.Level.ERROR, "エラーメッセージ");
 
+        dialogMessage.addMessage(DialogMessage.Level.INFO, "ほげ");
+        dialogMessage.addMessage(DialogMessage.Level.INFO, "ふー");
+        dialogMessage.addMessage(DialogMessage.Level.INFO, "ばー");
+
         return null;
     }
 

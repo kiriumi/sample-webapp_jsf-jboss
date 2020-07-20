@@ -8,10 +8,13 @@
 </h:head>
 <h:body>
     <h:form>
-
         <div class="container">
-            <p:dataTable var="message" value="#{dialogMessageBean.messages}" styleClass="message-table" rowIndexVar="rowIndex">
-                <p:column headerText="レベル">
+
+            <p:dataTable var="message" value="#{dialogMessageBean.messages}" styleClass="message-table" rowIndexVar="rowIndex" rows="2" paginator="true"
+                paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                currentPageReportTemplate="{startRecord}-{endRecord} / {totalRecords} 件" rowsPerPageTemplate="1, 2, 3" emptyMessage="レコードがないよ">
+
+                <p:column headerText="レベル" sortBy="#{message.level}">
                     <h:outputText value="#{message.level}" />
                 </p:column>
 
@@ -19,10 +22,9 @@
                     <h:outputText id="message" value="#{message.message}" />
                     <p:tooltip for="@(.message-table tr[role=row][data-ri=#{rowIndex}] span[id$=message])" value="#{message.message}" position="top" />
                 </p:column>
-
             </p:dataTable>
-        </div>
 
+        </div>
     </h:form>
 </h:body>
 </html>
