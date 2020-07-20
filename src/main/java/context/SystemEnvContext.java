@@ -12,7 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 @ApplicationScoped
 @Getter
 @Slf4j
-public class SystemDirContext implements Serializable {
+public class SystemEnvContext implements Serializable {
 
     private final File rootDir;
 
@@ -20,7 +20,7 @@ public class SystemDirContext implements Serializable {
 
     private final File otherRootDir;
 
-    public SystemDirContext() {
+    public SystemEnvContext() {
 
         // クラスローディング
         // 外部ディレクトリにあるプロパティファイを読込み

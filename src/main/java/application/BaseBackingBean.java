@@ -5,7 +5,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.context.Flash;
 import javax.inject.Inject;
 
-import context.SystemDirContext;
+import context.SystemEnvContext;
 import context.WebApplicationContext;
 import domain.MessageService;
 import log.ActionLogging;
@@ -31,7 +31,7 @@ public abstract class BaseBackingBean {
 
     @Inject
     @Getter
-    private SystemDirContext systemDirContext;
+    private SystemEnvContext systemEnvContext;
 
     @Getter
     @Inject
