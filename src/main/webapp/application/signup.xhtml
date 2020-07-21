@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core"
-    xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-    xmlns:p="http://primefaces.org/ui" xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
-    xmlns:o="http://omnifaces.org/ui" xmlns:of="http://omnifaces.org/functions"
-    xmlns:b="http://bootsfaces.net/ui">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:p="http://primefaces.org/ui"
+    xmlns:pt="http://xmlns.jcp.org/jsf/passthrough" xmlns:o="http://omnifaces.org/ui" xmlns:of="http://omnifaces.org/functions" xmlns:b="http://bootsfaces.net/ui">
 
 <ui:composition template="../template/template.xhtml">
 
@@ -28,16 +25,9 @@
 
         <h:panelGrid columns="2">
             <h:commandButton value="ユーザ登録（MyBatis）" action="#{signupBean.signupUser()}" />
-
             <h:commandButton value="ユーザ登録（JPA）" action="#{signupBean.signupUserWithJpa()}" />
-
-            <h:commandButton value="テストモード変更" action="#{commonBean.switchTestMode()}">
-                <o:skipValidators />
-            </h:commandButton>
-
-            <h:commandButton value="トレースモード変更" action="#{commonBean.switchTraceMode()}">
-                <o:skipValidators />
-            </h:commandButton>
+            <h:commandButton immediate="true" value="テストモード変更" action="#{commonBean.switchTestMode()}" />
+            <h:commandButton immediate="true" value="トレースモード変更" action="#{commonBean.switchTraceMode()}" />
         </h:panelGrid>
 
     </ui:define>
