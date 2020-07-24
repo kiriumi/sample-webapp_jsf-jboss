@@ -3,8 +3,6 @@ package application;
 import javax.enterprise.inject.Model;
 import javax.faces.annotation.FacesConfig;
 import javax.faces.application.FacesMessage;
-import javax.faces.context.ExternalContext;
-import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.inject.Inject;
 import javax.security.enterprise.AuthenticationStatus;
@@ -17,11 +15,9 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
-import context.WebApplicationContext;
-import domain.MessageService;
+import context.RedirectContext;
 import domain.TwoFactorAuthenticator;
 import domain.UserService;
-import log.ApplicationLogger;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -67,25 +63,13 @@ import lombok.Setter;
 @EqualsAndHashCode(callSuper = false)
 @FacesConfig
 //@Auth(emailAddress = "emailAddress", password = "password")
-public class LoginBean {
-
-    @Inject
-    private FacesContext facesContext;
-
-    @Inject
-    private ExternalContext externalContext;
+public class LoginBean extends BaseBackingBean {
 
     @Inject
     private SecurityContext securityContext;
 
     @Inject
-    private WebApplicationContext appContext;
-
-    @Inject
-    private MessageService messageService;
-
-    @Inject
-    private ApplicationLogger logger;
+    private RedirectContext appContext;
 
     @Email
     @Getter
@@ -120,7 +104,7 @@ public class LoginBean {
         }
 
         if (authenticator.isFirstAuthed()) {
-            return appContext.redirectTwoFactorAuthPage();
+            return appContext.redirectNonSecuredPage("two-factor-auth");
         }
 
         return null;
@@ -142,8 +126,8 @@ public class LoginBean {
     private AuthenticationStatus getAuthStatus() {
 
         return securityContext.authenticate(
-                (HttpServletRequest) externalContext.getRequest(),
-                (HttpServletResponse) externalContext.getResponse(),
+                (HttpServletRequest) externalContext().getRequest(),
+                (HttpServletResponse) externalContext().getResponse(),
                 AuthenticationParameters.withParams()
                         .credential(new UsernamePasswordCredential(emailAddress, password)));
     }
@@ -151,16 +135,16 @@ public class LoginBean {
     public String login() {
 
         if (authenticator.firstAuth(emailAddress, password)) {
-            return appContext.redirectTwoFactorAuthPage();
+            return appContext.redirectNonSecuredPage("two-factor-auth");
         }
 
-        messageService.setAppMessageById(FacesMessage.SEVERITY_ERROR, "error.message.auth");
+        messageService().setAppMessageById(FacesMessage.SEVERITY_ERROR, "error.message.auth");
 
         return null;
     }
 
     public String goSignup() {
-        return appContext.redirectSignup();
+        return appContext.redirectNonSecuredPage("signup");
     }
 
 }

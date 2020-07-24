@@ -1963,3 +1963,21 @@ javax.el.MethodNotFoundException: Method not found: class application.LoginBean.
 2020/07/24 20:31:57.669 [default task-5] INFO  application.SystemErrorBean#goTopPage 終了
 2020/07/24 20:32:37.565 [default task-11] INFO  application.SystemErrorBean#goTopPage 開始
 2020/07/24 20:32:37.567 [default task-11] INFO  application.SystemErrorBean#goTopPage 終了
+2020/07/24 20:38:00.226 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/07/24 20:38:03.862 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/07/24 21:04:03.096 [ServerService Thread Pool -- 77] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/07/24 21:04:05.877 [ServerService Thread Pool -- 77] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/07/24 21:04:14.829 [default task-1] INFO  application.LoginBean#viewAction 開始
+2020/07/24 21:04:14.834 [default task-1] INFO  application.LoginBean#viewAction 終了
+2020/07/24 21:04:20.371 [default task-2] INFO  application.LoginBean#viewAction 開始
+2020/07/24 21:04:20.372 [default task-2] INFO  application.LoginBean#viewAction 終了
+2020/07/24 21:04:27.990 [default task-2] INFO  application.LoginBean#authenticate 開始
+2020/07/24 21:04:27.992 [default task-2] INFO  application.LoginBean#authenticate 終了
+2020/07/24 21:04:27.995 [default task-2] INFO  application.LoginBean#login 開始
+2020/07/24 21:04:29.173 [default task-2] INFO  application.LoginBean#login 終了
+2020/07/24 21:04:29.203 [default task-2] INFO  application.TwoFactorAuthBean#viewAction 開始
+2020/07/24 21:04:29.209 [default task-2] INFO  application.TwoFactorAuthBean#viewAction 終了
+2020/07/24 21:04:33.839 [default task-6] INFO  application.TwoFactorAuthBean#authenticate 開始
+2020/07/24 21:04:33.910 [default task-6] INFO  application.TwoFactorAuthBean#authenticate 終了
+2020/07/24 21:04:39.869 [default task-6] INFO  application.MenuBean#goPrimeFacesSamplesPage 開始
+2020/07/24 21:04:39.872 [default task-6] INFO  application.MenuBean#goPrimeFacesSamplesPage 終了

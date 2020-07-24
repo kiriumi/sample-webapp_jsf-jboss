@@ -15,19 +15,19 @@ import lombok.Getter;
 public class DialogMessageBean {
 
     @Inject
-    DialogMessageService messageService;
+    DialogMessageService dialogMessageService;
 
     @Getter
     private List<DialogMessage> messages;
 
     @PostConstruct
     public void init() {
-        this.messages = messageService.getMessages();
+        this.messages = dialogMessageService.getMessages();
     }
 
     @PreDestroy
     public void clear() {
-        messageService.clear();
+        dialogMessageService.clear();
         this.messages.clear();
     }
 

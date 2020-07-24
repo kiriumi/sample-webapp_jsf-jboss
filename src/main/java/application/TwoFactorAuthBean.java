@@ -6,8 +6,7 @@ import javax.faces.context.ExternalContext;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 
-import context.WebApplicationContext;
-import domain.MessageService;
+import context.RedirectContext;
 import domain.TwoFactorAuthenticator;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -21,19 +20,16 @@ import lombok.Setter;
  */
 @Model
 @EqualsAndHashCode(callSuper = false)
-public class TwoFactorAuthBean {
+public class TwoFactorAuthBean extends BaseBackingBean {
 
     @Inject
     private ExternalContext externalContext;
 
     @Inject
-    private WebApplicationContext appContext;
+    private RedirectContext appContext;
 
     @Inject
     private CommonBean commonBean;
-
-    @Inject
-    private MessageService messageService;
 
     @Inject
     TwoFactorAuthenticator authenticator;
@@ -57,13 +53,13 @@ public class TwoFactorAuthBean {
             return null;
         }
 
-        return appContext.redirectLoginPage();
+        return appContext.redirectNonSecuredPage("login");
     }
 
     public String authenticate() throws ServletException {
 
         if (authenticator.expiredToken()) {
-            messageService.setMessage(FacesMessage.SEVERITY_ERROR, "トークンの有効期限が切れたよ");
+            messageService().setMessage(FacesMessage.SEVERITY_ERROR, "トークンの有効期限が切れたよ");
             return null;
         }
 
@@ -71,20 +67,20 @@ public class TwoFactorAuthBean {
             return appContext.redirect("top");
         }
 
-        messageService.setMessage(FacesMessage.SEVERITY_ERROR, "認証に失敗したよ");
+        messageService().setMessage(FacesMessage.SEVERITY_ERROR, "認証に失敗したよ");
         return null;
     }
 
     public String resendToken() {
 
         authenticator.sendTokenToUser();
-        messageService.setMessage(FacesMessage.SEVERITY_INFO, "トークンを再送したよ");
+        messageService().setMessage(FacesMessage.SEVERITY_INFO, "トークンを再送したよ");
         return null;
     }
 
     public String backLogin() {
 
         authenticator.clear();
-        return appContext.redirectLoginPage();
+        return appContext.redirectNonSecuredPage("login");
     }
 }

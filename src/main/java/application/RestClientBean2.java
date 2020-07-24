@@ -27,7 +27,7 @@ import security.CustomPrincipal;
  */
 @Model
 @Data
-public class RestClientBean2 {
+public class RestClientBean2 extends BaseBackingBean {
 
     private final UriBuilder baseRestUriBuilder = UriBuilder
             .fromUri("http://localhost:8080/sample-webapp-jsf/webresources");

@@ -6,11 +6,10 @@ import javax.faces.context.Flash;
 import javax.inject.Inject;
 
 import context.SystemEnvContext;
-import context.WebApplicationContext;
+import context.RedirectContext;
 import domain.MessageService;
 import log.ActionLogging;
 import log.ApplicationLogger;
-import lombok.Getter;
 
 /**
  * 基底画面クラス
@@ -22,34 +21,49 @@ import lombok.Getter;
 public abstract class BaseBackingBean {
 
     @Inject
-    @Getter
     private FacesContext facesContext;
 
     @Inject
-    @Getter
     private ExternalContext externalContext;
 
     @Inject
-    @Getter
     private SystemEnvContext systemEnvContext;
 
-    @Getter
     @Inject
     private MessageService messageService;
 
-    @Getter
     @Inject
     private ApplicationLogger logger;
 
     @Inject
-    private WebApplicationContext appContext;
+    private RedirectContext redirectContext;
+
+    protected FacesContext facesContext() {
+        return facesContext;
+    }
+
+    protected ExternalContext externalContext() {
+        return externalContext;
+    }
 
     protected Flash getFlash() {
         return externalContext.getFlash();
     }
 
+    protected SystemEnvContext systemEnvContext() {
+        return systemEnvContext;
+    }
+
+    protected MessageService messageService() {
+        return messageService;
+    }
+
+    protected ApplicationLogger logger() {
+        return logger;
+    }
+
     protected String redirect(final String pageName) {
-        return appContext.redirect(pageName);
+        return redirectContext.redirect(pageName);
     }
 
 }

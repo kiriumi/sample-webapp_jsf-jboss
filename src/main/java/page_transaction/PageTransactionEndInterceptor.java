@@ -8,7 +8,7 @@ import javax.interceptor.AroundInvoke;
 import javax.interceptor.Interceptor;
 import javax.interceptor.InvocationContext;
 
-import context.WebApplicationContext;
+import context.RedirectContext;
 
 @Interceptor
 @Priority(Interceptor.Priority.APPLICATION)
@@ -19,7 +19,7 @@ public class PageTransactionEndInterceptor {
     FacesContext facesContext;
 
     @Inject
-    WebApplicationContext appContext;
+    RedirectContext appContext;
 
     @Inject
     PageTransaction pageTransaction;
