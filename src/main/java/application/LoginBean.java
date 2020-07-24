@@ -14,7 +14,6 @@ import javax.security.enterprise.credential.UsernamePasswordCredential;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
@@ -26,7 +25,6 @@ import log.ApplicationLogger;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
-import validation.AuthGroup;
 
 /*
  * クラスに付けるアノテーション（２種類）
@@ -89,13 +87,11 @@ public class LoginBean {
     @Inject
     private ApplicationLogger logger;
 
-    @NotBlank(groups = AuthGroup.class)
     @Email
     @Getter
     @Setter
     private String emailAddress;
 
-    @NotBlank(groups = AuthGroup.class)
     @Size(min = 4, max = 8)
     @Pattern(regexp = "[0-9a-zA-Z]*")
     @Getter
@@ -161,6 +157,10 @@ public class LoginBean {
         messageService.setAppMessageById(FacesMessage.SEVERITY_ERROR, "error.message.auth");
 
         return null;
+    }
+
+    public String goSignup() {
+        return appContext.redirectSignup();
     }
 
 }

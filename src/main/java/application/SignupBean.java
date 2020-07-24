@@ -11,11 +11,11 @@ import javax.validation.constraints.Size;
 
 import domain.UserService;
 import dto.User;
-import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 import mode.TestModeTransactional;
 import page_transaction.PageTransactionEnd;
-import security.ForbidenRoles;
 
 /**
  * ユーザ登録画面クラス
@@ -24,27 +24,31 @@ import security.ForbidenRoles;
  *
  */
 @Model
-@Data
 @EqualsAndHashCode(callSuper = false)
 public class SignupBean extends BaseBackingBean {
 
     @NotBlank
     @Email
+    @Getter
+    @Setter
     private String emailAddress;
 
     @NotBlank
+    @Getter
+    @Setter
     private String name;
 
     @NotBlank
     @Size(min = 4, max = 8)
     @Pattern(regexp = "[0-9a-zA-Z]*")
+    @Getter
+    @Setter
     private String password;
 
     @Inject
     private UserService userService;
 
     @TestModeTransactional
-    @ForbidenRoles("user")
     @PageTransactionEnd
     public String signupUser() {
 
@@ -88,7 +92,7 @@ public class SignupBean extends BaseBackingBean {
     }
 
     public String back() {
-        return redirect("top");
+        return redirect("login");
     }
 
 }

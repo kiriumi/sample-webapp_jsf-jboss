@@ -25,6 +25,10 @@ public class WebApplicationContext implements Serializable {
         return String.join("", "login", redirectParam);
     }
 
+    public String redirectSignup() {
+        return String.join("", "signup", redirectParam);
+    }
+
     public String redirectTwoFactorAuthPage() {
         return String.join("", "two-factor-auth", redirectParam);
     }

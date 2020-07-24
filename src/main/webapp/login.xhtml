@@ -29,9 +29,8 @@
                 <p:message for="password" />
             </div>
 
-            <h:commandButton class="btn btn-primary" value="ログイン" action="#{loginBean.login()}" actionListener="#{loginBean.authenticate}">
-                <o:validateBean validationGroups="validation.AuthGroup" />
-            </h:commandButton>
+            <h:commandButton class="btn btn-primary" value="ログイン" action="#{loginBean.login()}" actionListener="#{loginBean.authenticate}" />
+            <h:commandButton class="btn btn-secondary" immediate="true" value="サインアップ" action="#{loginBean.goSignup()}" />
 
         </div>
         <ui:include src="./template/bootstrap.xhtml" />
