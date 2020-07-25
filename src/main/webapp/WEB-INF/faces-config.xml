@@ -4,15 +4,9 @@
 
     <application>
         <!-- ダイアログで他画面を表示するため -->
-        <action-listener>
-            org.primefaces.application.DialogActionListener
-        </action-listener>
-        <navigation-handler>
-            org.primefaces.application.DialogNavigationHandler
-        </navigation-handler>
-        <view-handler>
-            org.primefaces.application.DialogViewHandler
-        </view-handler>
+        <action-listener>org.primefaces.application.DialogActionListener</action-listener>
+        <navigation-handler>org.primefaces.application.DialogNavigationHandler</navigation-handler>
+        <view-handler>org.primefaces.application.DialogViewHandler</view-handler>
 
         <locale-config>
             <default-locale>ja</default-locale>
@@ -27,6 +21,7 @@
 
     <lifecycle>
         <phase-listener>listener.InvokeApplicationLisener</phase-listener>
+        <phase-listener>listener.BrowserCacheInvalidationListener</phase-listener>
     </lifecycle>
 
     <factory>
