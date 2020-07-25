@@ -69,7 +69,7 @@ public class LoginBean extends BaseBackingBean {
     private SecurityContext securityContext;
 
     @Inject
-    private RedirectContext appContext;
+    private RedirectContext redirectContext;
 
     @Email
     @Getter
@@ -100,11 +100,11 @@ public class LoginBean extends BaseBackingBean {
     public String viewAction() {
 
         if (authenticator.isSecondAuthed()) {
-            return appContext.redirect("top");
+            return redirectContext.redirect("top");
         }
 
         if (authenticator.isFirstAuthed()) {
-            return appContext.redirectNonSecuredPage("two-factor-auth");
+            return redirectContext.redirectNonSecuredPage("two-factor-auth");
         }
 
         return null;
@@ -135,7 +135,7 @@ public class LoginBean extends BaseBackingBean {
     public String login() {
 
         if (authenticator.firstAuth(emailAddress, password)) {
-            return appContext.redirectNonSecuredPage("two-factor-auth");
+            return redirectContext.redirectNonSecuredPage("two-factor-auth");
         }
 
         messageService().setAppMessageById(FacesMessage.SEVERITY_ERROR, "error.message.auth");
@@ -144,7 +144,7 @@ public class LoginBean extends BaseBackingBean {
     }
 
     public String goSignup() {
-        return appContext.redirectNonSecuredPage("signup");
+        return redirectContext.redirectNonSecuredPage("signup");
     }
 
 }

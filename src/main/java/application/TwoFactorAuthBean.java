@@ -26,7 +26,7 @@ public class TwoFactorAuthBean extends BaseBackingBean {
     private ExternalContext externalContext;
 
     @Inject
-    private RedirectContext appContext;
+    private RedirectContext redirectContext;
 
     @Inject
     private CommonBean commonBean;
@@ -41,7 +41,7 @@ public class TwoFactorAuthBean extends BaseBackingBean {
     public String viewAction() {
 
         if (authenticator.isSecondAuthed()) {
-            return appContext.redirect("top");
+            return redirectContext.redirect("top");
         }
 
         if (authenticator.isFirstAuthed()) {
@@ -53,7 +53,7 @@ public class TwoFactorAuthBean extends BaseBackingBean {
             return null;
         }
 
-        return appContext.redirectNonSecuredPage("login");
+        return redirectContext.redirectNonSecuredPage("login");
     }
 
     public String authenticate() throws ServletException {
@@ -64,7 +64,7 @@ public class TwoFactorAuthBean extends BaseBackingBean {
         }
 
         if (authenticator.secondAuth(token)) {
-            return appContext.redirect("top");
+            return redirectContext.redirect("top");
         }
 
         messageService().setMessage(FacesMessage.SEVERITY_ERROR, "認証に失敗したよ");
@@ -79,8 +79,8 @@ public class TwoFactorAuthBean extends BaseBackingBean {
     }
 
     public String backLogin() {
-
         authenticator.clear();
-        return appContext.redirectNonSecuredPage("login");
+        return redirectContext.redirectNonSecuredPage("login");
     }
+
 }

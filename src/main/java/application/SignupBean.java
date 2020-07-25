@@ -9,6 +9,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import context.RedirectContext;
 import domain.UserService;
 import dto.User;
 import lombok.EqualsAndHashCode;
@@ -26,6 +27,9 @@ import page_transaction.PageTransactionEnd;
 @Model
 @EqualsAndHashCode(callSuper = false)
 public class SignupBean extends BaseBackingBean {
+
+    @Inject
+    private RedirectContext redirectContext;
 
     @NotBlank
     @Email
@@ -91,8 +95,8 @@ public class SignupBean extends BaseBackingBean {
         return user;
     }
 
-    public String back() {
-        return redirect("login");
+    public String backLogin() {
+        return redirectContext.redirectNonSecuredPage("login");
     }
 
 }

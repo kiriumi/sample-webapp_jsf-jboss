@@ -5,6 +5,7 @@
     xmlns:pt="http://xmlns.jcp.org/jsf/passthrough" xmlns:o="http://omnifaces.org/ui" xmlns:of="http://omnifaces.org/functions" xmlns:b="http://bootsfaces.net/ui">
 
 <h:head>
+    <ui:include src="./template/bootstrap.xhtml" />
     <title>ログイン</title>
 </h:head>
 <h:body>
@@ -30,10 +31,10 @@
             </div>
 
             <h:commandButton class="btn btn-primary" value="ログイン" action="#{loginBean.login()}" actionListener="#{loginBean.authenticate}" />
-            <h:commandButton class="btn btn-secondary" immediate="true" value="サインアップ" action="#{loginBean.goSignup()}" />
+            <h:commandButton class="btn btn-outline-primary" immediate="true" value="サインアップ" action="#{loginBean.goSignup()}" />
 
         </div>
-        <ui:include src="./template/bootstrap.xhtml" />
+
     </h:form>
 </h:body>
 </html>

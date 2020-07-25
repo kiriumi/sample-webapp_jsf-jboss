@@ -5,10 +5,12 @@
     xmlns:pt="http://xmlns.jcp.org/jsf/passthrough" xmlns:o="http://omnifaces.org/ui" xmlns:of="http://omnifaces.org/functions" xmlns:b="http://bootsfaces.net/ui">
 
 <h:head>
+    <ui:include src="./template/bootstrap.xhtml" />
     <title>認証</title>
 </h:head>
 <h:body>
     <f:metadata>
+        <ui:include src="./template/bootstrap.xhtml" />
         <f:viewAction action="#{twoFactorAuthBean.viewAction()}" />
     </f:metadata>
 
@@ -26,10 +28,9 @@
             </div>
 
             <h:commandButton class="btn btn-primary mr-4" value="認証" action="#{twoFactorAuthBean.authenticate()}" />
-            <h:commandButton class="btn btn-outline-secondary mr-2" value="トークンを再送" action="#{twoFactorAuthBean.resendToken()}" />
+            <h:commandButton class="btn btn-outline-primary mr-2" value="トークンを再送" action="#{twoFactorAuthBean.resendToken()}" />
             <h:commandButton class="btn btn-outline-secondary mr-2" value="ログインに戻る" action="#{twoFactorAuthBean.backLogin()}" />
 
-            <ui:include src="./template/bootstrap.xhtml" />
         </div>
     </h:form>
 </h:body>

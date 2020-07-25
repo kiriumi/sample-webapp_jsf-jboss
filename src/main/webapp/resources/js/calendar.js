@@ -1,3 +1,6 @@
+/**
+ * PrimeFacesの日本語カレンダー
+ */
 PrimeFaces.locales['ja'] = {
     closeText : '閉じる',
     prevText : '前月',
