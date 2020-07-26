@@ -3,33 +3,29 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:p="http://primefaces.org/ui">
 
-<h:head>
-    <ui:include src="./template/bootstrap.xhtml" />
-    <title>認証</title>
-</h:head>
-<h:body>
+<ui:composition template="template/template-nonsecured.xhtml">
+
+    <ui:define name="title">認証</ui:define>
+
     <f:metadata>
         <f:viewAction action="#{twoFactorAuthBean.viewAction()}" />
     </f:metadata>
 
-    <h:form>
-        <div class="container">
+    <ui:define name="content">
 
-            <p:messages />
+        <div class="form-group">
+            <p:outputLabel for="token" value="トークン" />
+            <div class="input-group">
+                <p:inputText id="token" class="form-control col-4" value="#{twoFactorAuthBean.token}" placeholder="トークン" />
 
-            <div class="form-group">
-                <p:outputLabel for="token" value="トークン" />
-                <div class="input-group">
-                    <p:inputText id="token" class="form-control col-4" value="#{twoFactorAuthBean.token}" placeholder="トークン" />
-
-                </div>
             </div>
-
-            <h:commandButton class="btn btn-primary mr-4" value="認証" action="#{twoFactorAuthBean.authenticate()}" />
-            <h:commandButton class="btn btn-outline-primary mr-2" value="トークンを再送" action="#{twoFactorAuthBean.resendToken()}" />
-            <h:commandButton class="btn btn-outline-secondary mr-2" value="ログインに戻る" action="#{twoFactorAuthBean.backLogin()}" />
-
         </div>
-    </h:form>
-</h:body>
+
+        <h:commandButton class="btn btn-primary mr-4" value="認証" action="#{twoFactorAuthBean.authenticate()}" />
+        <h:commandButton class="btn btn-outline-primary mr-2" value="トークンを再送" action="#{twoFactorAuthBean.resendToken()}" />
+        <h:commandButton class="btn btn-outline-secondary mr-2" value="ログインに戻る" action="#{twoFactorAuthBean.backLogin()}" />
+
+    </ui:define>
+</ui:composition>
+
 </html>

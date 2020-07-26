@@ -3,15 +3,13 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:p="http://primefaces.org/ui">
 
-<h:head>
-    <ui:include src="./template/bootstrap.xhtml" />
-    <h:outputScript library="js" name="confirm-before-leaving-page.js" />
-    <title>サインアップ</title>
-</h:head>
-<h:body>
-    <h:form>
+<ui:composition template="template/template-nonsecured.xhtml">
 
-        <div class="container ui-g">
+    <ui:define name="title">サインアップ</ui:define>
+
+    <ui:define name="content">
+
+        <div class="ui-g">
 
             <p:outputLabel class="ui-g-12 ui-md-2" value="Emailアドレス" />
             <p:inputText class="ui-g-12 ui-md-6 confirm-changed" id="emailAddress" value="#{signupBean.emailAddress}" placeholder="hoge@com" />
@@ -24,9 +22,10 @@
             <p:outputLabel class="ui-g-12 ui-md-2" value="Password" />
             <p:password class="ui-g-12 ui-md-6" id="password" value="#{signupBean.password}" />
             <p:message class="ui-g-12 ui-md-4" for="password" />
+
         </div>
 
-        <div class="container mt-2">
+        <div class="mt-2">
             <h:commandButton class="btn btn-primary col-sm-12 col-md-6 my-6" value="ユーザ登録（MyBatis）" action="#{signupBean.signupUser()}" />
             <h:commandButton class="btn btn-primary col-sm-12 col-md-6" value="ユーザ登録（JPA）" action="#{signupBean.signupUserWithJpa()}" />
             <h:commandButton class="btn btn-outline-primary col-sm-12 col-md-6" immediate="true" value="テストモード変更" action="#{commonBean.switchTestMode()}" />
@@ -34,6 +33,7 @@
             <h:commandButton class="btn btn-outline-secondary col-sm-12 col-md-6 confirm-before-leaving" immediate="true" value="戻る" action="#{signupBean.backLogin()}" />
         </div>
 
-    </h:form>
-</h:body>
+    </ui:define>
+</ui:composition>
+
 </html>

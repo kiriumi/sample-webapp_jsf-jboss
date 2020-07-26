@@ -3,36 +3,32 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:p="http://primefaces.org/ui">
 
-<h:head>
-    <ui:include src="./template/bootstrap.xhtml" />
-    <title>ログイン</title>
-</h:head>
-<h:body>
+<ui:composition template="template/template-nonsecured.xhtml">
+
+    <ui:define name="title">ログイン</ui:define>
+
     <f:metadata>
         <f:viewAction action="#{loginBean.viewAction()}" />
     </f:metadata>
 
-    <h:form>
-        <div class="container">
+    <ui:define name="content">
 
-            <p:messages />
-
-            <div class="form-group">
-                <p:outputLabel for="emailAddress" value="Emailアドレス" />
-                <p:inputText class="form-control" id="emailAddress" value="#{loginBean.emailAddress}" type="email" placeholder="user@hoge" />
-                <p:message for="emailAddress" />
-            </div>
-
-            <div class="form-group">
-                <p:outputLabel for="password" value="パスワード" />
-                <p:password class="form-control" id="password" value="#{loginBean.password}" placeholder="英数字（4～8桁）" />
-                <p:message for="password" />
-            </div>
-
-            <h:commandButton class="btn btn-primary" value="ログイン" action="#{loginBean.login()}" actionListener="#{loginBean.authenticate}" />
-            <h:commandButton class="btn btn-outline-primary" immediate="true" value="サインアップ" action="#{loginBean.goSignup()}" />
-
+        <div class="form-group">
+            <p:outputLabel for="emailAddress" value="Emailアドレス" />
+            <p:inputText class="form-control" id="emailAddress" value="#{loginBean.emailAddress}" type="email" placeholder="user@hoge" />
+            <p:message for="emailAddress" />
         </div>
-    </h:form>
-</h:body>
+
+        <div class="form-group">
+            <p:outputLabel for="password" value="パスワード" />
+            <p:password class="form-control" id="password" value="#{loginBean.password}" placeholder="英数字（4～8桁）" />
+            <p:message for="password" />
+        </div>
+
+        <h:commandButton class="btn btn-primary" value="ログイン" action="#{loginBean.login()}" actionListener="#{loginBean.authenticate}" />
+        <h:commandButton class="btn btn-outline-primary" immediate="true" value="サインアップ" action="#{loginBean.goSignup()}" />
+
+    </ui:define>
+</ui:composition>
+
 </html>
