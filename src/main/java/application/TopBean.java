@@ -11,6 +11,8 @@ import javax.servlet.http.Part;
 
 import org.primefaces.model.StreamedContent;
 
+import context.EnvContext;
+import context.WebApplicationContext;
 import domain.FileDownloader;
 import domain.UploadFileService;
 import lombok.Data;
@@ -31,6 +33,9 @@ public class TopBean extends BaseBackingBean {
 
     @Inject
     SecurityContext securityContext;
+
+    @Inject
+    EnvContext envContext;
 
     private String name;
 
@@ -57,14 +62,12 @@ public class TopBean extends BaseBackingBean {
     @Setter
     private Part uploadedFile;
 
+    @Inject
+    private WebApplicationContext appContext;
+
     public void viewAction() {
 
         Principal principal = securityContext.getCallerPrincipal();
-
-        if (principal == null) {
-            return;
-        }
-
         this.name = principal.getName();
         this.adminRole = securityContext.isCallerInRole("admin");
         this.userRole = securityContext.isCallerInRole("user");
@@ -77,7 +80,8 @@ public class TopBean extends BaseBackingBean {
 
     public void makeDownloadFile() throws IOException {
 
-        File newFile = new File("C:/Users/kengo/git/sample-webapp_jsf-jboss/misc/sample.txt");
+        File newFile = new File(envContext.getMiscDir(), "sample.txt");
+
         newFile.createNewFile();
         downloadFile = fileDownloader.getDownloadFileAsStreamContent(newFile, "hoge.txt", "text/plain");
     }

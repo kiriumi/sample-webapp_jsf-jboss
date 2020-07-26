@@ -4,7 +4,7 @@
 <Configuration status="OFF">
 
     <Properties>
-        <Property name="logPath">C:/Users/kengo/git/sample-webapp_jsf-jboss/log</Property>
+        <Property name="logPath">${bundle:env:base.dir}/log</Property>
 
         <Property name="sysPattern">%d{yyyy/MM/dd HH:mm:ss.SSS} [%t] %-5p %m%n%ex</Property>
         <Property name="archiPattern">%d{yyyy/MM/dd HH:mm:ss.SSS} [%t] %-5p %C#%M %m%n%ex</Property>

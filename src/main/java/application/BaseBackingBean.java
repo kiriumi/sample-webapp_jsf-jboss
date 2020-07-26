@@ -5,7 +5,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.context.Flash;
 import javax.inject.Inject;
 
-import context.SystemEnvContext;
+import context.EnvContext;
 import context.WebApplicationContext;
 import domain.MessageService;
 import log.ActionLogging;
@@ -27,16 +27,16 @@ public abstract class BaseBackingBean {
     private ExternalContext externalContext;
 
     @Inject
-    private SystemEnvContext systemEnvContext;
+    private EnvContext envContext;
+
+    @Inject
+    private WebApplicationContext appContext;
 
     @Inject
     private MessageService messageService;
 
     @Inject
     private ApplicationLogger logger;
-
-    @Inject
-    private WebApplicationContext appContext;
 
     protected FacesContext facesContext() {
         return facesContext;
@@ -50,8 +50,8 @@ public abstract class BaseBackingBean {
         return externalContext.getFlash();
     }
 
-    protected SystemEnvContext systemEnvContext() {
-        return systemEnvContext;
+    protected EnvContext envContext() {
+        return envContext;
     }
 
     protected MessageService messageService() {

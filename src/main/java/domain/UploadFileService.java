@@ -14,8 +14,13 @@ import javax.servlet.http.Part;
 import org.apache.commons.io.FilenameUtils;
 import org.primefaces.model.file.UploadedFile;
 
+import context.EnvContext;
+
 @RequestScoped
 public class UploadFileService {
+
+    @Inject
+    private EnvContext envContext;
 
     @Inject
     private MessageService messageService;
@@ -39,8 +44,8 @@ public class UploadFileService {
             return;
         }
 
-        File saveFile = new File("C:/Users/kengo/git/sample-webapp_jsf-jboss/file/upload/" + dirname,
-                uploadedFile.getSubmittedFileName());
+        File savaDir = new File(envContext.getUploadFileDir(), dirname);
+        File saveFile = new File(savaDir, uploadedFile.getSubmittedFileName());
 
         if (saveFile.exists()) {
             messageService.setMessage(FacesMessage.SEVERITY_ERROR, "そのファイルはすでに存在するよ");
@@ -78,9 +83,8 @@ public class UploadFileService {
 
     public void save(final UploadedFile uploadedFile, final String dirname) throws Exception {
 
-        Files.copy(uploadedFile.getInputStream(),
-                new File("C:/Users/kengo/git/sample-webapp_jsf-jboss/file/upload/" + dirname,
-                        uploadedFile.getFileName()).toPath());
+        File savaDir = new File(envContext.getUploadFileDir(), dirname);
+        Files.copy(uploadedFile.getInputStream(), new File(savaDir, uploadedFile.getFileName()).toPath());
     }
 
 }
