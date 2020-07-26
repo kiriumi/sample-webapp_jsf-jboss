@@ -43,7 +43,7 @@ public class CustomExceptionHandler extends ExceptionHandlerWrapper {
             try {
                 // エラー画面に遷移
                 String contextPath = facesContext.getExternalContext().getRequestContextPath();
-                facesContext.getExternalContext().redirect(contextPath + "/application/error-system.xhtml");
+                facesContext.getExternalContext().redirect(contextPath + "/error-system.xhtml");
 
             } catch (IOException e) {
                 log.error(e.getMessage());
