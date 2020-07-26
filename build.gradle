@@ -29,11 +29,10 @@ dependencies {
 
     // フレームワーク
     compile group: 'org.primefaces', name: 'primefaces', version: '8.0'
+    compile group: 'org.primefaces.themes', name: 'all-themes', version: '1.0.10'
     compile group: 'org.omnifaces', name: 'omnifaces', version: '3.4.1'
     compile group: 'javax.security.enterprise', name: 'javax.security.enterprise-api', version: '1.0'
     compile group: 'org.glassfish.soteria', name: 'javax.security.enterprise', version: '1.0'
-
-    compile group: 'org.primefaces.themes', name: 'all-themes', version: '1.0.10'
 
     // ログ
     compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.30'
