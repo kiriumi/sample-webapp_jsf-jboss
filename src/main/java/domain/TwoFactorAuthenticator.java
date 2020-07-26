@@ -35,9 +35,6 @@ public class TwoFactorAuthenticator implements Serializable {
     @Getter
     private boolean firstAuthed = false;
 
-    @Getter
-    private boolean secondAuthed = false;
-
     public boolean firstAuth(final String emailAddress, final String password) {
 
         this.user = userService.find(emailAddress, password);
@@ -100,6 +97,11 @@ public class TwoFactorAuthenticator implements Serializable {
         this.sentToken = false;
     }
 
+    public boolean logined() {
+        HttpServletRequest request = (HttpServletRequest) externalContext.getRequest();
+        return request.getUserPrincipal() != null;
+    }
+
     public void clear() {
 
         this.user = null;
@@ -107,6 +109,6 @@ public class TwoFactorAuthenticator implements Serializable {
         this.sentToken = false;
         this.expiredTime = null;
         this.firstAuthed = false;
-        this.secondAuthed = false;
     }
+
 }

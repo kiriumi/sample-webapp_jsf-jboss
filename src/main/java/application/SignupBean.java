@@ -9,7 +9,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
-import context.RedirectContext;
+import context.WebApplicationContext;
 import domain.UserService;
 import dto.User;
 import lombok.EqualsAndHashCode;
@@ -29,7 +29,7 @@ import page_transaction.PageTransactionEnd;
 public class SignupBean extends BaseBackingBean {
 
     @Inject
-    private RedirectContext redirectContext;
+    private WebApplicationContext appContext;
 
     @NotBlank
     @Email
@@ -62,7 +62,7 @@ public class SignupBean extends BaseBackingBean {
 
         userService.addUser(createUser());
 
-        getFlash().put("signupSccessMessage", "登録できたよ");
+        flash().put("signupSccessMessage", "登録できたよ");
 
         return redirect("top");
     }
@@ -76,7 +76,7 @@ public class SignupBean extends BaseBackingBean {
 
         userService.addUserWithJpa(createUser());
 
-        getFlash().put("signupSccessMessage", "登録できたよ");
+        flash().put("signupSccessMessage", "登録できたよ");
 
         return redirect("signup");
     }
@@ -96,7 +96,7 @@ public class SignupBean extends BaseBackingBean {
     }
 
     public String backLogin() {
-        return redirectContext.redirectNonSecuredPage("login");
+        return appContext.redirectNonSecuredPage("login");
     }
 
 }

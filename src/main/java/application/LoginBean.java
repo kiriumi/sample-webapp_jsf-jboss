@@ -15,7 +15,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
-import context.RedirectContext;
+import context.WebApplicationContext;
 import domain.TwoFactorAuthenticator;
 import domain.UserService;
 import lombok.EqualsAndHashCode;
@@ -69,7 +69,7 @@ public class LoginBean extends BaseBackingBean {
     private SecurityContext securityContext;
 
     @Inject
-    private RedirectContext redirectContext;
+    private WebApplicationContext appContext;
 
     @Email
     @Getter
@@ -99,12 +99,12 @@ public class LoginBean extends BaseBackingBean {
 
     public String viewAction() {
 
-        if (authenticator.isSecondAuthed()) {
-            return redirectContext.redirect("top");
+        if (authenticator.logined()) {
+            return appContext.redirect("top");
         }
 
         if (authenticator.isFirstAuthed()) {
-            return redirectContext.redirectNonSecuredPage("two-factor-auth");
+            return appContext.redirectNonSecuredPage("two-factor-auth");
         }
 
         return null;
@@ -135,7 +135,7 @@ public class LoginBean extends BaseBackingBean {
     public String login() {
 
         if (authenticator.firstAuth(emailAddress, password)) {
-            return redirectContext.redirectNonSecuredPage("two-factor-auth");
+            return appContext.redirectNonSecuredPage("two-factor-auth");
         }
 
         messageService().setAppMessageById(FacesMessage.SEVERITY_ERROR, "error.message.auth");
@@ -144,7 +144,7 @@ public class LoginBean extends BaseBackingBean {
     }
 
     public String goSignup() {
-        return redirectContext.redirectNonSecuredPage("signup");
+        return appContext.redirectNonSecuredPage("signup");
     }
 
 }

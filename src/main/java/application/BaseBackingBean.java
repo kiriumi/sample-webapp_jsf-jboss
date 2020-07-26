@@ -6,7 +6,7 @@ import javax.faces.context.Flash;
 import javax.inject.Inject;
 
 import context.SystemEnvContext;
-import context.RedirectContext;
+import context.WebApplicationContext;
 import domain.MessageService;
 import log.ActionLogging;
 import log.ApplicationLogger;
@@ -36,7 +36,7 @@ public abstract class BaseBackingBean {
     private ApplicationLogger logger;
 
     @Inject
-    private RedirectContext redirectContext;
+    private WebApplicationContext appContext;
 
     protected FacesContext facesContext() {
         return facesContext;
@@ -46,7 +46,7 @@ public abstract class BaseBackingBean {
         return externalContext;
     }
 
-    protected Flash getFlash() {
+    protected Flash flash() {
         return externalContext.getFlash();
     }
 
@@ -63,7 +63,7 @@ public abstract class BaseBackingBean {
     }
 
     protected String redirect(final String pageName) {
-        return redirectContext.redirect(pageName);
+        return appContext.redirect(pageName);
     }
 
 }

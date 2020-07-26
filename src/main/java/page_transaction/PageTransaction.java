@@ -11,7 +11,7 @@ import javax.inject.Inject;
 
 import org.apache.commons.lang3.StringUtils;
 
-import context.RedirectContext;
+import context.WebApplicationContext;
 
 @SessionScoped
 public class PageTransaction implements Serializable {
@@ -20,7 +20,7 @@ public class PageTransaction implements Serializable {
     private ExternalContext externalContext;
 
     @Inject
-    RedirectContext appContext;
+    WebApplicationContext appContext;
 
     private List<String> transactionEndPages = new ArrayList<>();
 

@@ -9,11 +9,16 @@ import javax.faces.context.ExceptionHandlerWrapper;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ExceptionQueuedEvent;
 import javax.faces.event.ExceptionQueuedEventContext;
+import javax.inject.Inject;
 
+import domain.TwoFactorAuthenticator;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class CustomExceptionHandler extends ExceptionHandlerWrapper {
+
+    @Inject
+    TwoFactorAuthenticator authenticator;
 
     private final ExceptionHandler wrapped;
 
@@ -43,6 +48,7 @@ public class CustomExceptionHandler extends ExceptionHandlerWrapper {
             try {
                 // エラー画面に遷移
                 String contextPath = facesContext.getExternalContext().getRequestContextPath();
+
                 facesContext.getExternalContext().redirect(contextPath + "/error-system.xhtml");
 
             } catch (IOException e) {
