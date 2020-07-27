@@ -38,7 +38,7 @@ public class PermittedRolesInterceptor {
             return context.proceed();
         }
 
-        messageService.setMessage(FacesMessage.SEVERITY_ERROR, "アクセス権限ないよ");
+        messageService.addMessage(FacesMessage.SEVERITY_ERROR, "アクセス権限ないよ");
 
         HttpServletResponse response = (HttpServletResponse) externalContext.getResponse();
         response.setStatus(HttpServletResponse.SC_FORBIDDEN);

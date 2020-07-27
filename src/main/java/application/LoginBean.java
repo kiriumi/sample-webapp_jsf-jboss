@@ -139,7 +139,7 @@ public class LoginBean extends BaseBackingBean {
             return appContext.redirectNonSecuredPage("two-factor-auth");
         }
 
-        messageService().setAppMessageById(FacesMessage.SEVERITY_ERROR, "error.message.auth");
+        messageService().addMessageById(FacesMessage.SEVERITY_ERROR, "error.message.auth");
 
         return null;
     }

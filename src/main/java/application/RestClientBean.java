@@ -60,7 +60,7 @@ public class RestClientBean extends BaseBackingBean {
             setGreetingMessage(greetingMessage);
 
         } catch (Exception e) {
-            messageService.setMessage(FacesMessage.SEVERITY_ERROR, e.getMessage());
+            messageService.addMessage(FacesMessage.SEVERITY_ERROR, e.getMessage());
         }
 
         return null;

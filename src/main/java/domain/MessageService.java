@@ -18,27 +18,34 @@ public class MessageService {
     @Inject
     private FacesContext facesContext;
 
-    public void setMessage(final Severity severity, @NotBlank final String message) {
-        facesContext.addMessage(null, new FacesMessage(severity, message, null));
+    public void addMessage(final Severity severity, @NotBlank final String message) {
+        facesContext.addMessage(null, new FacesMessage(severity, message, ""));
         log(severity, message);
     }
 
-    public void setAppMessageById(final Severity severity, @NotBlank final String messageId, final Object... params) {
-        setMessageByProperties("application-messages", severity, messageId, params);
+    public void addMessageById(final Severity severity, @NotBlank final String messageId, final Object... params) {
+        addMessageByProperties("application-messages", severity, messageId, params);
     }
 
-    public void setValidaionMessageById(final Severity severity, @NotBlank final String messageId,
+    public void addValidaionMessageById(final Severity severity, @NotBlank final String messageId,
             final Object... params) {
-        setMessageByProperties("ValidationMessages", severity, messageId, params);
+        addMessageByProperties("ValidationMessages", severity, messageId, params);
     }
 
-    private void setMessageByProperties(final String baseName, final Severity severity, final String messageId,
+    public boolean isEmpty() {
+
+        if (facesContext.getMessageList().isEmpty()) {
+            return true;
+        }
+        return false;
+    }
+
+    private void addMessageByProperties(final String baseName, final Severity severity, final String messageId,
             final Object... params) {
 
-        ResourceBundle resourceBundle = ResourceBundle.getBundle("ValidationMessages");
-        String rawMessage = resourceBundle.getString(messageId);
+        String rawMessage = ResourceBundle.getBundle(baseName).getString(messageId);
         String message = String.format(rawMessage, params);
-        facesContext.addMessage(null, new FacesMessage(severity, message, null));
+        facesContext.addMessage(null, new FacesMessage(severity, message, ""));
 
         log(severity, message);
     }

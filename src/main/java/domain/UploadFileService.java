@@ -34,7 +34,7 @@ public class UploadFileService {
     public void save(final Part uploadedFile, final String dirname) throws FileUploadException {
 
         if (uploadedFile == null) {
-            messageService.setMessage(FacesMessage.SEVERITY_ERROR, "ファイルを指定してちょ");
+            messageService.addMessage(FacesMessage.SEVERITY_ERROR, "ファイルを指定してちょ");
             return;
         }
 
@@ -60,7 +60,7 @@ public class UploadFileService {
     private boolean isSizeOver(final Part uploadedFile) {
 
         if (uploadedFile.getSize() > maxFileSize) {
-            messageService.setMessage(FacesMessage.SEVERITY_ERROR, "ファイルサイズを" + maxFileSize + "より小そうしてね");
+            messageService.addMessage(FacesMessage.SEVERITY_ERROR, "ファイルサイズを" + maxFileSize + "より小そうしてね");
             return true;
         }
 
@@ -72,7 +72,7 @@ public class UploadFileService {
         String extention = FilenameUtils.getExtension(uploadedFile.getSubmittedFileName());
 
         if (!allowedExtentions.contains(extention.toLowerCase())) {
-            messageService.setMessage(FacesMessage.SEVERITY_ERROR,
+            messageService.addMessage(FacesMessage.SEVERITY_ERROR,
                     "アップロードできるファイルは、" + String.join(", ", allowedExtentions) + "だよ");
             return true;
         }
@@ -97,7 +97,7 @@ public class UploadFileService {
             throws FileUploadException {
 
         if (saveFile.exists()) {
-            messageService.setMessage(FacesMessage.SEVERITY_ERROR, "そのファイルはすでに存在するよ");
+            messageService.addMessage(FacesMessage.SEVERITY_ERROR, "そのファイルはすでに存在するよ");
             return;
         }
 
@@ -110,7 +110,7 @@ public class UploadFileService {
             throw new FileUploadException("アップロードファイルの保存に失敗したよ");
         }
 
-        messageService.setMessage(FacesMessage.SEVERITY_INFO, "ファイルアップロードしたよ：" + saveFile.getName());
+        messageService.addMessage(FacesMessage.SEVERITY_INFO, "ファイルアップロードしたよ：" + saveFile.getName());
     }
 
 }

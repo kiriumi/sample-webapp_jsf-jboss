@@ -45,12 +45,12 @@ public class PrimeFacesSamplesBean extends BaseBackingBean {
     }
 
     public String ajaxButton() {
-        messageService().setMessage(FacesMessage.SEVERITY_INFO, "Ajaxボタンだよ");
+        messageService().addMessage(FacesMessage.SEVERITY_INFO, "Ajaxボタンだよ");
         return null;
     }
 
     public String nonAjaxButton() {
-        messageService().setMessage(FacesMessage.SEVERITY_INFO, "普通のボタンだよ");
+        messageService().addMessage(FacesMessage.SEVERITY_INFO, "普通のボタンだよ");
         return null;
     }
 
@@ -63,7 +63,7 @@ public class PrimeFacesSamplesBean extends BaseBackingBean {
         UploadedFile uploadedFile = event.getFile();
         if (uploadedFile != null) {
             uploadFileService.save(uploadedFile, "primefaces");
-            messageService().setMessage(FacesMessage.SEVERITY_INFO, "ファイルアップロードしたよ：" + uploadedFile.getFileName());
+            messageService().addMessage(FacesMessage.SEVERITY_INFO, "ファイルアップロードしたよ：" + uploadedFile.getFileName());
         }
     }
 
@@ -71,7 +71,7 @@ public class PrimeFacesSamplesBean extends BaseBackingBean {
 
         if (uploadedFile != null) {
             uploadFileService.save(uploadedFile, "primefaces");
-            messageService().setMessage(FacesMessage.SEVERITY_INFO, "ファイルアップロードしたよ：" + uploadedFile.getFileName());
+            messageService().addMessage(FacesMessage.SEVERITY_INFO, "ファイルアップロードしたよ：" + uploadedFile.getFileName());
         }
     }
 

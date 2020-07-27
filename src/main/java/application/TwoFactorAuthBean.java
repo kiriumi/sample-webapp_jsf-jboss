@@ -59,7 +59,7 @@ public class TwoFactorAuthBean extends BaseBackingBean {
     public String authenticate() throws AuthenticationException {
 
         if (authenticator.expiredToken()) {
-            messageService().setMessage(FacesMessage.SEVERITY_ERROR, "トークンの有効期限が切れたよ");
+            messageService().addMessage(FacesMessage.SEVERITY_ERROR, "トークンの有効期限が切れたよ");
             return null;
         }
 
@@ -67,14 +67,14 @@ public class TwoFactorAuthBean extends BaseBackingBean {
             return appContext.redirect("top");
         }
 
-        messageService().setMessage(FacesMessage.SEVERITY_ERROR, "認証に失敗したよ");
+        messageService().addMessage(FacesMessage.SEVERITY_ERROR, "認証に失敗したよ");
         return null;
     }
 
     public String resendToken() {
 
         authenticator.sendTokenToUser();
-        messageService().setMessage(FacesMessage.SEVERITY_INFO, "トークンを再送したよ");
+        messageService().addMessage(FacesMessage.SEVERITY_INFO, "トークンを再送したよ");
         return null;
     }
 

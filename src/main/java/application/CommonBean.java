@@ -66,7 +66,7 @@ public class CommonBean {
         log.debug("");
 
         if (!aviableTime()) {
-            messageService.setMessage(FacesMessage.SEVERITY_ERROR, "利用時間外だよ");
+            messageService.addMessage(FacesMessage.SEVERITY_ERROR, "利用時間外だよ");
             log.debug("利用時間外だよ");
         }
     }
