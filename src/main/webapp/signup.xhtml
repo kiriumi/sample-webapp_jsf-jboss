@@ -9,29 +9,42 @@
 
     <ui:define name="content">
 
-        <div class="ui-g">
+        <div class="row">
+            <div class="col-md-6">
+                <p:outputLabel class="" value="Emailアドレス" />
+                <p:inputText class="form-control confirm-changed" id="emailAddress" value="#{signupBean.emailAddress}" placeholder="hoge@com" />
+                <p:message class="" for="emailAddress" />
+            </div>
 
-            <p:outputLabel class="ui-g-12 ui-md-2" value="Emailアドレス" />
-            <p:inputText class="ui-g-12 ui-md-6 confirm-changed" id="emailAddress" value="#{signupBean.emailAddress}" placeholder="hoge@com" />
-            <p:message class="ui-g-12 ui-md-4" for="emailAddress" />
+            <div class="col-md-6">
+                <p:outputLabel class="" value="名前" />
+                <p:inputText class="form-control confirm-changed" id="name" value="#{signupBean.name}" placeholder="ほげ" />
+                <p:message class="" for="name" />
+            </div>
 
-            <p:outputLabel class="ui-g-12 ui-md-2" value="名前" />
-            <p:inputText class="ui-g-12 ui-md-6" id="name" value="#{signupBean.name}" placeholder="ほげ" />
-            <p:message class="ui-g-12 ui-md-4" for="name" />
-
-            <p:outputLabel class="ui-g-12 ui-md-2" value="Password" />
-            <p:password class="ui-g-12 ui-md-6" id="password" value="#{signupBean.password}" />
-            <p:message class="ui-g-12 ui-md-4" for="password" />
-
+            <div class="col-md-6">
+                <p:outputLabel class="" value="Password" />
+                <p:password class="form-control" id="password" value="#{signupBean.password}" placeholder="半角英数字（4～8桁）" />
+                <p:message class="" for="password" />
+            </div>
         </div>
 
-        <div class="mt-2">
-            <h:commandButton class="btn btn-primary col-sm-12 col-md-6 my-6" value="ユーザ登録（MyBatis）" action="#{signupBean.signupUser()}" />
-            <h:commandButton class="btn btn-primary col-sm-12 col-md-6" value="ユーザ登録（JPA）" action="#{signupBean.signupUserWithJpa()}" />
-            <h:commandButton class="btn btn-outline-primary col-sm-12 col-md-6" immediate="true" value="テストモード変更" action="#{commonBean.switchTestMode()}" />
-            <h:commandButton class="btn btn-outline-primary col-sm-12 col-md-6" immediate="true" value="トレースモード変更" action="#{commonBean.switchTraceMode()}" />
-            <h:commandButton class="btn btn-outline-secondary col-sm-12 col-md-6 confirm-before-leaving" immediate="true" value="戻る" action="#{signupBean.backLogin()}" />
+        <div class="row">
+            <div class="col-md-6 btn-group mb-3">
+                <h:commandButton class="btn btn-primary" value="ユーザ登録（MyBatis）" action="#{signupBean.signupUser()}" />
+                <h:commandButton class="btn btn-outline-primary" value="ユーザ登録（JPA）" action="#{signupBean.signupUserWithJpa()}" />
+            </div>
+            <div class="col-md-6 btn-group mb-3">
+                <h:commandButton class="btn btn-info" immediate="true" value="テストモード変更" action="#{commonBean.switchTestMode()}" />
+                <h:commandButton class="btn btn-outline-info" immediate="true" value="トレースモード変更" action="#{commonBean.switchTraceMode()}" />
+            </div>
         </div>
+        <div class="row justify-content-end">
+            <div class="col-auto">
+                <h:commandButton class="btn btn-secondary confirm-before-leaving" immediate="true" value="戻る" action="#{signupBean.backLogin()}" />
+            </div>
+        </div>
+
 
     </ui:define>
 </ui:composition>
