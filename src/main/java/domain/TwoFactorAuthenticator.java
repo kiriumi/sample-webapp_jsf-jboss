@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.context.ExternalContext;
 import javax.inject.Inject;
-import javax.security.auth.login.LoginException;
+import javax.security.enterprise.AuthenticationException;
 import javax.servlet.ServletException;
 
 import org.apache.commons.codec.digest.DigestUtils;
@@ -69,7 +69,7 @@ public class TwoFactorAuthenticator implements Serializable {
         return false;
     }
 
-    public boolean secondAuth(final String inputtedToken) throws LoginException {
+    public boolean secondAuth(final String inputtedToken) throws AuthenticationException {
 
         if (logined()) {
             return true;
@@ -78,7 +78,7 @@ public class TwoFactorAuthenticator implements Serializable {
         try {
             appContext.request().login(user.getEmailaddress(), user.getPassword());
         } catch (ServletException e) {
-            throw new LoginException("ログインに失敗したから、もう一度やり直してね");
+            throw new AuthenticationException("ログインに失敗したから、もう一度やり直してね");
         }
 
         return true;
@@ -93,7 +93,7 @@ public class TwoFactorAuthenticator implements Serializable {
         //                appContext.request().login(user.getEmailaddress(), user.getPassword());
         //
         //            } catch (ServletException e) {
-        //                throw new LoginException("ログイン認証に失敗したから、やり直してね");
+        //                throw new AuthenticationException("ログイン認証に失敗したから、やり直してね");
         //
         //            } finally {
         //                clear();

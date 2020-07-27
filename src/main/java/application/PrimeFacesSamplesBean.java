@@ -6,6 +6,7 @@ import javax.enterprise.inject.Model;
 import javax.faces.application.FacesMessage;
 import javax.inject.Inject;
 
+import org.apache.commons.fileupload.FileUploadException;
 import org.primefaces.PrimeFaces;
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.file.UploadedFile;
@@ -57,7 +58,7 @@ public class PrimeFacesSamplesBean extends BaseBackingBean {
         throw new NullPointerException("意図的に例外を発生");
     }
 
-    public void uploadFile(final FileUploadEvent event) throws Exception {
+    public void uploadFile(final FileUploadEvent event) throws FileUploadException {
 
         UploadedFile uploadedFile = event.getFile();
         if (uploadedFile != null) {
@@ -66,7 +67,7 @@ public class PrimeFacesSamplesBean extends BaseBackingBean {
         }
     }
 
-    public void uploadFile() throws Exception {
+    public void uploadFile() throws FileUploadException {
 
         if (uploadedFile != null) {
             uploadFileService.save(uploadedFile, "primefaces");

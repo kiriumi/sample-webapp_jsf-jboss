@@ -9,9 +9,10 @@ import javax.enterprise.inject.Model;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.ExternalContext;
 import javax.inject.Inject;
+import javax.security.enterprise.AuthenticationException;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
 
+import context.WebApplicationContext;
 import domain.MessageService;
 import lombok.extern.slf4j.Slf4j;
 import mode.TestMode;
@@ -31,6 +32,9 @@ public class CommonBean {
 
     @Inject
     ExternalContext externalContext;
+
+    @Inject
+    WebApplicationContext appContext;
 
     @Inject
     private MessageService messageService;
@@ -75,10 +79,15 @@ public class CommonBean {
         return !permittedRoles(roles);
     }
 
-    public void logout() throws ServletException {
+    public void logout() throws AuthenticationException {
 
-        HttpServletRequest request = (HttpServletRequest) externalContext.getRequest();
-        request.logout();
+        try {
+            appContext.request().logout();
+
+        } catch (ServletException e) {
+            throw new AuthenticationException("ログアウトに失敗したよ", e);
+        }
+
         externalContext.invalidateSession();
     }
 

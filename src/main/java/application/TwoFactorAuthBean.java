@@ -4,7 +4,7 @@ import javax.enterprise.inject.Model;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.ExternalContext;
 import javax.inject.Inject;
-import javax.security.auth.login.LoginException;
+import javax.security.enterprise.AuthenticationException;
 
 import context.WebApplicationContext;
 import domain.TwoFactorAuthenticator;
@@ -56,7 +56,7 @@ public class TwoFactorAuthBean extends BaseBackingBean {
         return appContext.redirectNonSecuredPage("login");
     }
 
-    public String authenticate() throws LoginException {
+    public String authenticate() throws AuthenticationException {
 
         if (authenticator.expiredToken()) {
             messageService().setMessage(FacesMessage.SEVERITY_ERROR, "トークンの有効期限が切れたよ");

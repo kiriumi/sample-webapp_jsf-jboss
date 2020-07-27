@@ -2,6 +2,7 @@ package domain;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Files;
 import java.util.Arrays;
 import java.util.List;
@@ -11,6 +12,7 @@ import javax.faces.application.FacesMessage;
 import javax.inject.Inject;
 import javax.servlet.http.Part;
 
+import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.io.FilenameUtils;
 import org.primefaces.model.file.UploadedFile;
 
@@ -29,7 +31,7 @@ public class UploadFileService {
 
     private final List<String> allowedExtentions = Arrays.asList("jpg", "txt");
 
-    public void save(final Part uploadedFile, final String dirname) throws IOException {
+    public void save(final Part uploadedFile, final String dirname) throws FileUploadException {
 
         if (uploadedFile == null) {
             messageService.setMessage(FacesMessage.SEVERITY_ERROR, "ファイルを指定してちょ");
@@ -44,18 +46,15 @@ public class UploadFileService {
             return;
         }
 
-        File savaDir = new File(envContext.getUploadFileDir(), dirname);
-        File saveFile = new File(savaDir, uploadedFile.getSubmittedFileName());
+        File saveDir = new File(envContext.getUploadFileDir(), dirname);
+        File saveFile = new File(saveDir, uploadedFile.getSubmittedFileName());
 
-        if (saveFile.exists()) {
-            messageService.setMessage(FacesMessage.SEVERITY_ERROR, "そのファイルはすでに存在するよ");
-            return;
+        try {
+            saveUploadFile(uploadedFile.getInputStream(), saveFile);
+
+        } catch (IOException e) {
+            throw new FileUploadException("アップロードファイルの取得に失敗したよ");
         }
-
-        saveFile.getParentFile().mkdirs();
-        Files.copy(uploadedFile.getInputStream(), saveFile.toPath());
-        messageService.setMessage(FacesMessage.SEVERITY_INFO,
-                "ファイルアップロードしたよ：" + uploadedFile.getSubmittedFileName());
     }
 
     private boolean isSizeOver(final Part uploadedFile) {
@@ -81,10 +80,37 @@ public class UploadFileService {
         return false;
     }
 
-    public void save(final UploadedFile uploadedFile, final String dirname) throws Exception {
+    public void save(final UploadedFile uploadedFile, final String dirname) throws FileUploadException {
 
-        File savaDir = new File(envContext.getUploadFileDir(), dirname);
-        Files.copy(uploadedFile.getInputStream(), new File(savaDir, uploadedFile.getFileName()).toPath());
+        File saveDir = new File(envContext.getUploadFileDir(), dirname);
+        File saveFile = new File(saveDir, uploadedFile.getFileName());
+
+        try {
+            saveUploadFile(uploadedFile.getInputStream(), saveFile);
+
+        } catch (IOException e) {
+            throw new FileUploadException("アップロードファイルの取得に失敗したよ");
+        }
+    }
+
+    private void saveUploadFile(final InputStream uploadFileInputStream, final File saveFile)
+            throws FileUploadException {
+
+        if (saveFile.exists()) {
+            messageService.setMessage(FacesMessage.SEVERITY_ERROR, "そのファイルはすでに存在するよ");
+            return;
+        }
+
+        saveFile.getParentFile().mkdirs();
+
+        try {
+            Files.copy(uploadFileInputStream, saveFile.toPath());
+
+        } catch (IOException e) {
+            throw new FileUploadException("アップロードファイルの保存に失敗したよ");
+        }
+
+        messageService.setMessage(FacesMessage.SEVERITY_INFO, "ファイルアップロードしたよ：" + saveFile.getName());
     }
 
 }

@@ -3,7 +3,7 @@ package application;
 import javax.enterprise.inject.Model;
 import javax.faces.context.ExternalContext;
 import javax.inject.Inject;
-import javax.servlet.ServletException;
+import javax.security.enterprise.AuthenticationException;
 
 import page_transaction.PageTransactionBegin;
 
@@ -37,7 +37,7 @@ public class MenuBean extends BaseBackingBean {
         return redirect("bootstrap-samples");
     }
 
-    public String logout() throws ServletException {
+    public String logout() throws AuthenticationException {
         commonBean.logout();
         return "/login.xhtml?faces-redirect=true";
     }

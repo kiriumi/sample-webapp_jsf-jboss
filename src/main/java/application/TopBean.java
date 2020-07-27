@@ -9,6 +9,7 @@ import javax.inject.Inject;
 import javax.security.enterprise.SecurityContext;
 import javax.servlet.http.Part;
 
+import org.apache.commons.fileupload.FileUploadException;
 import org.primefaces.model.StreamedContent;
 
 import context.EnvContext;
@@ -82,11 +83,16 @@ public class TopBean extends BaseBackingBean {
 
         File newFile = new File(envContext.getMiscDir(), "sample.txt");
 
-        newFile.createNewFile();
-        downloadFile = fileDownloader.getDownloadFileAsStreamContent(newFile, "hoge.txt", "text/plain");
+        try {
+            newFile.createNewFile();
+            downloadFile = fileDownloader.getDownloadFileAsStreamContent(newFile, "hoge.txt", "text/plain");
+
+        } catch (IOException e) {
+            throw new IOException("ダウンロードファイルの作成に失敗したよ", e);
+        }
     }
 
-    public String uploadFile() throws IOException {
+    public String uploadFile() throws FileUploadException {
         uploadFileService.save(uploadedFile, "jsf");
         return null;
     }

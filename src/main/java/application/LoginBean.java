@@ -110,17 +110,18 @@ public class LoginBean extends BaseBackingBean {
         return null;
     }
 
-    public void authenticate(final ActionEvent event) throws Exception {
+    public void authenticate(final ActionEvent event) {
 
         //        AuthenticationStatus authStatus = getAuthStatus();
-        //        logger.info("anything", "認証ステータス：" + authStatus);
-
+        //        logger().info("anything", "認証ステータス：" + authStatus);
+        //
         //        if (authStatus.equals(AuthenticationStatus.SUCCESS)) {
-        //        if (true) {
-        //            return;
+        //            if (true) {
+        //                return;
+        //            }
         //        }
-
-        //        messageService.setAppMessageById(FacesMessage.SEVERITY_ERROR, "error.message.auth");
+        //
+        //        messageService().setAppMessageById(FacesMessage.SEVERITY_ERROR, "error.message.auth");
     }
 
     private AuthenticationStatus getAuthStatus() {

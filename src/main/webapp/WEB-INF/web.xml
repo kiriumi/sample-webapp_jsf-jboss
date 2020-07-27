@@ -52,7 +52,7 @@
     </servlet-mapping>
 
     <session-config>
-        <session-timeout>30</session-timeout>
+        <session-timeout>1</session-timeout>
 
         <cookie-config>
             <!-- HTTPSが必要なのは外部～Webサーバまでで、そこから先（APサーバ）はHTTPで良いため -->
@@ -74,21 +74,21 @@
         <listener-class>log.FacesLogBridgeListener</listener-class>
     </listener>
 
-    <error-page>
-        <exception-type>javax.faces.application.ProtectedViewException</exception-type>
-        <location>/error.xhtml</location>
-    </error-page>
-    <error-page>
-        <exception-type>javax.faces.application.ViewExpiredException</exception-type>
-        <location>/error-session.xhtml</location>
-    </error-page>
+    <!-- <error-page> -->
+    <!-- <exception-type>javax.faces.application.ProtectedViewException</exception-type> -->
+    <!-- <location>/error.xhtml</location> -->
+    <!-- </error-page> -->
+    <!-- <error-page> -->
+    <!-- <exception-type>javax.faces.application.ViewExpiredException</exception-type> -->
+    <!-- <location>/error-session.xhtml</location> -->
+    <!-- </error-page> -->
     <error-page>
         <error-code>400</error-code>
         <location>/lerror-badrequest.xhtml</location>
     </error-page>
     <error-page>
         <error-code>401</error-code>
-        <location>/login.xhtml</location>
+        <location>/error-unauthorized.xhtml</location>
     </error-page>
     <error-page>
         <error-code>403</error-code>
@@ -96,7 +96,7 @@
     </error-page>
     <error-page>
         <error-code>404</error-code>
-        <location>/error-forbidden.xhtml</location>
+        <location>/error-notfound.xhtml</location>
     </error-page>
     <error-page>
         <error-code>500</error-code>
