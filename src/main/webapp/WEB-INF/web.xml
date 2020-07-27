@@ -52,7 +52,7 @@
     </servlet-mapping>
 
     <session-config>
-        <session-timeout>1</session-timeout>
+        <session-timeout>10</session-timeout>
 
         <cookie-config>
             <!-- HTTPSが必要なのは外部～Webサーバまでで、そこから先（APサーバ）はHTTPで良いため -->

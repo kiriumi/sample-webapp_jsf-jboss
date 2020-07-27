@@ -881,3 +881,25 @@ Caused by: javax.servlet.ServletException: UT010031: Login failed
 	at com.sun.faces.facelets.el.TagMethodExpression.invoke(TagMethodExpression.java:65)
 	at com.sun.faces.application.MethodBindingMethodExpressionAdapter.invoke(MethodBindingMethodExpressionAdapter.java:66)
 	... 63 more
+2020/07/27 17:17:55.360 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/07/27 17:17:56.569 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/07/27 17:18:36.553 [default task-1] ERROR JSF1094: Could not decode flash data from incoming cookie value Invalid characters in decrypted value.  Processing will continue, but the flash is unavailable for this request.
+2020/07/27 17:18:36.697 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#viewAction 開始
+2020/07/27 17:18:36.701 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#viewAction 終了
+2020/07/27 17:18:41.368 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 開始
+2020/07/27 17:18:41.369 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#authenticate 終了
+2020/07/27 17:18:41.369 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 開始
+2020/07/27 17:18:41.852 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==>  Preparing: select emailaddress, name, password, createdtime, updatedtime from public.user WHERE ( emailaddress = ? and password = ? ) 
+2020/07/27 17:18:41.865 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug ==> Parameters: user@hoge(String), user(String)
+2020/07/27 17:18:41.883 [default task-1] DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger#debug <==      Total: 1
+2020/07/27 17:18:41.887 [default task-1] INFO  log.ActionLoggingInterceptor#around application.LoginBean#login 終了
+2020/07/27 17:18:41.902 [default task-1] INFO  log.ActionLoggingInterceptor#around application.TwoFactorAuthBean#viewAction 開始
+2020/07/27 17:18:41.906 [default task-1] INFO  log.ActionLoggingInterceptor#around application.TwoFactorAuthBean#viewAction 終了
+2020/07/27 17:18:45.241 [default task-2] INFO  log.ActionLoggingInterceptor#around application.TwoFactorAuthBean#authenticate 開始
+2020/07/27 17:18:45.285 [default task-2] INFO  log.ActionLoggingInterceptor#around application.TwoFactorAuthBean#authenticate 終了
+2020/07/27 17:22:11.261 [default task-4] INFO  log.ActionLoggingInterceptor#around application.LoginBean#viewAction 開始
+2020/07/27 17:22:11.263 [default task-4] INFO  log.ActionLoggingInterceptor#around application.LoginBean#viewAction 終了
+2020/07/27 17:23:23.277 [default task-4] INFO  log.ActionLoggingInterceptor#around application.SystemErrorBean#backPage 開始
+2020/07/27 17:23:23.278 [default task-4] INFO  log.ActionLoggingInterceptor#around application.SystemErrorBean#backPage 終了
+2020/07/27 17:23:23.293 [default task-4] INFO  log.ActionLoggingInterceptor#around application.LoginBean#viewAction 開始
+2020/07/27 17:23:23.295 [default task-4] INFO  log.ActionLoggingInterceptor#around application.LoginBean#viewAction 終了
