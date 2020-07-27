@@ -53,6 +53,7 @@ dependencies {
     // ユーティリティ
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.8.1'
     compile group: 'commons-fileupload', name: 'commons-fileupload', version: '1.4'
+    compile group: 'commons-codec', name: 'commons-codec', version: '1.14'
 
     // テスト
     testCompile group: 'org.junit.jupiter', name: 'junit-jupiter', version: '5.6.2'
