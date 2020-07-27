@@ -1,48 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+ "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:p="http://primefaces.org/ui"
     xmlns:pt="http://xmlns.jcp.org/jsf/passthrough" xmlns:o="http://omnifaces.org/ui" xmlns:of="http://omnifaces.org/functions" xmlns:b="http://bootsfaces.net/ui">
 
 <ui:composition>
 
-    <h:form id="header-form" style="background: white">
-        <p:sticky target="header-form" />
-
+    <h:form>
         <div class="container-fluid my-2">
+            <div class="fixed-top" style="background: white">
 
-            <p:megaMenu orientation="horizontal">
+                <p:megaMenu orientation="horizontal">
 
-                <p:menuitem value="トップ" icon="pi pi-home" action="#{menuBean.goTopPage()}" />
-                <p:submenu label="機能" icon="pi pi-briefcase">
-                    <p:column>
-                        <p:submenu label="ユーザ">
-                            <p:menuitem value="ユーザ登録" action="#{menuBean.goSignupPage()}" rendered="#{commonBean.permittedRoles({'admin'})}" />
-                        </p:submenu>
-                        <p:submenu label="WebAPI">
-                            <p:menuitem value="RESTクライアント" action="#{menuBean.goRestClientPage()}" />
-                        </p:submenu>
-                    </p:column>
-                </p:submenu>
-                <p:submenu label="サンプル集" icon="pi">
-                    <p:column>
-                        <p:submenu label="サンプル集">
-                            <p:menuitem value="PrimeFaces" action="#{menuBean.goPrimeFacesSamplesPage()}" />
-                            <p:menuitem value="Bootstrap" action="#{menuBean.goBootstrapSamplesPage()}" />
-                        </p:submenu>
-                    </p:column>
-                </p:submenu>
+                    <p:menuitem value="トップ" icon="pi pi-home" action="#{menuBean.goTopPage()}" />
+                    <p:submenu label="機能" icon="pi pi-briefcase">
+                        <p:column>
+                            <p:submenu label="ユーザ">
+                                <p:menuitem value="ユーザ登録" action="#{menuBean.goSignupPage()}" rendered="#{commonBean.permittedRoles({'admin'})}" />
+                            </p:submenu>
+                            <p:submenu label="WebAPI">
+                                <p:menuitem value="RESTクライアント" action="#{menuBean.goRestClientPage()}" />
+                            </p:submenu>
+                        </p:column>
+                    </p:submenu>
+                    <p:submenu label="サンプル集" icon="pi">
+                        <p:column>
+                            <p:submenu label="サンプル集">
+                                <p:menuitem value="PrimeFaces" action="#{menuBean.goPrimeFacesSamplesPage()}" />
+                                <p:menuitem value="Bootstrap" action="#{menuBean.goBootstrapSamplesPage()}" />
+                            </p:submenu>
+                        </p:column>
+                    </p:submenu>
 
-                <f:facet name="options">
-                    <p:inputText style="margin:1px 4px 1px 1px;" placeholder="検索" />
-                    <p:commandButton icon="pi pi-search" ajax="false" />
-                </f:facet>
+                    <f:facet name="options">
+                        <p:inputText style="margin:1px 4px 1px 1px;" placeholder="検索" />
+                        <p:commandButton icon="pi pi-search" ajax="false" />
+                    </f:facet>
 
-                <p:menuitem value="ログアウト" icon="pi pi-sign-out" action="#{menuBean.logout()}" />
-            </p:megaMenu>
+                    <p:menuitem value="ログアウト" icon="pi pi-sign-out" action="#{menuBean.logout()}" />
+                </p:megaMenu>
 
+            </div>
         </div>
-
     </h:form>
 
     <p:growl id="growl-message" sticky="true" />
