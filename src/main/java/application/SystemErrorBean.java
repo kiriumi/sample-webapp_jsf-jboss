@@ -1,6 +1,9 @@
 package application;
 
 import javax.enterprise.inject.Model;
+import javax.inject.Inject;
+
+import context.WebApplicationContext;
 
 /**
  * システム障害画面
@@ -10,7 +13,11 @@ import javax.enterprise.inject.Model;
 @Model
 public class SystemErrorBean extends BaseBackingBean {
 
-    public String goTopPage() {
-        return redirect("top");
+    @Inject
+    private WebApplicationContext appContext;
+
+    public String backPage() {
+        return appContext.redirectNonSecuredPage("login");
     }
+
 }
