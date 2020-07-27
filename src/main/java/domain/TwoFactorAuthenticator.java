@@ -6,11 +6,12 @@ import java.time.LocalDateTime;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.context.ExternalContext;
 import javax.inject.Inject;
+import javax.security.auth.login.LoginException;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.codec.digest.DigestUtils;
 
+import context.WebApplicationContext;
 import dto.User;
 import lombok.Getter;
 
@@ -19,6 +20,9 @@ public class TwoFactorAuthenticator implements Serializable {
 
     @Inject
     ExternalContext externalContext;
+
+    @Inject
+    WebApplicationContext appContext;
 
     @Inject
     UserService userService;
@@ -58,20 +62,25 @@ public class TwoFactorAuthenticator implements Serializable {
     public boolean expiredToken() {
 
         if (LocalDateTime.now().isAfter(expiredTime)) {
-            resetToken();
-            this.firstAuthed = false;
+            clear();
             return true;
         }
 
         return false;
     }
 
-    public boolean secondAuth(final String inputtedToken) throws ServletException {
+    public boolean secondAuth(final String inputtedToken) throws LoginException {
 
-        HttpServletRequest request = (HttpServletRequest) externalContext.getRequest();
-        if (request.getUserPrincipal() == null) {
-            request.login(user.getEmailaddress(), user.getPassword());
+        if (logined()) {
+            return true;
         }
+
+        try {
+            appContext.request().login(user.getEmailaddress(), user.getPassword());
+        } catch (ServletException e) {
+            throw new LoginException("ログインに失敗したから、もう一度やり直してね");
+        }
+
         return true;
 
         //        if (StringUtils.isBlank(inputtedToken)) {
@@ -80,11 +89,15 @@ public class TwoFactorAuthenticator implements Serializable {
         //
         //        if (token.equals(inputtedToken)) {
         //
-        //            resetToken();
-        //            this.secondAuthed = true;
+        //            try {
+        //                appContext.request().login(user.getEmailaddress(), user.getPassword());
         //
-        //            HttpServletRequest request = (HttpServletRequest) externalContext.getRequest();
-        //            request.login(user.getEmailaddress(), user.getPassword());
+        //            } catch (ServletException e) {
+        //                throw new LoginException("ログイン認証に失敗したから、やり直してね");
+        //
+        //            } finally {
+        //                clear();
+        //            }
         //
         //            return true;
         //        }
@@ -92,14 +105,8 @@ public class TwoFactorAuthenticator implements Serializable {
         //        return false;
     }
 
-    private void resetToken() {
-        this.token = "";
-        this.sentToken = false;
-    }
-
     public boolean logined() {
-        HttpServletRequest request = (HttpServletRequest) externalContext.getRequest();
-        return request.getUserPrincipal() != null;
+        return appContext.request().getUserPrincipal() != null;
     }
 
     public void clear() {
