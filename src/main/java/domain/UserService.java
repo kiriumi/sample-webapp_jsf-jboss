@@ -121,6 +121,7 @@ public class UserService {
         roles.forEach(role -> entitiyManager.persist(new Role(user.getEmailaddress(), role)));
     }
 
+    @SuppressWarnings("unchecked")
     public List<User> searchByJpql(final String emailaddress, final String lastName) {
 
         Query query = entitiyManager.createQuery(
@@ -132,18 +133,50 @@ public class UserService {
         return query.getResultList();
     }
 
-    public List searchBySql(final String emailaddress, final String lastName) {
+    @SuppressWarnings("unchecked")
+    public List<User> searchWithRolesByJpql(final String emailaddress, final String lastName) {
 
-        Query query = entitiyManager
-                .createNativeQuery(
-                        "SELECT * FROM public.user u, role WHERE u.emailaddress = ?1 AND u.last_name LIKE %?2% AND u.emailaddress = role.emailaddress ORDER BY u.emailaddress;")
+        Query query = entitiyManager.createQuery(
+                "SELECT user FROM User user INNER JOIN user.roles roles WHERE user.emailaddress = :emailaddress AND user.lastName LIKE :lastName ORDER BY user.emailaddress",
+                User.class)
                 .setParameter("emailaddress", emailaddress)
-                .setParameter("lastName", lastName);
+                .setParameter("lastName", StringUtils.join("%", lastName, "%"));
+
+        return query.getResultList();
+    }
+
+    @SuppressWarnings("unchecked")
+    public List<User> searchBySql(final String emailaddress, final String lastName) {
+
+        Query query = entitiyManager.createNativeQuery(
+                "SELECT u.* FROM public.user u WHERE u.emailaddress = ?1 AND u.last_name LIKE ?2 ORDER BY u.emailaddress;",
+                User.class)
+                .setParameter(1, emailaddress)
+                .setParameter(2, StringUtils.join("%", lastName, "%"));
 
         return query.getResultList();
     }
 
     public List<User> serchByCriteriaApi(final String emailaddress, final String lastName) {
+
+        CriteriaBuilder builder = entitiyManager.getCriteriaBuilder();
+        CriteriaQuery<User> query = builder.createQuery(User.class);
+        Root<User> from = query.from(User.class);
+
+        // テーブル項目の指定に、メタモデル（クラス名_）を使用する場合
+        query.select(from).where(builder.equal(from.get(User_.emailaddress), emailaddress),
+                builder.like(from.get(User_.lastName), "%" + lastName + "%"))
+                .orderBy(builder.asc(from.get(User_.emailaddress)));
+
+        // テーブル項目の指定に、文字列を使用する場合
+        //        query.select(from).where(builder.equal(from.get("emailaddress"), emailaddress),
+        //                builder.like(from.get("lastName"), "%" + lastName + "%"))
+        //                .orderBy(builder.asc(from.get("emailaddress")));
+
+        return entitiyManager.createQuery(query).getResultList();
+    }
+
+    public List<User> serchWithRoleByCriteriaApi(final String emailaddress, final String lastName) {
 
         CriteriaBuilder builder = entitiyManager.getCriteriaBuilder();
         CriteriaQuery<User> query = builder.createQuery(User.class);

@@ -3,6 +3,7 @@ package dto;
 import java.time.LocalDateTime;
 
 import javax.annotation.Generated;
+import javax.persistence.metamodel.ListAttribute;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
@@ -21,4 +22,5 @@ public class User_ {
     public static volatile SingularAttribute<User, Integer> version;
     public static volatile SingularAttribute<User, LocalDateTime> createdtime;
     public static volatile SingularAttribute<User, LocalDateTime> updatedtime;
+    public static volatile ListAttribute<User, Role> roles;
 }

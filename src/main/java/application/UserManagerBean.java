@@ -25,16 +25,22 @@ public class UserManagerBean {
     private String lastName;
 
     @Getter
-    @Setter
     private List<User> searchedUsers;
+
+    @Getter
+    private List<User> searchedUsersWithRoles;
+
+    @Getter
+    @Setter
+    private List<User> selectedUsers;
 
     public String searchByJpql() {
         this.searchedUsers = userService.searchByJpql(emailAddress, lastName);
         return null;
     }
 
-    public String searchBySqlWithJpa() {
-        List results = userService.searchBySql(emailAddress, lastName);
+    public String searchBySql() {
+        this.searchedUsers = userService.searchBySql(emailAddress, lastName);
         return null;
     }
 
@@ -43,4 +49,12 @@ public class UserManagerBean {
         return null;
     }
 
+    public String searchWithRolesByJpql() {
+        this.searchedUsersWithRoles = userService.searchWithRolesByJpql(emailAddress, lastName);
+        return null;
+    }
+
+    public String selected() {
+        return null;
+    }
 }

@@ -1,14 +1,19 @@
 package dto;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.annotation.Generated;
 import javax.persistence.Column;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Version;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import inject.Dto;
+import lombok.Getter;
+import lombok.Setter;
 
 @Dto
 @XmlRootElement
@@ -102,7 +107,7 @@ public class User {
      * @mbg.generated  Sat Aug 01 16:58:00 JST 2020
      */
     @Generated(value = "org.mybatis.generator.api.MyBatisGenerator", date = "2020-04-12T12:59:05.835+09:00", comments = "Source field: USER.emailAddress")
-    public void setEmailaddress(String emailaddress) {
+    public void setEmailaddress(final String emailaddress) {
         this.emailaddress = emailaddress;
     }
 
@@ -120,7 +125,7 @@ public class User {
      * @param lastName  the value for public.user.last_name
      * @mbg.generated  Sat Aug 01 16:58:00 JST 2020
      */
-    public void setLastName(String lastName) {
+    public void setLastName(final String lastName) {
         this.lastName = lastName;
     }
 
@@ -138,7 +143,7 @@ public class User {
      * @param firstName  the value for public.user.first_name
      * @mbg.generated  Sat Aug 01 16:58:00 JST 2020
      */
-    public void setFirstName(String firstName) {
+    public void setFirstName(final String firstName) {
         this.firstName = firstName;
     }
 
@@ -158,7 +163,7 @@ public class User {
      * @mbg.generated  Sat Aug 01 16:58:00 JST 2020
      */
     @Generated(value = "org.mybatis.generator.api.MyBatisGenerator", date = "2020-04-12T12:59:05.835+09:00", comments = "Source field: USER.password")
-    public void setPassword(String password) {
+    public void setPassword(final String password) {
         this.password = password;
     }
 
@@ -176,7 +181,7 @@ public class User {
      * @param postalCode  the value for public.user.postal_code
      * @mbg.generated  Sat Aug 01 16:58:00 JST 2020
      */
-    public void setPostalCode(String postalCode) {
+    public void setPostalCode(final String postalCode) {
         this.postalCode = postalCode;
     }
 
@@ -194,7 +199,7 @@ public class User {
      * @param region  the value for public.user.region
      * @mbg.generated  Sat Aug 01 16:58:00 JST 2020
      */
-    public void setRegion(String region) {
+    public void setRegion(final String region) {
         this.region = region;
     }
 
@@ -212,7 +217,7 @@ public class User {
      * @param locality  the value for public.user.locality
      * @mbg.generated  Sat Aug 01 16:58:00 JST 2020
      */
-    public void setLocality(String locality) {
+    public void setLocality(final String locality) {
         this.locality = locality;
     }
 
@@ -230,7 +235,7 @@ public class User {
      * @param streetAddress  the value for public.user.street_address
      * @mbg.generated  Sat Aug 01 16:58:00 JST 2020
      */
-    public void setStreetAddress(String streetAddress) {
+    public void setStreetAddress(final String streetAddress) {
         this.streetAddress = streetAddress;
     }
 
@@ -248,7 +253,7 @@ public class User {
      * @param extendedAddress  the value for public.user.extended_address
      * @mbg.generated  Sat Aug 01 16:58:00 JST 2020
      */
-    public void setExtendedAddress(String extendedAddress) {
+    public void setExtendedAddress(final String extendedAddress) {
         this.extendedAddress = extendedAddress;
     }
 
@@ -266,7 +271,7 @@ public class User {
      * @param version  the value for public.user.version
      * @mbg.generated  Sat Aug 01 16:58:00 JST 2020
      */
-    public void setVersion(Integer version) {
+    public void setVersion(final Integer version) {
         this.version = version;
     }
 
@@ -285,7 +290,7 @@ public class User {
      * @param createdtime  the value for public.user.createdtime
      * @mbg.generated  Sat Aug 01 16:58:00 JST 2020
      */
-    public void setCreatedtime(LocalDateTime createdtime) {
+    public void setCreatedtime(final LocalDateTime createdtime) {
         this.createdtime = createdtime;
     }
 
@@ -304,11 +309,14 @@ public class User {
      * @param updatedtime  the value for public.user.updatedtime
      * @mbg.generated  Sat Aug 01 16:58:00 JST 2020
      */
-    public void setUpdatedtime(LocalDateTime updatedtime) {
+    public void setUpdatedtime(final LocalDateTime updatedtime) {
         this.updatedtime = updatedtime;
     }
 
-    public void hoge() {
+    @OneToMany //(mappedBy = "emailaddress")
+    @JoinColumn(name = "emailaddress")
+    @Getter
+    @Setter
+    private List<Role> roles;
 
-    }
 }
