@@ -16,7 +16,7 @@
                     <p:submenu label="機能" icon="pi pi-briefcase">
                         <p:column>
                             <p:submenu label="ユーザ">
-                                <p:menuitem value="ユーザ登録" action="#{menuBean.goSignupPage()}" rendered="#{commonBean.permittedRoles({'admin'})}" />
+                                <p:menuitem value="ユーザ管理" url="user-manager.xhtml" rendered="#{commonBean.permittedRoles({'admin'})}" />
                             </p:submenu>
                             <p:submenu label="WebAPI">
                                 <p:menuitem value="RESTクライアント" action="#{menuBean.goRestClientPage()}" />

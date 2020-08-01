@@ -7,6 +7,10 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.ibatis.session.SqlSession;
@@ -15,6 +19,7 @@ import dto.Role;
 import dto.RoleExample;
 import dto.User;
 import dto.UserExample;
+import dto.User_;
 import mapper.RoleMapper;
 import mapper.UserMapper;
 
@@ -114,6 +119,49 @@ public class UserService {
     public void addUserWithJpa(final User user, final List<String> roles) {
         entitiyManager.persist(user);
         roles.forEach(role -> entitiyManager.persist(new Role(user.getEmailaddress(), role)));
+    }
+
+    public List<User> searchByJpql(final String emailaddress, final String lastName) {
+
+        Query query = entitiyManager.createQuery(
+                "SELECT user FROM User user WHERE user.emailaddress = :emailaddress AND user.lastName LIKE :lastName　ORDER BY user.emailaddress",
+                User.class)
+                .setParameter("emailaddress", emailaddress)
+                .setParameter("lastName", StringUtils.join("%", lastName, "%"));
+
+        return query.getResultList();
+    }
+
+    public List searchBySql(final String emailaddress, final String lastName) {
+
+        Query query = entitiyManager
+                .createNativeQuery(
+                        "SELECT * FROM public.user u, role WHERE u.emailaddress = ?1 AND u.last_name LIKE %?2% AND u.emailaddress = role.emailaddress ORDER BY u.emailaddress;")
+                .setParameter("emailaddress", emailaddress)
+                .setParameter("lastName", lastName);
+
+        return query.getResultList();
+    }
+
+    public List<User> serchByCriteriaApi(final String emailaddress, final String lastName) {
+
+        CriteriaBuilder builder = entitiyManager.getCriteriaBuilder();
+        CriteriaQuery<User> query = builder.createQuery(User.class);
+        Root<User> from = query.from(User.class);
+
+        //        Join<User, Role> join =  from.join(
+
+        // テーブル項目の指定に、メタモデル（クラス名_）を使用する場合
+        query.select(from).where(builder.equal(from.get(User_.emailaddress), emailaddress),
+                builder.like(from.get(User_.lastName), "%" + lastName + "%"))
+                .orderBy(builder.asc(from.get(User_.emailaddress)));
+
+        // テーブル項目の指定に、文字列を使用する場合
+        //        query.select(from).where(builder.equal(from.get("emailaddress"), emailaddress),
+        //                builder.like(from.get("lastName"), "%" + lastName + "%"))
+        //                .orderBy(builder.asc(from.get("emailaddress")));
+
+        return entitiyManager.createQuery(query).getResultList();
     }
 
     public void throwNullPointerException() throws NullPointerException {

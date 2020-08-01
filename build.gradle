@@ -52,7 +52,8 @@ dependencies {
 
     // ユーティリティ
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.8.1'
-    compile group: 'commons-fileupload', name: 'commons-fileupload', version: '1.4'
+    compile group: 'org.apache.commons', name: 'commons-text', version: '1.9'
+    compile group: 'commons-fileupload', name: 'commons-fileupload', version: '1.4' // PrimeFacesのファイルアップロードで必要
     compile group: 'commons-codec', name: 'commons-codec', version: '1.14'
 
     // テスト
