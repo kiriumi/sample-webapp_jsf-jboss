@@ -86,9 +86,13 @@ public class UserService {
         return rolesOnly;
     }
 
-    public void addUser(final User user) {
+    public void addUser(final User user, final List<String> roles) {
+
         UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
         userMapper.insert(user);
+
+        RoleMapper roleMapper = sqlSession.getMapper(RoleMapper.class);
+        roles.forEach(role -> roleMapper.insert((new Role(user.getEmailaddress(), role))));
     }
 
     // ↑MyBatis
@@ -103,13 +107,13 @@ public class UserService {
     }
 
     public boolean hasUserWithJpa(final String emailAddress) {
-
         User user = entitiyManager.find(User.class, emailAddress);
         return user == null || StringUtils.isBlank(user.getEmailaddress()) ? false : true;
     }
 
-    public void addUserWithJpa(final User user) {
+    public void addUserWithJpa(final User user, final List<String> roles) {
         entitiyManager.persist(user);
+        roles.forEach(role -> entitiyManager.persist(new Role(user.getEmailaddress(), role)));
     }
 
     public void throwNullPointerException() throws NullPointerException {

@@ -46,7 +46,7 @@ class UserServiceTest {
 
             User returnUser = new User();
             returnUser.setEmailaddress("hoge@com");
-            returnUser.setName("hoge");
+            returnUser.setLastName("hoge");
 
             when(entitiyManager.find(User.class, "hoge@com")).thenReturn(returnUser);
 
@@ -54,7 +54,7 @@ class UserServiceTest {
 
             assertAll("ユーザのテスト",
                     () -> assertThat(user.getEmailaddress(), is("fail@com")),
-                    () -> assertThat(user.getName(), is("hoge")));
+                    () -> assertThat(user.getLastName(), is("hoge")));
         }
 
         @Test

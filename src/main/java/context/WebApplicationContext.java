@@ -24,8 +24,6 @@ public class WebApplicationContext implements Serializable {
 
     private final String redirectParam = "?faces-redirect=true";
 
-    private final String systemErrorPagePath = baseApplicationPagePath + "error-system.xhtml";
-
     public String redirect(final String pageName) {
         return StringUtils.join(baseApplicationPagePath, pageName, redirectParam);
     }
@@ -35,7 +33,7 @@ public class WebApplicationContext implements Serializable {
     }
 
     public String redirectSystemErrorPage() {
-        return StringUtils.join(systemErrorPagePath, redirectParam);
+        return StringUtils.join("error-system.xhtml", redirectParam);
     }
 
     public HttpServletRequest request() {

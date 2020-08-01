@@ -1,21 +1,24 @@
 package application;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
+import javax.faces.application.FacesMessage;
 import javax.inject.Inject;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
+import javax.transaction.Transactional;
 
 import context.WebApplicationContext;
+import domain.CodeService;
 import domain.UserService;
+import dto.Code;
 import dto.User;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import mode.TestModeTransactional;
+import page_transaction.PageTransactionBegin;
 import page_transaction.PageTransactionEnd;
 
 /**
@@ -31,66 +34,110 @@ public class SignupBean extends BaseBackingBean {
     @Inject
     private WebApplicationContext appContext;
 
-    @NotBlank
-    @Email
     @Getter
     @Setter
     private String emailAddress;
 
-    @NotBlank
     @Getter
     @Setter
-    private String name;
+    private String lastName;
 
-    @NotBlank
-    @Size(min = 4, max = 8)
-    @Pattern(regexp = "[0-9a-zA-Z]*")
+    @Getter
+    @Setter
+    private String firstName;
+
     @Getter
     @Setter
     private String password;
 
+    @Getter
+    @Setter
+    private String postalCode;
+
+    @Getter
+    @Setter
+    private String region;
+
+    @Getter
+    @Setter
+    private String locality;
+
+    @Getter
+    @Setter
+    private String streetAddress;
+
+    @Getter
+    @Setter
+    private String extendedAddress;
+
+    @Getter
+    @Setter
+    private List<Code> roles;
+
+    @Getter
+    @Setter
+    private List<String> selectedRoles;
+
     @Inject
     private UserService userService;
 
-    @TestModeTransactional
+    @Inject
+    private CodeService codeService;
+
+    @PostConstruct
+    public void init() {
+        this.roles = codeService.find(Code.Kind.ROLE);
+    }
+
+    //    @TestModeTransactional
+    @Transactional
+    @PageTransactionBegin("signup")
     @PageTransactionEnd
     public String signupUser() {
 
         if (userService.hasUser(getEmailAddress())) {
+            messageService().addMessage(FacesMessage.SEVERITY_WARN, "そのメールアドレスのユーザは登録済みだよ");
             return null;
         }
 
-        userService.addUser(createUser());
+        userService.addUser(createUser(), selectedRoles);
+        flash().put("signin.success", true);
 
-        flash().put("signupSccessMessage", "登録できたよ");
-
-        return redirect("top");
+        return appContext.redirectNonSecuredPage("login");
     }
 
     @TestModeTransactional
     public String signupUserWithJpa() {
 
         if (userService.hasUserWithJpa(getEmailAddress())) {
+            messageService().addMessage(FacesMessage.SEVERITY_WARN, "そのメールアドレスのユーザは登録済みだよ");
             return null;
         }
 
-        userService.addUserWithJpa(createUser());
+        userService.addUserWithJpa(createUser(), selectedRoles);
+        flash().put("signin.success", true);
 
-        flash().put("signupSccessMessage", "登録できたよ");
-
-        return redirect("signup");
+        return appContext.redirectNonSecuredPage("login");
     }
 
     private User createUser() {
 
         User user = new User();
-        user.setEmailaddress(getEmailAddress());
-        user.setName(getName());
-        user.setPassword(getPassword());
 
-        LocalDateTime dateTime = LocalDateTime.now();
-        user.setCreatedtime(dateTime.toString());
-        user.setUpdatedtime(dateTime.toString());
+        user.setEmailaddress(emailAddress);
+        user.setLastName(lastName);
+        user.setFirstName(firstName);
+        user.setPassword(password);
+
+        user.setPostalCode(postalCode);
+        user.setRegion(region);
+        user.setLocality(locality);
+        user.setStreetAddress(streetAddress);
+        user.setExtendedAddress(extendedAddress);
+
+        user.setVersion(1);
+        user.setCreatedtime(LocalDateTime.now());
+        user.setUpdatedtime(LocalDateTime.now());
 
         return user;
     }

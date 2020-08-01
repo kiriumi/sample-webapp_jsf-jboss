@@ -10,8 +10,10 @@
 
         <jta-data-source>java:/PostgresDS</jta-data-source>
 
-        <!-- Eclipselinkの場合、DTOの登録が必要 -->
+        <!-- Eclipselinkの場合、Entityクラスの登録が必要 -->
         <class>dto.User</class>
+        <class>dto.Role</class>
+        <class>dto.Code</class>
 
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <shared-cache-mode>NONE</shared-cache-mode>

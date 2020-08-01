@@ -4,27 +4,31 @@
 <generatorConfiguration>
 
     <context id="context1" targetRuntime="MyBatis3"> <!-- targetRuntimeをMyBatis3にしないと、Exampleができない -->
-        <jdbcConnection driverClass="org.postgresql.Driver"
-            connectionURL="jdbc:postgresql://localhost:5432/postgres"
-            userId="postgres" password="postgres" />
 
-        <javaModelGenerator targetPackage="dto"
-            targetProject="sample-webapp-jsf/src/main/java" />
+        <property name="javaFileEncoding" value="UTF-8" />
 
-        <sqlMapGenerator targetPackage="sql"
-            targetProject="sample-webapp-jsf/src/main/resources" />
+        <jdbcConnection driverClass="org.postgresql.Driver" connectionURL="jdbc:postgresql://localhost:5432/postgres" userId="postgres"
+            password="postgres" />
 
-        <javaClientGenerator targetPackage="mapper"
-            targetProject="sample-webapp-jsf/src/main/java" type="XMLMAPPER" />
+        <javaTypeResolver>
+            <!-- 日付の型をDataではなく、LocalDateTimeにするため -->
+            <property name="useJSR310Types" value="true" />
+        </javaTypeResolver>
+
+        <javaModelGenerator targetPackage="dto" targetProject="sample-webapp-jsf/src/main/java" />
+
+        <sqlMapGenerator targetPackage="sql" targetProject="sample-webapp-jsf/src/main/resources" />
+
+        <javaClientGenerator targetPackage="mapper" targetProject="sample-webapp-jsf/src/main/java" type="XMLMAPPER" />
 
         <table schema="public" tableName="user">
-            <property name="useActualColumnName" value="true" />
+            <property name="useActualColumnNames" value="false" />
             <!-- <columnOverride column="???" property="???" /> -->
         </table>
 
-        <table schema="public" tableName="role">
-            <property name="useActualColumnName" value="true" />
-        </table>
+        <table schema="public" tableName="role" />
+        <table schema="public" tableName="code" />
+
     </context>
 
 </generatorConfiguration>

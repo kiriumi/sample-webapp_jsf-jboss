@@ -1,6 +1,6 @@
 /**
  * カスタマイズするショートカットキー
  */
-shortcut.add("a", function() {
-    alert("「a」を検知しました！");
+shortcut.add("q", function() {
+    alert("「q」を検知しました！");
 });

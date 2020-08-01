@@ -19,7 +19,7 @@ public class CustomPrincipal extends CallerPrincipal {
     private final List<String> roles;
 
     public CustomPrincipal(final User user, final List<String> roles) {
-        super(user.getName().toString());
+        super(user.getLastName().toString());
 
         this.emailAddress = user.getEmailaddress();
         this.password = user.getPassword();

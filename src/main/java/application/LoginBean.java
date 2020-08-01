@@ -1,5 +1,6 @@
 package application;
 
+import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
 import javax.faces.annotation.FacesConfig;
 import javax.faces.application.FacesMessage;
@@ -108,6 +109,15 @@ public class LoginBean extends BaseBackingBean {
         }
 
         return null;
+    }
+
+    @PostConstruct
+    public void init() {
+
+        boolean successedSignin = (boolean) flash().getOrDefault("signin.success", false);
+        if (successedSignin) {
+            messageService().addMessage(FacesMessage.SEVERITY_INFO, "登録できたよ");
+        }
     }
 
     public void authenticate(final ActionEvent event) {

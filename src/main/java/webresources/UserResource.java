@@ -35,7 +35,7 @@ public class UserResource {
         // name がnullや空文字だったら、BadRequestException: HTTP 400 Bad Requestの例外がクライアントで発生する
 
         User user = new User();
-        user.setName(name);
+        user.setFirstName(name);
         user.setEmailaddress(name + "@example.com");
 
         return user;
@@ -65,7 +65,7 @@ public class UserResource {
     public User postByJson(@NotNull final User user, @NotBlank @QueryParam("name") final String name) {
 
         userService.toString();
-        user.setUpdatedtime(LocalDateTime.now().toString());
+        user.setUpdatedtime(LocalDateTime.now());
 
         return user;
     }
@@ -92,7 +92,7 @@ public class UserResource {
     @Produces("application/xml")
     public User postByXml(@NotNull final User user) {
 
-        user.setUpdatedtime(LocalDateTime.now().toString());
+        user.setUpdatedtime(LocalDateTime.now());
         return user;
     }
 

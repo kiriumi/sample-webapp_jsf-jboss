@@ -96,11 +96,11 @@ public class RestClientBean extends BaseBackingBean {
         Client client = ClientBuilder.newClient();
 
         User user = new User();
-        user.setName("bar");
+        user.setLastName("bar");
         user.setEmailaddress("bar@example.com");
 
         // http://localhost:8080/sample-webapp-jsf/webresources/user/post?name=bar
-        UriBuilder userPostUri = baseRestUriBuilder.path("user").path("post").queryParam("name", user.getName());
+        UriBuilder userPostUri = baseRestUriBuilder.path("user").path("post").queryParam("name", user.getLastName());
 
         Response response = client.target(userPostUri)
                 .request(MediaType.APPLICATION_JSON).header(HttpHeaders.AUTHORIZATION, getBasicAuthHttpHeaderValue())

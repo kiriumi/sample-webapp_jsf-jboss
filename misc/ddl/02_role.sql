@@ -1,1 +1,5 @@
-CREATE TABLE ROLE(emailaddress TEXT NOT NULL, role TEXT NOT NULL);
+CREATE
+    TABLE public.role(
+        emailaddress TEXT NOT NULL
+        ,role TEXT NOT NULL
+    );
