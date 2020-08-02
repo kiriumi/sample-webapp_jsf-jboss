@@ -38,7 +38,7 @@
             </div>
 
             <div class="col-md-6 mt-2 mt-md-0 btn-group">
-                <h:commandButton class="btn btn-secondary ml-md-5" value="詳細" action="#{userManagerBean.goSelectedUserDetail()}" disabled="#{!userManagerBean.searched}" />
+                <h:commandButton class="btn btn-secondary ml-md-5" value="詳細" action="#{userManagerBean.goSelectedUserDetailPage()}" disabled="#{!userManagerBean.searched}" />
                 <h:commandButton class="btn btn-warning" value="削除" action="#{userManagerBean.deleteSelectedUsers()}" disabled="#{!userManagerBean.searched}" />
             </div>
         </div>

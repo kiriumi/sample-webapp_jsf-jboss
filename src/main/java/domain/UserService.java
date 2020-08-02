@@ -231,6 +231,21 @@ public class UserService {
         return entitiyManager.createQuery(query).getResultList();
     }
 
+    public void deleteUser(User user) {
+
+        if (!entitiyManager.contains(user)) {
+            // Entityが永続化コンテキストの管理外にある場合、削除できないため、mergeして管理下に置く
+            // 参考：https://www.monotalk.xyz/blog/Entity-must-be-managed-to-call-remove-in-eclipselink/
+            user = entitiyManager.merge(user);
+        }
+        entitiyManager.remove(user);
+    }
+
+    public void deleteUsers(final List<User> users) {
+        // メソッド参照：オブジェクト::メソッド
+        users.forEach(this::deleteUser);
+    }
+
     public void throwNullPointerException() throws NullPointerException {
         throw new NullPointerException("ぬるぽ");
     }

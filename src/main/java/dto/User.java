@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.annotation.Generated;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -313,7 +314,7 @@ public class User {
         this.updatedtime = updatedtime;
     }
 
-    @OneToMany //(mappedBy = "emailaddress")
+    @OneToMany(cascade = CascadeType.ALL) // Userを変更しただけで、Roleも自動で変更が反映される
     @JoinColumn(name = "emailaddress")
     @Getter
     @Setter

@@ -3,7 +3,9 @@ package application;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
 import javax.inject.Inject;
+import javax.transaction.Transactional;
 
 import domain.UserService;
 import dto.User;
@@ -69,16 +71,25 @@ public class UserManagerBean extends BaseBackingBean implements Serializable {
         return null;
     }
 
-    public String goUserDetailPage() {
+    public String goSelectedUserDetailPage() {
+        flash().put("selectedUser", selectedUser);
         return redirect("user-detail");
     }
 
+    @Transactional
     public String deleteSelectedUsers() {
-        return null;
-    }
 
-    public String goSelectedUserDetail() {
-        return redirect("user-detail");
+        if (selectedUsers.isEmpty()) {
+            messageService().addMessage(FacesMessage.SEVERITY_WARN, "ユーザを選択してね");
+            return null;
+        }
+
+        userService.deleteUsers(selectedUsers);
+        messageService().addMessage(FacesMessage.SEVERITY_INFO, "削除したよ");
+
+        this.searchedUsers = userService.searchByJpql(emailAddress, lastName, firstName);
+
+        return null;
     }
 
 }
