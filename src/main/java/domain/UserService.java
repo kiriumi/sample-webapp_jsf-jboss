@@ -10,6 +10,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import org.apache.commons.lang3.StringUtils;
@@ -122,15 +123,84 @@ public class UserService {
     }
 
     @SuppressWarnings("unchecked")
-    public List<User> searchByJpql(final String emailaddress, final String lastName) {
+    public List<User> searchByJpql(final String emailaddress, final String lastName, final String firstName) {
 
-        Query query = entitiyManager.createQuery(
-                "SELECT user FROM User user WHERE user.emailaddress = :emailaddress AND user.lastName LIKE :lastName　ORDER BY user.emailaddress",
-                User.class)
-                .setParameter("emailaddress", emailaddress)
-                .setParameter("lastName", StringUtils.join("%", lastName, "%"));
+        String queryString = "SELECT user FROM User user WHERE %s user.lastName LIKE :lastName AND user.firstName LIKE :firstName ORDER BY user.emailaddress";
+        Query query;
+
+        if (StringUtils.isBlank(emailaddress)) {
+            query = entitiyManager.createQuery(String.format(queryString, ""), User.class)
+                    .setParameter("lastName", StringUtils.join("%", lastName, "%"))
+                    .setParameter("firstName", StringUtils.join("%", firstName, "%"));
+        } else {
+            query = entitiyManager
+                    .createQuery(String.format(queryString, "user.emailaddress = :emailaddress AND"), User.class)
+                    .setParameter("emailaddress", emailaddress)
+                    .setParameter("lastName", StringUtils.join("%", lastName, "%"))
+                    .setParameter("firstName", StringUtils.join("%", firstName, "%"));
+        }
 
         return query.getResultList();
+    }
+
+    @SuppressWarnings("unchecked")
+    public List<User> searchBySql(final String emailaddress, final String lastName, final String firstName) {
+
+        String queryString = "SELECT u.* FROM public.user u WHERE %s u.last_name LIKE ?2 ORDER BY u.emailaddress";
+        Query query;
+
+        if (StringUtils.isBlank(emailaddress)) {
+            query = entitiyManager.createNativeQuery(String.format(queryString, ""), User.class)
+                    .setParameter(2, StringUtils.join("%", lastName, "%"))
+                    .setParameter(3, StringUtils.join("%", firstName, "%"));
+        } else {
+            query = entitiyManager.createNativeQuery(String.format(queryString, "u.emailaddress = ?1 AND"), User.class)
+                    .setParameter(1, emailaddress)
+                    .setParameter(2, StringUtils.join("%", lastName, "%"))
+                    .setParameter(3, StringUtils.join("%", firstName, "%"));
+        }
+
+        return query.getResultList();
+    }
+
+    public List<User> serchByCriteriaApi(final String emailaddress, final String lastName, final String firstName) {
+
+        CriteriaBuilder builder = entitiyManager.getCriteriaBuilder();
+        CriteriaQuery<User> query = builder.createQuery(User.class);
+        Root<User> from = query.from(User.class);
+
+        List<Predicate> creteria = new ArrayList<Predicate>();
+
+        if (StringUtils.isNoneBlank(emailaddress)) {
+            creteria.add(builder.equal(from.get(User_.emailaddress), emailaddress));
+        }
+        if (StringUtils.isNoneBlank(lastName)) {
+            creteria.add(builder.like(from.get(User_.lastName), "%" + lastName + "%"));
+        }
+        if (StringUtils.isNoneBlank(firstName)) {
+            creteria.add(builder.like(from.get(User_.firstName), "%" + firstName + "%"));
+        }
+
+        query.select(from).where(
+                builder.and(creteria.toArray(new Predicate[] {})))
+                .orderBy(builder.asc(from.get(User_.emailaddress)));
+
+        return entitiyManager.createQuery(query).getResultList();
+
+        //        // 検索条件が静的な場合
+        //        // テーブル項目の指定に、メタモデルを使用する場合
+        //        query.select(from).where(
+        //                builder.equal(from.get(User_.emailaddress), emailaddress),
+        //                builder.like(from.get(User_.lastName), "%" + lastName + "%"),
+        //                builder.like(from.get(User_.firstName), "%" + lastName + "%"))
+        //                .orderBy(builder.asc(from.get(User_.emailaddress)));
+        //
+        //        // テーブル項目の指定に、文字列を使用する場合
+        //        query.select(from).where(
+        //                builder.equal(from.get("emailaddress"), emailaddress),
+        //                builder.like(from.get("lastName"), "%" + lastName + "%"),
+        //                builder.like(from.get("firstName"), "%" + firstName + "%"))
+        //                .orderBy(builder.asc(from.get("emailaddress")));
     }
 
     @SuppressWarnings("unchecked")
@@ -143,37 +213,6 @@ public class UserService {
                 .setParameter("lastName", StringUtils.join("%", lastName, "%"));
 
         return query.getResultList();
-    }
-
-    @SuppressWarnings("unchecked")
-    public List<User> searchBySql(final String emailaddress, final String lastName) {
-
-        Query query = entitiyManager.createNativeQuery(
-                "SELECT u.* FROM public.user u WHERE u.emailaddress = ?1 AND u.last_name LIKE ?2 ORDER BY u.emailaddress;",
-                User.class)
-                .setParameter(1, emailaddress)
-                .setParameter(2, StringUtils.join("%", lastName, "%"));
-
-        return query.getResultList();
-    }
-
-    public List<User> serchByCriteriaApi(final String emailaddress, final String lastName) {
-
-        CriteriaBuilder builder = entitiyManager.getCriteriaBuilder();
-        CriteriaQuery<User> query = builder.createQuery(User.class);
-        Root<User> from = query.from(User.class);
-
-        // テーブル項目の指定に、メタモデル（クラス名_）を使用する場合
-        query.select(from).where(builder.equal(from.get(User_.emailaddress), emailaddress),
-                builder.like(from.get(User_.lastName), "%" + lastName + "%"))
-                .orderBy(builder.asc(from.get(User_.emailaddress)));
-
-        // テーブル項目の指定に、文字列を使用する場合
-        //        query.select(from).where(builder.equal(from.get("emailaddress"), emailaddress),
-        //                builder.like(from.get("lastName"), "%" + lastName + "%"))
-        //                .orderBy(builder.asc(from.get("emailaddress")));
-
-        return entitiyManager.createQuery(query).getResultList();
     }
 
     public List<User> serchWithRoleByCriteriaApi(final String emailaddress, final String lastName) {
@@ -189,15 +228,11 @@ public class UserService {
                 builder.like(from.get(User_.lastName), "%" + lastName + "%"))
                 .orderBy(builder.asc(from.get(User_.emailaddress)));
 
-        // テーブル項目の指定に、文字列を使用する場合
-        //        query.select(from).where(builder.equal(from.get("emailaddress"), emailaddress),
-        //                builder.like(from.get("lastName"), "%" + lastName + "%"))
-        //                .orderBy(builder.asc(from.get("emailaddress")));
-
         return entitiyManager.createQuery(query).getResultList();
     }
 
     public void throwNullPointerException() throws NullPointerException {
         throw new NullPointerException("ぬるぽ");
     }
+
 }

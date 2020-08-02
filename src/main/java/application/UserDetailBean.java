@@ -1,6 +1,6 @@
 package application;
 
-public class UserModificationBean extends SignupBean {
+public class UserDetailBean extends SignupBean {
 
     public String modifyUser() {
         return null;

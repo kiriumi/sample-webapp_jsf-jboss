@@ -26,6 +26,10 @@ public class UserManagerBean extends BaseBackingBean implements Serializable {
     private String lastName;
 
     @Getter
+    @Setter
+    private String firstName;
+
+    @Getter
     private List<User> searchedUsers;
 
     @Getter
@@ -38,18 +42,25 @@ public class UserManagerBean extends BaseBackingBean implements Serializable {
     @Setter
     private List<User> selectedUsers;
 
+    @Getter
+    @Setter
+    private boolean searched = false;
+
     public String searchByJpql() {
-        this.searchedUsers = userService.searchByJpql(emailAddress, lastName);
+        this.searchedUsers = userService.searchByJpql(emailAddress, lastName, firstName);
+        this.searched = true;
         return null;
     }
 
     public String searchBySql() {
-        this.searchedUsers = userService.searchBySql(emailAddress, lastName);
+        this.searchedUsers = userService.searchBySql(emailAddress, lastName, firstName);
+        this.searched = true;
         return null;
     }
 
     public String searchByCriteriaApi() {
-        this.searchedUsers = userService.serchByCriteriaApi(emailAddress, lastName);
+        this.searchedUsers = userService.serchByCriteriaApi(emailAddress, lastName, firstName);
+        this.searched = true;
         return null;
     }
 
@@ -62,8 +73,12 @@ public class UserManagerBean extends BaseBackingBean implements Serializable {
         return redirect("user-detail");
     }
 
-    public String selected() {
+    public String deleteSelectedUsers() {
         return null;
+    }
+
+    public String goSelectedUserDetail() {
+        return redirect("user-detail");
     }
 
 }
