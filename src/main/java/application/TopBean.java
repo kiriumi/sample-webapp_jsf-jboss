@@ -13,11 +13,8 @@ import org.apache.commons.fileupload.FileUploadException;
 import org.primefaces.model.StreamedContent;
 
 import context.EnvContext;
-import context.WebApplicationContext;
 import domain.FileDownloader;
 import domain.UploadFileService;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -28,8 +25,6 @@ import lombok.Setter;
  *
  */
 @Model
-@Data
-@EqualsAndHashCode(callSuper = false)
 public class TopBean extends BaseBackingBean {
 
     @Inject
@@ -38,16 +33,28 @@ public class TopBean extends BaseBackingBean {
     @Inject
     EnvContext envContext;
 
+    @Getter
+    @Setter
     private String name;
 
+    @Getter
+    @Setter
     private boolean adminRole;
 
+    @Getter
+    @Setter
     private boolean userRole;
 
+    @Getter
+    @Setter
     private int value1 = 0;
 
+    @Getter
+    @Setter
     private int value2 = 0;
 
+    @Getter
+    @Setter
     private int sumedValue = 0;
 
     @Inject
@@ -62,9 +69,6 @@ public class TopBean extends BaseBackingBean {
     @Getter
     @Setter
     private Part uploadedFile;
-
-    @Inject
-    private WebApplicationContext appContext;
 
     public void viewAction() {
 

@@ -41,4 +41,9 @@ public class MenuBean extends BaseBackingBean {
         commonBean.logout();
         return "/login.xhtml?faces-redirect=true";
     }
+
+    @Override
+    public String redirect(final String pageName) {
+        return super.redirect(pageName);
+    }
 }

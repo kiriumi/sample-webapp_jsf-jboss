@@ -3,10 +3,13 @@ package application;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import javax.faces.application.FacesMessage;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 
+import domain.UserSearchCondition;
 import domain.UserService;
 import dto.User;
 import inject.ViewModel;
@@ -19,17 +22,10 @@ public class UserManagerBean extends BaseBackingBean implements Serializable {
     @Inject
     private UserService userService;
 
+    @Inject
     @Getter
     @Setter
-    private String emailAddress;
-
-    @Getter
-    @Setter
-    private String lastName;
-
-    @Getter
-    @Setter
-    private String firstName;
+    private UserSearchCondition searchCond;
 
     @Getter
     private List<User> searchedUsers;
@@ -48,32 +44,52 @@ public class UserManagerBean extends BaseBackingBean implements Serializable {
     @Setter
     private boolean searched = false;
 
+    private boolean goDetail = false;
+
+    @PostConstruct
+    public void init() {
+
+        if (searchCond.needInitSearch()) {
+            searchByJpql();
+        }
+    }
+
     public String searchByJpql() {
-        this.searchedUsers = userService.searchByJpql(emailAddress, lastName, firstName);
+
+        this.searchedUsers = userService.searchByJpql(
+                searchCond.getEmailAddress(), searchCond.getLastName(), searchCond.getFirstName());
+
         this.searched = true;
+
         return null;
     }
 
     public String searchBySql() {
-        this.searchedUsers = userService.searchBySql(emailAddress, lastName, firstName);
+
+        this.searchedUsers = userService.searchBySql(
+                searchCond.getEmailAddress(), searchCond.getLastName(), searchCond.getFirstName());
+
         this.searched = true;
+
         return null;
     }
 
     public String searchByCriteriaApi() {
-        this.searchedUsers = userService.serchByCriteriaApi(emailAddress, lastName, firstName);
+
+        this.searchedUsers = userService.serchByCriteriaApi(
+                searchCond.getEmailAddress(), searchCond.getLastName(), searchCond.getFirstName());
+
         this.searched = true;
+
         return null;
     }
 
     public String searchWithRolesByJpql() {
-        this.searchedUsersWithRoles = userService.searchWithRolesByJpql(emailAddress, lastName);
-        return null;
-    }
 
-    public String goSelectedUserDetailPage() {
-        flash().put("selectedUser", selectedUser);
-        return redirect("user-detail");
+        this.searchedUsersWithRoles = userService.searchWithRolesByJpql(
+                searchCond.getEmailAddress(), searchCond.getLastName());
+
+        return null;
     }
 
     @Transactional
@@ -87,9 +103,25 @@ public class UserManagerBean extends BaseBackingBean implements Serializable {
         userService.deleteUsers(selectedUsers);
         messageService().addMessage(FacesMessage.SEVERITY_INFO, "削除したよ");
 
-        this.searchedUsers = userService.searchByJpql(emailAddress, lastName, firstName);
+        this.searchedUsers = userService.searchByJpql(
+                searchCond.getEmailAddress(), searchCond.getLastName(), searchCond.getFirstName());
 
         return null;
+    }
+
+    public String goUserDetailPage() {
+
+        this.goDetail = true;
+        flash().put("selectedUser", selectedUser);
+        return redirect("user-detail");
+    }
+
+    @PreDestroy
+    public void fin() {
+
+        if (!goDetail) {
+            searchCond.clear();
+        }
     }
 
 }

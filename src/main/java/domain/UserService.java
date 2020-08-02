@@ -246,6 +246,10 @@ public class UserService {
         users.forEach(this::deleteUser);
     }
 
+    public void modifyUser(final User user) {
+        entitiyManager.contains(user);
+    }
+
     public void throwNullPointerException() throws NullPointerException {
         throw new NullPointerException("ぬるぽ");
     }

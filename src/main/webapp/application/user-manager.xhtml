@@ -7,26 +7,24 @@
 
     <ui:define name="title">ユーザ管理</ui:define>
 
-
-
     <ui:define name="content">
 
         <div class="form-group row">
             <p:outputLabel class="col-sm-2 col-form-label" for="emailAddress" value="Eメールアドレス" />
             <div class="col-sm-10">
-                <p:inputText id="emailAddress" class="form-control" value="#{userManagerBean.emailAddress}" placeholder="完全一致検索" />
+                <p:inputText id="emailAddress" class="form-control" value="#{userManagerBean.searchCond.emailAddress}" placeholder="完全一致検索" />
             </div>
         </div>
 
         <div class="form-group row">
             <p:outputLabel class="col-md-2 col-form-label" for="lastName" value="姓" />
             <div class="col-md-4">
-                <p:inputText id="lastName" class="form-control" value="#{userManagerBean.lastName}" placeholder="部分一致検索" />
+                <p:inputText id="lastName" class="form-control" value="#{userManagerBean.searchCond.lastName}" placeholder="部分一致検索" />
             </div>
 
             <p:outputLabel class="col-md-2 col-form-label" for="firstName" value="名" />
             <div class="col-md-4">
-                <p:inputText id="firstName" class="form-control" value="#{userManagerBean.firstName}" placeholder="部分一致検索" />
+                <p:inputText id="firstName" class="form-control" value="#{userManagerBean.searchCond.firstName}" placeholder="部分一致検索" />
             </div>
         </div>
 
@@ -38,7 +36,7 @@
             </div>
 
             <div class="col-md-6 mt-2 mt-md-0 btn-group">
-                <h:commandButton class="btn btn-secondary ml-md-5" value="詳細" action="#{userManagerBean.goSelectedUserDetailPage()}" disabled="#{!userManagerBean.searched}" />
+                <h:commandButton class="btn btn-secondary ml-md-5" value="詳細" action="#{userManagerBean.goUserDetailPage()}" disabled="#{!userManagerBean.searched}" />
                 <h:commandButton class="btn btn-warning" value="削除" action="#{userManagerBean.deleteSelectedUsers()}" disabled="#{!userManagerBean.searched}" />
             </div>
         </div>
