@@ -1,5 +1,7 @@
 package log;
 
+import java.io.Serializable;
+
 import javax.annotation.Priority;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
@@ -16,7 +18,7 @@ import lombok.extern.slf4j.Slf4j;
 @Priority(Interceptor.Priority.APPLICATION - 10)
 @ActionLogging
 @Slf4j
-public class ActionLoggingInterceptor {
+public class ActionLoggingInterceptor implements Serializable { // ViewScoped以上のBackingビーンで使う場合、Serializableが必要
 
     @Inject
     FacesContext facesContext;
