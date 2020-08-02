@@ -114,8 +114,7 @@ public class LoginBean extends BaseBackingBean {
     @PostConstruct
     public void init() {
 
-        boolean successedSignin = (boolean) flash().getOrDefault("signin.success", false);
-        if (successedSignin) {
+        if ((boolean) flash().getOrDefault("successSignin", false)) {
             messageService().addMessage(FacesMessage.SEVERITY_INFO, "登録できたよ");
         }
     }

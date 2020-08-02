@@ -1,5 +1,6 @@
 package domain;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -246,8 +247,9 @@ public class UserService {
         users.forEach(this::deleteUser);
     }
 
-    public void modifyUser(final User user) {
-        entitiyManager.contains(user);
+    public User modifyUser(final User user) {
+        user.setUpdatedtime(LocalDateTime.now());
+        return entitiyManager.merge(user);
     }
 
     public void throwNullPointerException() throws NullPointerException {

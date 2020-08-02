@@ -49,6 +49,10 @@ public class UserManagerBean extends BaseBackingBean implements Serializable {
     @PostConstruct
     public void init() {
 
+        if ((boolean) flash().getOrDefault("successDeleteUser", false)) {
+            messageService().addMessage(FacesMessage.SEVERITY_INFO, "削除したよ");
+        }
+
         if (searchCond.needInitSearch()) {
             searchByJpql();
         }

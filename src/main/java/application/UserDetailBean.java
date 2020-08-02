@@ -6,6 +6,7 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.faces.application.FacesMessage;
 import javax.inject.Inject;
+import javax.transaction.Transactional;
 
 import domain.UserSearchCondition;
 import domain.UserService;
@@ -34,18 +35,20 @@ public class UserDetailBean extends BaseBackingBean implements Serializable {
         this.user = (User) flash().get("selectedUser");
     }
 
+    @Transactional
     public String modifyUser() {
 
-        userService.modifyUser(user);
+        this.user = userService.modifyUser(user);
         messageService().addMessage(FacesMessage.SEVERITY_INFO, "更新したよ");
 
         return null;
     }
 
+    @Transactional
     public String deleteUser() {
 
         userService.deleteUser(user);
-        messageService().addMessage(FacesMessage.SEVERITY_INFO, "削除したよ");
+        flash().put("successDeleteUser", true);
 
         return redirect("user-manager");
     }
