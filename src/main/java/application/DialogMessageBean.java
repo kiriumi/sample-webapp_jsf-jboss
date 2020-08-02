@@ -1,18 +1,19 @@
 package application;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
-import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 
 import domain.DialogMessage;
 import domain.DialogMessageService;
+import inject.ViewModel;
 import lombok.Getter;
 
-@Model
-public class DialogMessageBean {
+@ViewModel
+public class DialogMessageBean implements Serializable {
 
     @Inject
     DialogMessageService dialogMessageService;

@@ -1,17 +1,18 @@
 package application;
 
+import java.io.Serializable;
 import java.util.List;
 
-import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 
 import domain.UserService;
 import dto.User;
+import inject.ViewModel;
 import lombok.Getter;
 import lombok.Setter;
 
-@Model
-public class UserManagerBean {
+@ViewModel // DataTableは、同一画面内で情報共有するため、ViewScoped（しないとプロパティが取れない・アクションが起動しない）
+public class UserManagerBean extends BaseBackingBean implements Serializable {
 
     @Inject
     private UserService userService;
@@ -29,6 +30,9 @@ public class UserManagerBean {
 
     @Getter
     private List<User> searchedUsersWithRoles;
+
+    @Setter
+    private User selectedUser;
 
     @Getter
     @Setter
@@ -54,7 +58,12 @@ public class UserManagerBean {
         return null;
     }
 
+    public String goUserDetailPage() {
+        return redirect("user-detail");
+    }
+
     public String selected() {
         return null;
     }
+
 }
