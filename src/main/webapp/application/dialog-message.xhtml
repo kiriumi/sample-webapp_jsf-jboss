@@ -10,10 +10,7 @@
     <h:form>
         <div class="container">
 
-            <p:dataTable var="message" value="#{dialogMessageBean.messages}" styleClass="message-table" rowIndexVar="rowIndex" rows="2" paginator="true" stickyHeader="true"
-                paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                currentPageReportTemplate="{startRecord}-{endRecord} / {totalRecords} 件" rowsPerPageTemplate="1, 2, 3" emptyMessage="レコードがないよ">
-
+            <p:dataTable var="message" value="#{dialogMessageBean.messages}" styleClass="message-table" rowIndexVar="rowIndex" stickyHeader="true" emptyMessage="レコードがないよ">
                 <p:column headerText="レベル" sortBy="#{message.level}">
                     <h:outputText value="#{message.level}" />
                 </p:column>
