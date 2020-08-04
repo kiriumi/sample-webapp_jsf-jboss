@@ -19,7 +19,6 @@ import javax.validation.constraints.Size;
 import context.WebApplicationContext;
 import domain.TwoFactorAuthenticator;
 import domain.UserService;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -61,7 +60,6 @@ import lombok.Setter;
  *
  */
 @Model
-@EqualsAndHashCode(callSuper = false)
 @FacesConfig
 //@Auth(emailAddress = "emailAddress", password = "password")
 public class LoginBean extends BaseBackingBean {
