@@ -31,9 +31,9 @@ public class ActionLoggingInterceptor implements Serializable { // ViewScoped以
 
         PhaseId currentPhaseId = FacesContext.getCurrentInstance().getCurrentPhaseId();
 
-        if (!(currentPhaseId.equals(PhaseId.INVOKE_APPLICATION)
-                || currentPhaseId.equals(PhaseId.APPLY_REQUEST_VALUES))) {
-            // アクション以外は何もしない（immediateのアクションのAPPLY_REQUEST_VALUESフェーズはのため条件に必要）
+        if (!currentPhaseId.equals(PhaseId.INVOKE_APPLICATION)) {
+            // アクション以外は何もしない
+            // ※immediateのアクションは、Apply Request Valueフェーズのため注意
             return context.proceed();
         }
 
