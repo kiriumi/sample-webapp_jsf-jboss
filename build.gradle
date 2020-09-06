@@ -137,9 +137,10 @@ spotbugs {
 }
 
 pmd {
-    toolVersion = '6.27.0'
     sourceSets = [sourceSets.main]
     ignoreFailures = true
 }
 
 test.finalizedBy jacocoTestReport
+
+// 自動テストタスク：clean flywayMigrate cargoStartLocal check cargoStopLocal
