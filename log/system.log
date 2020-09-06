@@ -3635,3 +3635,45 @@ Caused by: java.util.MissingResourceException: Can't find resource for bundle ja
 2020/09/06 20:26:37.723 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
 2020/09/06 20:26:54.158 [default task-1] INFO  application.LoginBean#viewAction é–‹å§‹
 2020/09/06 20:26:54.167 [default task-1] INFO  application.LoginBean#viewAction çµ‚äº†
+2020/09/06 21:04:02.062 [ServerService Thread Pool -- 76] INFO  ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆ '/sample-webapp-jsf' ã® Mojarra 2.3.9.SP02 ã‚’åˆæœŸåŒ–ã—ã¾ã™
+2020/09/06 21:04:04.607 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
+2020/09/06 21:51:43.617 [ServerService Thread Pool -- 76] INFO  ƒRƒ“ƒeƒLƒXƒg '/sample-webapp-jsf' ‚Ì Mojarra 2.3.9.SP02 ‚ğ‰Šú‰»‚µ‚Ü‚·
+2020/09/06 21:51:49.227 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/Users/kengo/AppData/Local/Temp/cargo/conf/tmp/vfs/temp/tempce053989a5c7bc7f/content-c712486b8cdf4f90/WEB-INF/faces-config.xml for modifications
+2020/09/06 21:56:12.560 [ServerService Thread Pool -- 76] INFO  ƒRƒ“ƒeƒLƒXƒg '/sample-webapp-jsf' ‚Ì Mojarra 2.3.9.SP02 ‚ğ‰Šú‰»‚µ‚Ü‚·
+2020/09/06 21:56:20.109 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/Users/kengo/AppData/Local/Temp/cargo/conf/tmp/vfs/temp/tempbec512856fa342ed/content-d2cab2cc7c03c7b9/WEB-INF/faces-config.xml for modifications
+2020/09/06 21:59:36.997 [ServerService Thread Pool -- 76] INFO  ƒRƒ“ƒeƒLƒXƒg '/sample-webapp-jsf' ‚Ì Mojarra 2.3.9.SP02 ‚ğ‰Šú‰»‚µ‚Ü‚·
+2020/09/06 21:59:41.502 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/Users/kengo/AppData/Local/Temp/cargo/conf/tmp/vfs/temp/temp89c18260f481ca90/content-4a2ab09407d92e88/WEB-INF/faces-config.xml for modifications
+2020/09/06 22:10:04.888 [ServerService Thread Pool -- 76] INFO  ƒRƒ“ƒeƒLƒXƒg '/sample-webapp-jsf' ‚Ì Mojarra 2.3.9.SP02 ‚ğ‰Šú‰»‚µ‚Ü‚·
+2020/09/06 22:10:07.425 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/tmp/vfs/temp/tempad563627a030fdd4/content-2ce2c06cfca3bed8/WEB-INF/faces-config.xml for modifications
+2020/09/06 22:15:39.139 [ServerService Thread Pool -- 104] INFO  ƒRƒ“ƒeƒLƒXƒg '/sample-webapp-jsf' ‚Ì Mojarra 2.3.9.SP02 ‚ğ‰Šú‰»‚µ‚Ü‚·
+2020/09/06 22:15:39.601 [ServerService Thread Pool -- 104] INFO  ƒRƒ“ƒeƒLƒXƒg '/sample-webapp-jsf' ‚Ì Mojarra 2.3.9.SP02 ‚ğ‰Šú‰»‚µ‚Ü‚·
+2020/09/06 22:15:41.227 [ServerService Thread Pool -- 104] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/tmp/vfs/temp/tempad563627a030fdd4/content-17df0d46b642784/WEB-INF/faces-config.xml for modifications
+2020/09/06 22:15:41.231 [ServerService Thread Pool -- 104] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/tmp/vfs/temp/tempad563627a030fdd4/content-17df0d46b642784/WEB-INF/faces-config.xml for modifications
+2020/09/06 22:17:20.332 [ServerService Thread Pool -- 141] INFO  ƒRƒ“ƒeƒLƒXƒg '/sample-webapp-jsf' ‚Ì Mojarra 2.3.9.SP02 ‚ğ‰Šú‰»‚µ‚Ü‚·
+2020/09/06 22:17:20.814 [ServerService Thread Pool -- 141] INFO  ƒRƒ“ƒeƒLƒXƒg '/sample-webapp-jsf' ‚Ì Mojarra 2.3.9.SP02 ‚ğ‰Šú‰»‚µ‚Ü‚·
+2020/09/06 22:17:20.818 [ServerService Thread Pool -- 141] INFO  ƒRƒ“ƒeƒLƒXƒg '/sample-webapp-jsf' ‚Ì Mojarra 2.3.9.SP02 ‚ğ‰Šú‰»‚µ‚Ü‚·
+2020/09/06 22:17:22.366 [ServerService Thread Pool -- 141] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/tmp/vfs/temp/tempad563627a030fdd4/content-3c5aaab409fd4225/WEB-INF/faces-config.xml for modifications
+2020/09/06 22:17:22.369 [ServerService Thread Pool -- 141] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/tmp/vfs/temp/tempad563627a030fdd4/content-3c5aaab409fd4225/WEB-INF/faces-config.xml for modifications
+2020/09/06 22:17:22.371 [ServerService Thread Pool -- 141] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/tmp/vfs/temp/tempad563627a030fdd4/content-3c5aaab409fd4225/WEB-INF/faces-config.xml for modifications
+2020/09/06 22:17:31.300 [default task-1] INFO  application.LoginBean#viewAction ŠJn
+2020/09/06 22:17:31.304 [default task-1] INFO  application.LoginBean#viewAction I—¹
+2020/09/06 22:18:38.259 [ServerService Thread Pool -- 141] INFO  ƒRƒ“ƒeƒLƒXƒg '/app' ‚Ì Mojarra 2.3.9.SP02 ‚ğ‰Šú‰»‚µ‚Ü‚·
+2020/09/06 22:18:38.442 [ServerService Thread Pool -- 141] INFO  ƒRƒ“ƒeƒLƒXƒg '/app' ‚Ì Mojarra 2.3.9.SP02 ‚ğ‰Šú‰»‚µ‚Ü‚·
+2020/09/06 22:18:38.442 [ServerService Thread Pool -- 141] INFO  ƒRƒ“ƒeƒLƒXƒg '/app' ‚Ì Mojarra 2.3.9.SP02 ‚ğ‰Šú‰»‚µ‚Ü‚·
+2020/09/06 22:18:38.444 [ServerService Thread Pool -- 141] INFO  ƒRƒ“ƒeƒLƒXƒg '/app' ‚Ì Mojarra 2.3.9.SP02 ‚ğ‰Šú‰»‚µ‚Ü‚·
+2020/09/06 22:18:39.004 [ServerService Thread Pool -- 141] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/tmp/vfs/temp/tempad563627a030fdd4/content-38b175f6804479c7/WEB-INF/faces-config.xml for modifications
+2020/09/06 22:18:39.005 [ServerService Thread Pool -- 141] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/tmp/vfs/temp/tempad563627a030fdd4/content-38b175f6804479c7/WEB-INF/faces-config.xml for modifications
+2020/09/06 22:18:39.007 [ServerService Thread Pool -- 141] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/tmp/vfs/temp/tempad563627a030fdd4/content-38b175f6804479c7/WEB-INF/faces-config.xml for modifications
+2020/09/06 22:18:39.008 [ServerService Thread Pool -- 141] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/tmp/vfs/temp/tempad563627a030fdd4/content-38b175f6804479c7/WEB-INF/faces-config.xml for modifications
+2020/09/06 22:18:42.921 [default task-1] INFO  application.LoginBean#viewAction ŠJn
+2020/09/06 22:18:42.922 [default task-1] INFO  application.LoginBean#viewAction I—¹
+2020/09/06 22:18:51.362 [default task-1] INFO  application.LoginBean#viewAction ŠJn
+2020/09/06 22:18:51.364 [default task-1] INFO  application.LoginBean#viewAction I—¹
+2020/09/06 22:19:19.796 [default task-1] INFO  application.LoginBean#viewAction ŠJn
+2020/09/06 22:19:19.798 [default task-1] INFO  application.LoginBean#viewAction I—¹
+2020/09/06 22:22:21.349 [ServerService Thread Pool -- 76] INFO  ƒRƒ“ƒeƒLƒXƒg '/app' ‚Ì Mojarra 2.3.9.SP02 ‚ğ‰Šú‰»‚µ‚Ü‚·
+2020/09/06 22:22:23.685 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/Users/kengo/AppData/Local/Temp/cargo/conf/tmp/vfs/temp/temp868d1dbfe1e28941/content-2a4aa37e6e4941d7/WEB-INF/faces-config.xml for modifications
+2020/09/06 22:24:22.917 [ServerService Thread Pool -- 76] INFO  ƒRƒ“ƒeƒLƒXƒg '/app' ‚Ì Mojarra 2.3.9.SP02 ‚ğ‰Šú‰»‚µ‚Ü‚·
+2020/09/06 22:24:24.427 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/Users/kengo/AppData/Local/Temp/cargo/conf/tmp/vfs/temp/temp3dd41cd0de6fc8cb/content-ab0ef7fda8abcf44/WEB-INF/faces-config.xml for modifications
+2020/09/06 22:24:35.398 [default task-2] INFO  application.LoginBean#viewAction ŠJn
+2020/09/06 22:24:35.404 [default task-2] INFO  application.LoginBean#viewAction I—¹
