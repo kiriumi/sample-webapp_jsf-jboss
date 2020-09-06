@@ -46,7 +46,7 @@ dependencies {
 
     // DBアクセス
     compile group: 'org.mybatis', name: 'mybatis', version: '3.4.6'
-    //compile group: 'org.mybatis', name: 'mybatis-cdi', version: '1.1.1' // うまく行かないのでコメントアウト
+    compile group: 'org.mybatis', name: 'mybatis-cdi', version: '1.1.1' // うまく行かないのでコメントアウト
     compile group: 'org.eclipse.persistence', name: 'org.eclipse.persistence.jpa', version: '2.7.6'
     // compile group: 'com.github.gwenn', name: 'sqlite-dialect', version: '0.1.0' // SQLiteでHibanateによるJPAをする際、必要
 

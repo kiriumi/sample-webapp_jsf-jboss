@@ -89,7 +89,6 @@ public class SignupBean extends BaseBackingBean {
         this.roles = codeService.find(Code.Kind.ROLE);
     }
 
-    //    @TestModeTransactional
     @Transactional
     @PageTransactionBegin("signup")
     @PageTransactionEnd

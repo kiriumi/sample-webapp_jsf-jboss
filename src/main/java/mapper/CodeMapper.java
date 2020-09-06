@@ -1,10 +1,14 @@
 package mapper;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+import org.mybatis.cdi.Mapper;
+
 import dto.Code;
 import dto.CodeExample;
-import java.util.List;
-import org.apache.ibatis.annotations.Param;
 
+@Mapper
 public interface CodeMapper {
 
     /**

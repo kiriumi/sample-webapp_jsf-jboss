@@ -3,11 +3,12 @@ package mapper;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
+import org.mybatis.cdi.Mapper;
 
 import dto.Role;
 import dto.RoleExample;
 
-//@Mapper
+@Mapper
 public interface RoleMapper {
 
     /**

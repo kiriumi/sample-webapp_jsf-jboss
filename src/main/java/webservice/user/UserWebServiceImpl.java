@@ -1,5 +1,7 @@
 package webservice.user;
 
+import java.util.ArrayList;
+
 import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.jws.WebService;
@@ -30,7 +32,7 @@ public class UserWebServiceImpl implements UserWebService {
 
     @Override
     public void addUser(final User user) throws WebServiceException {
-        userService.addUser(user);
+        userService.addUser(user, new ArrayList<String>());
     }
 
 }

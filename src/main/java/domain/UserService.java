@@ -15,7 +15,6 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.ibatis.session.SqlSession;
 
 import dto.Role;
 import dto.RoleExample;
@@ -29,20 +28,16 @@ import mapper.UserMapper;
 public class UserService {
 
     @Inject
-    private SqlSession sqlSession;
+    UserMapper userMapper;
 
-    //    @Inject
-    //    UserMapper userMapper; // mybatis-cdiの残骸
-
-    //    @Inject
-    //    RoleMapper roleMapper;
+    @Inject
+    RoleMapper roleMapper;
 
     public User find(final String emailAddress, final String password) {
 
         UserExample example = new UserExample();
         example.createCriteria().andEmailaddressEqualTo(emailAddress).andPasswordEqualTo(password);
 
-        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
         List<User> users = userMapper.selectByExample(example);
 
         return users.size() == 1 ? users.get(0) : null;
@@ -53,7 +48,6 @@ public class UserService {
         UserExample example = new UserExample();
         example.createCriteria().andEmailaddressEqualTo(emailAddress).andPasswordEqualTo(password);
 
-        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
         List<User> users = userMapper.selectByExample(example);
 
         return users.size() == 1;
@@ -61,7 +55,6 @@ public class UserService {
 
     public boolean hasUser(final String emailAddress) {
 
-        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
         User user = userMapper.selectByPrimaryKey(emailAddress);
 
         return user == null || StringUtils.isBlank(user.getEmailaddress()) ? false : true;
@@ -72,7 +65,6 @@ public class UserService {
         RoleExample example = new RoleExample();
         example.createCriteria().andEmailaddressEqualTo(user.getEmailaddress());
 
-        RoleMapper roleMapper = sqlSession.getMapper(RoleMapper.class);
         List<Role> roles = roleMapper.selectByExample(example);
 
         List<String> rolesOnly = new ArrayList<>();
@@ -85,20 +77,17 @@ public class UserService {
         RoleExample example = new RoleExample();
         example.createCriteria().andEmailaddressEqualTo(emailaddress);
 
-        RoleMapper roleMapper = sqlSession.getMapper(RoleMapper.class);
         List<Role> roles = roleMapper.selectByExample(example);
 
         List<String> rolesOnly = new ArrayList<>();
         roles.forEach(role -> rolesOnly.add(role.getRole()));
+
         return rolesOnly;
     }
 
     public void addUser(final User user, final List<String> roles) {
 
-        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
         userMapper.insert(user);
-
-        RoleMapper roleMapper = sqlSession.getMapper(RoleMapper.class);
         roles.forEach(role -> roleMapper.insert((new Role(user.getEmailaddress(), role))));
     }
 

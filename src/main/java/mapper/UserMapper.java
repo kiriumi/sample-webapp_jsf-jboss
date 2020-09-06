@@ -3,11 +3,12 @@ package mapper;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
+import org.mybatis.cdi.Mapper;
 
 import dto.User;
 import dto.UserExample;
 
-//@Mapper // mybatis-cdiの残骸
+@Mapper
 public interface UserMapper {
 
     /**
