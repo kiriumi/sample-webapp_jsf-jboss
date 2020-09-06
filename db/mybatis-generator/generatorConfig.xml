@@ -7,7 +7,7 @@
 
         <property name="javaFileEncoding" value="UTF-8" />
 
-        <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin" />
+        <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin" /> <!-- limitとoffsetを使用できるようにするプラグイン -->
 
         <commentGenerator>
             <property name="addRemarkComments" value="true" />
