@@ -125,14 +125,21 @@ flyway {
     locations = [ "filesystem:${projectDir}/db/migration" ] // デフォルトはsrc/main/db/migration
 }
 
-// testタスクの後にjacocoTestReportタスクを実施する
-//test.finalizedBy jacocoTestReport
+checkstyle {
+    toolVersion = '8.36' // Gradleラッパーの場合、バージョン指定がないとエラーになる
+    configFile = file('misc/checkstyle/google_checks.xml')
+    sourceSets = [sourceSets.main]
+    ignoreFailures = true
+}
 
-// 検査した結果、違反があってもビルドは成功させる
-checkstyle.ignoreFailures = true
-spotbugs.ignoreFailures = true
-pmd.ignoreFailures = true
+spotbugs {
+    ignoreFailures = true
+}
 
-// テストコードは検査対象外
-checkstyleTest.excludes = ['**/*']
-pmdTest.excludes = ['**/*']
+pmd {
+    toolVersion = '6.27.0'
+    sourceSets = [sourceSets.main]
+    ignoreFailures = true
+}
+
+test.finalizedBy jacocoTestReport
