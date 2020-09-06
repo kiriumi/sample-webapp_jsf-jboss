@@ -8,6 +8,7 @@
         <property name="javaFileEncoding" value="UTF-8" />
 
         <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin" /> <!-- limitとoffsetを使用できるようにするプラグイン -->
+        <plugin type="plugin.mybatis.CdiMapperAnnotationPlugin" />
 
         <commentGenerator>
             <property name="addRemarkComments" value="true" />
@@ -31,9 +32,10 @@
         <javaClientGenerator targetPackage="mapper" targetProject="sample-webapp-jsf/src/main/java" type="XMLMAPPER" />
 
         <!-- Keyクラスを作成しないよう、modeType=falseにする -->
-        <table schema="public" tableName="user" modelType="flat" />
-        <table schema="public" tableName="role" modelType="flat" />
+<!--         <table schema="public" tableName="user" modelType="flat" /> -->
+<!--         <table schema="public" tableName="role" modelType="flat" /> -->
         <table schema="public" tableName="code" modelType="flat" />
+        <table schema="public" tableName="hoge" modelType="flat" />
 
     </context>
 
