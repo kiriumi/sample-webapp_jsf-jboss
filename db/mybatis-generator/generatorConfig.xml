@@ -8,7 +8,7 @@
         <property name="javaFileEncoding" value="UTF-8" />
 
         <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin" /> <!-- limitとoffsetを使用できるようにするプラグイン -->
-        <plugin type="plugin.mybatis.CdiMapperAnnotationPlugin" />
+        <plugin type="plugin.mybatis.CdiMapperAnnotationPlugin" /> <!-- CDIの@Mapperを付けるためのカスタムプラグイン -->
 
         <commentGenerator>
             <property name="addRemarkComments" value="true" />
