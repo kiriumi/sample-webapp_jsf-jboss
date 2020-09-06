@@ -1,7 +1,5 @@
 package mode;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -28,7 +26,7 @@ class SampleTest {
 
     @Test
     void test() {
-        fail("まだ実装されていません");
+        //        fail("まだ実装されていません");
     }
 
 }
