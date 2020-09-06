@@ -115,5 +115,5 @@ flyway {
     user = 'postgres'
     password = 'postgres'
     schemas = ['public']
-    locations = [ "filesystem:${projectDir}/" ] // デフォルトはsrc/main/db/migration
+    locations = [ "filesystem:${projectDir}/db/migration" ] // デフォルトはsrc/main/db/migration
 }
