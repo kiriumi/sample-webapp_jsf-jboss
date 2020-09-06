@@ -3,6 +3,7 @@ plugins {
   id 'maven'
   id 'eclipse-wtp'
   id "com.bmuschko.cargo" version "2.4"
+  id "org.flywaydb.flyway" version "6.5.5"
 }
 
 group = 'sample.webapp'
@@ -27,12 +28,14 @@ repositories {
 
 dependencies {
 
+    providedCompile group: 'javax', name: 'javaee-web-api', version: '8.0.1'
+
     // フレームワーク
     compile group: 'org.primefaces', name: 'primefaces', version: '8.0'
     compile group: 'org.primefaces.themes', name: 'all-themes', version: '1.0.10'
     compile group: 'org.omnifaces', name: 'omnifaces', version: '3.4.1'
     compile group: 'javax.security.enterprise', name: 'javax.security.enterprise-api', version: '1.0'
-    compile group: 'org.glassfish.soteria', name: 'javax.security.enterprise', version: '1.0'
+    //compile group: 'org.glassfish.soteria', name: 'javax.security.enterprise', version: '1.0'
 
     // ログ
     compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.30'
@@ -40,7 +43,7 @@ dependencies {
     compile group: 'org.apache.logging.log4j', name: 'log4j-slf4j-impl', version: '2.13.1'
     compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.13.1'
 
-    // DB
+    // JDBC
     compile group: 'org.postgresql', name: 'postgresql', version: '42.2.12', changing: true
     compile group: 'org.xerial', name: 'sqlite-jdbc', version: '3.30.1'
 
@@ -62,8 +65,9 @@ dependencies {
     testCompile group: 'org.mockito', name: 'mockito-core', version: '3.3.3'
     testCompile group: 'com.codeborne', name: 'selenide', version: '5.11.1'
 
-    providedCompile group: 'javax', name: 'javaee-web-api', version: '8.0.1'
-    providedCompile group: 'org.projectlombok', name: 'lombok', version: '1.18.12'
+     // GradleでLombokをビルドするためには、以下のようにする
+    compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.12'
+    annotationProcessor group: 'org.projectlombok', name: 'lombok', version: "1.18.12"
 
     def cargoVersion = '1.4.5'
     cargo "org.codehaus.cargo:cargo-core-uberjar:${cargoVersion}",
@@ -103,4 +107,13 @@ cargo {
         password = cargoHostPassword
     }
 
+}
+
+// Flyway管理テーブルを作成するため、最初にflywayBaselineタスクを実行する
+flyway {
+    url = 'jdbc:postgresql://localhost:5432/postgres'
+    user = 'postgres'
+    password = 'postgres'
+    schemas = ['public']
+    locations = [ "filesystem:${projectDir}/" ] // デフォルトはsrc/main/db/migration
 }
