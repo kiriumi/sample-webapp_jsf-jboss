@@ -8,7 +8,7 @@ import javax.inject.Inject;
 
 import dto.Code;
 import dto.CodeExample;
-import mapper.CodeMapper;
+import repository.CodeMapper;
 
 @RequestScoped
 public class CodeService {

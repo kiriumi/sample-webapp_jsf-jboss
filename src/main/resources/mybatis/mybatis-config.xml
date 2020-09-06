@@ -25,9 +25,9 @@
     </environments>
 
     <mappers>
-        <!-- mapperパッケージ配下のMapper.xmlを対象とする -->
+        <!-- repositoryパッケージ配下のMapper.xmlを対象とする -->
         <!-- ※MapperインターフェスとMapper.xmlが同一のパッケージにあることが条件 -->
-        <package name="mapper" />
+        <package name="repository" />
     </mappers>
 
 </configuration>

@@ -17,8 +17,8 @@ import org.mockito.MockitoAnnotations;
 
 import domain.UserService;
 import dto.User;
-import mapper.RoleMapper;
-import mapper.UserMapper;
+import repository.RoleMapper;
+import repository.UserMapper;
 
 class UserServiceTest {
 

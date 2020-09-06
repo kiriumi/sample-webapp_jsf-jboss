@@ -21,8 +21,8 @@ import dto.RoleExample;
 import dto.User;
 import dto.UserExample;
 import dto.User_;
-import mapper.RoleMapper;
-import mapper.UserMapper;
+import repository.RoleMapper;
+import repository.UserMapper;
 
 @RequestScoped
 public class UserService {

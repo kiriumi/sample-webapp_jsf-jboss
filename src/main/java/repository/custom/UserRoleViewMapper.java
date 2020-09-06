@@ -1,4 +1,4 @@
-package mapper.custom;
+package repository.custom;
 
 import java.util.List;
 

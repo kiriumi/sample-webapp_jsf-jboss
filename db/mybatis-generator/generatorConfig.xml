@@ -27,9 +27,9 @@
             <property name="trimStrings" value="true" />
         </javaModelGenerator>
 
-        <sqlMapGenerator targetPackage="mapper" targetProject="sample-webapp-jsf/src/main/resources" />
+        <sqlMapGenerator targetPackage="repository" targetProject="sample-webapp-jsf/src/main/resources" />
 
-        <javaClientGenerator targetPackage="mapper" targetProject="sample-webapp-jsf/src/main/java" type="XMLMAPPER" />
+        <javaClientGenerator targetPackage="repository" targetProject="sample-webapp-jsf/src/main/java" type="XMLMAPPER" />
 
         <!-- Keyクラスを作成しないよう、modeType=falseにする -->
         <table schema="public" tableName="user" modelType="flat" />
