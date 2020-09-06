@@ -1,7 +1,7 @@
 plugins {
   id 'war'
-  id 'maven'
   id 'eclipse-wtp'
+  id 'jacoco'
   id "com.bmuschko.cargo" version "2.7.1"
   id "org.flywaydb.flyway" version "6.5.5"
 }
@@ -22,6 +22,7 @@ tasks.withType(JavaCompile) {
 repositories {
 
      mavenCentral()
+     maven { url "https://plugins.gradle.org/m2/" }
      maven { url "https://repository.jboss.org/nexus/content/repositories/releases/" }
      maven { url "https://repository.primefaces.org/" }
 }
@@ -119,3 +120,6 @@ flyway {
     schemas = ['public']
     locations = [ "filesystem:${projectDir}/db/migration" ] // デフォルトはsrc/main/db/migration
 }
+
+// testタスクの後にjacocoTestReportタスクを実施する
+test.finalizedBy jacocoTestReport

@@ -7,7 +7,6 @@ import static org.mockito.Mockito.*;
 
 import javax.persistence.EntityManager;
 
-import org.apache.ibatis.session.SqlSession;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -18,11 +17,16 @@ import org.mockito.MockitoAnnotations;
 
 import domain.UserService;
 import dto.User;
+import mapper.RoleMapper;
+import mapper.UserMapper;
 
 class UserServiceTest {
 
     @Mock
-    SqlSession sqlSession;
+    UserMapper userMapper;
+
+    @Mock
+    RoleMapper roleMapper;
 
     @Mock
     EntityManager entitiyManager;
@@ -34,6 +38,26 @@ class UserServiceTest {
     void setUp() throws Exception {
         // Mocitoの場合必須
         MockitoAnnotations.initMocks(this);
+    }
+
+    @Nested
+    @DisplayName("モックを使ったMyBatisのテスト")
+    public class MyBatisMockTest {
+
+        @Test
+        @DisplayName("Eメールアドレスによるユーザ存在チェック")
+        public void testHasUser() {
+
+            User returnUser = new User();
+            returnUser.setEmailaddress("hoge@com");
+            returnUser.setLastName("hoge");
+
+            when(userMapper.selectByPrimaryKey(returnUser.getEmailaddress())).thenReturn(returnUser);
+
+            boolean hasUser = userService.hasUser("hoge@com");
+
+            assertThat(hasUser, is(true));
+        }
     }
 
     @Nested
@@ -53,7 +77,7 @@ class UserServiceTest {
             User user = userService.findByEmailAddressWithJpa("hoge@com");
 
             assertAll("ユーザのテスト",
-                    () -> assertThat(user.getEmailaddress(), is("fail@com")),
+                    () -> assertThat(user.getEmailaddress(), is("hoge@com")),
                     () -> assertThat(user.getLastName(), is("hoge")));
         }
 

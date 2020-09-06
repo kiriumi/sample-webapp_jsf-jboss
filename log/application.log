@@ -3898,3 +3898,5 @@ Caused by: java.util.MissingResourceException: Can't find resource for bundle ja
 2020/09/06 22:24:24.427 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/Users/kengo/AppData/Local/Temp/cargo/conf/tmp/vfs/temp/temp3dd41cd0de6fc8cb/content-ab0ef7fda8abcf44/WEB-INF/faces-config.xml for modifications
 2020/09/06 22:24:35.398 [default task-2] INFO  log.ActionLoggingInterceptor#around application.LoginBean#viewAction �J�n
 2020/09/06 22:24:35.404 [default task-2] INFO  log.ActionLoggingInterceptor#around application.LoginBean#viewAction �I��
+2020/09/06 22:50:53.035 [ServerService Thread Pool -- 76] INFO  コンテキスト '/sample-webapp-jsf' の Mojarra 2.3.9.SP02 を初期化します
+2020/09/06 22:50:54.225 [ServerService Thread Pool -- 76] INFO  Monitoring file:/C:/pleiadeses/pleiades-2018-12/wildfly/wildfly-17.0.1.Final/standalone/deployments/sample-webapp-jsf.war/WEB-INF/faces-config.xml for modifications
