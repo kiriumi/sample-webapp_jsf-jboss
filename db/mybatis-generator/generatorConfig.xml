@@ -7,6 +7,8 @@
 
         <property name="javaFileEncoding" value="UTF-8" />
 
+        <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin" />
+
         <commentGenerator>
             <property name="addRemarkComments" value="true" />
             <property name="suppressDate" value="true" />

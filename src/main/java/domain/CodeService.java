@@ -24,6 +24,6 @@ public class CodeService {
 
         List<Code> codes = mapper.selectByExample(example);
 
-        return codes == null ? new ArrayList<Code>() : codes;
+        return codes == null ? new ArrayList<>() : codes;
     }
 }
