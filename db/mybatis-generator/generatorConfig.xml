@@ -24,7 +24,7 @@
             <property name="trimStrings" value="true" />
         </javaModelGenerator>
 
-        <sqlMapGenerator targetPackage="sql" targetProject="sample-webapp-jsf/src/main/resources" />
+        <sqlMapGenerator targetPackage="mapper" targetProject="sample-webapp-jsf/src/main/resources" />
 
         <javaClientGenerator targetPackage="mapper" targetProject="sample-webapp-jsf/src/main/java" type="XMLMAPPER" />
 
