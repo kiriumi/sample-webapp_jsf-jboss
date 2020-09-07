@@ -17,6 +17,11 @@
             <var>messages</var>
         </resource-bundle>
 
+        <resource-bundle>
+            <base-name>view-items</base-name>
+            <var>viewItems</var>
+        </resource-bundle>
+
         <message-bundle>CustomJsfValidationMessages</message-bundle>
     </application>
 

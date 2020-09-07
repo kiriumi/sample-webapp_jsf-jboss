@@ -41,7 +41,8 @@
                 </p:confirmDialog>
 
                 <div>
-                    <p:fileUpload listener="#{primeFacesSamplesBean.uploadFile}" label="ファイルを選択" uploadLabel="アップロード" cancelLabel="キャンセル" />
+                    <p:fileUpload listener="#{primeFacesSamplesBean.uploadFile}" label="ファイルを選択" uploadLabel="アップロード" cancelLabel="キャンセル" sizeLimit="#{viewItems.fileUploadSizeLimit}"
+                        fileLimit="#{viewItems.fileUploadFileLimit}" allowTypes="#{viewItems.fileUploadAllowTypes}" />
                 </div>
 
                 <div>
