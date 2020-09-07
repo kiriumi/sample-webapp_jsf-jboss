@@ -13,16 +13,12 @@
         </locale-config>
 
         <resource-bundle>
-            <base-name>ValidationMessages</base-name>
-            <var>messages</var>
-        </resource-bundle>
-
-        <resource-bundle>
-            <base-name>view-items</base-name>
+            <base-name>ViewItems</base-name>
             <var>viewItems</var>
         </resource-bundle>
 
-        <message-bundle>CustomJsfValidationMessages</message-bundle>
+        <!-- JSFのデフォルトメッセージを上書き -->
+        <message-bundle>FacesMessages</message-bundle>
     </application>
 
     <lifecycle>

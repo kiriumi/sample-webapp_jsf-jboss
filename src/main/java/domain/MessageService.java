@@ -24,7 +24,7 @@ public class MessageService {
     }
 
     public void addMessageById(final Severity severity, @NotBlank final String messageId, final Object... params) {
-        addMessageByProperties("application-messages", severity, messageId, params);
+        addMessageByProperties("ApplicationMessages", severity, messageId, params);
     }
 
     public void addValidaionMessageById(final Severity severity, @NotBlank final String messageId,

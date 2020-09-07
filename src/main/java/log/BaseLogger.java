@@ -13,7 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public abstract class BaseLogger {
 
-    private final String logMessagePropBaseName = "log-messages";
+    private final String logMessagePropBaseName = "LogMessages";
 
     public void debug(final String key, final Object... params) {
         log.debug(getLogMessage(key), params);
