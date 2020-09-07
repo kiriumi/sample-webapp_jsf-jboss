@@ -1,11 +1,10 @@
 package domain;
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
+import java.io.IOException;
+import java.nio.file.Files;
 
-import javax.annotation.PreDestroy;
 import javax.enterprise.context.RequestScoped;
 
 import org.primefaces.model.DefaultStreamedContent;
@@ -14,21 +13,18 @@ import org.primefaces.model.StreamedContent;
 @RequestScoped
 public class FileDownloader {
 
-    private File tempDownloadFile;
-
     public StreamedContent getDownloadFileAsStreamContent(final File tempDownloadFile, final String downloadFileName,
-            final String contentType) throws FileNotFoundException {
+            final String contentType) throws IOException {
 
-        this.tempDownloadFile = tempDownloadFile;
+        byte[] byteFile = Files.readAllBytes(tempDownloadFile.toPath());
+        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteFile);
 
-        InputStream inputStream = new FileInputStream(tempDownloadFile.getAbsolutePath());
-        StreamedContent streamedContent = new DefaultStreamedContent(inputStream, contentType, downloadFileName);
+        StreamedContent streamedContent = DefaultStreamedContent.builder().name(downloadFileName)
+                .contentType(contentType).stream(() -> byteArrayInputStream).build();
+
+        tempDownloadFile.delete();
 
         return streamedContent;
     }
 
-    @PreDestroy
-    public void deleteTempDownloadFile() {
-        tempDownloadFile.delete();
-    }
 }
