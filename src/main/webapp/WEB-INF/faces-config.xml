@@ -30,8 +30,11 @@
         <exception-handler-factory>exception.CustomExceptionHandlerFactory</exception-handler-factory>
     </factory>
 
-    <!-- GETに対するトークンチェック対象のページ（正規表現は使えない） -->
-    <!-- <protected-views> -->
-    <!-- <url-pattern>/application/signup.xhtml</url-pattern> -->
-    <!-- </protected-views> -->
+
+    <!-- GETに対するトークンチェック対象のページ（正規表現やワイルドカードは使えない） -->
+    <protected-views>
+        <url-pattern>/*.xhtml</url-pattern>
+        <url-pattern>/application/*.xhtml</url-pattern>
+    </protected-views>
+
 </faces-config>
