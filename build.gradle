@@ -15,8 +15,8 @@ version = '0.0.1-SNAPSHOT'
 
 description = """JSFによるWebアプリケーションのサンプル"""
 
-sourceCompatibility = JavaVersion.VERSION_11
-targetCompatibility = JavaVersion.VERSION_11
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
 
 // Javaの文字コード
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
@@ -44,17 +44,16 @@ dependencies {
     implementation group: 'org.primefaces.themes', name: 'all-themes', version: '1.0.10'
     implementation group: 'org.omnifaces', name: 'omnifaces', version: '3.4.1'
     implementation group: 'javax.security.enterprise', name: 'javax.security.enterprise-api', version: '1.0'
-    //compile group: 'org.glassfish.soteria', name: 'javax.security.enterprise', version: '1.0'
+
+    // JDBC
+    implementation group: 'org.postgresql', name: 'postgresql', version: '42.2.12', changing: true
+    implementation group: 'org.xerial', name: 'sqlite-jdbc', version: '3.30.1'
 
     // ログ
     implementation group: 'org.slf4j', name: 'slf4j-api', version: '1.7.30'
     implementation group: 'org.slf4j', name: 'jul-to-slf4j', version: '1.7.30'
     implementation group: 'org.apache.logging.log4j', name: 'log4j-slf4j-impl', version: '2.13.1'
     implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.13.1'
-
-    // JDBC
-    implementation group: 'org.postgresql', name: 'postgresql', version: '42.2.12', changing: true
-    implementation group: 'org.xerial', name: 'sqlite-jdbc', version: '3.30.1'
 
     // DBアクセス
     implementation group: 'org.mybatis', name: 'mybatis', version: '3.4.6'
@@ -68,8 +67,6 @@ dependencies {
     implementation group: 'org.apache.commons', name: 'commons-text', version: '1.9'
     implementation group: 'commons-fileupload', name: 'commons-fileupload', version: '1.4' // PrimeFacesのファイルアップロードで必要
     implementation group: 'commons-codec', name: 'commons-codec', version: '1.14'
-
-    implementation group: 'jp.fintan.keel', name: 'keel-transaction-token-check', version: '1.0.0'
 
     // テスト
     testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter', version: '5.6.2'
