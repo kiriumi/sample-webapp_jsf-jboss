@@ -17,6 +17,7 @@ import javax.ws.rs.core.UriBuilder;
 import domain.MessageService;
 import dto.User;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import security.CustomPrincipal;
 
 /**
@@ -27,6 +28,7 @@ import security.CustomPrincipal;
  */
 @Model
 @Data
+@EqualsAndHashCode(callSuper = false)
 public class RestClientBean extends BaseBackingBean {
 
     private final UriBuilder baseRestUriBuilder = UriBuilder
