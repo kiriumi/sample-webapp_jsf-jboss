@@ -1,7 +1,7 @@
 ################
 #  General
 ################
-#*.log
+*.log
 *.zip
 *.tar
 *.gz
@@ -11,7 +11,7 @@
 #  Java
 ################
 *.class
-#*.jar
+*.jar
 *.war
 *.ear
 
@@ -24,22 +24,11 @@ bin
 .springBeans
 
 ################
-#  Maven
-################
-target
-#pom.xml.*
-
-################
 #  Gradle
 ################
-/.gradle/
+.gradle
 /build/
 gradle-app.setting
 !gradle-wrapper.jar
 .gradletasknamecache
 gradle/wrapper/gradle-wrapper.properties
-
-################
-#  Local Server
-################
-!local-server
