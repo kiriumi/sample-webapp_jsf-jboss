@@ -13,6 +13,7 @@ import domain.MessageService;
 
 @Interceptor
 @Priority(Interceptor.Priority.APPLICATION)
+@TransactionTokenEnd(namespace = "")
 public class TransactionTokenEndInterceptor {
 
     @Inject
