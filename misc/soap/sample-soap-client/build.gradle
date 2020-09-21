@@ -6,6 +6,14 @@ repositories {
      mavenCentral()
 }
 
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+sourceCompatibility = JavaVersion.VERSION_11
+targetCompatibility = JavaVersion.VERSION_11
+
 dependencies {
 
+    // JavaEE（Java9以降で標準ではなくなったため、追加で指定が必要）
+    implementation group: 'javax.jws', name: 'javax.jws-api', version: '1.1'
+    implementation group: 'javax.xml.ws', name: 'jaxws-api', version: '2.3.1'
 }
