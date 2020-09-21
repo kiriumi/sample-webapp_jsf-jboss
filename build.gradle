@@ -33,7 +33,13 @@ repositories {
 
 dependencies {
 
+    // JavaEE
     providedCompile group: 'javax', name: 'javaee-web-api', version: '8.0.1'
+
+    // JavaEE（Java9以降で標準ではなくなったため、追加で指定が必要）
+    compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.1' //
+    compile group: 'javax.jws', name: 'javax.jws-api', version: '1.1'
+    compile group: 'javax.xml.ws', name: 'jaxws-api', version: '2.3.1'
 
     // フレームワーク
     compile group: 'org.primefaces', name: 'primefaces', version: '8.0'
@@ -64,6 +70,8 @@ dependencies {
     compile group: 'org.apache.commons', name: 'commons-text', version: '1.9'
     compile group: 'commons-fileupload', name: 'commons-fileupload', version: '1.4' // PrimeFacesのファイルアップロードで必要
     compile group: 'commons-codec', name: 'commons-codec', version: '1.14'
+
+    compile group: 'jp.fintan.keel', name: 'keel-transaction-token-check', version: '1.0.0'
 
     // テスト
     testCompile group: 'org.junit.jupiter', name: 'junit-jupiter', version: '5.6.2'
@@ -144,3 +152,4 @@ pmd {
 test.finalizedBy jacocoTestReport
 
 // 自動テストタスク：clean flywayMigrate cargoStartLocal check cargoStopLocal
+
