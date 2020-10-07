@@ -67,6 +67,9 @@ dependencies {
     implementation group: 'org.apache.commons', name: 'commons-text', version: '1.9'
     implementation group: 'commons-fileupload', name: 'commons-fileupload', version: '1.4' // PrimeFacesのファイルアップロードで必要
     implementation group: 'commons-codec', name: 'commons-codec', version: '1.14'
+    implementation group: 'com.byteslounge', name: 'cdi-properties', version: '1.1.1' // プロパティファイルの値をCDIで読込み（その１）
+    implementation group: 'org.apache.deltaspike.core', name: 'deltaspike-core-api', version: '1.9.4' // プロパティファイルの値をCDIで読込み（その２）
+    implementation group: 'org.apache.deltaspike.core', name: 'deltaspike-core-impl', version: '1.9.4'
 
     // テスト
     testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter', version: '5.6.2'

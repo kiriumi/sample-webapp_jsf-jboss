@@ -2,9 +2,14 @@ package context;
 
 import java.io.File;
 import java.io.Serializable;
-import java.util.ResourceBundle;
 
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
+
+import org.apache.deltaspike.core.api.config.ConfigProperty;
+
+import com.byteslounge.cdi.annotation.Property;
 
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
@@ -14,23 +19,35 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class EnvContext implements Serializable {
 
-    private final File baseDir;
+    @Property(resourceBundleBaseName = "env", value = "base.dir")
+    private String baseDirPath;
 
-    private final File miscDir;
+    @Inject
+    @ConfigProperty(name = "base.dir")
+    private String baseDirPathByDeltaspike;
 
-    private final File uploadFileDir;
+    private File baseDir;
 
-    public EnvContext() {
+    private File miscDir;
 
-        this.baseDir = new File(ResourceBundle.getBundle("env").getString("base.dir"));
+    private File uploadFileDir;
+
+    @Property(resourceBundleBaseName = "sub/biz", value = "biz")
+    private String biz;
+
+    @Property(resourceBundleBaseName = "env2", value = "other")
+    private String other;
+
+    @PostConstruct
+    public void init() {
+
+        this.baseDir = new File(baseDirPath);
         this.miscDir = initDir(baseDir, "misc");
         this.uploadFileDir = initDir(baseDir, "file/upload");
 
-        String biz = ResourceBundle.getBundle("sub/biz").getString("biz");
         log.debug(biz);
-
-        String other = ResourceBundle.getBundle("env2").getString("other");
         log.debug(other);
+        log.debug(baseDirPathByDeltaspike);
     }
 
     private File initDir(final File parentDir, final String dirname) {
