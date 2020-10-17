@@ -11,7 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import token.TokenCheck;
 
 @Model
-@TokenCheck(TokenCheck.Type.BEGIN)
+@TokenCheck
 @Slf4j
 public class ParentWindowBean extends BaseBackingBean {
 

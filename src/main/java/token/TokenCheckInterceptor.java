@@ -9,6 +9,8 @@ import javax.interceptor.AroundInvoke;
 import javax.interceptor.Interceptor;
 import javax.interceptor.InvocationContext;
 
+import org.apache.commons.lang3.StringUtils;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,6 +21,12 @@ public class TokenCheckInterceptor {
 
     @Inject
     TokenBean tokenBean;
+
+    @Inject
+    ChildrenTokenBean childrenTokenBean;
+
+    @Inject
+    private TokenHolder tokenHolder;
 
     @Inject
     FacesContext facesContext;
@@ -47,8 +55,17 @@ public class TokenCheckInterceptor {
             return result;
         }
 
+        String isChild = (String) externalContext.getRequestParameterMap().get("token-namespace");
+
         // 他画面遷移の場合は、トークンを付与
-        return result + "token=" + tokenBean.getToken();
+        if (StringUtils.isBlank(isChild)) {
+            tokenHolder.clearChildrenToken();
+            return result + String.join("&", TokenHolder.REQ_PARAM_ID_TOKEN + "=" + tokenBean.getToken());
+        }
+
+        return result + String.join("&",
+                TokenHolder.REQ_PARAM_ID_TOKEN + "=" + childrenTokenBean.getToken(),
+                TokenHolder.REQ_PARAM_TOKEN_NAMESPACE + "=" + childrenTokenBean.getNamespace());
     }
 
 }
