@@ -9,20 +9,13 @@
 
 <ui:composition template="./template/template.xhtml">
 
-    <ui:define name="title">親画面</ui:define>
+    <ui:define name="title">親画面２</ui:define>
 
     <ui:define name="content">
+        <p:commandButton value="親画面に遷移" action="#{parentWindow3Bean.goParent2()}" />
 
-        <p:inputText value="#{parentWindowBean.data.parentToChild}" />
-        <h:outputText value="#{parentWindowBean.data.childToParent}" />
-
-        <p:commandButton value="子画面を開く"
-            oncomplete="openChildWindow('child-window')">
-        </p:commandButton>
-
-        <p:commandButton value="親画面２に遷移" action="#{parentWindowBean.goParent2()}" />
-
-        <h:inputText value="#{tokenBean.token}" />
+<!--        <h:inputText id="token-namespace" value="#{tokenBean.namespace}" /> -->
+      <h:inputText value="#{tokenBean.token}" />
     </ui:define>
 </ui:composition>
 

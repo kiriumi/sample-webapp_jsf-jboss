@@ -29,7 +29,7 @@ public class ActionLoggingInterceptor implements Serializable { // ViewScoped以
     @AroundInvoke
     public Object around(final InvocationContext context) throws Exception {
 
-        PhaseId currentPhaseId = FacesContext.getCurrentInstance().getCurrentPhaseId();
+        PhaseId currentPhaseId = facesContext.getCurrentPhaseId();
 
         if (!currentPhaseId.equals(PhaseId.INVOKE_APPLICATION)) {
             // アクション以外は何もしない

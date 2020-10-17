@@ -4,21 +4,11 @@ import javax.enterprise.inject.Model;
 import javax.faces.context.ExternalContext;
 import javax.inject.Inject;
 
-import domain.ChildWindowData;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.extern.slf4j.Slf4j;
 import token.TokenCheck;
 
 @Model
-@TokenCheck(TokenCheck.Type.BEGIN)
-@Slf4j
-public class ParentWindowBean extends BaseBackingBean {
-
-    @Inject
-    @Getter
-    @Setter
-    private ChildWindowData data;
+@TokenCheck
+public class ParentWindow3Bean extends BaseBackingBean {
 
     @Inject
     ExternalContext externalContext;
