@@ -35,19 +35,15 @@ public class ChildrenTokenBean implements Serializable {
     @PostConstruct
     public void init() throws InvalidTokenException {
 
-        String tokenInRequest = (String) externalContext.getRequestParameterMap().get(TokenHolder.REQ_PARAM_ID_TOKEN);
+        String tokenInRequest = (String) externalContext.getRequestParameterMap().get(TokenHolder.ITEM_ID_TOKEN);
         String namespaceInRequest = (String) externalContext.getRequestParameterMap()
                 .get(TokenHolder.REQ_PARAM_TOKEN_NAMESPACE);
 
-        if (openedWindow()) {
-
+        if (openedWindow() || closedChildWindow()) {
             if (!tokenHolder.validParentToken(tokenInRequest)) {
                 throw new InvalidTokenException();
             }
             beginChildToken();
-
-        } else if (closedChildWindow()) {
-            updateChildToken(namespaceInRequest);
 
         } else {
             if (!tokenHolder.validChildToken(namespaceInRequest, tokenInRequest)) {

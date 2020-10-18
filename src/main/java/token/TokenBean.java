@@ -30,28 +30,17 @@ public class TokenBean implements Serializable {
     @PostConstruct
     public void init() throws InvalidTokenException {
 
-        if (StringUtils.isBlank(tokenHolder.getParentToken()) || closedChildWindow()) {
+        if (StringUtils.isBlank(tokenHolder.getParentToken())) {
+            // 初回トークン発行
             this.token = tokenHolder.updateParentToken();
             return;
         }
 
-        String tokenInRequest = (String) externalContext.getRequestParameterMap().get(TokenHolder.REQ_PARAM_ID_TOKEN);
+        String tokenInRequest = (String) externalContext.getRequestParameterMap().get(TokenHolder.ITEM_ID_TOKEN);
         if (!tokenHolder.validParentToken(tokenInRequest)) {
             throw new InvalidTokenException();
         }
-
         this.token = tokenHolder.updateParentToken();
-    }
-
-    private boolean closedChildWindow() {
-
-        String closesChildWindow = (String) externalContext.getRequestParameterMap()
-                .get(TokenHolder.REQ_PARAM_CLOSED_CHILD_WINDOW);
-
-        if (closesChildWindow != null) {
-            return true;
-        }
-        return false;
     }
 
 }

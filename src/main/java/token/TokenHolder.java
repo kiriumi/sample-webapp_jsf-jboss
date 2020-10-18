@@ -15,9 +15,9 @@ import lombok.Setter;
 @SessionScoped
 public class TokenHolder implements Serializable {
 
-    public static final String REQ_PARAM_ID_TOKEN = "token";
+    public static final String ITEM_ID_TOKEN = "token";
 
-    public static final String REQ_PARAM_ID_TOKEN_NAMESPACE = "token-namespace";
+    public static final String ITEM_ID_TOKEN_NAMESPACE = "token-namespace";
 
     public static final String REQ_PARAM_TOKEN_NAMESPACE = "tokenNamespace";
 

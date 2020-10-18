@@ -5,15 +5,12 @@ function openChildWindow(pageName) {
 
 function closeWindow() {
 
-    const closedChildWindowParam = 'closedChildWindow'
+    var parentTokenElem = document.getElementById("parent-token");
     var url = window.opener.location.href;
 
-    if (url.indexOf('?') == -1) {
-        url += '?' + closedChildWindowParam;
-
-    } else if (url.indexOf(closedChildWindowParam) == -1) {
-        url += '&' + closedChildWindowParam;
-    }
+    // リクエストパラメータの付与
+    url = url.indexOf('?') == -1 ? url : url.substring(0, url.indexOf('?')); // もともと付いているパラメータは削除する
+    url += '?closedChildWindow&token=' + parentTokenElem.value
 
     window.opener.location.href = url;
     window.close();

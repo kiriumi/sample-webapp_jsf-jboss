@@ -55,16 +55,16 @@ public class TokenCheckInterceptor {
             return result;
         }
 
-        String isChild = (String) externalContext.getRequestParameterMap().get("token-namespace");
+        String isChild = (String) externalContext.getRequestParameterMap().get(TokenHolder.ITEM_ID_TOKEN_NAMESPACE);
 
         // 他画面遷移の場合は、トークンを付与
         if (StringUtils.isBlank(isChild)) {
             tokenHolder.clearChildrenToken();
-            return result + String.join("&", TokenHolder.REQ_PARAM_ID_TOKEN + "=" + tokenBean.getToken());
+            return result + String.join("&", TokenHolder.ITEM_ID_TOKEN + "=" + tokenBean.getToken());
         }
 
         return result + String.join("&",
-                TokenHolder.REQ_PARAM_ID_TOKEN + "=" + childrenTokenBean.getToken(),
+                TokenHolder.ITEM_ID_TOKEN + "=" + childrenTokenBean.getToken(),
                 TokenHolder.REQ_PARAM_TOKEN_NAMESPACE + "=" + childrenTokenBean.getNamespace());
     }
 

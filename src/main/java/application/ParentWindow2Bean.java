@@ -20,4 +20,9 @@ public class ParentWindow2Bean extends BaseBackingBean {
     public String goParent3() {
         return "parent-window3?faces-redirect=true";
     }
+
+    public String action() {
+        System.out.println("アクション");
+        return null;
+    }
 }

@@ -18,8 +18,8 @@
 
         <p:commandButton value="閉じる" oncomplete="closeWindow()" />
 
-        <h:inputText value="#{childrenTokenBean.namespace}" />
-        <h:inputText value="#{childrenTokenBean.token}" />
+        <h:inputText id="token-namespace" value="#{childrenTokenBean.namespace}" />
+        <h:inputText id="token" value="#{childrenTokenBean.token}" />
         <h:inputText id="parent-token" value="#{childrenTokenBean.parentToken}" />
     </ui:define>
 
