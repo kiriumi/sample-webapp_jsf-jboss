@@ -57,8 +57,8 @@ public class TokenCheckInterceptor {
         }
 
         return result + String.join("&",
-                TokenHolder.REQ_PARAM_OKEN + "=" + childrenTokenBean.getToken(),
-                TokenHolder.REQ_PARAM_TOKEN_NAMESPACE + "=" + childrenTokenBean.getNamespace());
+                TokenHolder.REQ_PARAM_TOKEN_NAMESPACE + "=" + childrenTokenBean.getNamespace(),
+                TokenHolder.REQ_PARAM_OKEN + "=" + childrenTokenBean.getToken());
     }
 
 }

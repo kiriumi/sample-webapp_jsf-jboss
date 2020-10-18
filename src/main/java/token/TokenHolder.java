@@ -1,12 +1,16 @@
 package token;
 
 import java.io.Serializable;
+import java.security.SecureRandom;
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
 
 import javax.enterprise.context.SessionScoped;
+import javax.faces.context.ExternalContext;
+import javax.inject.Inject;
 
+import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import lombok.Getter;
@@ -27,10 +31,13 @@ public class TokenHolder implements Serializable {
     @Getter
     private String parentToken;
 
+    @Inject
+    ExternalContext externalContext;
+
     private Map<String, String> childrenToken = new HashMap<>();
 
     public String updateParentToken() {
-        this.parentToken = Integer.toString(new Random().nextInt(100));
+        this.parentToken = updateToken();
         return parentToken;
     }
 
@@ -47,7 +54,11 @@ public class TokenHolder implements Serializable {
     }
 
     public String generateNamespace() {
-        return Integer.toString(new Random().nextInt(10000));
+
+        SecureRandom secureRandom = new SecureRandom();
+        byte[] seed = secureRandom.generateSeed(LocalDate.now().hashCode());
+
+        return DigestUtils.md5Hex(seed).substring(0, 8).toUpperCase();
     }
 
     public String getChildToken(String namespace) {
@@ -55,7 +66,7 @@ public class TokenHolder implements Serializable {
     }
 
     public String updateChildToken(String namespace) {
-        String token = Integer.toString(new Random().nextInt(100));
+        String token = updateToken();
         childrenToken.put(namespace, token);
         return token;
     }
@@ -78,6 +89,14 @@ public class TokenHolder implements Serializable {
 
     public void clearChildrenToken() {
         childrenToken.clear();
+    }
+
+    private String updateToken() {
+
+        SecureRandom secureRandom = new SecureRandom();
+        byte[] seed = secureRandom.generateSeed(LocalDate.now().hashCode());
+
+        return DigestUtils.sha512Hex(seed).substring(0, 64);
     }
 
 }
