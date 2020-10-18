@@ -10,14 +10,13 @@ import javax.enterprise.context.SessionScoped;
 import org.apache.commons.lang3.StringUtils;
 
 import lombok.Getter;
-import lombok.Setter;
 
 @SessionScoped
 public class TokenHolder implements Serializable {
 
-    public static final String ITEM_ID_TOKEN = "token";
-
     public static final String ITEM_ID_TOKEN_NAMESPACE = "token-namespace";
+
+    public static final String REQ_PARAM_OKEN = "token";
 
     public static final String REQ_PARAM_TOKEN_NAMESPACE = "tokenNamespace";
 
@@ -26,7 +25,6 @@ public class TokenHolder implements Serializable {
     public static final String REQ_PARAM_CLOSED_CHILD_WINDOW = "closedChildWindow";
 
     @Getter
-    @Setter
     private String parentToken;
 
     private Map<String, String> childrenToken = new HashMap<>();
@@ -48,22 +46,18 @@ public class TokenHolder implements Serializable {
         return false;
     }
 
-    public String createNamespace() {
+    public String generateNamespace() {
         return Integer.toString(new Random().nextInt(10000));
-    }
-
-    public String updateChildToken(String namespace) {
-        String token = Integer.toString(new Random().nextInt(100));
-        setChildToken(namespace, token);
-        return token;
     }
 
     public String getChildToken(String namespace) {
         return childrenToken.get(namespace);
     }
 
-    public void setChildToken(String namespace, String token) {
+    public String updateChildToken(String namespace) {
+        String token = Integer.toString(new Random().nextInt(100));
         childrenToken.put(namespace, token);
+        return token;
     }
 
     public boolean validChildToken(String namespace, String token) {
@@ -86,7 +80,4 @@ public class TokenHolder implements Serializable {
         childrenToken.clear();
     }
 
-    public boolean isEmptyChildrenToken() {
-        return childrenToken.isEmpty();
-    }
 }

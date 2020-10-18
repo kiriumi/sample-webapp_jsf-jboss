@@ -35,7 +35,7 @@ public class ChildrenTokenBean implements Serializable {
     @PostConstruct
     public void init() throws InvalidTokenException {
 
-        String tokenInRequest = (String) externalContext.getRequestParameterMap().get(TokenHolder.ITEM_ID_TOKEN);
+        String tokenInRequest = (String) externalContext.getRequestParameterMap().get(TokenHolder.REQ_PARAM_OKEN);
         String namespaceInRequest = (String) externalContext.getRequestParameterMap()
                 .get(TokenHolder.REQ_PARAM_TOKEN_NAMESPACE);
 
@@ -54,15 +54,12 @@ public class ChildrenTokenBean implements Serializable {
     }
 
     public String getParentToken() {
+        // 親画面のトークンを必ず返すため（@GetterにするとNullを返してしまう）
         return tokenHolder.getParentToken();
     }
 
-    public String getCurrentToken() {
-        return token;
-    }
-
     private void beginChildToken() {
-        this.namespace = tokenHolder.createNamespace();
+        this.namespace = tokenHolder.generateNamespace();
         this.token = tokenHolder.updateChildToken(namespace);
     }
 

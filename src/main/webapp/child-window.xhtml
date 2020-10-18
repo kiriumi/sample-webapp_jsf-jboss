@@ -18,15 +18,12 @@
 
         <p:commandButton value="閉じる" oncomplete="closeWindow()" />
 
-
-
         <p:inputText value="#{childWindowBean.data.childToGrandChild}" />
         <h:outputText value="#{childWindowBean.data.grandChildToChild}" />
 
         <p:commandButton value="孫画面を開く" oncomplete="openChildWindow('grandchild-window')" />
 
         <p:commandButton value="子画面２に遷移" action="#{childWindowBean.goChild2()}"/>
-
 
         <p:commandButton value="アクション" action="#{childWindowBean.childWindowAction()}" />
 

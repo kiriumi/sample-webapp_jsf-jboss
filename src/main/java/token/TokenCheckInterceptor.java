@@ -11,13 +11,13 @@ import javax.interceptor.InvocationContext;
 
 import org.apache.commons.lang3.StringUtils;
 
-import lombok.Getter;
-import lombok.Setter;
-
 @Interceptor
 @Priority(Interceptor.Priority.APPLICATION)
 @TokenCheck
 public class TokenCheckInterceptor {
+
+    @Inject
+    private TokenHolder tokenHolder;
 
     @Inject
     TokenBean tokenBean;
@@ -26,17 +26,10 @@ public class TokenCheckInterceptor {
     ChildrenTokenBean childrenTokenBean;
 
     @Inject
-    private TokenHolder tokenHolder;
-
-    @Inject
     FacesContext facesContext;
 
     @Inject
     ExternalContext externalContext;
-
-    @Getter
-    @Setter
-    private String tokenInPage;
 
     @AroundInvoke
     public Object around(final InvocationContext context) throws Exception {
@@ -60,11 +53,11 @@ public class TokenCheckInterceptor {
         // 他画面遷移の場合は、トークンを付与
         if (StringUtils.isBlank(isChild)) {
             tokenHolder.clearChildrenToken();
-            return result + String.join("&", TokenHolder.ITEM_ID_TOKEN + "=" + tokenBean.getToken());
+            return result + String.join("&", TokenHolder.REQ_PARAM_OKEN + "=" + tokenBean.getToken());
         }
 
         return result + String.join("&",
-                TokenHolder.ITEM_ID_TOKEN + "=" + childrenTokenBean.getToken(),
+                TokenHolder.REQ_PARAM_OKEN + "=" + childrenTokenBean.getToken(),
                 TokenHolder.REQ_PARAM_TOKEN_NAMESPACE + "=" + childrenTokenBean.getNamespace());
     }
 

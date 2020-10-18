@@ -36,7 +36,7 @@ public class TokenBean implements Serializable {
             return;
         }
 
-        String tokenInRequest = (String) externalContext.getRequestParameterMap().get(TokenHolder.ITEM_ID_TOKEN);
+        String tokenInRequest = (String) externalContext.getRequestParameterMap().get(TokenHolder.REQ_PARAM_OKEN);
         if (!tokenHolder.validParentToken(tokenInRequest)) {
             throw new InvalidTokenException();
         }
