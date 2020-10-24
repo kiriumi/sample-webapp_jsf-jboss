@@ -13,6 +13,8 @@
 
     <ui:define name="content">
 
+        <h:outputText value="#{childWindow2Bean.dummy}"/>
+
         <p:commandButton value="子画面に遷移" action="#{childWindow2Bean.goChild()}"/>
 
         <h:inputText id="token-namespace" value="#{childrenTokenBean.namespace}" />

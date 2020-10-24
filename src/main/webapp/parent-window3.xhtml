@@ -12,7 +12,11 @@
     <ui:define name="title">親画面２</ui:define>
 
     <ui:define name="content">
-        <p:commandButton value="親画面に遷移" action="#{parentWindow3Bean.goParent2()}" />
+
+        <p:inputText value="#{parentWindow3Bean.dummy}" />
+
+        <p:commandButton value="親画面に遷移"
+            action="#{parentWindow3Bean.goParent2()}" />
 
         <h:inputText id="parent-token" value="#{tokenBean.token}" />
     </ui:define>

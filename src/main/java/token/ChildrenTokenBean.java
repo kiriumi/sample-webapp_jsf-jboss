@@ -1,19 +1,20 @@
 package token;
 
-import java.io.Serializable;
-
-import javax.annotation.PostConstruct;
+import javax.enterprise.inject.Model;
 import javax.faces.context.ExternalContext;
-import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
-import javax.inject.Named;
 
 import lombok.Getter;
 import lombok.Setter;
 
-@Named
-@ViewScoped
-public class ChildrenTokenBean implements Serializable {
+@Model
+public class ChildrenTokenBean {
+
+    @Inject
+    private TokenHolder tokenHolder;
+
+    @Inject
+    private ExternalContext externalContext;
 
     @Getter
     @Setter
@@ -26,31 +27,35 @@ public class ChildrenTokenBean implements Serializable {
     @Setter
     private String parentToken;
 
-    @Inject
-    private TokenHolder tokenHolder;
+    public void verify(boolean doCheck) throws InvalidTokenException {
 
-    @Inject
-    ExternalContext externalContext;
-
-    @PostConstruct
-    public void init() throws InvalidTokenException {
-
-        String tokenInRequest = (String) externalContext.getRequestParameterMap().get(TokenHolder.REQ_PARAM_OKEN);
+        String tokenInRequest = (String) externalContext.getRequestParameterMap().get(TokenHolder.REQ_PARAM_TOKEN);
         String namespaceInRequest = (String) externalContext.getRequestParameterMap()
                 .get(TokenHolder.REQ_PARAM_TOKEN_NAMESPACE);
 
+        if (!doCheck) {
+            updateChildToken(namespaceInRequest);
+            return;
+        }
+
         if (openedWindow() || closedChildWindow()) {
-            if (!tokenHolder.validParentToken(tokenInRequest)) {
+            if (!tokenHolder.verifyParentToken(tokenInRequest)) {
                 throw new InvalidTokenException();
             }
             beginChildToken();
 
         } else {
-            if (!tokenHolder.validChildToken(namespaceInRequest, tokenInRequest)) {
+            if (!tokenHolder.verifyChildToken(namespaceInRequest, tokenInRequest)) {
                 throw new InvalidTokenException();
             }
             updateChildToken(namespaceInRequest);
         }
+    }
+
+    public String addTokenParams(Object result) {
+        return result + String.join("&",
+                TokenHolder.REQ_PARAM_TOKEN_NAMESPACE + "=" + namespace,
+                TokenHolder.REQ_PARAM_TOKEN + "=" + token);
     }
 
     public String getParentToken() {

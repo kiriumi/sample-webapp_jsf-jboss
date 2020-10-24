@@ -6,6 +6,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+import javax.enterprise.util.Nonbinding;
 import javax.interceptor.InterceptorBinding;
 
 @Inherited // InvoceContexでアノテーションを取得するには、Inheritedが必要
@@ -13,4 +14,10 @@ import javax.interceptor.InterceptorBinding;
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ ElementType.TYPE, ElementType.METHOD })
 public @interface TokenCheck {
+
+    @Nonbinding
+    public boolean child() default false;
+
+    @Nonbinding
+    public boolean check() default true;
 }

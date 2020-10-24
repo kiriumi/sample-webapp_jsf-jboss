@@ -1,25 +1,14 @@
 package token;
 
-import java.io.Serializable;
-
-import javax.annotation.PostConstruct;
+import javax.enterprise.inject.Model;
 import javax.faces.context.ExternalContext;
-import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
-import javax.inject.Named;
-
-import org.apache.commons.lang3.StringUtils;
 
 import lombok.Getter;
 import lombok.Setter;
 
-@Named
-@ViewScoped
-public class TokenBean implements Serializable {
-
-    @Getter
-    @Setter
-    private String token;
+@Model
+public class TokenBean {
 
     @Inject
     private TokenHolder tokenHolder;
@@ -27,20 +16,27 @@ public class TokenBean implements Serializable {
     @Inject
     ExternalContext externalContext;
 
-    @PostConstruct
-    public void init() throws InvalidTokenException {
+    @Getter
+    @Setter
+    private String token;
 
-        if (StringUtils.isBlank(tokenHolder.getParentToken())) {
-            // 初回トークン発行
+    public void verify(boolean doCheck) throws InvalidTokenException {
+
+        if (!doCheck) {
             this.token = tokenHolder.updateParentToken();
             return;
         }
 
-        String tokenInRequest = (String) externalContext.getRequestParameterMap().get(TokenHolder.REQ_PARAM_OKEN);
-        if (!tokenHolder.validParentToken(tokenInRequest)) {
+        String tokenInRequest = (String) externalContext.getRequestParameterMap().get(TokenHolder.REQ_PARAM_TOKEN);
+        if (!tokenHolder.verifyParentToken(tokenInRequest)) {
             throw new InvalidTokenException();
         }
         this.token = tokenHolder.updateParentToken();
+    }
+
+    public String addTokenParams(Object pageName) {
+        tokenHolder.clearChildrenToken();
+        return pageName + String.join("&", TokenHolder.REQ_PARAM_TOKEN + "=" + token);
     }
 
 }

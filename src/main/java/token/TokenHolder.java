@@ -18,9 +18,7 @@ import lombok.Getter;
 @SessionScoped
 public class TokenHolder implements Serializable {
 
-    public static final String ITEM_ID_TOKEN_NAMESPACE = "token-namespace";
-
-    public static final String REQ_PARAM_OKEN = "token";
+    public static final String REQ_PARAM_TOKEN = "token";
 
     public static final String REQ_PARAM_TOKEN_NAMESPACE = "tokenNamespace";
 
@@ -28,11 +26,11 @@ public class TokenHolder implements Serializable {
 
     public static final String REQ_PARAM_CLOSED_CHILD_WINDOW = "closedChildWindow";
 
-    @Getter
-    private String parentToken;
-
     @Inject
     ExternalContext externalContext;
+
+    @Getter
+    private String parentToken;
 
     private Map<String, String> childrenToken = new HashMap<>();
 
@@ -41,7 +39,7 @@ public class TokenHolder implements Serializable {
         return parentToken;
     }
 
-    public boolean validParentToken(String token) {
+    public boolean verifyParentToken(String token) {
 
         if (StringUtils.isBlank(token)) {
             return false;
@@ -71,7 +69,7 @@ public class TokenHolder implements Serializable {
         return token;
     }
 
-    public boolean validChildToken(String namespace, String token) {
+    public boolean verifyChildToken(String namespace, String token) {
 
         if (StringUtils.isBlank(namespace)) {
             return false;

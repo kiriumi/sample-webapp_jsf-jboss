@@ -1,15 +1,16 @@
 package token;
 
 import javax.annotation.Priority;
-import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.event.PhaseId;
 import javax.inject.Inject;
+import javax.interceptor.AroundConstruct;
 import javax.interceptor.AroundInvoke;
 import javax.interceptor.Interceptor;
 import javax.interceptor.InvocationContext;
 
-import org.apache.commons.lang3.StringUtils;
+import lombok.Getter;
+import lombok.Setter;
 
 @Interceptor
 @Priority(Interceptor.Priority.APPLICATION)
@@ -17,48 +18,68 @@ import org.apache.commons.lang3.StringUtils;
 public class TokenCheckInterceptor {
 
     @Inject
-    private TokenHolder tokenHolder;
+    private FacesContext facesContext;
 
     @Inject
-    TokenBean tokenBean;
+    private TokenBean tokenBean;
 
     @Inject
-    ChildrenTokenBean childrenTokenBean;
+    private ChildrenTokenBean childrenTokenBean;
 
-    @Inject
-    FacesContext facesContext;
+    @Getter
+    @Setter
+    private String token;
 
-    @Inject
-    ExternalContext externalContext;
-
-    @AroundInvoke
-    public Object around(final InvocationContext context) throws Exception {
-
-        PhaseId currentPhaseId = facesContext.getCurrentPhaseId();
-
-        if (!currentPhaseId.equals(PhaseId.INVOKE_APPLICATION)) {
-            // アクション以外は何もしない
-            // ※immediateのアクションは、Apply Request Valueフェーズのため注意
-            return context.proceed();
-        }
+    @AroundConstruct
+    public Object onConstract(final InvocationContext context) throws Exception {
 
         Object result = context.proceed();
-        if (result == null) {
-            // 自画面遷移の場合は、何もしない
+
+        if (!facesContext.isPostback()) {
+            // 初期表示の時
+            if (getAnnotation(context).child()) {
+                childrenTokenBean.verify(getAnnotation(context).check());
+            } else {
+                tokenBean.verify(getAnnotation(context).check());
+            }
+        }
+
+        return result;
+    }
+
+    @AroundInvoke
+    public Object onRedirect(final InvocationContext context) throws Exception {
+
+        Object result = context.proceed();
+        if (!isRedirect(result)) {
             return result;
         }
 
-        String isChild = (String) externalContext.getRequestParameterMap().get(TokenHolder.ITEM_ID_TOKEN_NAMESPACE);
+        if (getAnnotation(context).child()) {
+            return childrenTokenBean.addTokenParams(result);
+        }
+        return tokenBean.addTokenParams(result);
+    }
 
-        // 他画面遷移の場合は、トークンを付与
-        if (StringUtils.isBlank(isChild)) {
-            tokenHolder.clearChildrenToken();
-            return result + String.join("&", TokenHolder.REQ_PARAM_OKEN + "=" + tokenBean.getToken());
+    private boolean isRedirect(Object result) {
+
+        PhaseId currentPhaseId = facesContext.getCurrentPhaseId();
+        if (!currentPhaseId.equals(PhaseId.INVOKE_APPLICATION)) {
+            return false;
         }
 
-        return result + String.join("&",
-                TokenHolder.REQ_PARAM_TOKEN_NAMESPACE + "=" + childrenTokenBean.getNamespace(),
-                TokenHolder.REQ_PARAM_OKEN + "=" + childrenTokenBean.getToken());
+        if (result == null || !(result instanceof String)) {
+            return false;
+        }
+
+        if (((String) result).endsWith("?faces-redirect=true")) {
+            return true;
+        }
+        return false;
+    }
+
+    private TokenCheck getAnnotation(InvocationContext context) {
+        return context.getTarget().getClass().getAnnotation(TokenCheck.class);
     }
 
 }

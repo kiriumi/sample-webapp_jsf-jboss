@@ -12,6 +12,9 @@
     <ui:define name="title">親画面２</ui:define>
 
     <ui:define name="content">
+
+        <p:inputText value="#{parentWindow2Bean.dummy}" />
+
         <p:commandButton value="親画面に遷移" action="#{parentWindow2Bean.goParent()}" />
         <p:commandButton value="親画面３に遷移" action="#{parentWindow2Bean.goParent3()}" />
 

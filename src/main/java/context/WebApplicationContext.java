@@ -22,6 +22,7 @@ public class WebApplicationContext implements Serializable {
     @Getter
     private final String baseApplicationPagePath = "/application/";
 
+    @Getter
     private final String redirectParam = "?faces-redirect=true";
 
     public String redirect(final String pageName) {

@@ -1,5 +1,6 @@
 package application;
 
+import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
 import javax.faces.context.ExternalContext;
 import javax.inject.Inject;
@@ -22,6 +23,11 @@ public class ParentWindowBean extends BaseBackingBean {
 
     @Inject
     ExternalContext externalContext;
+
+    @PostConstruct
+    public void init() {
+        return;
+    }
 
     public String goParent2() {
         return "parent-window2?faces-redirect=true";

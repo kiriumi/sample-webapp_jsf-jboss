@@ -10,8 +10,8 @@ import lombok.extern.slf4j.Slf4j;
 import token.TokenCheck;
 
 @Model
+@TokenCheck(child = true)
 @Slf4j
-@TokenCheck
 public class ChildWindowBean extends BaseBackingBean {
 
     @Inject
