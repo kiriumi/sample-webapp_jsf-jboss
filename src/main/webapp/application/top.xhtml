@@ -13,7 +13,7 @@
 
     <ui:define name="content">
 
-        <h:form class="h-adr" prependId="false" enctype="multipart/form-data">
+        <h:form prependId="false" enctype="multipart/form-data">
             <div class="container">
 
                 <p:breadCrumb class="my-3" lastItemDisabled="true">
@@ -31,8 +31,6 @@
             ユーザ権限：<h:outputText value="#{topBean.userRole}" />
                         </h:panelGrid>
                     </p:fieldset>
-
-
 
                     <p:fieldset class="ui-g-6" toggleable="true"
                         legend="リクエストから取得した権限情報">
@@ -90,6 +88,6 @@
         </h:form>
 
     </ui:define>
-</ui:composition>
 
+</ui:composition>
 </html>

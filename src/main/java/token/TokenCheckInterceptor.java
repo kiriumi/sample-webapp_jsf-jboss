@@ -37,13 +37,12 @@ public class TokenCheckInterceptor {
 
         if (!facesContext.isPostback()) {
 
+            // 初期表示の時にチェックを行う
             TokenCheck annotation = getAnnotation(context);
-
-            // 初期表示の時
             if (annotation.child()) {
                 childrenTokenBean.verify(annotation.check());
             } else {
-                tokenBean.verify(annotation.check(), annotation.begin());
+                tokenBean.verify(annotation.check());
             }
         }
 

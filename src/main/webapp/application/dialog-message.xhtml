@@ -6,8 +6,10 @@
 <h:head>
     <title>メッセージ</title>
 </h:head>
+
 <h:body>
-    <h:form>
+
+    <h:form prependId="false" F>
         <div class="container">
 
             <p:dataTable var="message" value="#{dialogMessageBean.messages}" styleClass="message-table" rowIndexVar="rowIndex" stickyHeader="true" emptyMessage="レコードがないよ">
@@ -23,5 +25,6 @@
 
         </div>
     </h:form>
+
 </h:body>
 </html>

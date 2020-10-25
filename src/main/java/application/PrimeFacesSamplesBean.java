@@ -14,12 +14,10 @@ import org.primefaces.model.file.UploadedFile;
 import domain.DialogMessage;
 import domain.DialogMessageService;
 import domain.UploadFileService;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
 @Model
-@EqualsAndHashCode(callSuper = false)
 public class PrimeFacesSamplesBean extends BaseBackingBean {
 
     @Inject

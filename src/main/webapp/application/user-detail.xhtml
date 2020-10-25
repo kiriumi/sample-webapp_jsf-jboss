@@ -9,82 +9,88 @@
 
     <ui:define name="content">
 
-        <div class="form-group row">
-            <p:outputLabel class="col-sm-2 col-form-label" value="Emailアドレス" />
-            <div class="col-sm-10">
-                <p:inputText class="form-control confirm-changed" id="emailAddress" value="#{userDetailBean.user.emailaddress}" placeholder="hoge@com" />
+        <h:form class="h-adr" prependId="false" enctype="multipart/form-data">
+            <div class="container">
+
+                <div class="form-group row">
+                    <p:outputLabel class="col-sm-2 col-form-label" value="Emailアドレス" />
+                    <div class="col-sm-10">
+                        <p:inputText class="form-control confirm-changed" id="emailAddress" value="#{userDetailBean.user.emailaddress}" placeholder="hoge@com" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <p:outputLabel value="姓" />
+                        <p:inputText class="form-control confirm-changed" id="last-name" value="#{userDetailBean.user.lastName}" placeholder="博麗" />
+                        <p:message class="" for="last-name" />
+                    </div>
+
+                    <div class="col-md-6">
+                        <p:outputLabel value="名" />
+                        <p:inputText class="form-control confirm-changed" id="first-name" value="#{userDetailBean.user.firstName}" placeholder="霊夢" />
+                        <p:message class="" for="first-name" />
+                    </div>
+                </div>
+
+
+                <span class="p-country-name" style="display: none;">Japan</span>
+
+                <div class="form-group row">
+                    <p:outputLabel class="col-sm-2 col-form-label" for="postal-code" value="郵便番号" />
+                    <div class="col-sm-10">
+                        <p:inputText id="postal-code" class="p-postal-code form-control confirm-changed" value="#{userDetailBean.user.postalCode}" placeholder="1234567"
+                            onkeyup="AjaxZip3.zip2addr(this,'','都道府県','市区町村','その他住所');" />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <p:outputLabel class="col-sm-2 col-form-label" for="region" value="都道府県" />
+                    <div class="col-sm-10">
+                        <p:inputText id="region" class="p-region form-control confirm-changed" value="#{userDetailBean.user.region}" placeholder="広島県" name="都道府県" />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <p:outputLabel class="col-sm-2 col-form-label" for="locality" value="市区町村" />
+                    <div class="col-sm-10">
+                        <p:inputText id="locality" class="p-locality form-control confirm-changed" value="#{userDetailBean.user.locality}" placeholder="広島市中区" name="市区町村" />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <p:outputLabel class="col-sm-2 col-form-label" for="street-address" value="町域" />
+                    <div class="col-sm-10">
+                        <p:inputText id="street-address" class="p-street-address form-control confirm-changed" value="#{userDetailBean.user.streetAddress}" placeholder="大手町１丁目" name="町域" />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <p:outputLabel class="col-sm-2 col-form-label" for="extended-address" value="その他住所" />
+                    <div class="col-sm-10">
+                        <p:inputText id="extended-address" class="p-extended-address form-control confirm-changed" value="#{userDetailBean.user.extendedAddress}" placeholder="１番１号" name="その他住所" />
+                    </div>
+                </div>
+
+                <hr class="mb-4" />
+
+                <div class="row">
+                    <div class="col-md-4 btn-group">
+                        <h:commandButton class="btn btn-info" value="更新" action="#{userDetailBean.modifyUser()}" />
+                        <h:commandButton class="btn btn-warning" value="削除" action="#{userDetailBean.deleteUser()}" />
+                    </div>
+
+                    <div class="col-md-2 col-md-offset-6">
+                        <h:commandButton class="btn btn-secondary confirm-before-leaving" immediate="true" value="戻る" action="#{userDetailBean.back()}" />
+                    </div>
+                </div>
+
+                <script src="https://yubinbango.github.io/yubinbango/yubinbango.js" charset="UTF-8" />
+
             </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-6">
-                <p:outputLabel value="姓" />
-                <p:inputText class="form-control confirm-changed" id="last-name" value="#{userDetailBean.user.lastName}" placeholder="博麗" />
-                <p:message class="" for="last-name" />
-            </div>
-
-            <div class="col-md-6">
-                <p:outputLabel value="名" />
-                <p:inputText class="form-control confirm-changed" id="first-name" value="#{userDetailBean.user.firstName}" placeholder="霊夢" />
-                <p:message class="" for="first-name" />
-            </div>
-        </div>
-
-
-        <span class="p-country-name" style="display: none;">Japan</span>
-
-        <div class="form-group row">
-            <p:outputLabel class="col-sm-2 col-form-label" for="postal-code" value="郵便番号" />
-            <div class="col-sm-10">
-                <p:inputText id="postal-code" class="p-postal-code form-control confirm-changed" value="#{userDetailBean.user.postalCode}" placeholder="1234567"
-                    onkeyup="AjaxZip3.zip2addr(this,'','都道府県','市区町村','その他住所');" />
-            </div>
-        </div>
-
-        <div class="form-group row">
-            <p:outputLabel class="col-sm-2 col-form-label" for="region" value="都道府県" />
-            <div class="col-sm-10">
-                <p:inputText id="region" class="p-region form-control confirm-changed" value="#{userDetailBean.user.region}" placeholder="広島県" name="都道府県" />
-            </div>
-        </div>
-
-        <div class="form-group row">
-            <p:outputLabel class="col-sm-2 col-form-label" for="locality" value="市区町村" />
-            <div class="col-sm-10">
-                <p:inputText id="locality" class="p-locality form-control confirm-changed" value="#{userDetailBean.user.locality}" placeholder="広島市中区" name="市区町村" />
-            </div>
-        </div>
-
-        <div class="form-group row">
-            <p:outputLabel class="col-sm-2 col-form-label" for="street-address" value="町域" />
-            <div class="col-sm-10">
-                <p:inputText id="street-address" class="p-street-address form-control confirm-changed" value="#{userDetailBean.user.streetAddress}" placeholder="大手町１丁目" name="町域" />
-            </div>
-        </div>
-
-        <div class="form-group row">
-            <p:outputLabel class="col-sm-2 col-form-label" for="extended-address" value="その他住所" />
-            <div class="col-sm-10">
-                <p:inputText id="extended-address" class="p-extended-address form-control confirm-changed" value="#{userDetailBean.user.extendedAddress}" placeholder="１番１号" name="その他住所" />
-            </div>
-        </div>
-
-        <hr class="mb-4" />
-
-        <div class="row">
-            <div class="col-md-4 btn-group">
-                <h:commandButton class="btn btn-info" value="更新" action="#{userDetailBean.modifyUser()}" />
-                <h:commandButton class="btn btn-warning" value="削除" action="#{userDetailBean.deleteUser()}" />
-            </div>
-
-            <div class="col-md-2 col-md-offset-6">
-                <h:commandButton class="btn btn-secondary confirm-before-leaving" immediate="true" value="戻る" action="#{userDetailBean.back()}" />
-            </div>
-        </div>
-
-        <script src="https://yubinbango.github.io/yubinbango/yubinbango.js" charset="UTF-8" />
+        </h:form>
 
     </ui:define>
-</ui:composition>
 
+</ui:composition>
 </html>

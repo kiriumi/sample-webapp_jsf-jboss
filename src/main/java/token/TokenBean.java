@@ -24,9 +24,9 @@ public class TokenBean implements Serializable {
     @Setter
     private String token;
 
-    public void verify(boolean doCheck, boolean begin) throws InvalidTokenException {
+    public void verify(boolean doCheck) throws InvalidTokenException {
 
-        if (!doCheck || begin) {
+        if (!doCheck) {
             this.token = tokenHolder.updateParentToken();
             return;
         }

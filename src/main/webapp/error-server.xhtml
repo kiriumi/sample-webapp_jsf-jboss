@@ -3,13 +3,17 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:p="http://primefaces.org/ui">
 
-<ui:composition template="template/template-error.xhtml">
+<ui:composition template="template/template-noheader.xhtml">
 
     <ui:define name="title">サーバーエラー</ui:define>
 
     <ui:define name="content">
-        サーバーエラーだよ
-     </ui:define>
+
+        <h:form prependId="false">
+            <div class="container">サーバーエラーだよ</div>
+        </h:form>
+
+    </ui:define>
 
 </ui:composition>
 </html>

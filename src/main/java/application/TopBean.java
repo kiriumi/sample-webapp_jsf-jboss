@@ -17,7 +17,6 @@ import domain.FileDownloader;
 import domain.UploadFileService;
 import lombok.Getter;
 import lombok.Setter;
-import token.TokenCheck;
 
 /**
  * トップ画面クラス
@@ -26,7 +25,6 @@ import token.TokenCheck;
  *
  */
 @Model
-@TokenCheck(begin = true)
 public class TopBean extends BaseBackingBean {
 
     @Inject

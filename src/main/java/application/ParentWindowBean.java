@@ -10,12 +10,10 @@ import org.primefaces.PrimeFaces;
 import domain.ChildWindowData;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.extern.slf4j.Slf4j;
 import token.TokenCheck;
 
 @Model
 @TokenCheck
-@Slf4j
 public class ParentWindowBean extends BaseBackingBean {
 
     @Inject
