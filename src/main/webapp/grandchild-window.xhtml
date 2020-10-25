@@ -7,22 +7,24 @@
     xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
     xmlns:p="http://primefaces.org/ui">
 
-<ui:composition template="./template/template.xhtml">
+<ui:composition template="./template/template-child.xhtml">
 
     <ui:define name="title">孫画面</ui:define>
 
     <ui:define name="content">
 
-        <h:outputText value="#{grandChildWindowBean.data.childToGrandChild}" />
-        <p:inputText value="#{grandChildWindowBean.data.grandChildToChild}" />
+        <h:form prependId="false">
+            <div class="container">
 
-        <p:commandButton value="閉じる" oncomplete="closeWindow()" />
+                <h:outputText value="#{grandChildWindowBean.data.childToGrandChild}" />
+                <p:inputText value="#{grandChildWindowBean.data.grandChildToChild}" />
 
-        <h:inputText id="token-namespace" value="#{childrenTokenBean.namespace}" />
-        <h:inputText id="token" value="#{childrenTokenBean.token}" />
-        <h:inputText id="parent-token" value="#{childrenTokenBean.parentToken}" />
+                <p:commandButton value="閉じる" oncomplete="closeWindow()" />
+
+            </div>
+        </h:form>
+
     </ui:define>
-
 </ui:composition>
 
 </html>

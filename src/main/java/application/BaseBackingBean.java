@@ -63,7 +63,7 @@ public abstract class BaseBackingBean {
     }
 
     protected String redirect(final String pageName) {
-        return appContext.redirect(pageName);
+        return appContext.redirectAppPage(pageName);
     }
 
 }

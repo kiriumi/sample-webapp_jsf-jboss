@@ -26,7 +26,7 @@ public class SystemErrorBean extends BaseBackingBean {
     }
 
     public String backPage() {
-        return appContext.redirectNonSecuredPage("login");
+        return appContext.redirect("login");
     }
 
 }

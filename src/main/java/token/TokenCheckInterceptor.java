@@ -36,11 +36,14 @@ public class TokenCheckInterceptor {
         Object result = context.proceed();
 
         if (!facesContext.isPostback()) {
+
+            TokenCheck annotation = getAnnotation(context);
+
             // 初期表示の時
-            if (getAnnotation(context).child()) {
-                childrenTokenBean.verify(getAnnotation(context).check());
+            if (annotation.child()) {
+                childrenTokenBean.verify(annotation.check());
             } else {
-                tokenBean.verify(getAnnotation(context).check());
+                tokenBean.verify(annotation.check(), annotation.begin());
             }
         }
 

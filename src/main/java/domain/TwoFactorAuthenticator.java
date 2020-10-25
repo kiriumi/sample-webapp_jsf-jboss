@@ -7,13 +7,13 @@ import javax.enterprise.context.SessionScoped;
 import javax.faces.context.ExternalContext;
 import javax.inject.Inject;
 import javax.security.enterprise.AuthenticationException;
-import javax.servlet.ServletException;
 
 import org.apache.commons.codec.digest.DigestUtils;
 
 import context.WebApplicationContext;
 import dto.User;
 import lombok.Getter;
+import lombok.Setter;
 
 @SessionScoped
 public class TwoFactorAuthenticator implements Serializable {
@@ -27,6 +27,7 @@ public class TwoFactorAuthenticator implements Serializable {
     @Inject
     UserService userService;
 
+    @Getter
     private User user;
 
     private String token;
@@ -37,6 +38,7 @@ public class TwoFactorAuthenticator implements Serializable {
     private LocalDateTime expiredTime;
 
     @Getter
+    @Setter
     private boolean firstAuthed = false;
 
     public boolean firstAuth(final String emailAddress, final String password) {
@@ -45,8 +47,8 @@ public class TwoFactorAuthenticator implements Serializable {
         if (user == null) {
             return false;
         }
-
         firstAuthed = true;
+
         return true;
     }
 
@@ -71,46 +73,19 @@ public class TwoFactorAuthenticator implements Serializable {
 
     public boolean secondAuth(final String inputtedToken) throws AuthenticationException {
 
-        if (logined()) {
-            return true;
-        }
-
-        try {
-            appContext.request().login(user.getEmailaddress(), user.getPassword());
-        } catch (ServletException e) {
-            throw new AuthenticationException("ログインに失敗したから、もう一度やり直してね");
-        }
+//    	if (inputtedToken.equals(token)) {
+//			return true;
+//		}
+//    	return false;
 
         return true;
-
-        //        if (StringUtils.isBlank(inputtedToken)) {
-        //            return false;
-        //        }
-        //
-        //        if (token.equals(inputtedToken)) {
-        //
-        //            try {
-        //                appContext.request().login(user.getEmailaddress(), user.getPassword());
-        //
-        //            } catch (ServletException e) {
-        //                throw new AuthenticationException("ログイン認証に失敗したから、やり直してね");
-        //
-        //            } finally {
-        //                clear();
-        //            }
-        //
-        //            return true;
-        //        }
-        //
-        //        return false;
     }
 
     public boolean logined() {
-        return appContext.request().getUserPrincipal() != null;
+        return externalContext.getUserPrincipal() != null;
     }
 
     public void clear() {
-
         this.user = null;
         this.token = null;
         this.sentToken = false;

@@ -102,7 +102,7 @@ public class SignupBean extends BaseBackingBean {
         userService.addUser(createUser(), selectedRoles);
         flash().put("successSignin", true);
 
-        return appContext.redirectNonSecuredPage("login");
+        return appContext.redirect("login");
     }
 
     @TestModeTransactional
@@ -116,7 +116,7 @@ public class SignupBean extends BaseBackingBean {
         userService.addUserWithJpa(createUser(), selectedRoles);
         flash().put("successSignin", true);
 
-        return appContext.redirectNonSecuredPage("login");
+        return appContext.redirect("login");
     }
 
     private User createUser() {
@@ -142,7 +142,7 @@ public class SignupBean extends BaseBackingBean {
     }
 
     public String backLogin() {
-        return appContext.redirectNonSecuredPage("login");
+        return appContext.redirect("login");
     }
 
 }

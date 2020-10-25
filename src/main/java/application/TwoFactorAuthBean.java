@@ -5,10 +5,10 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.ExternalContext;
 import javax.inject.Inject;
 import javax.security.enterprise.AuthenticationException;
+import javax.servlet.ServletException;
 
 import context.WebApplicationContext;
 import domain.TwoFactorAuthenticator;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,7 +19,6 @@ import lombok.Setter;
  *
  */
 @Model
-@EqualsAndHashCode(callSuper = false)
 public class TwoFactorAuthBean extends BaseBackingBean {
 
     @Inject
@@ -27,9 +26,6 @@ public class TwoFactorAuthBean extends BaseBackingBean {
 
     @Inject
     private WebApplicationContext appContext;
-
-    @Inject
-    private CommonBean commonBean;
 
     @Inject
     TwoFactorAuthenticator authenticator;
@@ -41,19 +37,15 @@ public class TwoFactorAuthBean extends BaseBackingBean {
     public String viewAction() {
 
         if (authenticator.logined()) {
-            return appContext.redirect("top");
+            return appContext.redirectAppPage("top");
         }
 
         if (authenticator.isFirstAuthed()) {
-
-            if (!authenticator.isSentToken()) {
-                authenticator.sendTokenToUser();
-            }
-
+            authenticator.sendTokenToUser();
             return null;
         }
 
-        return appContext.redirectNonSecuredPage("login");
+        return appContext.redirect("login");
     }
 
     public String authenticate() throws AuthenticationException {
@@ -64,7 +56,23 @@ public class TwoFactorAuthBean extends BaseBackingBean {
         }
 
         if (authenticator.secondAuth(token)) {
-            return appContext.redirect("top");
+
+            try {
+                // セッション管理の不備対策のため、セッションを再生成し、セッションIDを変更する
+                externalContext.invalidateSession();
+                externalContext.getSessionId(true);
+
+                appContext.request().login(
+                        authenticator.getUser().getEmailaddress(), authenticator.getUser().getPassword());
+
+            } catch (ServletException e) {
+                throw new AuthenticationException("ログインに失敗したから、もう一度やり直してね");
+
+            } finally {
+                authenticator.clear();
+            }
+
+            return appContext.redirectAppPage("top");
         }
 
         messageService().addMessage(FacesMessage.SEVERITY_ERROR, "認証に失敗したよ");
@@ -80,7 +88,7 @@ public class TwoFactorAuthBean extends BaseBackingBean {
 
     public String backLogin() {
         authenticator.clear();
-        return appContext.redirectNonSecuredPage("login");
+        return appContext.redirect("login");
     }
 
 }

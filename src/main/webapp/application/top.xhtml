@@ -1,74 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:p="http://primefaces.org/ui"
-    xmlns:pt="http://xmlns.jcp.org/jsf/passthrough" xmlns:o="http://omnifaces.org/ui" xmlns:of="http://omnifaces.org/functions" xmlns:b="http://bootsfaces.net/ui">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
 
-<ui:composition template="../template/template-multipart.xhtml">
+<ui:composition template="../template/template.xhtml">
 
     <ui:define name="title">トップ</ui:define>
 
     <ui:define name="content">
 
-        <p:breadCrumb class="my-3" lastItemDisabled="true">
-            <p:menuitem value="親" url="#" />
-            <p:menuitem value="子" url="#" />
-            <p:menuitem value="孫" url="#" />
-        </p:breadCrumb>
+        <h:form class="h-adr" prependId="false" enctype="multipart/form-data">
+            <div class="container">
 
-        <div class="ui-g">
-            <p:fieldset class="ui-g-6" toggleable="true" legend="SecurityContexから取得した権限情報">
-                <h:panelGrid columns="2">
+                <p:breadCrumb class="my-3" lastItemDisabled="true">
+                    <p:menuitem value="親" url="#" />
+                    <p:menuitem value="子" url="#" />
+                    <p:menuitem value="孫" url="#" />
+                </p:breadCrumb>
+
+                <div class="ui-g">
+                    <p:fieldset class="ui-g-6" toggleable="true"
+                        legend="SecurityContexから取得した権限情報">
+                        <h:panelGrid columns="2">
             名前：<h:outputText value="#{topBean.name}" />
             アドミン権限：<h:outputText value="#{topBean.adminRole}" />
             ユーザ権限：<h:outputText value="#{topBean.userRole}" />
-                </h:panelGrid>
-            </p:fieldset>
+                        </h:panelGrid>
+                    </p:fieldset>
 
 
 
-            <p:fieldset class="ui-g-6" toggleable="true" legend="リクエストから取得した権限情報">
-                <h:panelGrid columns="2">
+                    <p:fieldset class="ui-g-6" toggleable="true"
+                        legend="リクエストから取得した権限情報">
+                        <h:panelGrid columns="2">
             名前：<h:outputText value="#{request.userPrincipal.name}" />
-            アドミン権限：<h:outputText value="#{request.isUserInRole('admin')}" />
+            アドミン権限：<h:outputText
+                                value="#{request.isUserInRole('admin')}" />
             ユーザ権限：<h:outputText value="#{request.isUserInRole('user')}" />
-                </h:panelGrid>
-            </p:fieldset>
-        </div>
+                        </h:panelGrid>
+                    </p:fieldset>
+                </div>
 
-        <p:accordionPanel class="my-4">
-            <p:tab title="Ajaxのサンプル">
-                <h:inputText id="value1" value="#{topBean.value1}">
-                    <f:ajax execute="value1 value2" event="change" listener="#{topBean.sum()}" render="sumedValue" />
-                </h:inputText>
+                <p:accordionPanel class="my-4">
+                    <p:tab title="Ajaxのサンプル">
+                        <h:inputText id="value1" value="#{topBean.value1}">
+                            <f:ajax execute="value1 value2" event="change"
+                                listener="#{topBean.sum()}" render="sumedValue" />
+                        </h:inputText>
             ＋
             <h:inputText id="value2" value="#{topBean.value2}">
-                    <f:ajax execute="value1 value2" event="change" listener="#{topBean.sum()}" render="sumedValue" />
-                </h:inputText>
+                            <f:ajax execute="value1 value2" event="change"
+                                listener="#{topBean.sum()}" render="sumedValue" />
+                        </h:inputText>
             ＝
             <h:outputText id="sumedValue" value="#{topBean.sumedValue}" />
 
-            </p:tab>
-        </p:accordionPanel>
+                    </p:tab>
+                </p:accordionPanel>
 
-        <p:commandButton icon="pi pi-download " title="ファイルダウンロード" actionListener="#{topBean.makeDownloadFile()}" ajax="false">
-            <p:fileDownload value="#{topBean.downloadFile}" />
-        </p:commandButton>
+                <p:commandButton icon="pi pi-download " title="ファイルダウンロード"
+                    actionListener="#{topBean.makeDownloadFile()}" ajax="false">
+                    <p:fileDownload value="#{topBean.downloadFile}" />
+                </p:commandButton>
 
-        <div class="form-group">
-            <h:outputLabel for="uploadfile" value="ファイルアップロード" />
-            <div class="input-group">
-                <div class="custom-file">
-                    <h:inputFile id="uploadfile" class="custom-file-input" value="#{topBean.uploadedFile}" />
-                    <h:outputLabel for="uploadfile" class="custom-file-label" data-browse="参照" value="ファイルを選んでね（ドラッグ＆ドロップも可）" />
-                </div>
-                <div class="input-group-append">
-                    <h:button class="btn input-group-text mr-3" id="uploadfile-cancel" value="Cancel" onclick="deleteUploadFile('uploadfile')" />
-                    <p:commandButton icon="pi pi-upload" title="ファイルアップロード" action="#{topBean.uploadFile()}" ajax="false" />
+                <div class="form-group">
+                    <h:outputLabel for="uploadfile" value="ファイルアップロード" />
+                    <div class="input-group">
+                        <div class="custom-file">
+                            <h:inputFile id="uploadfile" class="custom-file-input"
+                                value="#{topBean.uploadedFile}" />
+                            <h:outputLabel for="uploadfile" class="custom-file-label"
+                                data-browse="参照" value="ファイルを選んでね（ドラッグ＆ドロップも可）" />
+                        </div>
+                        <div class="input-group-append">
+                            <h:button class="btn input-group-text mr-3"
+                                id="uploadfile-cancel" value="Cancel"
+                                onclick="deleteUploadFile('uploadfile')" />
+                            <p:commandButton icon="pi pi-upload" title="ファイルアップロード"
+                                action="#{topBean.uploadFile()}" ajax="false" />
+                        </div>
+                    </div>
+
                 </div>
             </div>
-
-        </div>
+        </h:form>
 
     </ui:define>
 </ui:composition>

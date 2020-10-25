@@ -14,6 +14,7 @@ import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import lombok.Getter;
+import lombok.Setter;
 
 @SessionScoped
 public class TokenHolder implements Serializable {
@@ -26,6 +27,7 @@ public class TokenHolder implements Serializable {
     ExternalContext externalContext;
 
     @Getter
+    @Setter
     private String parentToken;
 
     private Map<String, String> childrenToken = new HashMap<>();

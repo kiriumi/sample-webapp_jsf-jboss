@@ -1,16 +1,20 @@
 package token;
 
-import javax.enterprise.inject.Model;
+import java.io.Serializable;
+
 import javax.faces.context.ExternalContext;
+import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import org.apache.commons.lang3.StringUtils;
 
 import lombok.Getter;
 import lombok.Setter;
 
-@Model
-public class ChildrenTokenBean {
+@Named
+@ViewScoped
+public class ChildrenTokenBean implements Serializable{
 
     @Inject
     private TokenHolder tokenHolder;

@@ -7,32 +7,31 @@
     xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
     xmlns:p="http://primefaces.org/ui">
 
-<ui:composition template="./template/template.xhtml">
+<ui:composition template="./template/template-child.xhtml">
 
     <ui:define name="title">子画面</ui:define>
 
     <ui:define name="content">
 
-        <h:outputText value="#{childWindowBean.data.parentToChild}" />
-        <p:inputText value="#{childWindowBean.data.childToParent}" />
+        <h:form prependId="false">
+            <div class="container">
 
-        <p:commandButton value="閉じる" oncomplete="closeWindow()" />
+                <h:outputText value="#{childWindowBean.data.parentToChild}" />
+                <p:inputText value="#{childWindowBean.data.childToParent}" />
 
-        <p:inputText value="#{childWindowBean.data.childToGrandChild}" />
-        <h:outputText value="#{childWindowBean.data.grandChildToChild}" />
+                <p:commandButton value="閉じる" oncomplete="closeWindow()" />
 
-        <p:commandButton value="孫画面を開く" oncomplete="openChildWindow('grandchild-window')" />
+                <p:inputText value="#{childWindowBean.data.childToGrandChild}" />
+                <h:outputText value="#{childWindowBean.data.grandChildToChild}" />
 
-        <p:commandButton value="子画面２に遷移" action="#{childWindowBean.goChild2()}"/>
+                <p:commandButton value="孫画面を開く" oncomplete="openChildWindow('grandchild-window')" />
+                <p:commandButton value="子画面２に遷移" action="#{childWindowBean.goChild2()}" />
+                <p:commandButton value="アクション" action="#{childWindowBean.childWindowAction()}" />
 
-        <p:commandButton value="アクション" action="#{childWindowBean.childWindowAction()}" />
-
-        <h:inputText id="token-namespace" value="#{childrenTokenBean.namespace}" />
-        <h:inputText id="token" value="#{childrenTokenBean.token}" />
-        <h:inputText id="parent-token" value="#{childrenTokenBean.parentToken}" />
+            </div>
+        </h:form>
 
     </ui:define>
-
 </ui:composition>
 
 </html>

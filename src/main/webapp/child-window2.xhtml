@@ -7,21 +7,23 @@
     xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
     xmlns:p="http://primefaces.org/ui">
 
-<ui:composition template="./template/template.xhtml">
+<ui:composition template="./template/template-child.xhtml">
 
     <ui:define name="title">子画面２</ui:define>
 
     <ui:define name="content">
 
-        <h:outputText value="#{childWindow2Bean.dummy}"/>
+        <h:form prependId="false">
+            <div class="container">
 
-        <p:commandButton value="子画面に遷移" action="#{childWindow2Bean.goChild()}"/>
+                <h:outputText value="#{childWindow2Bean.dummy}" />
 
-        <h:inputText id="token-namespace" value="#{childrenTokenBean.namespace}" />
-        <h:inputText value="#{childrenTokenBean.token}" />
-        <h:inputText id="parent-token" value="#{childrenTokenBean.parentToken}" />
+                <p:commandButton value="子画面に遷移" action="#{childWindow2Bean.goChild()}" />
+
+            </div>
+        </h:form>
+
     </ui:define>
-
 </ui:composition>
 
 </html>

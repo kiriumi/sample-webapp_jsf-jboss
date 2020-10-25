@@ -20,4 +20,7 @@ public @interface TokenCheck {
 
     @Nonbinding
     public boolean check() default true;
+
+    @Nonbinding
+    public boolean begin() default false;
 }

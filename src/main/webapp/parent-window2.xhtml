@@ -13,16 +13,20 @@
 
     <ui:define name="content">
 
-        <p:inputText value="#{parentWindow2Bean.dummy}" />
+        <h:form prependId="false">
+            <div class="container">
 
-        <p:commandButton value="親画面に遷移" action="#{parentWindow2Bean.goParent()}" />
-        <p:commandButton value="親画面３に遷移" action="#{parentWindow2Bean.goParent3()}" />
+                <p:inputText value="#{parentWindow2Bean.dummy}" />
 
-        <p:commandButton value="アクション" action="#{parentWindow2Bean.action()}" />
+                <p:commandButton value="親画面に遷移" action="#{parentWindow2Bean.goParent()}" />
+                <p:commandButton value="親画面３に遷移" action="#{parentWindow2Bean.goParent3()}" />
 
-        <p:commandButton value="ダイアログを表示" actionListener="#{parentWindow2Bean.showDialog()}" />
+                <p:commandButton value="アクション" action="#{parentWindow2Bean.action()}" />
 
-        <h:inputText id="parent-token" value="#{tokenBean.token}" />
+                <p:commandButton value="ダイアログを表示" actionListener="#{parentWindow2Bean.showDialog()}" />
+            </div>
+        </h:form>
+
     </ui:define>
 </ui:composition>
 

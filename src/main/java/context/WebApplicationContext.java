@@ -25,11 +25,11 @@ public class WebApplicationContext implements Serializable {
     @Getter
     private final String redirectParam = "?faces-redirect=true";
 
-    public String redirect(final String pageName) {
+    public String redirectAppPage(final String pageName) {
         return StringUtils.join(baseApplicationPagePath, pageName, redirectParam);
     }
 
-    public String redirectNonSecuredPage(final String pageName) {
+    public String redirect(final String pageName) {
         return StringUtils.join(pageName, redirectParam);
     }
 

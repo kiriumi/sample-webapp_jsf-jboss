@@ -61,7 +61,6 @@ import lombok.Setter;
  */
 @Model
 @FacesConfig
-//@Auth(emailAddress = "emailAddress", password = "password")
 public class LoginBean extends BaseBackingBean {
 
     @Inject
@@ -82,28 +81,19 @@ public class LoginBean extends BaseBackingBean {
     private String password;
 
     @Inject
-    UserService userService;
-
-    @Inject
     TwoFactorAuthenticator authenticator;
 
-    //	/**
-    //	 * Springでなければ、メソッドバリデーションが行える
-    //	 * @param emailAddress
-    //	 * @param password
-    //	 */
-    //	@AuthSpring
-    //	public void auth(final String emailAddress, final String password) {
-    //	};
+    @Inject
+    UserService userService;
 
     public String viewAction() {
 
         if (authenticator.logined()) {
-            return appContext.redirect("top");
+            return appContext.redirectAppPage("top");
         }
 
         if (authenticator.isFirstAuthed()) {
-            return appContext.redirectNonSecuredPage("two-factor-auth");
+            return appContext.redirect("two-factor-auth");
         }
 
         return null;
@@ -143,16 +133,16 @@ public class LoginBean extends BaseBackingBean {
     public String login() {
 
         if (authenticator.firstAuth(emailAddress, password)) {
-            return appContext.redirectNonSecuredPage("two-factor-auth");
+            return appContext.redirect("two-factor-auth");
         }
 
-        messageService().addMessageById(FacesMessage.SEVERITY_ERROR, "error.message.auth");
+        messageService().addMessage(FacesMessage.SEVERITY_ERROR, "Eメールアドレスとパスワードが一致しないよ");
 
         return null;
     }
 
     public String goSignup() {
-        return appContext.redirectNonSecuredPage("signup");
+        return appContext.redirect("signup");
     }
 
 }
