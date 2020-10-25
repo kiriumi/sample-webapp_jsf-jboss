@@ -17,7 +17,6 @@ import dto.User;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
-import mode.TestModeTransactional;
 import page_transaction.PageTransactionBegin;
 import page_transaction.PageTransactionEnd;
 
@@ -105,7 +104,8 @@ public class SignupBean extends BaseBackingBean {
         return appContext.redirect("login");
     }
 
-    @TestModeTransactional
+//    @TestModeTransactional
+    @Transactional
     public String signupUserWithJpa() {
 
         if (userService.hasUserWithJpa(getEmailAddress())) {
