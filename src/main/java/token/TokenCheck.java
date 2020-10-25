@@ -16,8 +16,5 @@ import javax.interceptor.InterceptorBinding;
 public @interface TokenCheck {
 
     @Nonbinding
-    public boolean child() default false;
-
-    @Nonbinding
     public boolean check() default true;
 }

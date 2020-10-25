@@ -1,6 +1,7 @@
 function openChildWindow(pageName) {
     var parentTokenElem = document.getElementById("parent-token");
-    window.open(pageName + ".xhtml?token=" + parentTokenElem.value);
+    var childWindow = window.open(pageName + ".xhtml?token=" + parentTokenElem.value);
+    childWindow.focus();
 }
 
 function closeWindow() {
@@ -14,4 +15,5 @@ function closeWindow() {
 
     window.opener.location.href = url;
     window.close();
+    window.opener.focus(); // Chromeはフォーカスされない
 }

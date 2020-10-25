@@ -9,7 +9,7 @@ import lombok.Setter;
 import token.TokenCheck;
 
 @Model
-@TokenCheck(child = true)
+@TokenCheck
 public class GrandChildWindowBean extends BaseBackingBean {
 
     @Inject

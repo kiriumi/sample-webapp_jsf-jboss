@@ -8,18 +8,14 @@
     <ui:define name="title">孫画面</ui:define>
 
     <ui:define name="content">
-
         <h:form prependId="false">
-            <div class="container">
 
-                <h:outputText value="#{grandChildWindowBean.data.childToGrandChild}" />
-                <p:inputText value="#{grandChildWindowBean.data.grandChildToChild}" />
+            <h:outputText value="#{grandChildWindowBean.data.childToGrandChild}" />
+            <p:inputText value="#{grandChildWindowBean.data.grandChildToChild}" />
 
-                <p:commandButton value="閉じる" oncomplete="closeWindow()" />
+            <p:commandButton value="閉じる" oncomplete="closeWindow()" />
 
-            </div>
         </h:form>
-
     </ui:define>
 
 </ui:composition>

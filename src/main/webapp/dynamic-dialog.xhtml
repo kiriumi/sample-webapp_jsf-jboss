@@ -8,12 +8,14 @@
     <ui:define name="title">ダイアログ</ui:define>
 
     <ui:define name="content">
+        <h:form prependId="false">
 
-        <p:inputText value="#{dynamicDialogBean.item}" />
+            <p:inputText value="#{dynamicDialogBean.item}" />
 
-        <p:commandButton value="アクション" action="#{dynamicDialogBean.action()}" />
-        <p:commandButton value="ダイアログを閉じる" action="#{dynamicDialogBean.closeDialog()}" />
+            <p:commandButton value="アクション" action="#{dynamicDialogBean.action()}" />
+            <p:commandButton value="ダイアログを閉じる" action="#{dynamicDialogBean.closeDialog()}" />
 
+        </h:form>
     </ui:define>
 
 </ui:composition>

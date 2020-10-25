@@ -7,7 +7,7 @@ import lombok.Setter;
 import token.TokenCheck;
 
 @Model
-@TokenCheck(child = true)
+@TokenCheck
 public class ChildWindow2Bean extends BaseBackingBean {
 
     @Getter

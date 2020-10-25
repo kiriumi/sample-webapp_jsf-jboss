@@ -8,17 +8,12 @@
     <ui:define name="title">子画面２</ui:define>
 
     <ui:define name="content">
-
         <h:form prependId="false">
-            <div class="container">
 
-                <h:outputText value="#{childWindow2Bean.dummy}" />
+            <h:outputText value="#{childWindow2Bean.dummy}" />
+            <p:commandButton value="子画面に遷移" action="#{childWindow2Bean.goChild()}" />
 
-                <p:commandButton value="子画面に遷移" action="#{childWindow2Bean.goChild()}" />
-
-            </div>
         </h:form>
-
     </ui:define>
 
 </ui:composition>

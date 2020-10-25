@@ -23,6 +23,9 @@ public class TokenHolder implements Serializable {
 
     public static final String REQ_PARAM_TOKEN_NAMESPACE = "tokenNamespace";
 
+    public static final String REQ_PARAM_PF_DIALOG =  "pfdlgcid";
+
+
     @Inject
     ExternalContext externalContext;
 

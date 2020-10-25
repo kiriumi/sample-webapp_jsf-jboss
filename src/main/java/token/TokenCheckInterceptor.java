@@ -1,6 +1,7 @@
 package token;
 
 import javax.annotation.Priority;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.event.PhaseId;
 import javax.inject.Inject;
@@ -9,16 +10,21 @@ import javax.interceptor.AroundInvoke;
 import javax.interceptor.Interceptor;
 import javax.interceptor.InvocationContext;
 
+import org.apache.commons.lang3.StringUtils;
+
 import lombok.Getter;
 import lombok.Setter;
 
 @Interceptor
 @Priority(Interceptor.Priority.APPLICATION)
-@TokenCheck(child = true)
+@TokenCheck
 public class TokenCheckInterceptor {
 
     @Inject
     private FacesContext facesContext;
+
+    @Inject
+    private ExternalContext externalContext;
 
     @Inject
     private TokenBean tokenBean;
@@ -36,13 +42,11 @@ public class TokenCheckInterceptor {
         Object result = context.proceed();
 
         if (!facesContext.isPostback()) {
-
-            // 初期表示の時にチェックを行う
-            TokenCheck annotation = getAnnotation(context);
-            if (annotation.child()) {
-                childrenTokenBean.verify(annotation.check());
+            // 初期表示の時にトークンチェックを行う
+            if (isParent()) {
+                tokenBean.verify(doCheck(context));
             } else {
-                tokenBean.verify(annotation.check());
+                childrenTokenBean.verify(doCheck(context));
             }
         }
 
@@ -57,10 +61,10 @@ public class TokenCheckInterceptor {
             return result;
         }
 
-        if (getAnnotation(context).child()) {
-            return childrenTokenBean.addTokenParams(result);
+        if (isParent()) {
+            return tokenBean.addTokenParams(result);
         }
-        return tokenBean.addTokenParams(result);
+        return childrenTokenBean.addTokenParams(result);
     }
 
     private boolean isRedirect(Object result) {
@@ -80,8 +84,14 @@ public class TokenCheckInterceptor {
         return false;
     }
 
-    private TokenCheck getAnnotation(InvocationContext context) {
-        return context.getTarget().getClass().getAnnotation(TokenCheck.class);
+    private boolean doCheck(InvocationContext context) {
+        return context.getTarget().getClass().getAnnotation(TokenCheck.class).check();
+    }
+
+    private boolean isParent() {
+        String namespace = externalContext.getRequestParameterMap().get(TokenHolder.REQ_PARAM_TOKEN_NAMESPACE);
+        String dialog = (String) externalContext.getRequestParameterMap().get(TokenHolder.REQ_PARAM_PF_DIALOG);
+        return StringUtils.isBlank(namespace) && StringUtils.isBlank(dialog);
     }
 
 }

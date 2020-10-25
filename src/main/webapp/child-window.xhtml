@@ -8,25 +8,22 @@
     <ui:define name="title">子画面</ui:define>
 
     <ui:define name="content">
-
         <h:form prependId="false">
-            <div class="container">
 
-                <h:outputText value="#{childWindowBean.data.parentToChild}" />
-                <p:inputText value="#{childWindowBean.data.childToParent}" />
+            <h:outputText value="#{childWindowBean.data.parentToChild}" />
+            <p:inputText value="#{childWindowBean.data.childToParent}" />
 
-                <p:commandButton value="閉じる" oncomplete="closeWindow()" />
+            <p:commandButton value="閉じる" oncomplete="closeWindow()" />
 
-                <p:inputText value="#{childWindowBean.data.childToGrandChild}" />
-                <h:outputText value="#{childWindowBean.data.grandChildToChild}" />
+            <p:inputText value="#{childWindowBean.data.childToGrandChild}" />
+            <h:outputText value="#{childWindowBean.data.grandChildToChild}" />
 
-                <p:commandButton value="孫画面を開く" oncomplete="openChildWindow('grandchild-window')" />
-                <p:commandButton value="子画面２に遷移" action="#{childWindowBean.goChild2()}" />
-                <p:commandButton value="アクション" action="#{childWindowBean.childWindowAction()}" />
+            <p:commandButton value="孫画面を開く" oncomplete="openChildWindow('grandchild-window')" />
+            <p:commandButton value="子画面２に遷移" action="#{childWindowBean.goChild2()}" />
+            <p:commandButton value="アクション" action="#{childWindowBean.childWindowAction()}" />
 
-            </div>
+
         </h:form>
-
     </ui:define>
 
 </ui:composition>

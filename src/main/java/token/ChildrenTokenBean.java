@@ -38,8 +38,7 @@ public class ChildrenTokenBean implements Serializable{
         String tokenInRequest = (String) externalContext.getRequestParameterMap().get(TokenHolder.REQ_PARAM_TOKEN);
         String namespaceInRequest = (String) externalContext.getRequestParameterMap()
                 .get(TokenHolder.REQ_PARAM_TOKEN_NAMESPACE);
-
-        String isDialog = (String) externalContext.getRequestParameterMap().get("pfdlgcid");
+        String dialog = (String) externalContext.getRequestParameterMap().get(TokenHolder.REQ_PARAM_PF_DIALOG);
 
         if (!doCheck) {
             updateChildToken(namespaceInRequest);
@@ -49,7 +48,7 @@ public class ChildrenTokenBean implements Serializable{
         if (StringUtils.isBlank(namespaceInRequest)) {
 
             // 子画面が開かれた場合
-            if (StringUtils.isBlank(isDialog) && !tokenHolder.verifyParentToken(tokenInRequest)) { // ダイアログの場合
+            if (StringUtils.isBlank(dialog) && !tokenHolder.verifyParentToken(tokenInRequest)) { // ダイアログの場合
                 throw new InvalidTokenException();
             }
             beginChildToken();
