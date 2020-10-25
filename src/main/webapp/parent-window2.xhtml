@@ -20,6 +20,8 @@
 
         <p:commandButton value="アクション" action="#{parentWindow2Bean.action()}" />
 
+        <p:commandButton value="ダイアログを表示" actionListener="#{parentWindow2Bean.showDialog()}" />
+
         <h:inputText id="parent-token" value="#{tokenBean.token}" />
     </ui:define>
 </ui:composition>

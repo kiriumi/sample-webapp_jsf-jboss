@@ -22,10 +22,6 @@ public class TokenHolder implements Serializable {
 
     public static final String REQ_PARAM_TOKEN_NAMESPACE = "tokenNamespace";
 
-    public static final String REQ_PARAM_OPENED_WINDOW = "openedWindow";
-
-    public static final String REQ_PARAM_CLOSED_CHILD_WINDOW = "closedChildWindow";
-
     @Inject
     ExternalContext externalContext;
 

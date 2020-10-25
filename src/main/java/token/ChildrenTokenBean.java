@@ -4,6 +4,8 @@ import javax.enterprise.inject.Model;
 import javax.faces.context.ExternalContext;
 import javax.inject.Inject;
 
+import org.apache.commons.lang3.StringUtils;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -33,13 +35,17 @@ public class ChildrenTokenBean {
         String namespaceInRequest = (String) externalContext.getRequestParameterMap()
                 .get(TokenHolder.REQ_PARAM_TOKEN_NAMESPACE);
 
+        String isDialog = (String) externalContext.getRequestParameterMap().get("pfdlgcid");
+
         if (!doCheck) {
             updateChildToken(namespaceInRequest);
             return;
         }
 
-        if (openedWindow() || closedChildWindow()) {
-            if (!tokenHolder.verifyParentToken(tokenInRequest)) {
+        if (StringUtils.isBlank(namespaceInRequest)) {
+
+            // 子画面が開かれた場合
+            if (StringUtils.isBlank(isDialog) && !tokenHolder.verifyParentToken(tokenInRequest)) { // ダイアログの場合
                 throw new InvalidTokenException();
             }
             beginChildToken();
@@ -71,28 +77,6 @@ public class ChildrenTokenBean {
     private void updateChildToken(String namespace) {
         this.namespace = namespace;
         this.token = tokenHolder.updateChildToken(namespace);
-    }
-
-    private boolean openedWindow() {
-
-        String openedWindow = (String) externalContext.getRequestParameterMap()
-                .get(TokenHolder.REQ_PARAM_OPENED_WINDOW);
-
-        if (openedWindow != null) {
-            return true;
-        }
-        return false;
-    }
-
-    private boolean closedChildWindow() {
-
-        String closesChildWindow = (String) externalContext.getRequestParameterMap()
-                .get(TokenHolder.REQ_PARAM_CLOSED_CHILD_WINDOW);
-
-        if (closesChildWindow != null) {
-            return true;
-        }
-        return false;
     }
 
 }

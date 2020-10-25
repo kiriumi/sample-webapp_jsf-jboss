@@ -1,6 +1,6 @@
 function openChildWindow(pageName) {
     var parentTokenElem = document.getElementById("parent-token");
-    window.open(pageName + ".xhtml?openedWindow&token=" + parentTokenElem.value);
+    window.open(pageName + ".xhtml?token=" + parentTokenElem.value);
 }
 
 function closeWindow() {
@@ -10,7 +10,7 @@ function closeWindow() {
 
     // リクエストパラメータの付与
     url = url.indexOf('?') == -1 ? url : url.substring(0, url.indexOf('?')); // もともと付いているパラメータは削除する
-    url += '?closedChildWindow&token=' + parentTokenElem.value
+    url += '?token=' + parentTokenElem.value
 
     window.opener.location.href = url;
     window.close();

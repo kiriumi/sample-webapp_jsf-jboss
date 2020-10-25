@@ -24,6 +24,7 @@ public class TokenBean {
 
         if (!doCheck) {
             this.token = tokenHolder.updateParentToken();
+//            this.token = tokenHolder.getParentToken();
             return;
         }
 

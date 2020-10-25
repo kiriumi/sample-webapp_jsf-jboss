@@ -5,6 +5,8 @@ import javax.enterprise.inject.Model;
 import javax.faces.context.ExternalContext;
 import javax.inject.Inject;
 
+import org.primefaces.PrimeFaces;
+
 import domain.ChildWindowData;
 import lombok.Getter;
 import lombok.Setter;
@@ -32,4 +34,10 @@ public class ParentWindowBean extends BaseBackingBean {
     public String goParent2() {
         return "parent-window2?faces-redirect=true";
     }
+
+    public String showDialog() {
+        PrimeFaces.current().dialog().openDynamic("dynamic-dialog");
+        return null;
+    }
+
 }

@@ -14,7 +14,7 @@ import lombok.Setter;
 
 @Interceptor
 @Priority(Interceptor.Priority.APPLICATION)
-@TokenCheck
+@TokenCheck(child = true)
 public class TokenCheckInterceptor {
 
     @Inject

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="./template/template-child.xhtml">
+
+    <ui:define name="title">ダイアログ</ui:define>
+
+    <ui:define name="content">
+
+        <p:inputText value="#{dynamicDialogBean.item}" />
+
+        <p:commandButton value="アクション" action="#{dynamicDialogBean.action()}" />
+        <p:commandButton value="ダイアログを閉じる" action="#{dynamicDialogBean.closeDialog()}" />
+
+        <h:inputText id="token-namespace" value="#{childrenTokenBean.namespace}" />
+        <h:inputText id="token" value="#{childrenTokenBean.token}" />
+        <h:inputText id="parent-token" value="#{childrenTokenBean.parentToken}" />
+    </ui:define>
+</ui:composition>
+
+</html>
