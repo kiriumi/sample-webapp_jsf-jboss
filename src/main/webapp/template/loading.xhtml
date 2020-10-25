@@ -7,6 +7,7 @@
 
     <div id="loading" class="spinner-border" style="display: none;" />
     <p:ajaxStatus onstart="$('#loading').show()" oncomplete="$('#loading').hide()" />
+    <p:ajaxStatus onstart="showBlockUi()" oncomplete="hideBlockUi()" />
 
 </ui:composition>
 </html>

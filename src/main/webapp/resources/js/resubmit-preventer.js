@@ -4,4 +4,5 @@
 document.addEventListener("submit", function() {
     $('form').css('pointer-events', 'none');
     $('#loading').show();
+    showBlockUi();
 });
