@@ -8,23 +8,24 @@
     <ui:define name="title">画面共通化</ui:define>
 
     <ui:define name="content">
+        <h:form prependId="false">
 
-        <div class="row">
-            <div class="col form-group">
-                <p:outputLabel for="item1" value="項目１" />
-                <p:inputText class="form-control mb-2" id="item1" value="#{commonaized.item1}" />
+            <div class="row">
+                <div class="col form-group">
+                    <p:outputLabel for="item1" value="項目１" />
+                    <p:inputText class="form-control mb-2" id="item1" value="#{commonaized.item1}" />
+                </div>
             </div>
-        </div>
 
-        <div class="row justify-content-end">
-            <div class="col-auto btn-group">
-                <h:commandButton class="btn btn-primary" value="アクション" action="#{commonaized.action()}" />
+            <div class="row justify-content-end">
+                <div class="col-auto btn-group">
+                    <h:commandButton class="btn btn-primary" value="アクション" action="#{commonaized.action()}" />
+                </div>
             </div>
-        </div>
 
+        </h:form>
     </ui:define>
 
     <h:outputStylesheet library="css" name="floating-labels.css" />
 </ui:composition>
-
 </html>

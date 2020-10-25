@@ -8,29 +8,25 @@
     <ui:define name="title">RESTクライアント</ui:define>
 
     <ui:define name="content">
-
         <h:form prependId="false">
-            <div class="container">
 
-                <h:panelGrid columns="3">
+            <h:panelGrid columns="3">
 
-                    <h:commandButton value="GET" action="#{restClientBean.greet()}" />
-                    <h:outputText value="あいさつ：" />
-                    <h:outputText value="#{restClientBean.greetingMessage}" />
+                <p:commandButton value="GET" action="#{restClientBean.greet()}" />
+                <h:outputText value="あいさつ：" />
+                <h:outputText value="#{restClientBean.greetingMessage}" />
 
-                    <h:commandButton value="Get user by JSON" action="#{restClientBean.getUserWithJson()}" />
-                    <h:outputText value="ユーザーのEmailアドレス：" />
-                    <h:outputText value="#{restClientBean.user.emailaddress}" />
+                <p:commandButton value="Get user by JSON" action="#{restClientBean.getUserWithJson()}" />
+                <h:outputText value="ユーザーのEmailアドレス：" />
+                <h:outputText value="#{restClientBean.user.emailaddress}" />
 
-                    <h:commandButton value="Post user by JSON" action="#{restClientBean.postUserWithJson()}" />
-                    <h:outputText value="レスポンスステータス：" />
-                    <h:outputText value="#{restClientBean.responseStatus}" />
+                <p:commandButton value="Post user by JSON" action="#{restClientBean.postUserWithJson()}" />
+                <h:outputText value="レスポンスステータス：" />
+                <h:outputText value="#{restClientBean.responseStatus}" />
 
-                </h:panelGrid>
+            </h:panelGrid>
 
-            </div>
         </h:form>
-
     </ui:define>
 
 </ui:composition>

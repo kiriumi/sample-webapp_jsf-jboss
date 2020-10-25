@@ -12,16 +12,9 @@
     </f:metadata>
 
     <ui:define name="content">
-
         <h:form prependId="false">
-            <div class="container">
-
-                <p:messages showDetail="true" />
-                <p:commandButton value="戻る" action="#{systemErrorBean.backPage()}" />
-
-            </div>
+            <p:commandButton value="戻る" action="#{systemErrorBean.backPage()}" />
         </h:form>
-
     </ui:define>
 
 </ui:composition>

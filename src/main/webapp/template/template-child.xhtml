@@ -9,7 +9,11 @@
 </h:head>
 <h:body>
 
-    <ui:insert name="content" />
+    <div class="container">
+        <p:messages showDetail="true" />
+        <ui:insert name="content" />
+    </div>
+    <ui:include src="loading.xhtml" />
     <ui:include src="token-child.xhtml" />
 
 </h:body>
