@@ -96,12 +96,10 @@ dependencies {
           "org.codehaus.cargo:cargo-ant:${cargoVersion}"
 }
 
-eclipse {
-
-    wtp {
-        component {
-            contextPath  = contextPath
-        }
+eclipse.wtp {
+    component {
+        deployName = contextRoot
+        contextPath  = contextRoot // こちらではコンテキストパスは変わらないので注意
     }
 }
 
@@ -113,7 +111,7 @@ cargo {
     deployable {
         // ページを表示するためのURL：http://{ホスト名}/contextPath/{ページ名}
         //   例：http://localhost:8080/SampleWebApp/login.xhtml
-        context = contextPath
+        context = contextRoot
     }
 
     local {
