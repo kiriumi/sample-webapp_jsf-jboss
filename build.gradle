@@ -43,6 +43,7 @@ dependencies {
     // PrimeFaces
     implementation group: 'org.primefaces', name: 'primefaces', version: '8.0'
     implementation group: 'org.primefaces.themes', name: 'all-themes', version: '1.0.10'
+    implementation group: 'org.omnifaces', name: 'omnifaces', version: '3.4.1' // これがないとAjaxが正常に動作しなくなるため
 
     // PrimeFaces（任意のライブラリ）
     // implementation group: 'com.lowagie', name: 'itext', version: '2.1.7'
@@ -52,7 +53,7 @@ dependencies {
     implementation group: 'org.apache.tika', name: 'tika-core', version: '1.22'
     // implementation group: 'net.sf.barcode4j', name: 'barcode4j-light', version: '2.1'
     // implementation group: 'net.glxn', name: 'qrgen', version: '1.4'
-    //implementation group: 'com.googlecode.owasp-java-html-sanitizer', name: 'owasp-java-html-sanitizer', version: '20190503.1'
+    // implementation group: 'com.googlecode.owasp-java-html-sanitizer', name: 'owasp-java-html-sanitizer', version: '20190503.1'
 
     // JDBC
     implementation group: 'org.postgresql', name: 'postgresql', version: '42.2.12', changing: true
