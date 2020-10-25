@@ -2,12 +2,17 @@ package application;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.faces.application.FacesMessage;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
+
+import org.primefaces.model.FilterMeta;
+import org.primefaces.model.LazyDataModel;
+import org.primefaces.model.SortOrder;
 
 import domain.UserSearchCondition;
 import domain.UserService;
@@ -32,6 +37,9 @@ public class UserManagerBean extends BaseBackingBean implements Serializable {
 
     @Getter
     private List<User> searchedUsersWithRoles;
+
+    @Getter
+    private LazyDataModel<User> searchedLazyUsers;
 
     @Setter
     private User selectedUser;
@@ -126,6 +134,18 @@ public class UserManagerBean extends BaseBackingBean implements Serializable {
         if (!goDetail) {
             searchCond.clear();
         }
+    }
+
+    public void searcLazyUsers() {
+        this.searchedLazyUsers = new LazyDataModel<User>() {
+            @Override
+            public List<User> load(
+                    int first, int pageSize, String sortField, SortOrder sortOrder, Map<String, FilterMeta> filterBy) {
+                List<User> users = userService.searchWithLazy(first, pageSize, sortField, sortOrder, filterBy);
+                return users;
+            }
+        };
+        searchedLazyUsers.setRowCount(userService.countAllUsers());
     }
 
 }

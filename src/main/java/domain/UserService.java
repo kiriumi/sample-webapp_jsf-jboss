@@ -3,6 +3,7 @@ package domain;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -15,6 +16,11 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.ibatis.session.RowBounds;
+import org.primefaces.model.FilterMeta;
+import org.primefaces.model.SortOrder;
+
+import com.google.common.base.CaseFormat;
 
 import dto.Role;
 import dto.RoleExample;
@@ -89,6 +95,31 @@ public class UserService {
 
         userMapper.insert(user);
         roles.forEach(role -> roleMapper.insert((new Role(user.getEmailaddress(), role))));
+    }
+
+    public int countAllUsers() {
+        return (int) userMapper.countByExample(new UserExample());
+    }
+
+    public List<User> searchWithLazy(
+            int first, int pageSize, String sortField, SortOrder sortOrder, Map<String, FilterMeta> filterBy) {
+
+        UserExample example = new UserExample();
+
+        if (StringUtils.isBlank(sortField)) {
+            sortField = "emailaddress";
+        }
+        sortField = CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, sortField);
+
+        String order;
+        if (sortOrder.equals(SortOrder.DESCENDING)) {
+            order = "DESC";
+        } else {
+            order = "ASC";
+        }
+
+        example.setOrderByClause(sortField + " " + order);
+        return userMapper.selectByExampleWithRowbounds(example, new RowBounds(first, pageSize));
     }
 
     // ↑MyBatis
