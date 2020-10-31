@@ -20,13 +20,13 @@ public class WebApplicationContext implements Serializable {
     private ExternalContext externalContext;
 
     @Getter
-    private final String baseApplicationPagePath = "/application/";
+    private final String rootApplicationPagePath = "/application/";
 
     @Getter
     private final String redirectParam = "?faces-redirect=true";
 
     public String redirectAppPage(final String pageName) {
-        return StringUtils.join(baseApplicationPagePath, pageName, redirectParam);
+        return StringUtils.join(rootApplicationPagePath, pageName, redirectParam);
     }
 
     public String redirect(final String pageName) {
