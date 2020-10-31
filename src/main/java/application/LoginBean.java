@@ -4,6 +4,7 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
 import javax.faces.annotation.FacesConfig;
 import javax.faces.application.FacesMessage;
+import javax.faces.context.ExternalContext;
 import javax.faces.event.ActionEvent;
 import javax.inject.Inject;
 import javax.security.enterprise.AuthenticationStatus;
@@ -62,6 +63,9 @@ import lombok.Setter;
 @Model
 @FacesConfig
 public class LoginBean extends BaseBackingBean {
+
+    @Inject
+    private ExternalContext externalContext;
 
     @Inject
     private SecurityContext securityContext;
@@ -124,8 +128,8 @@ public class LoginBean extends BaseBackingBean {
     private AuthenticationStatus getAuthStatus() {
 
         return securityContext.authenticate(
-                (HttpServletRequest) externalContext().getRequest(),
-                (HttpServletResponse) externalContext().getResponse(),
+                (HttpServletRequest) externalContext.getRequest(),
+                (HttpServletResponse) externalContext.getResponse(),
                 AuthenticationParameters.withParams()
                         .credential(new UsernamePasswordCredential(emailAddress, password)));
     }

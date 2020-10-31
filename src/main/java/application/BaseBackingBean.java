@@ -38,14 +38,6 @@ public abstract class BaseBackingBean {
     @Inject
     private ApplicationLogger logger;
 
-    protected FacesContext facesContext() {
-        return facesContext;
-    }
-
-    protected ExternalContext externalContext() {
-        return externalContext;
-    }
-
     protected Flash flash() {
         return externalContext.getFlash();
     }
