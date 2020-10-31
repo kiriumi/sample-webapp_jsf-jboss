@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+body .ui-fileupload {
+    table-layout: fixed;
+    display: table;
+}
+
+body .ui-fileupload .ui-fileupload-buttonbar {
+    display: table-cell;
+    display: inline-block;
+    background: transparent none;
+    border: none;
+}
+
+body .ui-fileupload .ui-fileupload-buttonbar .ui-fileupload-upload {
+    display: none;
+}
+
+body .ui-fileupload .ui-fileupload-buttonbar .ui-fileupload-cancel {
+    /* display: none; */
+}
+
+body .ui-fileupload .ui-fileupload-content {
+    display: table-cell;
+    border: none;
+    background-color: transparent;
+}
+
+body .ui-fileupload .ui-fileupload-content .ui-fileupload-progress {
+    display: none;
+}
+
+body .ui-fileupload .ui-fileupload-content .ui-fileupload-cancel {
+    /* display: none; */
+}
