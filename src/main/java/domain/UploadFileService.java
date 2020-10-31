@@ -86,7 +86,9 @@ public class UploadFileService {
         File saveFile = new File(saveDir, uploadedFile.getFileName());
 
         try {
-            saveUploadFile(uploadedFile.getInputStream(), saveFile);
+            //            saveUploadFile(uploadedFile.getInputStream(), saveFile);
+            saveFile.getParentFile().mkdirs();
+            Files.copy(uploadedFile.getInputStream(), saveFile.toPath());
 
         } catch (IOException e) {
             throw new FileUploadException("アップロードファイルの取得に失敗したよ");
@@ -94,7 +96,7 @@ public class UploadFileService {
     }
 
     private void saveUploadFile(final InputStream uploadFileInputStream, final File saveFile)
-            throws FileUploadException {
+            throws IOException {
 
         if (saveFile.exists()) {
             messageService.addMessage(FacesMessage.SEVERITY_ERROR, "そのファイルはすでに存在するよ");
@@ -102,14 +104,7 @@ public class UploadFileService {
         }
 
         saveFile.getParentFile().mkdirs();
-
-        try {
-            Files.copy(uploadFileInputStream, saveFile.toPath());
-
-        } catch (IOException e) {
-            throw new FileUploadException("アップロードファイルの保存に失敗したよ");
-        }
-
+        Files.copy(uploadFileInputStream, saveFile.toPath());
         messageService.addMessage(FacesMessage.SEVERITY_INFO, "ファイルアップロードしたよ：" + saveFile.getName());
     }
 

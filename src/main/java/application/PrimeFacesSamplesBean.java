@@ -1,8 +1,11 @@
 package application;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.List;
 
-import javax.enterprise.inject.Model;
 import javax.faces.application.FacesMessage;
 import javax.inject.Inject;
 
@@ -10,15 +13,20 @@ import org.apache.commons.fileupload.FileUploadException;
 import org.primefaces.PrimeFaces;
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.file.UploadedFile;
+import org.primefaces.model.file.UploadedFileWrapper;
+import org.primefaces.model.file.UploadedFiles;
 
+import context.EnvContext;
 import domain.DialogMessage;
 import domain.DialogMessageService;
 import domain.UploadFileService;
+import domain.UploadedFileHolder;
+import inject.ViewModel;
 import lombok.Getter;
 import lombok.Setter;
 
-@Model
-public class PrimeFacesSamplesBean extends BaseBackingBean {
+@ViewModel
+public class PrimeFacesSamplesBean extends BaseBackingBean implements Serializable {
 
     @Inject
     private DialogMessageService dialogMessage;
@@ -32,7 +40,11 @@ public class PrimeFacesSamplesBean extends BaseBackingBean {
 
     @Getter
     @Setter
-    private UploadedFile uploadedFile;
+    private List<UploadedFileWrapper> uploadedFiles;
+
+    @Getter
+    @Setter
+    private UploadedFiles uploadedMultipleFiles;
 
     @Getter
     @Setter
@@ -56,21 +68,66 @@ public class PrimeFacesSamplesBean extends BaseBackingBean {
         throw new NullPointerException("意図的に例外を発生");
     }
 
-    public void uploadFile(final FileUploadEvent event) throws FileUploadException {
+    public void uploadFileByEvent(FileUploadEvent event) throws FileUploadException {
 
-        UploadedFile uploadedFile = event.getFile();
-        if (uploadedFile != null) {
-            uploadFileService.save(uploadedFile, "primefaces");
-            messageService().addMessage(FacesMessage.SEVERITY_INFO, "ファイルアップロードしたよ：" + uploadedFile.getFileName());
+        UploadedFile file = event.getFile();
+        if (file == null) {
+            return;
         }
+
+        uploadFileService.save(file, "primefaces");
+        messageService().addMessage(FacesMessage.SEVERITY_INFO,
+                "ファイルアップロードしたよ" + file.getFileName().toString());
     }
 
-    public void uploadFile() throws FileUploadException {
+    @Inject
+    EnvContext envContext;
 
-        if (uploadedFile != null) {
-            uploadFileService.save(uploadedFile, "primefaces");
-            messageService().addMessage(FacesMessage.SEVERITY_INFO, "ファイルアップロードしたよ：" + uploadedFile.getFileName());
+    private UploadedFileHolder holder;
+
+    public void addUploadFiles(FileUploadEvent event) throws FileUploadException, IOException {
+
+        File rootDir = envContext.getUploadFileDir();
+
+        if (holder == null) {
+            this.holder = new UploadedFileHolder(new File(rootDir, "parent") , new File(rootDir,"temp"));
         }
+
+        UploadedFile file = event.getFile();
+        if (file == null) {
+            return;
+        }
+        holder.put(file);
+    }
+
+    public String saveUploadFiles() throws FileUploadException, IOException {
+
+        if (holder.isEmpty()) {
+            messageService().addMessage(FacesMessage.SEVERITY_ERROR, "アップロードするファイルがないよ");
+            return null;
+        }
+        holder.move();
+        return null;
+    }
+
+    public String clearUploadFiles() throws FileUploadException, IOException {
+        holder.clear();
+        return null;
+    }
+
+    public void uploadMultipleFiles() throws FileUploadException {
+
+        if (uploadedMultipleFiles == null) {
+            messageService().addMessage(FacesMessage.SEVERITY_ERROR, "アップロードするファイルがないよ");
+            return;
+        }
+
+        for (UploadedFile file : uploadedMultipleFiles.getFiles()) {
+            logger().debug(file.getFileName());
+            uploadFileService.save(file, "primefaces");
+        }
+        messageService().addMessage(FacesMessage.SEVERITY_INFO,
+                "ファイルアップロードしたよ" + uploadedMultipleFiles.getFiles().toString());
     }
 
     public String showMessageDialog() {

@@ -37,20 +37,22 @@
                 </p:tab>
 
                 <p:tab title="ファイルアップロード">
-                    <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
-                        <p:commandButton value="OK" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
-                        <p:commandButton value="キャンセル" type="button" styleClass="ui-confirmdialog-no" icon="pi pi-times" />
-                    </p:confirmDialog>
-
                     <div>
-                        <p:fileUpload listener="#{primeFacesSamplesBean.uploadFile}" label="ファイルを選択" uploadLabel="アップロード" cancelLabel="キャンセル" sizeLimit="#{viewItems.fileUploadSizeLimit}"
+                        単一
+                        <p:fileUpload listener="#{primeFacesSamplesBean.uploadFileByEvent}" label="ファイルを選択" mode="simple" uploadLabel="アップロード" cancelLabel="キャンセル" sizeLimit="10"
                             fileLimit="#{viewItems.fileUploadFileLimit}" allowTypes="#{viewItems.fileUploadAllowTypes}" />
                     </div>
 
                     <div>
-                        <p:fileUpload value="#{primeFacesSamplesBean.uploadedFile}" label="ファイルを選択" mode="simple" skinSimple="true" required="true" />
-                        <br />
-                        <p:commandButton value="ファイルアップロード" ajax="false" action="#{primeFacesSamplesBean.uploadFile}" />
+                        複数（Advanced）
+                        <p:fileUpload listener="#{primeFacesSamplesBean.addUploadFiles}" label="ファイルを選択" uploadLabel="追加" cancelLabel="キャンセル" performVirusScan="true" multiple="true" dragDropSupport="true" />
+                        <p:commandButton value="保存" action="#{primeFacesSamplesBean.saveUploadFiles()}" ajax="false" />
+                        <p:commandButton value="クリア" action="#{primeFacesSamplesBean.clearUploadFiles()}" ajax="false" />
+
+                        複数（Simple）
+                        <p:fileUpload value="#{primeFacesSamplesBean.uploadedMultipleFiles}" mode="simple" skinSimple="true" label="ファイルを選択" uploadLabel="アップロード" cancelLabel="キャンセル" performVirusScan="true"
+                            multiple="true" dragDropSupport="true" sizeLimit="10" />
+                        <p:commandButton value="アップロード" action="#{primeFacesSamplesBean.uploadMultipleFiles()}" ajax="false" />
                     </div>
                 </p:tab>
 
