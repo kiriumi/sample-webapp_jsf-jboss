@@ -1,10 +1,11 @@
 package dto;
 
+import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-import inject.Dto;
-
-@Dto
+@Entity
+@Table
 public class Code {
 
     /**

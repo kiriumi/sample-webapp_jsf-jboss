@@ -1,10 +1,10 @@
 package dto;
 
+import javax.persistence.Entity;
 import javax.persistence.Id;
 
-import inject.Dto;
-
-@Dto
+@Entity
+//@Table
 public class Role {
 
     /**

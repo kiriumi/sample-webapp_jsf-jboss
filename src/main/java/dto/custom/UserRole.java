@@ -1,9 +1,7 @@
 package dto.custom;
 
-import inject.Dto;
 import lombok.Data;
 
-@Dto
 @Data
 public class UserRole {
 

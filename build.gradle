@@ -69,7 +69,8 @@ dependencies {
     implementation group: 'org.mybatis', name: 'mybatis', version: '3.4.6'
     implementation group: 'org.mybatis', name: 'mybatis-cdi', version: '1.1.1'
     implementation group: 'org.mybatis.generator', name: 'mybatis-generator-core', version: '1.4.0'
-    implementation group: 'org.eclipse.persistence', name: 'org.eclipse.persistence.jpa', version: '2.7.6'
+    //implementation group: 'org.eclipse.persistence', name: 'org.eclipse.persistence.jpa', version: '2.7.6'
+    providedCompile group: 'org.eclipse.persistence', name: 'eclipselink', version: '2.7.6'
     // implementation group: 'com.github.gwenn', name: 'sqlite-dialect', version: '0.1.0' // SQLiteでHibanateによるJPAをする際、必要
 
     // ユーティリティ

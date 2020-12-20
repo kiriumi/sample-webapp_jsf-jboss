@@ -6,17 +6,18 @@ import java.util.List;
 import javax.annotation.Generated;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Version;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import inject.Dto;
 import lombok.Getter;
 import lombok.Setter;
 
-@Dto
+@Entity
+//@Table
 @XmlRootElement
 public class User {
 
