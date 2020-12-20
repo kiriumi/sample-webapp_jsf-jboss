@@ -4,7 +4,6 @@ import java.util.Base64;
 
 import javax.enterprise.inject.Model;
 import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
@@ -14,11 +13,11 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
 
-import domain.MessageService;
 import dto.User;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import security.CustomPrincipal;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
+import security.custom.CustomPrincipal;
 
 /**
  * REST送信クラス
@@ -27,21 +26,26 @@ import security.CustomPrincipal;
  *
  */
 @Model
-@Data
-@EqualsAndHashCode(callSuper = false)
+@Slf4j
 public class RestClientBean extends BaseBackingBean {
 
-    private final UriBuilder baseRestUriBuilder = UriBuilder
-            .fromUri("http://localhost:8080/sample-webapp-jsf/webresources");
+    @Inject
+    CustomPrincipal principal;
 
+    @Getter
+    @Setter
     private String greetingMessage;
 
+    @Getter
+    @Setter
     private int responseStatus;
 
+    @Getter
+    @Setter
     private User user;
 
-    @Inject
-    private MessageService messageService;
+    private final UriBuilder baseRestUriBuilder = UriBuilder
+            .fromUri("http://localhost:8080/context/webresources");
 
     /**
      * GETメソッドであいさつ文を取得する
@@ -56,13 +60,14 @@ public class RestClientBean extends BaseBackingBean {
             // http://localhost:8080/sample-webapp-jsf/webresources/user-name/ほげ?age=17
             UriBuilder userNameUri = baseRestUriBuilder.path("user-name").path("ほげ").queryParam("age", 17);
 
+            log.debug(userNameUri.toString());
             String greetingMessage = client.target(userNameUri).request(MediaType.TEXT_PLAIN)
                     .header(HttpHeaders.AUTHORIZATION, getBasicAuthHttpHeaderValue()).get(String.class);
 
             setGreetingMessage(greetingMessage);
 
         } catch (Exception e) {
-            messageService.addMessage(FacesMessage.SEVERITY_ERROR, e.getMessage());
+            messageService().addMessage(FacesMessage.SEVERITY_ERROR, e.getMessage());
         }
 
         return null;
@@ -115,10 +120,7 @@ public class RestClientBean extends BaseBackingBean {
 
     private String getBasicAuthHttpHeaderValue() {
 
-        CustomPrincipal principal = (CustomPrincipal) FacesContext.getCurrentInstance().getExternalContext()
-                .getUserPrincipal();
-
-        String usernameAndPassword = String.join(":", principal.getEmailAddress(), principal.getPassword());
+        String usernameAndPassword = String.join(":", principal.getUser().getEmailaddress(), principal.getUser().getPassword());
         String credentials = Base64.getEncoder().encodeToString(usernameAndPassword.getBytes());
 
         return "Basic " + credentials;

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<web-app version="3.1"
+    xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
 
     <context-param>
@@ -102,37 +104,37 @@
         <error-code>500</error-code>
         <location>/error-server.xhtml</location>
     </error-page>
+<!--     <security-constraint> -->
+<!--         <web-resource-collection> -->
+<!--             <web-resource-name>Application Pages</web-resource-name> -->
+<!--             <url-pattern>/application/*</url-pattern> -->
+<!--             <http-method>GET</http-method> 記述していない場合、全てのHTTPメソッドが対象になる -->
+<!--         </web-resource-collection> -->
 
-    <security-constraint>
-        <web-resource-collection>
-            <web-resource-name>Application Pages</web-resource-name>
-            <url-pattern>/application/*</url-pattern>
-            <!-- <http-method>GET</http-method> 記述していない場合、全てのHTTPメソッドが対象になる -->
-        </web-resource-collection>
+<!--         <auth-constraint> -->
+<!--             <role-name>*</role-name> -->
+<!--         </auth-constraint> -->
 
-        <auth-constraint>
-            <role-name>*</role-name>
-        </auth-constraint>
+<!--         <user-data-constraint> -->
+<!--         <transport-guarantee>CONFIDENTIAL</transport-guarantee> -->
+<!--         </user-data-constraint> -->
+<!--     </security-constraint> -->
 
-        <!-- <user-data-constraint> -->
-        <!-- <transport-guarantee>CONFIDENTIAL</transport-guarantee> -->
-        <!-- </user-data-constraint> -->
-    </security-constraint>
 
     <!-- CustomFormAuthenticationMechanismDefinition で設定している場合、不要 -->
-    <login-config>
-        <auth-method>FORM</auth-method>
-        <form-login-config>
-            <form-login-page>/login.xhtml</form-login-page>
-            <form-error-page>/login.xhtml</form-error-page>
-        </form-login-config>
-    </login-config>
+<!--     <login-config> -->
+<!--         <auth-method>FORM</auth-method> -->
+<!--         <form-login-config> -->
+<!--             <form-login-page>/login.xhtml</form-login-page> -->
+<!--             <form-error-page>/login.xhtml</form-error-page> -->
+<!--         </form-login-config> -->
+<!--     </login-config> -->
 
-    <security-role>
-        <role-name>admin</role-name>
-    </security-role>
-    <security-role>
-        <role-name>user</role-name>
-    </security-role>
+<!--     <security-role> -->
+<!--         <role-name>admin</role-name> -->
+<!--     </security-role> -->
+<!--     <security-role> -->
+<!--         <role-name>user</role-name> -->
+<!--     </security-role> -->
 
 </web-app>

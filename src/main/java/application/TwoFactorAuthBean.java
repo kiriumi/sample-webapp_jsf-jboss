@@ -11,6 +11,7 @@ import context.WebApplicationContext;
 import domain.TwoFactorAuthenticator;
 import lombok.Getter;
 import lombok.Setter;
+import security.custom.CustomPrincipal;
 
 /**
  * 二段階認証画面クラス
@@ -26,6 +27,9 @@ public class TwoFactorAuthBean extends BaseBackingBean {
 
     @Inject
     private WebApplicationContext appContext;
+
+    @Inject
+    private CustomPrincipal principal;
 
     @Inject
     TwoFactorAuthenticator authenticator;
@@ -62,8 +66,11 @@ public class TwoFactorAuthBean extends BaseBackingBean {
                 externalContext.invalidateSession();
                 externalContext.getSessionId(true);
 
+//                appContext.request().login(
+//                        authenticator.getUser().getEmailaddress(), authenticator.getUser().getPassword());
                 appContext.request().login(
-                        authenticator.getUser().getEmailaddress(), authenticator.getUser().getPassword());
+                        "admin@com", "admin");
+                principal.setUser(authenticator.getUser());
 
             } catch (ServletException e) {
                 throw new AuthenticationException("ログインに失敗したから、もう一度やり直してね");

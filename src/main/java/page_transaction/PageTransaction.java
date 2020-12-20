@@ -34,9 +34,9 @@ public class PageTransaction implements Serializable {
         String requestServletPath = externalContext.getRequestServletPath();
         String requestPage;
 
-        if (requestServletPath.contains(appContext.getBaseApplicationPagePath())) {
+        if (requestServletPath.contains(appContext.getRootApplicationPagePath())) {
             requestPage = StringUtils.substringBetween(
-                    requestServletPath, appContext.getBaseApplicationPagePath(), "."); // アプリケーションパスと拡張子を除去
+                    requestServletPath, appContext.getRootApplicationPagePath(), "."); // アプリケーションパスと拡張子を除去
         } else {
             requestPage = StringUtils.substringBetween(requestServletPath, "/", "."); // 拡張子を除去
         }

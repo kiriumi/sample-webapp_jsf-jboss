@@ -15,6 +15,10 @@ public abstract class BaseLogger {
 
     private final String logMessagePropBaseName = "LogMessages";
 
+    public void debug(final String message) {
+        log.debug(message);
+    }
+
     public void debug(final String key, final Object... params) {
         log.debug(getLogMessage(key), params);
     }

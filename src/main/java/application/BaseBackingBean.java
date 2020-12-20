@@ -1,7 +1,6 @@
 package application;
 
 import javax.faces.context.ExternalContext;
-import javax.faces.context.FacesContext;
 import javax.faces.context.Flash;
 import javax.inject.Inject;
 
@@ -19,9 +18,6 @@ import log.ApplicationLogger;
 @ActionLogging
 //@AvailableTime
 public abstract class BaseBackingBean {
-
-    @Inject
-    private FacesContext facesContext;
 
     @Inject
     private ExternalContext externalContext;

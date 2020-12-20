@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jboss-web>
 
-    <security-domain>sample-jdbc-realm</security-domain>
+    <!-- <security-domain>sample-jdbc-realm</security-domain> -->
 
     <!-- JBoss内にデフォルトである開発用のセキュリティ・ドメイン -->
     <!-- <security-domain>jaspitest</security-domain> -->

@@ -1,9 +1,7 @@
 package security;
 
 import java.io.File;
-import java.io.IOException;
 import java.io.InputStream;
-import java.nio.file.Files;
 import java.util.UUID;
 
 import javax.inject.Inject;
@@ -28,22 +26,23 @@ public class CustomVirusScanner implements VirusScanner {
 
         int exitValue = 0;
 
-        try {
+//        try {
             // ウィルススキャン用ディレクトリにファイルを作成
             UUID uuid = UUID.randomUUID();
             String filename = uuid.toString() + ".upload";
             File uploadedFile = new File("C:/Users/kengo/git/sample-webapp_jsf-jboss/file/upload", filename);
-            Files.copy(inputStream, uploadedFile.toPath());
+//            Files.copy(inputStream, uploadedFile.toPath());
 
             // ウィルススキャンを実施
             String[] commands = { "cmd", "/c", "notepad.exe" }; // 本来はウィルススキャンソフトを指定
             Runtime runtime = Runtime.getRuntime();
-            Process proc = runtime.exec(commands);
-            exitValue = proc.exitValue();
+            //            Process proc = runtime.exec(commands);
+            //            exitValue = proc.exitValue();
+            exitValue = 0;
 
-        } catch (IOException e) {
-            throw new RuntimeException();
-        }
+//        } catch (IOException e) {
+//            throw new RuntimeException();
+//        }
 
         if (exitValue == 1) {
             throw new VirusException();

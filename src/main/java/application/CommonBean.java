@@ -3,8 +3,6 @@ package application;
 import java.util.ArrayList;
 import java.util.HashSet;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
 import javax.enterprise.inject.Model;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.ExternalContext;
@@ -19,6 +17,7 @@ import mode.TestMode;
 import mode.TraceMode;
 import security.AviableTimeValidator;
 import security.RoleAuthorizator;
+import security.custom.CustomPrincipal;
 
 /**
  * 共通処理クラス
@@ -37,6 +36,9 @@ public class CommonBean {
     WebApplicationContext appContext;
 
     @Inject
+    CustomPrincipal principal;
+
+    @Inject
     private MessageService messageService;
 
     @Inject
@@ -50,16 +52,6 @@ public class CommonBean {
 
     @Inject
     private TraceMode traceMode;
-
-    @PostConstruct
-    public void postConstruct() {
-        log.debug("");
-    }
-
-    @PreDestroy
-    public void preDestroy() {
-        log.debug("");
-    }
 
     public void preRender() {
 
@@ -88,6 +80,7 @@ public class CommonBean {
             throw new AuthenticationException("ログアウトに失敗したよ", e);
         }
 
+        principal.setLogined(false);
         externalContext.invalidateSession();
     }
 

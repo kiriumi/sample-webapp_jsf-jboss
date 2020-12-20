@@ -21,7 +21,7 @@ import org.apache.commons.lang3.StringUtils;
 import domain.UserService;
 import dto.User;
 import lombok.extern.slf4j.Slf4j;
-import security.CustomPrincipal;
+import security.custom.CustomPrincipal;
 
 @Provider
 @PreMatching
@@ -74,7 +74,7 @@ public class WebResourceSecurityFilter implements ContainerRequestFilter {
 
             @Override
             public Principal getUserPrincipal() {
-                return new CustomPrincipal(user, roles);
+                return new CustomPrincipal();
             }
 
             @Override

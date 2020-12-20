@@ -13,7 +13,7 @@ body .ui-fileupload .ui-fileupload-buttonbar {
 }
 
 body .ui-fileupload .ui-fileupload-buttonbar .ui-fileupload-upload {
-    display: none;
+    /* display: none; */
 }
 
 body .ui-fileupload .ui-fileupload-buttonbar .ui-fileupload-cancel {

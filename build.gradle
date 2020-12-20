@@ -159,3 +159,26 @@ test.finalizedBy jacocoTestReport
 
 // 自動テストタスク：clean flywayMigrate cargoStartLocal check cargoStopLocal
 
+sourceSets {
+    main {
+        java {
+            // sourceSets.main.java.srcDirsプロパティに設定を追加
+            // = Javaソースの配置先を設定
+            srcDir 'src/common/java'
+        }
+    }
+}
+
+
+
+eclipse.wtp.component {
+    resource sourcePath: 'src/common/webapp', deployPath: '/'
+}
+
+
+
+
+war {
+    from 'src/common/webapp' // adds a file-set to the root of the archive
+}
+

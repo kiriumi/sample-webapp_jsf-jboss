@@ -25,6 +25,7 @@
 
     <lifecycle>
         <phase-listener>listener.InvokeApplicationLisener</phase-listener>
+        <phase-listener>listener.LoginCheckLisener</phase-listener>
         <phase-listener>listener.BrowserCacheInvalidationListener</phase-listener>
     </lifecycle>
 

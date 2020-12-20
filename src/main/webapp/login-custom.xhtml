@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="template/template-noheader.xhtml">
+
+    <ui:define name="title">カスタムログイン</ui:define>
+
+    <ui:define name="content">
+        <h:form prependId="false">
+
+            <div class="row">
+                <div class="col form-group">
+                    <p:outputLabel for="emailAddress" value="Emailアドレス" />
+                    <p:inputText class="form-control mb-2" id="emailAddress" value="#{loginCustomBean.emailAddress}" type="email" placeholder="user@hoge" required="true" />
+                    <p:message for="emailAddress" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col form-group">
+                    <p:outputLabel for="password" value="パスワード" />
+                    <p:password class="form-control mb-2" id="password" value="#{loginCustomBean.password}" placeholder="半角英数字（4～8桁）" />
+                    <p:message for="password" />
+                </div>
+            </div>
+
+            <div class="row justify-content-end">
+                <div class="col-auto btn-group">
+                    <h:commandButton class="btn btn-primary" value="ログイン" action="#{loginCustomBean.login()}" />
+                </div>
+            </div>
+
+
+        </h:form>
+    </ui:define>
+
+    <h:outputStylesheet library="css" name="floating-labels.css" />
+
+</ui:composition>
+</html>
