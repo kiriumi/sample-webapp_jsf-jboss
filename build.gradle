@@ -64,6 +64,7 @@ dependencies {
     implementation group: 'org.slf4j', name: 'jul-to-slf4j', version: '1.7.30'
     implementation group: 'org.apache.logging.log4j', name: 'log4j-slf4j-impl', version: '2.13.1'
     implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.13.1'
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-web', version: '2.13.1'
 
     // DBアクセス
     implementation group: 'org.mybatis', name: 'mybatis', version: '3.4.6'
@@ -170,16 +171,11 @@ sourceSets {
     }
 }
 
-
-
+// src/main/webapp以外のWebリソースをEclipseを使用してサーバにデプロイするための設定
 eclipse.wtp.component {
     resource sourcePath: 'src/common/webapp', deployPath: '/'
 }
 
-
-
-
 war {
     from 'src/common/webapp' // adds a file-set to the root of the archive
 }
-
