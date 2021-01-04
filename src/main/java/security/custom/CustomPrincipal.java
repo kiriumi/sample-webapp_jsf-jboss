@@ -1,6 +1,7 @@
 package security.custom;
 
 import java.io.Serializable;
+import java.security.Principal;
 
 import javax.enterprise.context.SessionScoped;
 import javax.faces.context.ExternalContext;
@@ -14,7 +15,7 @@ import lombok.Setter;
 
 @Named // これがないと認証時に設定した情報が、リスナーで取得できない
 @SessionScoped
-public class CustomPrincipal implements Serializable {
+public class CustomPrincipal implements Principal, Serializable {
 
     private static final String SESSION_KEY_LOGINED = "logined";
 
@@ -49,6 +50,11 @@ public class CustomPrincipal implements Serializable {
         }
 
         return true;
+    }
+
+    @Override
+    public String getName() {
+        return user.getLastName();
     }
 
 }
