@@ -6,15 +6,15 @@ public class InvalidTokenException extends RuntimeException {
         super();
     }
 
-    public InvalidTokenException(String message) {
+    public InvalidTokenException(final String message) {
         super(message);
     }
 
-    public InvalidTokenException(String message, Throwable cause) {
+    public InvalidTokenException(final String message, final Throwable cause) {
         super(message, cause);
     }
 
-    public InvalidTokenException(Throwable cause) {
+    public InvalidTokenException(final Throwable cause) {
         super(cause);
     }
 

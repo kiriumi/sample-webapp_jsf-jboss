@@ -61,7 +61,7 @@ public class TokenCheckListener implements PhaseListener {
             if (tokenInSession != null && !tokenInSession.equals(tokenInRequest)) {
                 // トークンチェック不正の場合
                 session.remove(TokenUtils.KEY_TOKEN);
-                throw new RuntimeException("トークンチェック不正");
+                throw new InvalidTokenException();
             }
 
         } else {
@@ -78,7 +78,7 @@ public class TokenCheckListener implements PhaseListener {
 
             if (tokenInSession == null || !tokenInSession.equals(tokenInRequest)) {
                 childTokenMap.remove(namespace);
-                throw new RuntimeException("トークンチェック不正");
+                throw new InvalidTokenException("トークンチェック不正");
             }
         }
 
