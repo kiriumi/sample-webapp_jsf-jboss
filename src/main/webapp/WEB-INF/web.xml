@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app version="3.1"
-    xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+      http://java.sun.com/xml/ns/javaee
+      http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 
     <context-param>
         <param-name>javax.faces.PROJECT_STAGE</param-name>
@@ -59,16 +59,14 @@
     </servlet-mapping>
 
     <session-config>
-        <session-timeout>10</session-timeout>
 
+        <session-timeout>10</session-timeout>
         <cookie-config>
-            <!-- HTTPSが必要なのは外部～Webサーバまでで、そこから先（APサーバ）はHTTPで良いため -->
             <http-only>true</http-only>
         </cookie-config>
 
         <!-- 初回アクセス時に、URLにセッションIDが表示されるのを防ぐため -->
         <tracking-mode>COOKIE</tracking-mode>
-
     </session-config>
 
     <!-- URLにディレクトリ名のみ指定（ファイル名を指定しない）があったら、このページを表示する -->
@@ -77,21 +75,18 @@
     </welcome-file-list>
 
     <!-- JSFのログをSLF4Jで出力するため -->
-    <listener>
-        <listener-class>log.FacesLogBridgeListener</listener-class>
-    </listener>
+    <!-- <listener> -->
+    <!-- <listener-class>log.FacesLogBridgeListener</listener-class> -->
+    <!-- </listener> -->
 
-    <!-- <error-page> -->
-    <!-- <exception-type>javax.faces.application.ProtectedViewException</exception-type> -->
-    <!-- <location>/error.xhtml</location> -->
-    <!-- </error-page> -->
-    <!-- <error-page> -->
-    <!-- <exception-type>javax.faces.application.ViewExpiredException</exception-type> -->
-    <!-- <location>/error-session.xhtml</location> -->
-    <!-- </error-page> -->
+
+    <error-page>
+        <exception-type>javax.faces.application.ViewExpiredException</exception-type>
+        <location>/error-session.xhtml</location>
+    </error-page>
     <error-page>
         <error-code>400</error-code>
-        <location>/lerror-badrequest.xhtml</location>
+        <location>/error-badrequest.xhtml</location>
     </error-page>
     <error-page>
         <error-code>401</error-code>
@@ -109,37 +104,21 @@
         <error-code>500</error-code>
         <location>/error-server.xhtml</location>
     </error-page>
-<!--     <security-constraint> -->
-<!--         <web-resource-collection> -->
-<!--             <web-resource-name>Application Pages</web-resource-name> -->
-<!--             <url-pattern>/application/*</url-pattern> -->
-<!--             <http-method>GET</http-method> 記述していない場合、全てのHTTPメソッドが対象になる -->
-<!--         </web-resource-collection> -->
 
-<!--         <auth-constraint> -->
-<!--             <role-name>*</role-name> -->
-<!--         </auth-constraint> -->
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Application Pages</web-resource-name>
+            <url-pattern>/application/*</url-pattern>
+            <!-- <http-method>GET</http-method> 記述していない場合、全てのHTTPメソッドが対象になる -->
+        </web-resource-collection>
+    </security-constraint>
 
-<!--         <user-data-constraint> -->
-<!--         <transport-guarantee>CONFIDENTIAL</transport-guarantee> -->
-<!--         </user-data-constraint> -->
-<!--     </security-constraint> -->
-
-
-    <!-- CustomFormAuthenticationMechanismDefinition で設定している場合、不要 -->
-<!--     <login-config> -->
-<!--         <auth-method>FORM</auth-method> -->
-<!--         <form-login-config> -->
-<!--             <form-login-page>/login.xhtml</form-login-page> -->
-<!--             <form-error-page>/login.xhtml</form-error-page> -->
-<!--         </form-login-config> -->
-<!--     </login-config> -->
-
-<!--     <security-role> -->
-<!--         <role-name>admin</role-name> -->
-<!--     </security-role> -->
-<!--     <security-role> -->
-<!--         <role-name>user</role-name> -->
-<!--     </security-role> -->
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <form-login-config>
+            <form-login-page>/login.xhtml</form-login-page>
+            <form-error-page>/login.xhtml</form-error-page>
+        </form-login-config>
+    </login-config>
 
 </web-app>

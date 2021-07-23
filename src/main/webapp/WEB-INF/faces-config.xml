@@ -26,18 +26,13 @@
     <lifecycle>
         <phase-listener>listener.InvokeApplicationLisener</phase-listener>
         <phase-listener>listener.LoginCheckLisener</phase-listener>
+        <phase-listener>token.TokenCheckListener</phase-listener>
+        <phase-listener>token.TokenUpdateListener</phase-listener>
         <phase-listener>listener.BrowserCacheInvalidationListener</phase-listener>
     </lifecycle>
 
     <factory>
         <exception-handler-factory>exception.CustomExceptionHandlerFactory</exception-handler-factory>
     </factory>
-
-
-    <!-- GETに対するトークンチェック対象のページ（正規表現やワイルドカードは使えない） -->
-    <!-- <protected-views> -->
-    <!-- <url-pattern>/parent-window2.xhtml</url-pattern> -->
-    <!-- <url-pattern>/parent-window3.xhtml</url-pattern> -->
-    <!-- </protected-views> -->
 
 </faces-config>

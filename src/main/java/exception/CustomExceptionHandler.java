@@ -2,6 +2,7 @@ package exception;
 
 import java.io.IOException;
 import java.util.Iterator;
+import java.util.ResourceBundle;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.ExceptionHandler;
@@ -47,9 +48,9 @@ public class CustomExceptionHandler extends ExceptionHandlerWrapper {
 
             try {
                 // エラー画面に遷移
+                ResourceBundle prop = ResourceBundle.getBundle("ApplicationConfig");
                 String contextPath = facesContext.getExternalContext().getRequestContextPath();
-
-                facesContext.getExternalContext().redirect(contextPath + "/error-system.xhtml");
+                facesContext.getExternalContext().redirect(contextPath + prop.getString("error.page"));
 
             } catch (IOException e) {
                 log.error(e.getMessage());

@@ -1,19 +1,8 @@
-function openChildWindow(pageName) {
-    var parentTokenElem = document.getElementById("parent-token");
-    var childWindow = window.open(pageName + ".xhtml?token=" + parentTokenElem.value);
+function openChildWindow(url, windowName, windowFeature) {
+
+    var namespace = Math.random().toString(32).substring(2);
+    var childWindow =  window.open(url +  '?childTokenNamespace=' + namespace ,windowName , windowFeature);
     childWindow.focus();
-}
 
-function closeWindow() {
-
-    var parentTokenElem = document.getElementById("parent-token");
-    var url = window.opener.location.href;
-
-    // リクエストパラメータの付与
-    url = url.indexOf('?') == -1 ? url : url.substring(0, url.indexOf('?')); // もともと付いているパラメータは削除する
-    url += '?token=' + parentTokenElem.value
-
-    window.opener.location.href = url;
-    window.close();
-    window.opener.focus(); // Chromeはフォーカスされない
+    return childWindow;
 }

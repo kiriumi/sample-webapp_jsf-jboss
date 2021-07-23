@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="template/template-simple.xhtml">
+
+    <ui:define name="title">親画面２</ui:define>
+
+    <f:metadata>
+        <f:viewAction action="#{index2.viewAction()}" />
+    </f:metadata>
+
+    <ui:define name="content">
+
+        <h:form prependId="false">
+
+            <p:inputText id="name" value="#{index2.name}" />
+            <p:commandButton ajax="falssessione" action="#{index2.method()}" value="処理" />
+            <p:commandButton ajax="false" action="#{index2.go()}" value="インデックス３へ" />
+            <p:commandButton ajax="false" action="#{index2.openChild()}" value="子画面へ" onclick="openChildWindow('index-child.xhtml', '_blank', 'resizable')" />
+
+        </h:form>
+
+        <script type="text/javascript">
+
+                                </script>
+
+    </ui:define>
+
+</ui:composition>
+</html>
