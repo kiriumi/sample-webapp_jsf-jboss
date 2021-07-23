@@ -16,8 +16,6 @@ import org.apache.commons.codec.digest.DigestUtils;
 
 public class TokenUpdateListener implements PhaseListener {
 
-    private static int count;
-
     @Inject
     private Token token;
 
