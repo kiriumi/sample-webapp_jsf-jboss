@@ -40,7 +40,7 @@ public class TokenUpdateListener implements PhaseListener {
         if (TokenUtils.isParent()) {
             // 親画面の場合
             String updatedToken = generateToken();
-            session.put("token", updatedToken); // セッションにトークンを設定
+            session.put(TokenUtils.KEY_TOKEN, updatedToken); // セッションにトークンを設定
             token.setToken(updatedToken); // 画面にトークンを設定
 
         } else {
