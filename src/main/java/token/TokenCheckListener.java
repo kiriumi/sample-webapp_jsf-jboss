@@ -12,8 +12,6 @@ import javax.faces.event.PhaseEvent;
 import javax.faces.event.PhaseId;
 import javax.faces.event.PhaseListener;
 
-import org.apache.commons.lang3.StringUtils;
-
 public class TokenCheckListener implements PhaseListener {
 
     @Override
@@ -72,13 +70,15 @@ public class TokenCheckListener implements PhaseListener {
             String namespace = extCtx.getRequestParameterMap().get(TokenUtils.KEY_CHILD_TOKEN_NAMESPACE);
             String tokenInRequest = extCtx.getRequestParameterMap().get(TokenUtils.KEY_CHILD_TOKEN);
 
-            if (StringUtils.isBlank(namespace)) {
-                // 正規ルート（openChildWindow）から子画面を開いていないため
-                throw new InvalidTokenException("トークンチェック不正");
-            }
-
             if (tokenInRequest == null) {
-                return; // トークンがない場合、初回アクセスのため何もしない
+                // 子画面を新規で開いた場合、親画面のトークンでチェック
+                String parentTokenInSession = (String) session.get(TokenUtils.KEY_TOKEN);
+                String parentTokenInRequest = extCtx.getRequestParameterMap().get(TokenUtils.KEY_TOKEN);
+
+                if (!parentTokenInSession.equals(parentTokenInRequest)) {
+                    throw new InvalidTokenException("トークンチェック不正");
+                }
+                return;
             }
 
             String tokenInSession = childTokenMap.get(namespace);
@@ -88,7 +88,6 @@ public class TokenCheckListener implements PhaseListener {
                 throw new InvalidTokenException("トークンチェック不正");
             }
         }
-
     }
 
     @Override
