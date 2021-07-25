@@ -5,8 +5,6 @@ import javax.faces.context.ExternalContext;
 import javax.inject.Inject;
 import javax.security.enterprise.AuthenticationException;
 
-import page_transaction.PageTransactionBegin;
-
 @Model
 public class MenuBean extends BaseBackingBean {
 
@@ -16,7 +14,6 @@ public class MenuBean extends BaseBackingBean {
     @Inject
     private CommonBean commonBean;
 
-    @PageTransactionBegin("signup")
     public String goSignupPage() {
         return redirect("signup");
     }

@@ -11,6 +11,7 @@ import javax.security.enterprise.AuthenticationStatus;
 import javax.security.enterprise.SecurityContext;
 import javax.security.enterprise.authentication.mechanism.http.AuthenticationParameters;
 import javax.security.enterprise.credential.UsernamePasswordCredential;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.constraints.Email;
@@ -134,9 +135,13 @@ public class LoginBean extends BaseBackingBean {
                         .credential(new UsernamePasswordCredential(emailAddress, password)));
     }
 
-    public String login() {
+    public String login() throws ServletException {
+
+        System.out.println(appContext.getUserPrincipal());
 
         if (authenticator.firstAuth(emailAddress, password)) {
+            appContext.request().login(emailAddress, password);
+            System.out.println(appContext.getUserPrincipal().getName());
             return appContext.redirect("two-factor-auth");
         }
 
@@ -146,6 +151,7 @@ public class LoginBean extends BaseBackingBean {
     }
 
     public String goSignup() {
+        flash().put("hoge", "ほげ");
         return appContext.redirect("signup");
     }
 
