@@ -27,9 +27,9 @@ public class TokenUpdateListener implements PhaseListener {
 
         FacesContext facesCtx = FacesContext.getCurrentInstance();
         ExternalContext extCtx = facesCtx.getExternalContext();
-        ResourceBundle prop = ResourceBundle.getBundle("ApplicationConfig");
+        ResourceBundle bundle = ResourceBundle.getBundle("ApplicationConfig");
 
-        if (facesCtx.isPostback() || extCtx.getRequestServletPath().endsWith(prop.getString("error.page"))) {
+        if (facesCtx.isPostback() || extCtx.getRequestServletPath().endsWith(bundle.getString("error.page"))) {
             // 初期表示処理以外またはエラー画面の場合、何もしない
             return;
         }

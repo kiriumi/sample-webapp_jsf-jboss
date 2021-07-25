@@ -43,9 +43,9 @@ public class CustomExceptionHandler extends ExceptionHandlerWrapper {
 
             try {
                 // エラー画面に遷移
-                ResourceBundle prop = ResourceBundle.getBundle("ApplicationConfig");
+                ResourceBundle bundle = ResourceBundle.getBundle("ApplicationConfig");
                 String contextPath = facesContext.getExternalContext().getRequestContextPath();
-                facesContext.getExternalContext().redirect(contextPath + prop.getString("error.page"));
+                facesContext.getExternalContext().redirect(contextPath + bundle.getString("error.page"));
 
             } catch (IOException e) {
                 log.error(e.getMessage());
