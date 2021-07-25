@@ -6,6 +6,7 @@ import java.io.InputStream;
 import java.nio.file.Files;
 import java.util.Arrays;
 import java.util.List;
+import java.util.ResourceBundle;
 
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
@@ -16,13 +17,8 @@ import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.io.FilenameUtils;
 import org.primefaces.model.file.UploadedFile;
 
-import context.EnvContext;
-
 @RequestScoped
 public class UploadFileService {
-
-    @Inject
-    private EnvContext envContext;
 
     @Inject
     private MessageService messageService;
@@ -46,7 +42,8 @@ public class UploadFileService {
             return;
         }
 
-        File saveDir = new File(envContext.getUploadFileDir(), dirname);
+        String strUploadfileDir = ResourceBundle.getBundle("env").getString("dir.uploadfile");
+        File saveDir = new File(strUploadfileDir, dirname);
         File saveFile = new File(saveDir, uploadedFile.getSubmittedFileName());
 
         try {
@@ -82,7 +79,9 @@ public class UploadFileService {
 
     public void save(final UploadedFile uploadedFile, final String dirname) throws FileUploadException {
 
-        File saveDir = new File(envContext.getUploadFileDir(), dirname);
+        String strUploadfileDir = ResourceBundle.getBundle("env").getString("dir.uploadfile");
+
+        File saveDir = new File(strUploadfileDir, dirname);
         File saveFile = new File(saveDir, uploadedFile.getFileName());
 
         try {
