@@ -12,6 +12,8 @@ import javax.faces.event.PhaseEvent;
 import javax.faces.event.PhaseId;
 import javax.faces.event.PhaseListener;
 
+import org.apache.commons.lang3.StringUtils;
+
 public class TokenCheckListener implements PhaseListener {
 
     @Override
@@ -58,7 +60,7 @@ public class TokenCheckListener implements PhaseListener {
             String tokenInSession = (String) session.get(TokenUtils.KEY_TOKEN);
             String tokenInRequest = extCtx.getRequestParameterMap().get(TokenUtils.KEY_TOKEN);
 
-            if (tokenInSession != null && !tokenInSession.equals(tokenInRequest)) {
+            if (tokenInSession == null || !tokenInSession.equals(tokenInRequest)) {
                 // トークンチェック不正の場合
                 session.remove(TokenUtils.KEY_TOKEN);
                 throw new InvalidTokenException();
@@ -69,6 +71,11 @@ public class TokenCheckListener implements PhaseListener {
             // 子画面の場合
             String namespace = extCtx.getRequestParameterMap().get(TokenUtils.KEY_CHILD_TOKEN_NAMESPACE);
             String tokenInRequest = extCtx.getRequestParameterMap().get(TokenUtils.KEY_CHILD_TOKEN);
+
+            if (StringUtils.isBlank(namespace)) {
+                // 正規ルート（openChildWindow）から子画面を開いていないため
+                throw new InvalidTokenException("トークンチェック不正");
+            }
 
             if (tokenInRequest == null) {
                 return; // トークンがない場合、初回アクセスのため何もしない
