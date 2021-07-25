@@ -10,16 +10,11 @@ import javax.faces.context.ExceptionHandlerWrapper;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ExceptionQueuedEvent;
 import javax.faces.event.ExceptionQueuedEventContext;
-import javax.inject.Inject;
 
-import domain.TwoFactorAuthenticator;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class CustomExceptionHandler extends ExceptionHandlerWrapper {
-
-    @Inject
-    TwoFactorAuthenticator authenticator;
 
     private final ExceptionHandler wrapped;
 
@@ -32,7 +27,7 @@ public class CustomExceptionHandler extends ExceptionHandlerWrapper {
     public void handle() {
 
         for (Iterator<ExceptionQueuedEvent> queuedEvent = getUnhandledExceptionQueuedEvents().iterator(); queuedEvent
-                .hasNext() == true;) {
+                .hasNext();) {
 
             ExceptionQueuedEventContext eventContext = queuedEvent.next().getContext();
             Throwable throwable = getRootCause(eventContext.getException()).getCause(); // アプリケーション例外を取得
