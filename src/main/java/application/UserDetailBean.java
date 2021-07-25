@@ -5,17 +5,19 @@ import java.io.Serializable;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.faces.application.FacesMessage;
+import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.transaction.Transactional;
 
 import domain.UserSearchCondition;
 import domain.UserService;
 import dto.User;
-import inject.ViewModel;
 import lombok.Getter;
 import lombok.Setter;
 
-@ViewModel
+@Named
+@ViewScoped
 public class UserDetailBean extends BaseBackingBean implements Serializable {
 
     @Inject

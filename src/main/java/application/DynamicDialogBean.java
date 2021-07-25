@@ -9,10 +9,8 @@ import org.primefaces.PrimeFaces;
 
 import lombok.Getter;
 import lombok.Setter;
-import token.TokenCheck;
 
 @Model
-@TokenCheck
 public class DynamicDialogBean implements Serializable {
 
     @Getter

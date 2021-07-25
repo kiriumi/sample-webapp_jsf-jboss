@@ -5,14 +5,16 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
+import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import domain.DialogMessage;
 import domain.DialogMessageService;
-import inject.ViewModel;
 import lombok.Getter;
 
-@ViewModel
+@Named
+@ViewScoped
 public class DialogMessageBean implements Serializable {
 
     @Inject

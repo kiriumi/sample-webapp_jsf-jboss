@@ -7,7 +7,9 @@ import java.util.Map;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.faces.application.FacesMessage;
+import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.transaction.Transactional;
 
 import org.primefaces.model.FilterMeta;
@@ -17,11 +19,11 @@ import org.primefaces.model.SortOrder;
 import domain.UserSearchCondition;
 import domain.UserService;
 import dto.User;
-import inject.ViewModel;
 import lombok.Getter;
 import lombok.Setter;
 
-@ViewModel // DataTableは、同一画面内で情報共有するため、ViewScoped（しないとプロパティが取れない・アクションが起動しない）
+@Named
+@ViewScoped // DataTableは、同一画面内で情報共有するため、ViewScoped（しないとプロパティが取れない・アクションが起動しない）
 public class UserManagerBean extends BaseBackingBean implements Serializable {
 
     @Inject
@@ -140,7 +142,8 @@ public class UserManagerBean extends BaseBackingBean implements Serializable {
         this.searchedLazyUsers = new LazyDataModel<User>() {
             @Override
             public List<User> load(
-                    int first, int pageSize, String sortField, SortOrder sortOrder, Map<String, FilterMeta> filterBy) {
+                    final int first, final int pageSize, final String sortField, final SortOrder sortOrder,
+                    final Map<String, FilterMeta> filterBy) {
                 List<User> users = userService.searchWithLazy(first, pageSize, sortField, sortOrder, filterBy);
                 return users;
             }

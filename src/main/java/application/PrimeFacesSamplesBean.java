@@ -7,7 +7,9 @@ import java.time.LocalDate;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
+import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import org.apache.commons.fileupload.FileUploadException;
 import org.primefaces.PrimeFaces;
@@ -21,11 +23,11 @@ import domain.DialogMessage;
 import domain.DialogMessageService;
 import domain.UploadFileService;
 import domain.UploadedFileHolder;
-import inject.ViewModel;
 import lombok.Getter;
 import lombok.Setter;
 
-@ViewModel
+@Named
+@ViewScoped
 public class PrimeFacesSamplesBean extends BaseBackingBean implements Serializable {
 
     @Inject
@@ -68,7 +70,7 @@ public class PrimeFacesSamplesBean extends BaseBackingBean implements Serializab
         throw new NullPointerException("意図的に例外を発生");
     }
 
-    public void uploadFileByEvent(FileUploadEvent event) throws FileUploadException {
+    public void uploadFileByEvent(final FileUploadEvent event) throws FileUploadException {
 
         UploadedFile file = event.getFile();
         if (file == null) {
@@ -85,12 +87,12 @@ public class PrimeFacesSamplesBean extends BaseBackingBean implements Serializab
 
     private UploadedFileHolder holder;
 
-    public void addUploadFiles(FileUploadEvent event) throws FileUploadException, IOException {
+    public void addUploadFiles(final FileUploadEvent event) throws FileUploadException, IOException {
 
         File rootDir = envContext.getUploadFileDir();
 
         if (holder == null) {
-            this.holder = new UploadedFileHolder(new File(rootDir, "parent") , new File(rootDir,"temp"));
+            this.holder = new UploadedFileHolder(new File(rootDir, "parent"), new File(rootDir, "temp"));
         }
 
         UploadedFile file = event.getFile();
