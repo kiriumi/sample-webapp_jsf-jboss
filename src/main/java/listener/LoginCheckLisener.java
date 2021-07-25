@@ -32,11 +32,11 @@ public class LoginCheckLisener implements PhaseListener {
     private static final String securedPageContextPath = "/%s/";
 
     @Override
-    public void afterPhase(PhaseEvent event) {
+    public void afterPhase(final PhaseEvent event) {
     }
 
     @Override
-    public void beforePhase(PhaseEvent event) {
+    public void beforePhase(final PhaseEvent event) {
 
         ResourceBundle properties = ResourceBundle.getBundle("env");
         List<String> scuredPageContexts = Arrays.asList(properties.getString("secured.page.contexts").split(","));
@@ -60,7 +60,7 @@ public class LoginCheckLisener implements PhaseListener {
 
     }
 
-    private boolean isSecuredPage(List<String> scuredPageContexts) {
+    private boolean isSecuredPage(final List<String> scuredPageContexts) {
 
         for (String scuredPageContext : scuredPageContexts) {
             if (externalContext.getRequestServletPath()
