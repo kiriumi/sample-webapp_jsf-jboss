@@ -3,6 +3,7 @@ package application;
 import java.io.File;
 import java.io.IOException;
 import java.security.Principal;
+import java.util.ResourceBundle;
 
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
@@ -12,7 +13,6 @@ import javax.servlet.http.Part;
 import org.apache.commons.fileupload.FileUploadException;
 import org.primefaces.model.StreamedContent;
 
-import context.EnvContext;
 import domain.FileDownloader;
 import domain.UploadFileService;
 import lombok.Getter;
@@ -29,9 +29,6 @@ public class TopBean extends BaseBackingBean {
 
     @Inject
     SecurityContext securityContext;
-
-    @Inject
-    EnvContext envContext;
 
     @Getter
     @Setter
@@ -85,7 +82,8 @@ public class TopBean extends BaseBackingBean {
 
     public void makeDownloadFile() throws IOException {
 
-        File newFile = new File(envContext.getMiscDir(), "sample.txt");
+        String strDownloadfileDir = ResourceBundle.getBundle("env").getString("dir.downloadfile");
+        File newFile = new File(strDownloadfileDir, "sample.txt");
 
         try {
             newFile.createNewFile();

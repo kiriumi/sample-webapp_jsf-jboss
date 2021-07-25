@@ -4,7 +4,6 @@ import javax.faces.context.ExternalContext;
 import javax.faces.context.Flash;
 import javax.inject.Inject;
 
-import context.EnvContext;
 import context.WebApplicationContext;
 import domain.MessageService;
 import log.ActionLogging;
@@ -23,9 +22,6 @@ public abstract class BaseBackingBean {
     private ExternalContext externalContext;
 
     @Inject
-    private EnvContext envContext;
-
-    @Inject
     private WebApplicationContext appContext;
 
     @Inject
@@ -36,10 +32,6 @@ public abstract class BaseBackingBean {
 
     protected Flash flash() {
         return externalContext.getFlash();
-    }
-
-    protected EnvContext envContext() {
-        return envContext;
     }
 
     protected MessageService messageService() {

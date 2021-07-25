@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.ResourceBundle;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.view.ViewScoped;
@@ -18,7 +19,6 @@ import org.primefaces.model.file.UploadedFile;
 import org.primefaces.model.file.UploadedFileWrapper;
 import org.primefaces.model.file.UploadedFiles;
 
-import context.EnvContext;
 import domain.DialogMessage;
 import domain.DialogMessageService;
 import domain.UploadFileService;
@@ -82,17 +82,15 @@ public class PrimeFacesSamplesBean extends BaseBackingBean implements Serializab
                 "ファイルアップロードしたよ" + file.getFileName().toString());
     }
 
-    @Inject
-    EnvContext envContext;
-
     private UploadedFileHolder holder;
 
     public void addUploadFiles(final FileUploadEvent event) throws FileUploadException, IOException {
 
-        File rootDir = envContext.getUploadFileDir();
+        String strUploadfileDir = ResourceBundle.getBundle("env").getString("dir.uploadfile");
+        File uploadfileDir = new File(strUploadfileDir);
 
         if (holder == null) {
-            this.holder = new UploadedFileHolder(new File(rootDir, "parent"), new File(rootDir, "temp"));
+            this.holder = new UploadedFileHolder(new File(uploadfileDir, "parent"), new File(uploadfileDir, "temp"));
         }
 
         UploadedFile file = event.getFile();
