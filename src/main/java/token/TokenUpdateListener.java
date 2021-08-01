@@ -29,12 +29,32 @@ public class TokenUpdateListener implements PhaseListener {
         ExternalContext extCtx = facesCtx.getExternalContext();
         ResourceBundle bundle = ResourceBundle.getBundle("ApplicationConfig");
 
-        if (facesCtx.isPostback() || extCtx.getRequestServletPath().endsWith(bundle.getString("error.page"))) {
-            // 初期表示処理以外またはエラー画面の場合、何もしない
+        Map<String, Object> session = extCtx.getSessionMap();
+
+        // 初期表示処理以外またはエラー画面の場合、トークンを画面に再設定
+        if (facesCtx.isPostback() || TokenUtils.isSamePage()
+                || extCtx.getRequestServletPath().endsWith(bundle.getString("error.page"))) {
+
+            if (TokenUtils.isParent()) {
+                // 親画面の場合
+                String tokenInSession = (String) session.get(TokenUtils.KEY_TOKEN);
+                token.setToken(tokenInSession); // 画面にトークンを設定
+
+            } else {
+                // 子画面の場合
+                // TODO 子画面は未検証
+                String namespace = extCtx.getRequestParameterMap().get(TokenUtils.KEY_CHILD_TOKEN_NAMESPACE);
+
+                @SuppressWarnings("unchecked")
+                Map<String, String> childTokenMap = (Map<String, String>) session.get(TokenUtils.KEY_CHILD_TOKEN_MAP);
+                String tokenInSession = childTokenMap.get(namespace); // セッションにトークンを設定
+
+                // 画面にトークンを設定
+                childToken.setNamespace(namespace);
+                childToken.setToken(tokenInSession);
+            }
             return;
         }
-
-        Map<String, Object> session = extCtx.getSessionMap();
 
         // トークンを更新
         if (TokenUtils.isParent()) {

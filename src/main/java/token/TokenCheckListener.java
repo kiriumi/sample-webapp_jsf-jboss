@@ -35,7 +35,7 @@ public class TokenCheckListener implements PhaseListener {
             return;
         }
 
-        if (facesCtx.isPostback()) {
+        if (facesCtx.isPostback() || TokenUtils.isSamePage()) {
             // 初期表示処理以外の場合、何もしない
             return;
         }

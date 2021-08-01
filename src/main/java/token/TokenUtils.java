@@ -3,6 +3,9 @@ package token;
 import java.io.Serializable;
 
 import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.commons.lang3.StringUtils;
 
 public class TokenUtils implements Serializable {
 
@@ -17,5 +20,17 @@ public class TokenUtils implements Serializable {
     public static boolean isParent() {
         return !FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap()
                 .containsKey(KEY_CHILD_TOKEN_NAMESPACE);
+    }
+
+    public static boolean isSamePage() {
+
+        HttpServletRequest req = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext()
+                .getRequest();
+
+        String url = req.getRequestURL().append("?").append(req.getQueryString()).toString();
+        String referer = StringUtils.defaultString(req.getHeader("Referer"));
+
+        return url.equals(referer);
+
     }
 }
