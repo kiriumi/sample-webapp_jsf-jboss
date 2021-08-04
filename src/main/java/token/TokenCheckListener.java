@@ -1,36 +1,44 @@
 package token;
 
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.ResourceBundle;
 
+import javax.el.ELContext;
+import javax.el.ELResolver;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.event.PhaseEvent;
 import javax.faces.event.PhaseId;
 import javax.faces.event.PhaseListener;
 
+import org.apache.commons.lang3.StringUtils;
+
+import application.BackingBeanInterface;
+import token2.TokenCheck;
+
 public class TokenCheckListener implements PhaseListener {
 
     @Override
-    public void afterPhase(final PhaseEvent event) {
+    public void beforePhase(final PhaseEvent event) {
     }
 
     @Override
-    public void beforePhase(final PhaseEvent event) {
+    public void afterPhase(final PhaseEvent event) {
 
         FacesContext facesCtx = FacesContext.getCurrentInstance();
         ExternalContext extCtx = facesCtx.getExternalContext();
 
         // トークンチェック対象の画面か判定
-        ResourceBundle prop = ResourceBundle.getBundle("ApplicationConfig");
-        String tokenCheckPages = prop.getString("token.check.pages");
-        List<String> tokenCheckPagesList = Arrays.asList(tokenCheckPages.split(","));
+        ELContext elContext = facesCtx.getELContext();
+        ELResolver elResolver = elContext.getELResolver();
 
-        if (!tokenCheckPagesList.stream().map(page -> page.trim())
-                .anyMatch(page -> page.endsWith(extCtx.getRequestServletPath()))) {
+        String path = extCtx.getRequestServletPath();
+        String viewId = path.substring(path.lastIndexOf("/") + 1, path.lastIndexOf("."));
+        String beanName = StringUtils.join(viewId.substring(0, 1).toLowerCase(), viewId.substring(1));
+
+        BackingBeanInterface bean = (BackingBeanInterface) elResolver.getValue(elContext, null, beanName);
+        TokenCheck tokenCheck = bean.getClass().getAnnotation(TokenCheck.class);
+        if (tokenCheck == null) {
             //トークンチェック対象の画面ではない場合、何もしない
             return;
         }
@@ -93,6 +101,7 @@ public class TokenCheckListener implements PhaseListener {
     @Override
     public PhaseId getPhaseId() {
         return PhaseId.RESTORE_VIEW;
+        //        return PhaseId.
     }
 
 }

@@ -27,10 +27,15 @@ public class TokenUtils implements Serializable {
         HttpServletRequest req = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext()
                 .getRequest();
 
-        String url = req.getRequestURL().append("?").append(req.getQueryString()).toString();
+        StringBuffer url = req.getRequestURL();
+        String query = req.getQueryString();
+
+        if (StringUtils.isNotBlank(query)) {
+            url = req.getRequestURL().append("?").append(query);
+        }
+
         String referer = StringUtils.defaultString(req.getHeader("Referer"));
 
-        return url.equals(referer);
-
+        return url.toString().equals(referer);
     }
 }

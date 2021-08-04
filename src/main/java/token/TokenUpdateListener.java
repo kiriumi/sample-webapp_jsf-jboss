@@ -42,7 +42,6 @@ public class TokenUpdateListener implements PhaseListener {
 
             } else {
                 // 子画面の場合
-                // TODO 子画面は未検証
                 String namespace = extCtx.getRequestParameterMap().get(TokenUtils.KEY_CHILD_TOKEN_NAMESPACE);
 
                 @SuppressWarnings("unchecked")

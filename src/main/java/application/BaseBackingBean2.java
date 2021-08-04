@@ -9,12 +9,15 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import context.WebApplicationContext;
+import domain.MessageService;
+import log.ApplicationLogger;
 import lombok.Getter;
 import token.ChildToken;
 import token.Token;
 import token.TokenUtils;
 
-public class BaseBackingBean2 implements Serializable {
+public class BaseBackingBean2 implements Serializable, BackingBeanInterface {
 
     @Inject
     @Getter
@@ -23,6 +26,16 @@ public class BaseBackingBean2 implements Serializable {
     @Inject
     @Getter
     private ExternalContext externalContext;
+
+    @Inject
+    @Getter
+    private WebApplicationContext appContext;
+
+    @Inject
+    private ApplicationLogger logger;
+
+    @Inject
+    private MessageService messageService;
 
     private static final String REDIRECT_PARAM = "?faces-redirect=true";
 
@@ -36,6 +49,14 @@ public class BaseBackingBean2 implements Serializable {
 
     protected final Flash flash() {
         return externalContext.getFlash();
+    }
+
+    protected ApplicationLogger logger() {
+        return logger;
+    }
+
+    protected MessageService messageService() {
+        return messageService;
     }
 
     @Inject

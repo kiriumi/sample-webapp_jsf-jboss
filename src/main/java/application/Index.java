@@ -18,6 +18,8 @@ public class Index extends BaseBackingBean2 {
     private String name;
 
     public String viewAction() {
+
+        name = "\"<script> ;";
         return null;
     }
 

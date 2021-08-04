@@ -5,9 +5,11 @@ import javax.inject.Named;
 
 import lombok.Getter;
 import lombok.Setter;
+import token2.TokenCheck;
 
 @Named
 @ViewScoped
+@TokenCheck
 public class Index3 extends BaseBackingBean2 {
 
     @Setter
