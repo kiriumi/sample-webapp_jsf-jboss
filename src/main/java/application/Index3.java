@@ -5,7 +5,7 @@ import javax.inject.Named;
 
 import lombok.Getter;
 import lombok.Setter;
-import token2.TokenCheck;
+import token.TokenCheck;
 
 @Named
 @ViewScoped

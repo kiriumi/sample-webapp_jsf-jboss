@@ -16,7 +16,7 @@ import log.ApplicationLogger;
  */
 @ActionLogging
 //@AvailableTime
-public abstract class BaseBackingBean {
+public abstract class BaseBackingBean implements BackingBeanInterface {
 
     @Inject
     private ExternalContext externalContext;

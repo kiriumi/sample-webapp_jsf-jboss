@@ -14,7 +14,6 @@ import javax.faces.event.PhaseListener;
 import org.apache.commons.lang3.StringUtils;
 
 import application.BackingBeanInterface;
-import token2.TokenCheck;
 
 public class TokenCheckListener implements PhaseListener {
 
